@@ -323,13 +323,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#kubernetes-autoscaling" class="md-nav__link">
-    Kubernetes Autoscaling
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -539,13 +532,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#kubernetes-autoscaling" class="md-nav__link">
-    Kubernetes Autoscaling
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -652,10 +638,6 @@
 </code></pre></div>
 <h2 id="optional-adapt-terraformtfvars-in-configurations">Optional: Adapt <code>terraform.tfvars</code> in Configurations<a class="headerlink" href="#optional-adapt-terraformtfvars-in-configurations" title="Permanent link">&para;</a></h2>
 <p>The <code>terraform.tfvars</code>-files located within the configurations allow you to configure the AWS One playground in some aspects. Normally there's nothing to do for you, but if you only need Linux servers you could disable windows instance(s) in <code>3-instances/terraform.tfvars</code>.</p>
-<h2 id="kubernetes-autoscaling">Kubernetes Autoscaling<a class="headerlink" href="#kubernetes-autoscaling" title="Permanent link">&para;</a></h2>
-<p>Logs:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>kubectl<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>-n<span class="w"> </span>kube-system<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span>cluster-autoscaler
-</code></pre></div>
 
 
 
