@@ -410,8 +410,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#atomic-launcher" class="md-nav__link">
-    Atomic Launcher
+  <a href="#optional-drop-atomic-launcher-packages" class="md-nav__link">
+    Optional: Drop Atomic Launcher Packages
   </a>
   
 </li>
@@ -611,8 +611,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#atomic-launcher" class="md-nav__link">
-    Atomic Launcher
+  <a href="#optional-drop-atomic-launcher-packages" class="md-nav__link">
+    Optional: Drop Atomic Launcher Packages
   </a>
   
 </li>
@@ -651,21 +651,16 @@
 <li>Windows Server 2022 Standalone Server</li>
 <li>Vision One Endpoint Security Basecamp agent for Server &amp; Workload Protection</li>
 </ul>
-<p>All instances are integrated with Vision One Endpoint Security for Server &amp; Workload Protection and have access to the Attomic Launcher.</p>
-<p>The instances are created within a public subnet of an automatically created VPC. They all get an EC2 instance role assigned providing them the ability to access installer packages stored within an S3 bucket.</p>
-<p>All instances including the Windows Server are accessible via ssh and key authentication. RDP for Windows is supported as well.</p>
+<p>All instances can be integrated with Vision One Endpoint Security for Server &amp; Workload Protection and have access to the Atomic Launcher (if provided).</p>
+<p>The instances are created within a public subnet of Playground One's VPC. They all get an EC2 instance role assigned providing them the ability to access installer packages stored within an S3 bucket.</p>
+<p>All instances including the Windows Server are accessible via ssh and key authentication. RDP for Windows is supported in addition to this.</p>
 <h2 id="optional-drop-vision-one-installer-packages">Optional: Drop Vision One Installer Packages<a class="headerlink" href="#optional-drop-vision-one-installer-packages" title="Permanent link">&para;</a></h2>
-<p>Next, you need to download the installer packages for Vision One Endpoint Security for Windows and Linux operating systems from your Vision One instance. You need to do this manually since these installers are specific to your environment. The downloaded files should be named <code>TMServerAgent_Linux_auto_64_Server_-_Workload_Protection_Manager.tar</code> respectively <code>TMServerAgent_Windows_auto_64_Server_-_Workload_Protection_Manager.zip</code> and are to be placed into the directory <code>$PGPATH/terraform-awsone/0-files</code></p>
-<p>Optionally, download the Atomic Launcher from <a href="https://wiki.jarvis.trendmicro.com/display/GRTL/Atomic+Launcher#AtomicLauncher-DownloadAtomicLauncher">here</a> and store them in the  <code>$PGPATH/terraform-awsone/0-files</code> directory as well.</p>
-<p>Your <code>$PGPATH/terraform-awsone/0-files</code>-directory should look like this:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">17912014</span><span class="w"> </span>May<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">09</span>:10<span class="w"> </span>atomic_launcher_linux_1.0.0.1009.zip
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">96135367</span><span class="w"> </span>May<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">09</span>:05<span class="w"> </span>atomic_launcher_windows_1.0.0.1013.zip
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w">        </span><span class="m">0</span><span class="w"> </span>May<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">09</span>:30<span class="w"> </span>see_documentation
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">27380224</span><span class="w"> </span>Jul<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">07</span>:39<span class="w"> </span>TMServerAgent_Linux_auto_64_Server_-_Workload_Protection_Manager.tar
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w">      </span><span class="m">130</span><span class="w"> </span>Jul<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">10</span>:12<span class="w"> </span>TMServerAgent_Linux_deploy.sh
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w">  </span><span class="m">3303330</span><span class="w"> </span>Jul<span class="w">  </span><span class="m">4</span><span class="w"> </span><span class="m">11</span>:10<span class="w"> </span>TMServerAgent_Windows_auto_64_Server_-_Workload_Protection_Manager.zip
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w">     </span><span class="m">1102</span><span class="w"> </span>Jul<span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">14</span>:06<span class="w"> </span>TMServerAgent_Windows_deploy.ps1
-</code></pre></div>
+<p>If you want the instances automatically to be activated against your Server and Workload Protection Manager instance you need to download the installer packages for Vision One Endpoint Security for Windows and/or Linux from your Vision One instance. You need to do this manually since these installers are specific to your environment.</p>
+<p>The downloaded files are named something similar like</p>
+<p><code>TMServerAgent_Windows_auto_64_Server_and_Workload_Protection_Manager_-_CLOUDONE-ID.zip</code></p>
+<p>and/or</p>
+<p><code>TMServerAgent_Linux_auto_64_Server_and_Workload_Protection_Manager_-CLOUDONE-ID.tar</code>.</p>
+<p>Rename them to <code>TMServerAgent_Linux.tar</code> and <code>TMServerAgent_Windows.zip</code> respectively and copy the file(s) to <code>${ONEPATH}/awsone/0-files</code>.</p>
 <h2 id="optional-server-workload-protection-event-based-tasks">Optional: Server &amp; Workload Protection Event-Based Tasks<a class="headerlink" href="#optional-server-workload-protection-event-based-tasks" title="Permanent link">&para;</a></h2>
 <p>Create Event-Based Tasks to automatically assign Linux or Windows server policies to the machines.</p>
 <p>Agent-initiated Activation Linux</p>
@@ -678,7 +673,17 @@
 <li><em>Actions:</em> Assign Policy: Windows Server</li>
 <li><em>Conditions:</em> "Platform" matches ".*Windows*."</li>
 </ul>
-<h2 id="atomic-launcher">Atomic Launcher<a class="headerlink" href="#atomic-launcher" title="Permanent link">&para;</a></h2>
+<h2 id="optional-drop-atomic-launcher-packages">Optional: Drop Atomic Launcher Packages<a class="headerlink" href="#optional-drop-atomic-launcher-packages" title="Permanent link">&para;</a></h2>
+<p>If you want to experiment with Atomic Launcher download the packages from <a href="https://wiki.jarvis.trendmicro.com/display/GRTL/Atomic+Launcher#AtomicLauncher-DownloadAtomicLauncher">here</a> and store them in the  <code>${ONEPATH}/awsone/0-files</code> directory as well.</p>
+<p>Your <code>${ONEPATH}/awsone/0-files</code>-directory should look like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>user<span class="w"> </span>user<span class="w"> </span><span class="m">17912014</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">1</span><span class="w"> </span><span class="m">14</span>:50<span class="w"> </span>atomic_launcher_linux_1.0.0.1009.zip
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>user<span class="w"> </span>user<span class="w"> </span><span class="m">96135367</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">1</span><span class="w"> </span><span class="m">14</span>:50<span class="w"> </span>atomic_launcher_windows_1.0.0.1013.zip
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>user<span class="w"> </span>user<span class="w">        </span><span class="m">0</span><span class="w"> </span>Jul<span class="w"> </span><span class="m">28</span><span class="w"> </span><span class="m">06</span>:22<span class="w"> </span>see_documentation
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>user<span class="w"> </span>user<span class="w">      </span><span class="m">144</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">1</span><span class="w"> </span><span class="m">14</span>:33<span class="w"> </span>TMServerAgent_Linux_deploy.sh
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>user<span class="w"> </span>user<span class="w"> </span><span class="m">27380224</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">1</span><span class="w"> </span><span class="m">14</span>:50<span class="w"> </span>TMServerAgent_Linux.tar
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>user<span class="w"> </span>user<span class="w">     </span><span class="m">1145</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">1</span><span class="w"> </span><span class="m">14</span>:33<span class="w"> </span>TMServerAgent_Windows_deploy.ps1
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>user<span class="w"> </span>user<span class="w">  </span><span class="m">3303522</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">1</span><span class="w"> </span><span class="m">14</span>:50<span class="w"> </span>TMServerAgent_Windows.zip
+</code></pre></div>
 <p>The Atomic Launcher is stored within the downloads folder of each of the instances.</p>
 <p>The unzip password is <code>virus</code>.</p>
 <p>You should disable Anti Malware protection und set the IPS module to detect only before using Atomic Launcher :-).</p>
