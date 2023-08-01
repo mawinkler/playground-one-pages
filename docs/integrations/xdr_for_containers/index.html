@@ -385,9 +385,47 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          XDR for Containers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         XDR for Containers
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connect-xdr-for-containers-with-the-playground-one" class="md-nav__link">
+    Connect XDR for Containers with the Playground One
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenarios" class="md-nav__link">
+    Scenarios
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -403,6 +441,117 @@
       <a href="../sentry/" class="md-nav__link">
         Sentry
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          Scenarios
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Scenarios
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+          XDR for Containers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          XDR for Containers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scenarios/xdr_for_containers-ecs-tomcat-rce/" class="md-nav__link">
+        Tomcat Remote Code Execution
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scenarios/xdr_for_containers-ecs-log4j/" class="md-nav__link">
+        JNDI Injection in HTTP Request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scenarios/xdr_for_containers-ecs-struts/" class="md-nav__link">
+        Apache Struts Multipart Encoding Command Injection
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -434,6 +583,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connect-xdr-for-containers-with-the-playground-one" class="md-nav__link">
+    Connect XDR for Containers with the Playground One
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenarios" class="md-nav__link">
+    Scenarios
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -448,11 +619,35 @@
 
 
 <h1 id="vision-one-xdr-for-containers">Vision One XDR for Containers<a class="headerlink" href="#vision-one-xdr-for-containers" title="Permanent link">&para;</a></h1>
-<p>At the time of writing, XDR for Containers is in an early preview stage. Unless you already have an EKS cluster running whose VPC is connected to XDR for Containers you can create one from within the Playground menu. Choose <code>EKS-A  Elastic Kubernetes Cluster (Amazon Linux)</code> in this case. This cluster variant supports Application Load Balancing which is required for XDR for Containers.</p>
-<p>You need to create a connection with XDR for Containers by going through the workflow in your Vision One environment.</p>
 <blockquote>
-<p><strong><em>Note:</em></strong> This process will get easier with the GA release of XDR for Containers.</p>
+<p><strong><em>Note:</em></strong> At the time of writing, XDR for Containers is in an early preview stage and only one to be protected VPC is supported. The cluster variants provided by Playground One support Application Load Balancing which is required for XDR for Containers.</p>
 </blockquote>
+<p>You need to create a connection with XDR for Containers by going through the workflow in your Vision One environment.</p>
+<h2 id="connect-xdr-for-containers-with-the-playground-one">Connect XDR for Containers with the Playground One<a class="headerlink" href="#connect-xdr-for-containers-with-the-playground-one" title="Permanent link">&para;</a></h2>
+<p>Before connecting XDR for Containers you need to have the VPC of Playground One created already.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>vpc
+</code></pre></div>
+<blockquote>
+<p><strong><em>Note:</em></strong> You don't need to destroy the VPC each time because this would mean to disconnect Vision One from it and reestablish the connection the next time. This takes about 20 minutes overall. So leave the VPC as it is.</p>
+</blockquote>
+<p>Required information:</p>
+<ul>
+<li>Trend Cloud One API Key</li>
+<li>Trend Cloud One Region</li>
+<li>AWS Account ID</li>
+<li>AWS VPC ID</li>
+<li>VPC Region</li>
+</ul>
+<p>Follow the deployment instructions from Vision One. You can query your <code>AWS VPC ID</code> by running <code>pgo --output vpc</code>.</p>
+<p>Make sure to deploy the stack in the region of the VPC when pressing <code>[Launch Stack]</code>.</p>
+<p><img alt="alt text" src="../images/xdr-for-containers-01.png" title="Connect VPC" /></p>
+<p>All provided clusters from Playground One can be used with XDR for Containers.</p>
+<h2 id="scenarios">Scenarios<a class="headerlink" href="#scenarios" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../scenarios/xdr_for_containers-ecs-tomcat-rce/">Tomcat Remote Code Execution</a></li>
+<li><a href="../../scenarios/xdr_for_containers-ecs-log4j/">JNDI Injection in HTTP Request</a></li>
+<li><a href="../../scenarios/xdr_for_containers-ecs-struts/">Apache Struts Multipart Encoding Command Injection</a></li>
+</ul>
 
 
 

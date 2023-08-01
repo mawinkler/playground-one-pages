@@ -9,17 +9,13 @@
       
       
       
-        <link rel="prev" href="../../life-cycle/">
-      
-      
-        <link rel="next" href="../xdr_for_containers/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
-        <title>Vision One Endpoint Security - Playground One</title>
+        <title>EKS - Playground One</title>
       
     
     
@@ -73,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vision-one-endpoint-security-server-workload-protection" class="md-skip">
+        <a href="#eks" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Vision One Endpoint Security
+              EKS
             
           </span>
         </div>
@@ -331,16 +327,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
       
       
       
@@ -349,7 +343,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Integrations
@@ -360,66 +354,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Vision One Endpoint Security
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../integrations/endpoint_security/" class="md-nav__link">
         Vision One Endpoint Security
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#optional-drop-vision-one-installer-packages" class="md-nav__link">
-    Optional: Drop Vision One Installer Packages
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional-server-workload-protection-event-based-tasks" class="md-nav__link">
-    Optional: Server &amp; Workload Protection Event-Based Tasks
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#atomic-launcher" class="md-nav__link">
-    Atomic Launcher
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -431,7 +370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../xdr_for_containers/" class="md-nav__link">
+      <a href="../../integrations/xdr_for_containers/" class="md-nav__link">
         XDR for Containers
       </a>
     </li>
@@ -445,7 +384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sentry/" class="md-nav__link">
+      <a href="../../integrations/sentry/" class="md-nav__link">
         Sentry
       </a>
     </li>
@@ -521,7 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/xdr_for_containers-ecs-tomcat-rce/" class="md-nav__link">
+      <a href="../xdr_for_containers-ecs-tomcat-rce/" class="md-nav__link">
         Tomcat Remote Code Execution
       </a>
     </li>
@@ -535,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/xdr_for_containers-ecs-log4j/" class="md-nav__link">
+      <a href="../xdr_for_containers-ecs-log4j/" class="md-nav__link">
         JNDI Injection in HTTP Request
       </a>
     </li>
@@ -549,7 +488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/xdr_for_containers-ecs-struts/" class="md-nav__link">
+      <a href="../xdr_for_containers-ecs-struts/" class="md-nav__link">
         Apache Struts Multipart Encoding Command Injection
       </a>
     </li>
@@ -597,22 +536,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#optional-drop-vision-one-installer-packages" class="md-nav__link">
-    Optional: Drop Vision One Installer Packages
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional-server-workload-protection-event-based-tasks" class="md-nav__link">
-    Optional: Server &amp; Workload Protection Event-Based Tasks
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#atomic-launcher" class="md-nav__link">
-    Atomic Launcher
+  <a href="#kubernetes-autoscaling" class="md-nav__link">
+    Kubernetes Autoscaling
   </a>
   
 </li>
@@ -632,56 +557,11 @@
                   
 
 
-<h1 id="vision-one-endpoint-security-server-workload-protection">Vision One Endpoint Security Server &amp; Workload Protection<a class="headerlink" href="#vision-one-endpoint-security-server-workload-protection" title="Permanent link">&para;</a></h1>
-<p>Three different instances are currently provided by the AWS One Playground with different configurations:</p>
-<p>Instance Web1:</p>
-<ul>
-<li>Ubuntu Linux 20.04</li>
-<li>Nginx and Wordpress deployment</li>
-<li>Vision One Endpoint Security Basecamp agent for Server &amp; Workload Protection</li>
-</ul>
-<p>Instance Db1:</p>
-<ul>
-<li>Ubuntu Linux 20.04</li>
-<li>MySql databse</li>
-<li>Vision One Endpoint Security Basecamp agent for Server &amp; Workload Protection</li>
-</ul>
-<p>Instance Srv1:</p>
-<ul>
-<li>Windows Server 2022 Standalone Server</li>
-<li>Vision One Endpoint Security Basecamp agent for Server &amp; Workload Protection</li>
-</ul>
-<p>All instances are integrated with Vision One Endpoint Security for Server &amp; Workload Protection and have access to the Attomic Launcher.</p>
-<p>The instances are created within a public subnet of an automatically created VPC. They all get an EC2 instance role assigned providing them the ability to access installer packages stored within an S3 bucket.</p>
-<p>All instances including the Windows Server are accessible via ssh and key authentication. RDP for Windows is supported as well.</p>
-<h2 id="optional-drop-vision-one-installer-packages">Optional: Drop Vision One Installer Packages<a class="headerlink" href="#optional-drop-vision-one-installer-packages" title="Permanent link">&para;</a></h2>
-<p>Next, you need to download the installer packages for Vision One Endpoint Security for Windows and Linux operating systems from your Vision One instance. You need to do this manually since these installers are specific to your environment. The downloaded files should be named <code>TMServerAgent_Linux_auto_64_Server_-_Workload_Protection_Manager.tar</code> respectively <code>TMServerAgent_Windows_auto_64_Server_-_Workload_Protection_Manager.zip</code> and are to be placed into the directory <code>$PGPATH/terraform-awsone/0-files</code></p>
-<p>Optionally, download the Atomic Launcher from <a href="https://wiki.jarvis.trendmicro.com/display/GRTL/Atomic+Launcher#AtomicLauncher-DownloadAtomicLauncher">here</a> and store them in the  <code>$PGPATH/terraform-awsone/0-files</code> directory as well.</p>
-<p>Your <code>$PGPATH/terraform-awsone/0-files</code>-directory should look like this:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">17912014</span><span class="w"> </span>May<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">09</span>:10<span class="w"> </span>atomic_launcher_linux_1.0.0.1009.zip
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">96135367</span><span class="w"> </span>May<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">09</span>:05<span class="w"> </span>atomic_launcher_windows_1.0.0.1013.zip
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w">        </span><span class="m">0</span><span class="w"> </span>May<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">09</span>:30<span class="w"> </span>see_documentation
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">27380224</span><span class="w"> </span>Jul<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">07</span>:39<span class="w"> </span>TMServerAgent_Linux_auto_64_Server_-_Workload_Protection_Manager.tar
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w">      </span><span class="m">130</span><span class="w"> </span>Jul<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">10</span>:12<span class="w"> </span>TMServerAgent_Linux_deploy.sh
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w">  </span><span class="m">3303330</span><span class="w"> </span>Jul<span class="w">  </span><span class="m">4</span><span class="w"> </span><span class="m">11</span>:10<span class="w"> </span>TMServerAgent_Windows_auto_64_Server_-_Workload_Protection_Manager.zip
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w">     </span><span class="m">1102</span><span class="w"> </span>Jul<span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">14</span>:06<span class="w"> </span>TMServerAgent_Windows_deploy.ps1
+<h1 id="eks">EKS<a class="headerlink" href="#eks" title="Permanent link">&para;</a></h1>
+<h2 id="kubernetes-autoscaling">Kubernetes Autoscaling<a class="headerlink" href="#kubernetes-autoscaling" title="Permanent link">&para;</a></h2>
+<p>Logs:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>kubectl<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>-n<span class="w"> </span>kube-system<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span>cluster-autoscaler
 </code></pre></div>
-<h2 id="optional-server-workload-protection-event-based-tasks">Optional: Server &amp; Workload Protection Event-Based Tasks<a class="headerlink" href="#optional-server-workload-protection-event-based-tasks" title="Permanent link">&para;</a></h2>
-<p>Create Event-Based Tasks to automatically assign Linux or Windows server policies to the machines.</p>
-<p>Agent-initiated Activation Linux</p>
-<ul>
-<li><em>Actions:</em> Assign Policy: Linux Server</li>
-<li><em>Conditions:</em> "Platform" matches ".*Linux*."</li>
-</ul>
-<p>Agent-initiated Activation Windows</p>
-<ul>
-<li><em>Actions:</em> Assign Policy: Windows Server</li>
-<li><em>Conditions:</em> "Platform" matches ".*Windows*."</li>
-</ul>
-<h2 id="atomic-launcher">Atomic Launcher<a class="headerlink" href="#atomic-launcher" title="Permanent link">&para;</a></h2>
-<p>The Atomic Launcher is stored within the downloads folder of each of the instances.</p>
-<p>The unzip password is <code>virus</code>.</p>
-<p>You should disable Anti Malware protection und set the IPS module to detect only before using Atomic Launcher :-).</p>
 
 
 
