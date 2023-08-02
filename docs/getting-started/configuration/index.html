@@ -740,7 +740,18 @@
 <li><code>aws.account_id</code></li>
 <li><code>cloudone_api_key</code></li>
 </ul>
-<p>If you change the <code>aws.environment</code>-name ensure that the value does NOT exceed 15 characters in length.</p>
+<p>If you change the <code>aws.environment</code>-name ensure that the value does NOT exceed <strong>15</strong> characters in length.</p>
+<blockquote>
+<p><strong><em>Note:</em></strong> It is highly recommended to change the <code>awsone.access_ip</code> to a single IP or at least a small CIDR to prevent anonymous users playing with your environmnent. Remember: we're deploying vulnerable applications.</p>
+<p>If you need to change the <code>awsone.access_ip</code> later on, maybe because you got a new one assigned, follow these steps:</p>
+<ol>
+<li>change <code>awsone.access_ip</code> in the <code>config.yaml</code></li>
+<li>run <code>pgo --init all</code></li>
+<li>run <code>pgo --apply vpc</code></li>
+</ol>
+<p>If you have an EKS deployed run <code>pgo --apply eks</code><br />
+If you have an ECS deployed run <code>pgo --apply ecs</code></p>
+</blockquote>
 <p>For the rest and especially the default values see below:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">services</span><span class="p">:</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cloudone</span>

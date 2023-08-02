@@ -800,8 +800,12 @@
 <li>Trend Cloud One Region</li>
 <li>Container Security Policy ID</li>
 </ul>
+<p>To get the Policy ID head over to Container Security on Cloud One and navigate to the policy. The Policy ID is the part after the last <code>/</code> in the URL:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>https://cloudone.trendmicro.com/container/policies/relaxed_playground-2OxPQEiC6Jo4dbDVfebKiZMured
+</code></pre></div>
+<p>Here: <code>relaxed_playground-2OxPQEiC6Jo4dbDVfebKiZMured</code></p>
 <p>Create the EKS cluster including Container Security by running</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>eks
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>eks
 </code></pre></div>
 <h2 id="scenarios">Scenarios<a class="headerlink" href="#scenarios" title="Permanent link">&para;</a></h2>
 <ul>
