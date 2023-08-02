@@ -839,8 +839,8 @@
 <li>Extracted contents of <code>exploit.zip</code></li>
 </ul>
 <p>If you need to extract the exploits unzip with the password <code>virus</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>unzip<span class="w"> </span>exploits.zip
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>$<span class="w"> </span>unzip<span class="w"> </span>exploits.zip
 </code></pre></div>
 <h2 id="exploiting">Exploiting<a class="headerlink" href="#exploiting" title="Permanent link">&para;</a></h2>
 <p>First, retrieve the load balancer DNS name</p>
@@ -854,7 +854,7 @@
 <h3 id="checking-if-app-server-is-vulnerable">Checking if app server is vulnerable<a class="headerlink" href="#checking-if-app-server-is-vulnerable" title="Permanent link">&para;</a></h3>
 <p>Now you can check to see if the tomcat server is vulnerable.
 If it is you should see something similar to the following:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>/exploits/tomcat-rce/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>/exploits/tomcat-rce/
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>$<span class="w"> </span>python3<span class="w"> </span>exploit.py<span class="w"> </span>-u<span class="w"> </span>http://playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>   _______      ________    ___   ___  __ ______     __ ___   __ __ ______ 
