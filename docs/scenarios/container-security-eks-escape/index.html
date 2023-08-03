@@ -879,19 +879,21 @@
 <details>
 <summary>Click here</summary>
 
-*✨ Are you still in the container?*
+*✨ Are you still in the container?*<br>
 
-See the mounted file systems, also look the capabilities available for the container using capsh 🙌
+See the mounted file systems, also look the capabilities available for the container using capsh 🙌<br>
+<br>
+*✨ Escaped container?*<br>
 
-*✨ Escaped container?*
+You can recon the system, some interesting places to obtain the node level configuration are `/var/lib/kubelet/kubeconfig` and I hope you know how to query Kubernetes API for nodes? 🎉<br>
 
-You can recon the system, some interesting places to obtain the node level configuration are `/var/lib/kubelet/kubeconfig` and I hope you know how to query Kubernetes API for nodes? 🎉
 </details>
 
 <h2 id="solution-walkthrough">Solution &amp; Walkthrough<a class="headerlink" href="#solution-walkthrough" title="Permanent link">&para;</a></h2>
 <details>
 <summary>Click here</summary>
-After performing the analysis, you can identify that this container has full privileges of the host system and allows privilege escalation. As well as /host-system is mounted.
+
+After performing the analysis, you can identify that this container has full privileges of the host system and allows privilege escalation. As well as `/host-system` is mounted.
 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>capsh<span class="w"> </span>--print
 </code></pre></div>
@@ -1018,13 +1020,13 @@ Can you do more?
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>$<span class="w"> </span>./kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span>/var/lib/kubelet/kubeconfig<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>
 </code></pre></div>
 
-```ascii
-NAME                                            STATUS   ROLES    AGE   VERSION
-ip-10-0-152-251.eu-central-1.compute.internal   Ready    <none>   76m   v1.25.11-eks-a5565ad
-ip-10-0-169-117.eu-central-1.compute.internal   Ready    <none>   76m   v1.25.11-eks-a5565ad
-````
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>NAME                                            STATUS   ROLES    AGE   VERSION
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>ip-10-0-152-251.eu-central-1.compute.internal   Ready    &lt;none&gt;   76m   v1.25.11-eks-a5565ad
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>ip-10-0-169-117.eu-central-1.compute.internal   Ready    &lt;none&gt;   76m   v1.25.11-eks-a5565ad
+</code></pre></div>
 
 🎉 Success 🎉
+
 </details>
 
 
