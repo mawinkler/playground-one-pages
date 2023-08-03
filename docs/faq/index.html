@@ -745,11 +745,11 @@
 
 <h1 id="frequently-asked-questions">Frequently asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permanent link">&para;</a></h1>
 <h2 id="im-running-the-playground-on-a-cloud9-and-want-to-restrict-access-to-my-home-ip">I'm running the Playground on a Cloud9 and want to restrict access to my home IP<a class="headerlink" href="#im-running-the-playground-on-a-cloud9-and-want-to-restrict-access-to-my-home-ip" title="Permanent link">&para;</a></h2>
-<p>There is no issue if you want to play with EKS and/or ECS, but with EC2. The provisioning process of the EC2 instances requires that your Cloud9 can access the instances as well. For this to work you need to define two <code>access_ips</code>.</p>
+<p>There is no issue if you want to play with EKS and/or ECS. If you apply the EC2 configuration the provisioning process of the EC2 instances require that your Cloud9 can access the instances as well. For this to work you need to define two <code>access_ip</code>s.</p>
 <p>Example:</p>
 <p>Public IP address of your</p>
 <ul>
-<li>Cloud 9 instance: <code>3.123.18.11</code></li>
+<li>Cloud 9 instance: <code>3.123.18.11</code> (get it from the EC2 console), and</li>
 <li>Client at home: <code>87.170.6.193</code></li>
 </ul>
 <p>Within your <code>config.yaml</code> set <code>awsone.access_ip</code> to <code>["87.170.6.193/32","3.123.18.11/32"]</code></p>
