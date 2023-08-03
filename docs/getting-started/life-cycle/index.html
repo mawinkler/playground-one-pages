@@ -643,50 +643,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/container-security-eks-runtime-vulnerability/" class="md-nav__link">
-        Runtime Vulnerability Scan
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../scenarios/container-security-eks-runtime-violations/" class="md-nav__link">
-        Runtime Violations
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../scenarios/container-security-eks-escape/" class="md-nav__link">
-        Escape to Node
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../scenarios/container-security-eks-privileged-shell/" class="md-nav__link">
-        Privileged Shell
+        Escape to Host System
       </a>
     </li>
   
@@ -932,7 +890,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--destroy<span class="w"> </span>all
 </code></pre></div>
 <blockquote>
-<p><strong><em>Note:</em></strong> The VPC is not automatically destroyed. You can do this manually by running <code>pgo --destroy vpc</code>.</p>
+<p><strong><em>Note:</em></strong> The network and VPC are not automatically destroyed. You can do this manually by running <code>pgo --destroy nw</code> and <code>pgo --destroy vpc</code>.</p>
 </blockquote>
 <h2 id="optional-adapt-terraformtfvars-in-configurations">Optional: Adapt <code>terraform.tfvars</code> in Configurations<a class="headerlink" href="#optional-adapt-terraformtfvars-in-configurations" title="Permanent link">&para;</a></h2>
 <p>The <code>terraform.tfvars</code>-files located within the configurations allow you to configure the AWS One playground in some aspects. Normally there's nothing to do for you, but if you only need Linux servers you could disable windows instance(s) in <code>3-instances/terraform.tfvars</code>.</p>
