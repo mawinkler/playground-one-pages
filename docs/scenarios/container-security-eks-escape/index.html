@@ -868,12 +868,12 @@
 <h2 id="the-story">The story<a class="headerlink" href="#the-story" title="Permanent link">&para;</a></h2>
 <p>Most of the monitoring, tracing, and debugging software requires extra privileges and capabilities to run. In this scenario, you will see a pod with extra capabilities and privileges including HostPath allowing you to gain access to the host system and provide Node level configuration to gain complete cluster compromise.</p>
 <blockquote>
-<p><strong><em>Note:</em></strong> To get started with the scenario, navigate to http://<loadbalancer_dns_system_monitor></p>
+<p><strong><em>Note:</em></strong> To get started with the scenario, navigate to <code>http://&lt;loadbalancer_dns_system_monitor&gt;</code></p>
 </blockquote>
 <h2 id="goals">Goals<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h2>
 <p>The goal of this scenario is to escape out of the running docker container on the host system using the available misconfigurations. The secondary goal is to use the host system-level access to gain other resources access and if possible even go beyond this container, node, and cluster-level access.</p>
 <blockquote>
-<p><strong><em>Tip:</em></strong> Gain access to the host system and obtain the node level kubeconfig file /var/lib/kubelet/kubeconfig, and query the Kubernetes nodes using the obtained configuration.</p>
+<p><strong><em>Tip:</em></strong> Gain access to the host system and obtain the node level kubeconfig file <code>/var/lib/kubelet/kubeconfig</code>, and query the Kubernetes nodes using the obtained configuration.</p>
 </blockquote>
 <h3 id="hints">Hints<a class="headerlink" href="#hints" title="Permanent link">&para;</a></h3>
 <details>
@@ -885,7 +885,7 @@ See the mounted file systems, also look the capabilities available for the conta
 
 *✨ Escaped container?*
 
-You can recon the system, some interesting places to obtain the node level configuration are /var/lib/kubelet/kubeconfig and I hope you know how to query Kubernetes API for nodes? 🎉
+You can recon the system, some interesting places to obtain the node level configuration are `/var/lib/kubelet/kubeconfig` and I hope you know how to query Kubernetes API for nodes? 🎉
 </details>
 
 <h2 id="solution-walkthrough">Solution &amp; Walkthrough<a class="headerlink" href="#solution-walkthrough" title="Permanent link">&para;</a></h2>
@@ -989,7 +989,33 @@ Can you do more?
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>$<span class="w"> </span>./kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span>/var/lib/kubelet/kubeconfig<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-A
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>$<span class="w"> </span>./kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span>/var/lib/kubelet/kubeconfig<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>NAMESPACE           NAME                                               READY   STATUS    RESTARTS   AGE
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>goat                system-monitor-6dfbdbb7d-w6mdv                     1/1     Running   0          53m
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>kube-system         aws-load-balancer-controller-577dcc6f77-sqtfr      1/1     Running   0          92m
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>kube-system         aws-node-8wl6v                                     1/1     Running   0          92m
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>kube-system         aws-node-ksdjv                                     1/1     Running   0          92m
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>kube-system         cluster-autoscaler-6696cf9bff-2s52q                1/1     Running   0          92m
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>kube-system         coredns-6bcddfff7-hrwwl                            1/1     Running   0          92m
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>kube-system         coredns-6bcddfff7-kp266                            1/1     Running   0          92m
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>kube-system         ebs-csi-controller-7dffd5b9fd-2w7r8                6/6     Running   0          92m
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>kube-system         ebs-csi-controller-7dffd5b9fd-fdhfc                6/6     Running   0          92m
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>kube-system         ebs-csi-node-k77sx                                 3/3     Running   0          92m
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>kube-system         ebs-csi-node-vj6c7                                 3/3     Running   0          92m
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>kube-system         kube-proxy-62dls                                   1/1     Running   0          92m
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>kube-system         kube-proxy-mshz7                                   1/1     Running   0          92m
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>trendmicro-system   trendmicro-admission-controller-74d8d7f866-dv87r   1/1     Running   0          53m
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>trendmicro-system   trendmicro-oversight-controller-557df87c9-6c4dx    2/2     Running   0          69m
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>trendmicro-system   trendmicro-scan-manager-6ddb6f69b8-r85dk           1/1     Running   0          53m
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>trendmicro-system   trendmicro-scout-gkl4k                             2/2     Running   0          69m
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>trendmicro-system   trendmicro-scout-tz68w                             2/2     Running   0          69m
+<a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>trendmicro-system   trendmicro-usage-controller-6944c5b55b-m8hgh       2/2     Running   0          53m
+<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>trendmicro-system   trendmicro-workload-operator-6cf5c98c6f-xq8bb      1/1     Running   0          69m
+<a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a>trivy-system        trivy-operator-57c774d7c4-hmnlk                    1/1     Running   0          53m
+<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>victims             java-goof-5878dd4dd-9lnst                          1/1     Running   0          53m
+<a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a>victims             web-app-854bdf944f-ddqcs                           1/1     Running   0          53m
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>$<span class="w"> </span>./kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span>/var/lib/kubelet/kubeconfig<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>
 </code></pre></div>
 
 ```ascii
@@ -998,6 +1024,7 @@ ip-10-0-152-251.eu-central-1.compute.internal   Ready    <none>   76m   v1.25.11
 ip-10-0-169-117.eu-central-1.compute.internal   Ready    <none>   76m   v1.25.11-eks-a5565ad
 ````
 
+🎉 Success 🎉
 </details>
 
 
