@@ -753,11 +753,10 @@
 <p>You need to create a connection with XDR for Containers by going through the workflow in your Vision One environment.</p>
 <h2 id="connect-xdr-for-containers-with-the-playground-one">Connect XDR for Containers with the Playground One<a class="headerlink" href="#connect-xdr-for-containers-with-the-playground-one" title="Permanent link">&para;</a></h2>
 <p>Before connecting XDR for Containers you need to have the VPC and network of Playground One created already.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>vpc
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
 </code></pre></div>
 <blockquote>
-<p><strong><em>Note:</em></strong> You don't need to destroy the VPC each time because this would mean to disconnect Vision One from it and reestablish the connection the next time. This takes about 20 minutes overall. So leave the VPC as it is.</p>
+<p><strong><em>Note:</em></strong> You don't need to destroy the VPC and network each time because this would mean to disconnect Vision One from it and reestablish the connection the next time. This takes about 20 minutes overall. So leave the VPC as it is.</p>
 </blockquote>
 <p>Required information:</p>
 <ul>
