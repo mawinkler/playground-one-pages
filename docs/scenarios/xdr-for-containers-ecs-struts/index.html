@@ -569,6 +569,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#disclaimer" class="md-nav__link">
+    Disclaimer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exploiting" class="md-nav__link">
     Exploiting
   </a>
@@ -740,6 +747,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#disclaimer" class="md-nav__link">
+    Disclaimer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exploiting" class="md-nav__link">
     Exploiting
   </a>
@@ -786,6 +800,10 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>$<span class="w"> </span>unzip<span class="w"> </span>exploits.zip
 </code></pre></div>
+<h2 id="disclaimer">Disclaimer<a class="headerlink" href="#disclaimer" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong><em>Note:</em></strong> It is highly recommended to have the <code>awsone.access_ip</code> set to a single IP or at least a small CIDR before deploying the EKS cluster. This will prevent anonymous users playing with your environmnent. Remember: we're using vulnerable apps.</p>
+</blockquote>
 <h2 id="exploiting">Exploiting<a class="headerlink" href="#exploiting" title="Permanent link">&para;</a></h2>
 <p>First, retrieve the load balancer DNS name</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>-o<span class="w"> </span>ecs
