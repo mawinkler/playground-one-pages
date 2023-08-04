@@ -710,6 +710,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ecs-cluster-with-capacity-providers-cannot-be-destroyed" class="md-nav__link">
+    ECS cluster with capacity providers cannot be destroyed
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -747,26 +754,6 @@
           <li class="md-nav__item">
   <a href="#eks-service-behind-alb-shows-only-html" class="md-nav__link">
     EKS Service behind ALB shows only HTML
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ecs" class="md-nav__link">
-    ECS
-  </a>
-  
-    <nav class="md-nav" aria-label="ECS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ecs-cluster-with-capacity-providers-cannot-be-destroyed" class="md-nav__link">
-    ECS cluster with capacity providers cannot be destroyed
   </a>
   
 </li>
@@ -832,6 +819,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ecs-cluster-with-capacity-providers-cannot-be-destroyed" class="md-nav__link">
+    ECS cluster with capacity providers cannot be destroyed
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -879,26 +873,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ecs" class="md-nav__link">
-    ECS
-  </a>
-  
-    <nav class="md-nav" aria-label="ECS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ecs-cluster-with-capacity-providers-cannot-be-destroyed" class="md-nav__link">
-    ECS cluster with capacity providers cannot be destroyed
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#xdr-for-containers" class="md-nav__link">
     XDR for Containers
   </a>
@@ -921,25 +895,6 @@
 
 
 <h1 id="bloopers-during-development">Bloopers during development<a class="headerlink" href="#bloopers-during-development" title="Permanent link">&para;</a></h1>
-<ul>
-<li><a href="#bloopers-during-development">Bloopers during development</a></li>
-<li><a href="#terraform">Terraform</a><ul>
-<li><a href="#delete-all-resources-except-one">Delete all resources except one</a></li>
-</ul>
-</li>
-<li><a href="#eks">EKS</a><ul>
-<li><a href="#unable-to-delete-ingress">Unable to delete ingress</a></li>
-<li><a href="#unable-to-delete-namespace">Unable to delete namespace</a></li>
-<li><a href="#eksworkernode-is-not-joining-node-group">EKSWorkerNode is not joining Node Group</a></li>
-<li><a href="#eks-service-behind-alb-shows-only-html">EKS Service behind ALB shows only HTML</a></li>
-</ul>
-</li>
-<li><a href="#ecs">ECS</a><ul>
-<li><a href="#ecs-cluster-with-capacity-providers-cannot-be-destroyed">ECS cluster with capacity providers cannot be destroyed</a></li>
-</ul>
-</li>
-<li><a href="#xdr-for-containers">XDR for Containers</a></li>
-</ul>
 <h2 id="terraform">Terraform<a class="headerlink" href="#terraform" title="Permanent link">&para;</a></h2>
 <h3 id="delete-all-resources-except-one">Delete all resources except one<a class="headerlink" href="#delete-all-resources-except-one" title="Permanent link">&para;</a></h3>
 <p>There is no --except feature in terraform destroy command currently. If you really want to do that, and you know what you are doing, here is the workaround.</p>
@@ -961,6 +916,18 @@
 <p>By the way, later you still have chance to import the resource back with terraform import command if you want.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>terraform<span class="w"> </span>import<span class="w"> </span>module.vpc.aws_vpc.vpc<span class="w"> </span>vpc-0933149e01f1136aa
 </code></pre></div>
+<h3 id="ecs-cluster-with-capacity-providers-cannot-be-destroyed">ECS cluster with capacity providers cannot be destroyed<a class="headerlink" href="#ecs-cluster-with-capacity-providers-cannot-be-destroyed" title="Permanent link">&para;</a></h3>
+<p>The problem is that the capacity_provider property on the aws_ecs_cluster introduces a new dependency:
+aws_ecs_cluster depends on aws_ecs_capacity_provider depends on aws_autoscaling_group.</p>
+<p>This causes terraform to destroy the ECS cluster before the autoscaling group, which is the wrong way around: the autoscaling group must be destroyed first because the cluster must contain zero instances before it can be destroyed.</p>
+<p>This leads to Terraform error out with the cluster partly alive and the capacity providers fully alive.</p>
+<p>References:</p>
+<ul>
+<li><a href="https://github.com/hashicorp/terraform-provider-aws/issues/4852">https://github.com/hashicorp/terraform-provider-aws/issues/4852</a></li>
+<li><a href="https://github.com/hashicorp/terraform-provider-aws/issues/11409">https://github.com/hashicorp/terraform-provider-aws/issues/11409</a></li>
+<li><a href="https://github.com/hashicorp/terraform-provider-aws/pull/22672">https://github.com/hashicorp/terraform-provider-aws/pull/22672</a></li>
+</ul>
+<p>I haven't found a proper workaround, yet...</p>
 <h2 id="eks">EKS<a class="headerlink" href="#eks" title="Permanent link">&para;</a></h2>
 <h3 id="unable-to-delete-ingress">Unable to delete ingress<a class="headerlink" href="#unable-to-delete-ingress" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>kubectl<span class="w"> </span>delete<span class="w"> </span>ValidatingWebhookConfiguration<span class="w"> </span>aws-load-balancer-webhook
@@ -1047,19 +1014,6 @@
 <a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a><span class="p">}</span>
 </code></pre></div>
 <p>The <code>*</code> in <code>path</code> is important :-)</p>
-<h2 id="ecs">ECS<a class="headerlink" href="#ecs" title="Permanent link">&para;</a></h2>
-<h3 id="ecs-cluster-with-capacity-providers-cannot-be-destroyed">ECS cluster with capacity providers cannot be destroyed<a class="headerlink" href="#ecs-cluster-with-capacity-providers-cannot-be-destroyed" title="Permanent link">&para;</a></h3>
-<p>The problem is that the capacity_provider property on the aws_ecs_cluster introduces a new dependency:
-aws_ecs_cluster depends on aws_ecs_capacity_provider depends on aws_autoscaling_group.</p>
-<p>This causes terraform to destroy the ECS cluster before the autoscaling group, which is the wrong way around: the autoscaling group must be destroyed first because the cluster must contain zero instances before it can be destroyed.</p>
-<p>This leads to Terraform error out with the cluster partly alive and the capacity providers fully alive.</p>
-<p>References:</p>
-<ul>
-<li><a href="https://github.com/hashicorp/terraform-provider-aws/issues/4852">https://github.com/hashicorp/terraform-provider-aws/issues/4852</a></li>
-<li><a href="https://github.com/hashicorp/terraform-provider-aws/issues/11409">https://github.com/hashicorp/terraform-provider-aws/issues/11409</a></li>
-<li><a href="https://github.com/hashicorp/terraform-provider-aws/pull/22672">https://github.com/hashicorp/terraform-provider-aws/pull/22672</a></li>
-</ul>
-<p>I haven't found a proper workaround, yet...</p>
 <h2 id="xdr-for-containers">XDR for Containers<a class="headerlink" href="#xdr-for-containers" title="Permanent link">&para;</a></h2>
 <p>Initially, I thought I just need to leave the VPC alone when changing/destroying part of the network configuration. This was a failure...</p>
 
