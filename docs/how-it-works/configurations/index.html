@@ -302,15 +302,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#virtual-private-cloud" class="md-nav__link">
-    Virtual Private Cloud
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#network" class="md-nav__link">
-    Network
+  <a href="#virtual-private-cloud-and-network" class="md-nav__link">
+    Virtual Private Cloud and Network
   </a>
   
 </li>
@@ -767,15 +760,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#virtual-private-cloud" class="md-nav__link">
-    Virtual Private Cloud
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#network" class="md-nav__link">
-    Network
+  <a href="#virtual-private-cloud-and-network" class="md-nav__link">
+    Virtual Private Cloud and Network
   </a>
   
 </li>
@@ -832,23 +818,19 @@
 <h1 id="playground-one-configurations">Playground One Configurations<a class="headerlink" href="#playground-one-configurations" title="Permanent link">&para;</a></h1>
 <p>The Playground One has a modular structure as shown in the following tree:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>awsone
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>└── vpc (1-vpc)
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    └── network (2-network)
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        ├── ec2 (3-instances)
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        ├── eks (4-cluster-eks)
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        |   └── eks-deployments (8-cluster-eks-deployments)
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        └── ecs (5-cluster-ecs)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>└── network (2-network)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    ├── ec2 (3-instances)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ├── eks (4-cluster-eks)
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    |   └── eks-deployments (8-cluster-eks-deployments)
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    └── ecs (5-cluster-ecs)
 </code></pre></div>
-<p>As we can see, the configuration <code>vpc</code> is the base for the other configurations. The configuration <code>network</code> creates the Subnets, Route Tables, Security Groups, etc. One can choose to only create the EKS cluster, or ECS cluster, or even the full stack. Everything will reside in the same VPC.</p>
+<p>As we can see, the configuration <code>network</code> is the base for the other configurations. It creates the VPC, Subnets, Route Tables, Security Groups, etc. One can choose to only create the EKS cluster, or ECS cluster, or even the full stack. Everything will reside in the same VPC.</p>
 <p><em>Architecture:</em></p>
 <p><img alt="alt text" src="../images/architecture.png" title="Architecture diagram" /></p>
 <p><em>Security Groups:</em> TODO: UPDATE</p>
 <p><img alt="alt text" src="../images/security-groups.png" title="Security Groups" /></p>
 <p>The following chapters describe the different configurations on a high level, refer the the dedicated documentation for more details.</p>
-<h2 id="virtual-private-cloud">Virtual Private Cloud<a class="headerlink" href="#virtual-private-cloud" title="Permanent link">&para;</a></h2>
-<p><em>Configuration located in <code>awsone/1-vpc</code></em></p>
-<p>This, very simple configuration just creates a VPC with actually no content. Solely DNS and the VPC CIDR is defined.</p>
-<h2 id="network">Network<a class="headerlink" href="#network" title="Permanent link">&para;</a></h2>
+<h2 id="virtual-private-cloud-and-network">Virtual Private Cloud and Network<a class="headerlink" href="#virtual-private-cloud-and-network" title="Permanent link">&para;</a></h2>
 <p><em>Configuration located in <code>awsone/2-network</code></em></p>
 <p>This configuration defines a network with the most commonly used architecture, private and public subnets accross three availability zones. It includes everything what a VPC should have, this is amongst others an internet gateway, NAT gateway, security groups, etc. Since a VPC is cheap there's no real need to destroy the networking configuration everyday, just leave it as it is and reuse it the next time. This eases the handling of other components like Vision One XDR for Containers.</p>
 <h2 id="virtual-instances">Virtual Instances<a class="headerlink" href="#virtual-instances" title="Permanent link">&para;</a></h2>
