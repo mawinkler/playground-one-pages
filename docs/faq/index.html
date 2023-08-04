@@ -687,6 +687,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#my-ip-address-has-changed-and-i-cannot-access-my-apps-anymore" class="md-nav__link">
+    My IP address has changed and I cannot access my apps anymore
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -724,6 +731,13 @@
         <li class="md-nav__item">
   <a href="#im-running-the-playground-on-a-cloud9-and-want-to-restrict-access-to-my-home-ip" class="md-nav__link">
     I'm running the Playground on a Cloud9 and want to restrict access to my home IP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-ip-address-has-changed-and-i-cannot-access-my-apps-anymore" class="md-nav__link">
+    My IP address has changed and I cannot access my apps anymore
   </a>
   
 </li>
@@ -768,6 +782,15 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pgo<span class="w"> </span>--init<span class="w"> </span>nw
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
 </code></pre></div>
+<h2 id="my-ip-address-has-changed-and-i-cannot-access-my-apps-anymore">My IP address has changed and I cannot access my apps anymore<a class="headerlink" href="#my-ip-address-has-changed-and-i-cannot-access-my-apps-anymore" title="Permanent link">&para;</a></h2>
+<p>If you need to change the <code>awsone.access_ip</code> later on, maybe your provider assigned you a new one, follow these steps:</p>
+<ol>
+<li>change <code>awsone.access_ip</code> in the <code>config.yaml</code></li>
+<li>run <code>pgo --destroy all</code> (this will keep the network alive)</li>
+<li>run <code>pgo --init all</code></li>
+<li>run <code>pgo --apply nw</code></li>
+</ol>
+<p>Then reaply your eks, ecs or ec2 instances by <code>pgo --apply &lt;configuration&gt;</code></p>
 
 
 

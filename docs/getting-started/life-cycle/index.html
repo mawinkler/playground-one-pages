@@ -400,15 +400,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tear-down" class="md-nav__link">
-    Tear Down
+  <a href="#play-with-the-playground-one" class="md-nav__link">
+    Play with the Playground One
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#optional-adapt-terraformtfvars-in-configurations" class="md-nav__link">
-    Optional: Adapt terraform.tfvars in Configurations
+  <a href="#tear-down" class="md-nav__link">
+    Tear Down
   </a>
   
 </li>
@@ -775,15 +775,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tear-down" class="md-nav__link">
-    Tear Down
+  <a href="#play-with-the-playground-one" class="md-nav__link">
+    Play with the Playground One
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#optional-adapt-terraformtfvars-in-configurations" class="md-nav__link">
-    Optional: Adapt terraform.tfvars in Configurations
+  <a href="#tear-down" class="md-nav__link">
+    Tear Down
   </a>
   
 </li>
@@ -836,16 +836,15 @@
 <a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">  </span>-v<span class="w"> </span>--validate<span class="w"> </span>Check<span class="w"> </span>whether<span class="w"> </span>the<span class="w"> </span>configuration<span class="w"> </span>is<span class="w"> </span>valid
 <a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>
 <a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>Available<span class="w"> </span>configurations:
-<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">  </span>vpc<span class="w">           </span>VPC<span class="w"> </span>configuration
-<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">  </span>nw<span class="w">            </span>Network<span class="w"> </span>configuration
-<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">  </span>ec2<span class="w">           </span>EC2<span class="w"> </span>configuration
-<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">  </span>eks<span class="w">           </span>EKS<span class="w"> </span>configuration
-<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">  </span>ecs<span class="w">           </span>ECS<span class="w"> </span>configurations
-<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">  </span>all<span class="w">           </span>All<span class="w"> </span>configurations
-<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>
-<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>Examples:
-<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">  </span>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
-<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">  </span>pgo<span class="w"> </span>--state<span class="w"> </span>all
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">  </span>nw<span class="w">            </span>Network<span class="w"> </span>configuration
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">  </span>ec2<span class="w">           </span>EC2<span class="w"> </span>configuration
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">  </span>eks<span class="w">           </span>EKS<span class="w"> </span>configuration
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">  </span>ecs<span class="w">           </span>ECS<span class="w"> </span>configurations
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">  </span>all<span class="w">           </span>All<span class="w"> </span>configurations
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>Examples:
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">  </span>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">  </span>pgo<span class="w"> </span>--state<span class="w"> </span>all
 </code></pre></div>
 <h2 id="create-the-environment">Create the Environment<a class="headerlink" href="#create-the-environment" title="Permanent link">&para;</a></h2>
 <ol>
@@ -862,7 +861,13 @@
 <p>This will create your VPC and network in the configured region (see <code>config.yaml</code>)</p>
 </li>
 <li>
-<p>Create Virtual Instances and/or Kubernetes Clusters with demo workload</p>
+<p>If you want to connect with Vision One XDR for Containers head over to <a href="../../integrations/xdr-for-containers/">Vision One XDR for Containers</a> and come back afterwards.</p>
+</li>
+<li>
+<p>If you want your EC2 instances to be connected to Vision One Endpoint Security head over to <a href="../../integrations/endpoint-security/">Vision One Endpoint Security Server &amp; Workload Protection</a> and come back afterwards.</p>
+</li>
+<li>
+<p>Create Virtual Instances and/or Kubernetes Clusters with demo workload.</p>
 <p>EC2 instances:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>ec2
 </code></pre></div>
@@ -870,7 +875,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>eks
 </code></pre></div>
 <p>The default workload (Container Security, Trivy, and vulnerable apps) are deployed automatically.</p>
-<p>ECS cluster:</p>
+<p>ECS cluster(s):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>ecs
 </code></pre></div>
 <p>A vulnerable default workload is deployed automatically.</p>
@@ -895,6 +900,8 @@
 <a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="nv">public_instance_password_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;4h1v}Q7Hc9tbGWdM&quot;</span>
 </code></pre></div>
 <p>With this you can always query how to connect to your running EC2 instances. All instances support SSH connections, the Windows Server Remote Desktop as well. For RDP Use the configured <code>admin</code> user, the ip address and password for srv1.</p>
+<h2 id="play-with-the-playground-one">Play with the Playground One<a class="headerlink" href="#play-with-the-playground-one" title="Permanent link">&para;</a></h2>
+<p>It's a playground, or? Experiment and hopefully learn a few things. For your guidance, there are some prepared scenarios for you to go through. Find them in the navigation pane.</p>
 <h2 id="tear-down">Tear Down<a class="headerlink" href="#tear-down" title="Permanent link">&para;</a></h2>
 <p>If you want to destroy your environment completely or only parts of it</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--destroy<span class="w"> </span>&lt;configuration&gt;
@@ -903,10 +910,8 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--destroy<span class="w"> </span>all
 </code></pre></div>
 <blockquote>
-<p><strong><em>Note:</em></strong> The network and VPC are not automatically destroyed. You can do this manually by running <code>pgo --destroy nw</code> and <code>pgo --destroy vpc</code>.</p>
+<p><strong><em>Note:</em></strong> The network and VPC are not automatically destroyed. You can do this manually by running <code>pgo --destroy nw</code>. Be sure to have the CloudFormation stack of XDR for Containers deleted before doing so. Otherwise it will be in a fail (blackhole) state.</p>
 </blockquote>
-<h2 id="optional-adapt-terraformtfvars-in-configurations">Optional: Adapt <code>terraform.tfvars</code> in Configurations<a class="headerlink" href="#optional-adapt-terraformtfvars-in-configurations" title="Permanent link">&para;</a></h2>
-<p>The <code>terraform.tfvars</code>-files located within the configurations allow you to configure the AWS One playground in some aspects. Normally there's nothing to do for you, but if you only need Linux servers you could disable windows instance(s) in <code>3-instances/terraform.tfvars</code>.</p>
 
 
 
