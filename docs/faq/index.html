@@ -12,6 +12,8 @@
         <link rel="prev" href="../scenarios/sentry/">
       
       
+        <link rel="next" href="../bloopers/">
+      
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
@@ -694,10 +696,32 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#i-cannot-destroy-the-ecs-ec2-cluster" class="md-nav__link">
+    I cannot destroy the ECS EC2 cluster
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bloopers/" class="md-nav__link">
+        Bloopers
+      </a>
     </li>
   
 
@@ -738,6 +762,13 @@
         <li class="md-nav__item">
   <a href="#my-ip-address-has-changed-and-i-cannot-access-my-apps-anymore" class="md-nav__link">
     My IP address has changed and I cannot access my apps anymore
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-cannot-destroy-the-ecs-ec2-cluster" class="md-nav__link">
+    I cannot destroy the ECS EC2 cluster
   </a>
   
 </li>
@@ -791,6 +822,12 @@
 <li>run <code>pgo --apply nw</code></li>
 </ol>
 <p>Then reaply your eks, ecs or ec2 instances by <code>pgo --apply &lt;configuration&gt;</code></p>
+<h2 id="i-cannot-destroy-the-ecs-ec2-cluster">I cannot destroy the ECS EC2 cluster<a class="headerlink" href="#i-cannot-destroy-the-ecs-ec2-cluster" title="Permanent link">&para;</a></h2>
+<p>The problem is that this new capacity_provider property on the aws_ecs_cluster introduces a new dependency:
+aws_ecs_cluster depends on aws_ecs_capacity_provider depends on aws_autoscaling_group.</p>
+<p>This causes terraform to destroy the ECS cluster before the autoscaling group, which is the wrong way around: the autoscaling group must be destroyed first because the cluster must contain zero instances before it can be destroyed.</p>
+<p>This leads to Terraform error out with the cluster partly alive and the capacity providers fully alive.</p>
+<p>I don't have a proper fix for that, yet. For now, initiate the <code>destroy</code> process via <code>pgo -d ecs</code> and head over to the AWS EC2 console --&gt; Auto Scaling groups. Select the two groups with the prefix of your environment name and choose the Action <code>Delete</code>.</p>
 
 
 
