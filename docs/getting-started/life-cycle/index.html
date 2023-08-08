@@ -379,13 +379,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#getting-help" class="md-nav__link">
-    Getting Help
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#create-the-environment" class="md-nav__link">
     Create the Environment
   </a>
@@ -769,13 +762,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#getting-help" class="md-nav__link">
-    Getting Help
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#create-the-environment" class="md-nav__link">
     Create the Environment
   </a>
@@ -819,59 +805,18 @@
 
 
 <h1 id="general-life-cycle">General Life-Cycle<a class="headerlink" href="#general-life-cycle" title="Permanent link">&para;</a></h1>
-<p>The life-cycle of Playground One is controlled by the command line interface <code>pgo</code>.</p>
-<p>Use it to interact with the Playground One from anywhere in your terminal by running</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>pgo
-</code></pre></div>
-<p>from anywhere in your terminal.</p>
-<h2 id="getting-help">Getting Help<a class="headerlink" href="#getting-help" title="Permanent link">&para;</a></h2>
-<p>Run:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--help
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w"> </span>__<span class="w">                 </span>__<span class="w">   </span>__<span class="w">   </span>__<span class="w">             </span>__<span class="w">      </span>__<span class="w">        </span>___<span class="w"> </span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">|</span>__<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w">     </span>/<span class="se">\ </span><span class="w"> </span><span class="se">\ </span>/<span class="w"> </span>/<span class="w"> </span>_<span class="sb">`</span><span class="w"> </span><span class="p">|</span>__<span class="o">)</span><span class="w"> </span>/<span class="w">  </span><span class="se">\ </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\ </span><span class="w">   </span>/<span class="w">  </span><span class="se">\ </span><span class="p">|</span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>__<span class="w">  </span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">|</span><span class="w">    </span><span class="p">|</span>___<span class="w"> </span>/~~<span class="se">\ </span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\_</span>_&gt;<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\ \_</span>_/<span class="w"> </span><span class="se">\_</span>_/<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span>__/<span class="w">    </span><span class="se">\_</span>_/<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span>___<span class="w"> </span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Usage:<span class="w"> </span>pgo<span class="w"> </span>&lt;command&gt;<span class="w"> </span>&lt;configuration&gt;<span class="w"> </span>...
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>The<span class="w"> </span>available<span class="w"> </span>commands<span class="w"> </span><span class="k">for</span><span class="w"> </span>execution<span class="w"> </span>are<span class="w"> </span>listed<span class="w"> </span>below.
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>The<span class="w"> </span>primary<span class="w"> </span>workflow<span class="w"> </span>commands<span class="w"> </span>are<span class="w"> </span>given<span class="w"> </span>first,<span class="w"> </span>followed<span class="w"> </span>by
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>less<span class="w"> </span>common<span class="w"> </span>or<span class="w"> </span>more<span class="w"> </span>advanced<span class="w"> </span>commands.
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>Main<span class="w"> </span>commands:
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span>-i<span class="w"> </span>--init<span class="w">     </span>Prepare<span class="w"> </span>a<span class="w"> </span>configuration<span class="w"> </span><span class="k">for</span><span class="w"> </span>other<span class="w"> </span>commands
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">  </span>-a<span class="w"> </span>--apply<span class="w">    </span>Create<span class="w"> </span>of<span class="w"> </span>update<span class="w"> </span>infrastructure
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">  </span>-d<span class="w"> </span>--destroy<span class="w">  </span>Destroy<span class="w"> </span>previously-created<span class="w"> </span>infrastructure
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">  </span>-o<span class="w"> </span>--output<span class="w">   </span>Show<span class="w"> </span>output<span class="w"> </span>values
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">  </span>-s<span class="w"> </span>--state<span class="w">    </span>Show<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>state
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">  </span>-h<span class="w"> </span>--help<span class="w">     </span>Show<span class="w"> </span>this<span class="w"> </span><span class="nb">help</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>Other<span class="w"> </span>commands:
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">  </span>-S<span class="w"> </span>--show<span class="w">     </span>Show<span class="w"> </span>advanced<span class="w"> </span>state
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">  </span>-v<span class="w"> </span>--validate<span class="w"> </span>Check<span class="w"> </span>whether<span class="w"> </span>the<span class="w"> </span>configuration<span class="w"> </span>is<span class="w"> </span>valid
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>
-<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>Available<span class="w"> </span>configurations:
-<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">  </span>nw<span class="w">            </span>Network<span class="w"> </span>configuration
-<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">  </span>ec2<span class="w">           </span>EC2<span class="w"> </span>configuration
-<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">  </span>eks<span class="w">           </span>EKS<span class="w"> </span>configuration
-<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">  </span>ecs<span class="w">           </span>ECS<span class="w"> </span>configurations
-<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">  </span>all<span class="w">           </span>All<span class="w"> </span>configurations
-<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>
-<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>Examples:
-<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">  </span>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
-<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">  </span>pgo<span class="w"> </span>--state<span class="w"> </span>all
-</code></pre></div>
 <h2 id="create-the-environment">Create the Environment<a class="headerlink" href="#create-the-environment" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p>Initialize with</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--init<span class="w"> </span>all
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--init<span class="w"> </span>all
 </code></pre></div>
 <p>This will prepare all available configurations. No changes done in the clouds yet. You only need to init once after cloning the repository.</p>
+<p>If you have changed Playground Ones main configuration using <code>pgo --config</code> please rerun <code>pgo --init all</code> again to apply eventual changes to the configurations.</p>
 </li>
 <li>
 <p>To create the VPC and Network run</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
 </code></pre></div>
 <p>This will create your VPC and network in the configured region (see <code>config.yaml</code>)</p>
 </li>
@@ -884,45 +829,45 @@
 <li>
 <p>Create Virtual Instances and/or Kubernetes Clusters with demo workload.</p>
 <p>EC2 instances:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>ec2
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>ec2
 </code></pre></div>
 <p>EKS cluster:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>eks
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>eks
 </code></pre></div>
-<p>The default workload (Container Security, Trivy, and vulnerable apps) are deployed automatically.</p>
+<p>The default workload (Container Security and Trivy) are deployed automatically.</p>
 <p>ECS cluster(s):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>ecs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>ecs
 </code></pre></div>
 <p>A vulnerable default workload is deployed automatically.</p>
 </li>
 </ol>
 <h2 id="query-outputs-and-state">Query Outputs and State<a class="headerlink" href="#query-outputs-and-state" title="Permanent link">&para;</a></h2>
 <p>The most relevant information on your configuration can be queried by running</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--output<span class="w"> </span>&lt;configuration&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--output<span class="w"> </span>&lt;configuration&gt;
 </code></pre></div>
 <p>Example: <code>pgo --output ec2</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nv">public_instance_id_db1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;i-072abd953dedaae5d&quot;</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nv">public_instance_id_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;i-0f2c91e08fd054510&quot;</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nv">public_instance_id_web1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;i-048ecedf660236f47&quot;</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nv">public_instance_ip_db1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3.76.39.227&quot;</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nv">public_instance_ip_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3.75.219.198&quot;</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="nv">public_instance_ip_web1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;18.197.106.33&quot;</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="nv">public_instance_password_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;sensitive&gt;
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="nv">s3_bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;playground-awsone-cesh306v&quot;</span>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="nv">ssh_instance_db1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i ../playground-key-pair.pem -o StrictHostKeyChecking=no ubuntu@3.76.39.227&quot;</span>
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="nv">ssh_instance_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i ../playground-key-pair.pem -o StrictHostKeyChecking=no admin@3.75.219.198&quot;</span>
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="nv">ssh_instance_web1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i ../playground-key-pair.pem -o StrictHostKeyChecking=no ubuntu@18.197.106.33&quot;</span>
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="nv">public_instance_password_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;4h1v}Q7Hc9tbGWdM&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nv">public_instance_id_db1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;i-072abd953dedaae5d&quot;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nv">public_instance_id_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;i-0f2c91e08fd054510&quot;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nv">public_instance_id_web1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;i-048ecedf660236f47&quot;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nv">public_instance_ip_db1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3.76.39.227&quot;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nv">public_instance_ip_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3.75.219.198&quot;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nv">public_instance_ip_web1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;18.197.106.33&quot;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nv">public_instance_password_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;sensitive&gt;
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="nv">s3_bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;playground-awsone-cesh306v&quot;</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="nv">ssh_instance_db1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i ../playground-key-pair.pem -o StrictHostKeyChecking=no ubuntu@3.76.39.227&quot;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="nv">ssh_instance_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i ../playground-key-pair.pem -o StrictHostKeyChecking=no admin@3.75.219.198&quot;</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="nv">ssh_instance_web1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i ../playground-key-pair.pem -o StrictHostKeyChecking=no ubuntu@18.197.106.33&quot;</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="nv">public_instance_password_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;4h1v}Q7Hc9tbGWdM&quot;</span>
 </code></pre></div>
 <p>With this you can always query how to connect to your running EC2 instances. All instances support SSH connections, the Windows Server Remote Desktop as well. For RDP Use the configured <code>admin</code> user, the ip address and password for srv1.</p>
 <h2 id="play-with-the-playground-one">Play with the Playground One<a class="headerlink" href="#play-with-the-playground-one" title="Permanent link">&para;</a></h2>
 <p>It's a playground, or? Experiment and hopefully learn a few things. For your guidance, there are some prepared scenarios for you to go through. Find them in the navigation pane.</p>
 <h2 id="tear-down">Tear Down<a class="headerlink" href="#tear-down" title="Permanent link">&para;</a></h2>
 <p>If you want to destroy your environment completely or only parts of it</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--destroy<span class="w"> </span>&lt;configuration&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--destroy<span class="w"> </span>&lt;configuration&gt;
 </code></pre></div>
 <p>If you want to tear down everything run</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--destroy<span class="w"> </span>all
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--destroy<span class="w"> </span>all
 </code></pre></div>
 <blockquote>
 <p><strong><em>Note:</em></strong> The network and VPC are not automatically destroyed. You can do this manually by running <code>pgo --destroy nw</code>. Be sure to have the CloudFormation stack of XDR for Containers deleted before doing so. Otherwise it will be in a fail (blackhole) state.</p>

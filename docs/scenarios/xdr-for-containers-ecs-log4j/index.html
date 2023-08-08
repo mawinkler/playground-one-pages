@@ -825,17 +825,20 @@
 <li>Playground One ECS Cluster (Any variant)</li>
 <li>Running app: Java-Goof running on vulnerable Tomcat</li>
 </ul>
+<p>Ensure to have an ECS Cluster up and running:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>ecs
+</code></pre></div>
 <h2 id="disclaimer">Disclaimer<a class="headerlink" href="#disclaimer" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p><strong><em>Note:</em></strong> It is highly recommended to have the <code>awsone.access_ip</code> set to a single IP or at least a small CIDR before deploying the ECS cluster. This will prevent anonymous users playing with your environmnent. Remember: we're using vulnerable apps.</p>
 </blockquote>
 <h2 id="exploiting">Exploiting<a class="headerlink" href="#exploiting" title="Permanent link">&para;</a></h2>
 <p>First, retrieve the load balancer DNS name</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>-o<span class="w"> </span>ecs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>-o<span class="w"> </span>ecs
 </code></pre></div>
 <p>Example output with ECS EC2:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">cluster_name_ec2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;playground-ecs-ec2&quot;</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">loadbalancer_dns_ec2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">cluster_name_ec2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;playground-ecs-ec2&quot;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nv">loadbalancer_dns_ec2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com&quot;</span>
 </code></pre></div>
 <p>If you are using ECS Fargate, the variable is named <code>loadbalancer_dns_fargate</code>.</p>
 <h3 id="exploit">Exploit<a class="headerlink" href="#exploit" title="Permanent link">&para;</a></h3>

