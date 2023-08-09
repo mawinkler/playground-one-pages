@@ -841,11 +841,11 @@
 <li>Extracted contents of <code>exploit.zip</code></li>
 </ul>
 <p>Ensure to have an ECS Cluster up and running:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>ecs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>ecs
 </code></pre></div>
 <p>If you need to extract the exploits unzip with the password <code>virus</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>$<span class="w"> </span>unzip<span class="w"> </span>exploits.zip
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>unzip<span class="w"> </span>exploits.zip
 </code></pre></div>
 <h2 id="disclaimer">Disclaimer<a class="headerlink" href="#disclaimer" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -853,7 +853,7 @@
 </blockquote>
 <h2 id="exploiting">Exploiting<a class="headerlink" href="#exploiting" title="Permanent link">&para;</a></h2>
 <p>First, retrieve the load balancer DNS name</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>-o<span class="w"> </span>ecs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pgo<span class="w"> </span>-o<span class="w"> </span>ecs
 </code></pre></div>
 <p>Example output with ECS EC2:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">cluster_name_ec2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;playground-ecs-ec2&quot;</span>
@@ -862,8 +862,8 @@
 <p>If you are using ECS Fargate, the variable is named <code>loadbalancer_dns_fargate</code>.</p>
 <h3 id="exploit">Exploit<a class="headerlink" href="#exploit" title="Permanent link">&para;</a></h3>
 <p>Run:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>/exploits/struts/
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>$<span class="w"> </span>struts-exploit.sh<span class="w"> </span>playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>/exploits/struts/
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>struts-exploit.sh<span class="w"> </span>playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com
 </code></pre></div>
 <p>Expexted result:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>*   Trying 18.195.245.32:80...

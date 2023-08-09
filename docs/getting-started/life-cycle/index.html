@@ -823,14 +823,14 @@
 <ol>
 <li>
 <p>Initialize with</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--init<span class="w"> </span>all
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--init<span class="w"> </span>all
 </code></pre></div>
 <p>This will prepare all available configurations. No changes done in the clouds yet. You only need to init once after cloning the repository.</p>
 <p>If you have changed Playground Ones main configuration using <code>pgo --config</code> please rerun <code>pgo --init all</code> again to apply eventual changes to the configurations.</p>
 </li>
 <li>
 <p>To create the VPC and Network run</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
 </code></pre></div>
 <p>This will create your VPC and network in the configured region (see <code>config.yaml</code>)</p>
 </li>
@@ -843,21 +843,21 @@
 <li>
 <p>Create Virtual Instances and/or Kubernetes Clusters with demo workload.</p>
 <p>EC2 instances:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>ec2
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>ec2
 </code></pre></div>
 <p>EKS cluster:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>eks
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>eks
 </code></pre></div>
 <p>The default workload (Container Security and Trivy) are deployed automatically.</p>
 <p>ECS cluster(s):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>ecs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>ecs
 </code></pre></div>
 <p>A vulnerable default workload is deployed automatically.</p>
 </li>
 </ol>
 <h2 id="query-outputs-and-state">Query Outputs and State<a class="headerlink" href="#query-outputs-and-state" title="Permanent link">&para;</a></h2>
 <p>The most relevant information on your configuration can be queried by running</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--output<span class="w"> </span>&lt;configuration&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pgo<span class="w"> </span>--output<span class="w"> </span>&lt;configuration&gt;
 </code></pre></div>
 <p>Example: <code>pgo --output ec2</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nv">public_instance_id_db1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;i-072abd953dedaae5d&quot;</span>
@@ -878,10 +878,10 @@
 <p>It's a playground, or? Experiment and hopefully learn a few things. For your guidance, there are some prepared scenarios for you to go through. Find them in the navigation pane.</p>
 <h2 id="tear-down">Tear Down<a class="headerlink" href="#tear-down" title="Permanent link">&para;</a></h2>
 <p>If you want to destroy your environment completely or only parts of it</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--destroy<span class="w"> </span>&lt;configuration&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>&lt;configuration&gt;
 </code></pre></div>
 <p>If you want to tear down everything run</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--destroy<span class="w"> </span>all
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>all
 </code></pre></div>
 <blockquote>
 <p><strong><em>Note:</em></strong> The network and VPC are not automatically destroyed. You can do this manually by running <code>pgo --destroy nw</code>. Be sure to have the CloudFormation stack of XDR for Containers deleted before doing so. Otherwise it will be in a fail (blackhole) state.</p>

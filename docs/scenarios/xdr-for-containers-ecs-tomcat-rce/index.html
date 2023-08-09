@@ -855,11 +855,11 @@
 <li>Extracted contents of <code>exploit.zip</code></li>
 </ul>
 <p>Ensure to have an ECS Cluster up and running:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>ecs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>ecs
 </code></pre></div>
 <p>If you need to extract the exploits unzip with the password <code>virus</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>$<span class="w"> </span>unzip<span class="w"> </span>exploits.zip
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>unzip<span class="w"> </span>exploits.zip
 </code></pre></div>
 <h2 id="disclaimer">Disclaimer<a class="headerlink" href="#disclaimer" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -867,7 +867,7 @@
 </blockquote>
 <h2 id="exploiting">Exploiting<a class="headerlink" href="#exploiting" title="Permanent link">&para;</a></h2>
 <p>First, retrieve the load balancer DNS name</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>-o<span class="w"> </span>ecs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pgo<span class="w"> </span>-o<span class="w"> </span>ecs
 </code></pre></div>
 <p>Example output with ECS EC2:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">cluster_name_ec2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;playground-ecs-ec2&quot;</span>
@@ -877,8 +877,8 @@
 <h3 id="checking-if-app-server-is-vulnerable">Checking if app server is vulnerable<a class="headerlink" href="#checking-if-app-server-is-vulnerable" title="Permanent link">&para;</a></h3>
 <p>Now you can check to see if the tomcat server is vulnerable.
 If it is you should see something similar to the following:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>/exploits/tomcat-rce/
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>$<span class="w"> </span>python3<span class="w"> </span>exploit.py<span class="w"> </span>-u<span class="w"> </span>http://playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>/exploits/tomcat-rce/
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>python3<span class="w"> </span>exploit.py<span class="w"> </span>-u<span class="w"> </span>http://playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>   _______      ________    ___   ___  __ ______     __ ___   __ __ ______ 
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  / ____\ \    / /  ____|  |__ \ / _ \/_ |____  |   /_ |__ \ / //_ |____  |
@@ -901,7 +901,7 @@ If it is you should see something similar to the following:</p>
 <p><img alt="alt text" src="../images/xdr_for_containers-ecs-tomcat-rce-01.png" title="Poc" /></p>
 <h3 id="inject-the-exploit-and-run-commands-in-the-container-from-browser">Inject the exploit and run commands in the container from browser<a class="headerlink" href="#inject-the-exploit-and-run-commands-in-the-container-from-browser" title="Permanent link">&para;</a></h3>
 <p>Next, inject the exploit and just hit <code>ENTER</code> at the shell prompt that comes up. (Ignore the error afterward)</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span>python3<span class="w"> </span>exploit.py<span class="w"> </span>-u<span class="w"> </span>http://playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com<span class="w"> </span>-p<span class="w"> </span>pwn
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>python3<span class="w"> </span>exploit.py<span class="w"> </span>-u<span class="w"> </span>http://playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com<span class="w"> </span>-p<span class="w"> </span>pwn
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>   _______      ________    ___   ___  __ ______     __ ___   __ __ ______ 
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  / ____\ \    / /  ____|  |__ \ / _ \/_ |____  |   /_ |__ \ / //_ |____  |

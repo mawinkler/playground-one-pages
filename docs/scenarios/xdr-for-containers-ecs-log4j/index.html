@@ -840,7 +840,7 @@
 <li>Running app: Java-Goof running on vulnerable Tomcat</li>
 </ul>
 <p>Ensure to have an ECS Cluster up and running:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>--apply<span class="w"> </span>ecs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>ecs
 </code></pre></div>
 <h2 id="disclaimer">Disclaimer<a class="headerlink" href="#disclaimer" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -848,7 +848,7 @@
 </blockquote>
 <h2 id="exploiting">Exploiting<a class="headerlink" href="#exploiting" title="Permanent link">&para;</a></h2>
 <p>First, retrieve the load balancer DNS name</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>pgo<span class="w"> </span>-o<span class="w"> </span>ecs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pgo<span class="w"> </span>-o<span class="w"> </span>ecs
 </code></pre></div>
 <p>Example output with ECS EC2:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">cluster_name_ec2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;playground-ecs-ec2&quot;</span>
