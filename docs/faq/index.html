@@ -717,6 +717,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#i-dont-find-the-todolist-app-of-java-goof" class="md-nav__link">
+    I don't find the todolist-app of Java-Goof
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -787,6 +794,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#i-dont-find-the-todolist-app-of-java-goof" class="md-nav__link">
+    I don't find the todolist-app of Java-Goof
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -842,6 +856,13 @@ aws_ecs_cluster depends on aws_ecs_capacity_provider depends on aws_autoscaling_
 <p>This causes terraform to destroy the ECS cluster before the autoscaling group, which is the wrong way around: the autoscaling group must be destroyed first because the cluster must contain zero instances before it can be destroyed.</p>
 <p>This leads to Terraform error out with the cluster partly alive and the capacity providers fully alive.</p>
 <p>I don't have a proper fix for that, yet. For now, initiate the <code>destroy</code> process via <code>pgo -d ecs</code> and head over to the AWS EC2 console --&gt; Auto Scaling groups. Select the two groups with the prefix of your environment name and choose the Action <code>Delete</code>.</p>
+<h2 id="i-dont-find-the-todolist-app-of-java-goof">I don't find the <code>todolist</code>-app of Java-Goof<a class="headerlink" href="#i-dont-find-the-todolist-app-of-java-goof" title="Permanent link">&para;</a></h2>
+<p>To access the <code>todolist</code> application append <code>/todolist</code> to the loadbalancer DNS name in your browser.</p>
+<p>For authentication use:</p>
+<ul>
+<li>Username: <code>foo@bar.org</code></li>
+<li>Password: <code>foobar</code></li>
+</ul>
 
 
 
