@@ -791,22 +791,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#exploiting" class="md-nav__link">
-    Exploiting
-  </a>
-  
-    <nav class="md-nav" aria-label="Exploiting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exploit" class="md-nav__link">
-    Exploit
+  <a href="#disclaimer" class="md-nav__link">
+    Disclaimer
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-story" class="md-nav__link">
+    The story
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    Goals
+  </a>
   
 </li>
       
@@ -830,10 +838,23 @@
 <ul>
 <li>Vision One Container Security</li>
 <li>Playground One EKS Cluster</li>
-<li>Running app: </li>
+<li>Playground One Scenarios</li>
 </ul>
-<h2 id="exploiting">Exploiting<a class="headerlink" href="#exploiting" title="Permanent link">&para;</a></h2>
-<h3 id="exploit">Exploit<a class="headerlink" href="#exploit" title="Permanent link">&para;</a></h3>
+<p>Ensure to have the EKS Cluster including the Scenarios up and running:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>eks
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>scenarios
+</code></pre></div>
+<h2 id="disclaimer">Disclaimer<a class="headerlink" href="#disclaimer" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong><em>Note:</em></strong> It is highly recommended to have the <code>awsone.access_ip</code> set to a single IP or at least a small CIDR before deploying the EKS cluster. This will prevent anonymous users playing with your environmnent. Remember: we're using vulnerable apps.</p>
+</blockquote>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<h2 id="the-story">The story<a class="headerlink" href="#the-story" title="Permanent link">&para;</a></h2>
+<p>Every now and then new critical vulnerabilities are disclosed. A famous one with huge impact was the  vulnerability CVE-2017-5638. </p>
+<p>On March 6th 2017, a new remote code execution (RCE) vulnerability in Apache Struts 2 was made public. This vulnerability allows a remote attacker to inject operating system commands into a web application through the “Content-Type” header. Written in Java, Apache Struts 2 is the popular open source web application framework. This is yet another incident that adds up to a long list of vulnerabilities in this framework.</p>
+<p>You want to search and validate for this specific vulnerability in your production environment.</p>
+<h2 id="goals">Goals<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h2>
+<p>The goal of this scenario is to identify the vulnerable deployment and proof that it is vulnerable.</p>
 
 
 
