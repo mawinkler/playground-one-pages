@@ -393,7 +393,7 @@
   
     <li class="md-nav__item">
       <a href="../integrations/endpoint-security/" class="md-nav__link">
-        Vision One Endpoint Security
+        Server & Workload Protection
       </a>
     </li>
   
@@ -707,16 +707,30 @@
       
       
         <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
-          Sentry
+          Miscellaneous
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5_4">
           <span class="md-nav__icon md-icon"></span>
-          Sentry
+          Miscellaneous
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scenarios/hunger-check/" class="md-nav__link">
+        Hunger Check
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -932,14 +946,50 @@
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
 </code></pre></div>
 <h2 id="my-ip-address-has-changed-and-i-cannot-access-my-apps-anymore">My IP address has changed and I cannot access my apps anymore<a class="headerlink" href="#my-ip-address-has-changed-and-i-cannot-access-my-apps-anymore" title="Permanent link">&para;</a></h2>
-<p>If you need to change the <code>awsone.access_ip</code> later on, maybe your provider assigned you a new one, follow these steps:</p>
+<p>If you need to change the access IP later on, maybe your provider assigned you a new one, follow these steps:</p>
 <ol>
-<li>change <code>awsone.access_ip</code> in the <code>config.yaml</code></li>
-<li>run <code>pgo --destroy all</code> (this will keep the network alive)</li>
-<li>run <code>pgo --init all</code></li>
-<li>run <code>pgo --apply nw</code></li>
+<li>Run <code>pgo --udateip</code> and set the new IP address.</li>
+<li>
+<p>Terraform tells you which actions will be performed when approving them. Validate that there will be only one in-place update on the resource <code>module.ec2.aws_security_group.sg["public"]</code>.
+    ```ascii
+    Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+      ~ update in-place</p>
+<p>Terraform will perform the following actions:</p>
+<p># module.ec2.aws_security_group.sg["public"] will be updated in-place
+  ~ resource "aws_security_group" "sg" {
+        id                     = "sg-01e76a72ffd468baa"
+      ~ ingress                = [
+...
+<code>`````
+3. Approve the actions by entering</code>yes<code>, otherwise press</code>^c`.</p>
+</li>
 </ol>
-<p>Then reaply your eks, ecs or ec2 instances by <code>pgo --apply &lt;configuration&gt;</code></p>
+<p>If you have applied any of the configurations below you need to reapply them to update the IP address:</p>
+<table>
+<thead>
+<tr>
+<th>Configuration</th>
+<th>Run</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ecs</code></td>
+<td><code>pgo --init ecs</code><br><code>pgo --apply ecs</code></td>
+</tr>
+<tr>
+<td><code>scenarios</code></td>
+<td><code>pgo --init scenarios</code><br><code>pgo --apply scenarios</code></td>
+</tr>
+</tbody>
+</table>
+<p>The above will update the ingresses of the deployed services.</p>
+<p>If the above didn't work for you and still need to update the IP(s) you need to run</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>all
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>pgo<span class="w"> </span>--init<span class="w"> </span>all
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
+</code></pre></div>
+<p>Then reaply your eks, ecs, ec2 or scenarios by <code>pgo --apply &lt;configuration&gt;</code>.</p>
 <h2 id="i-cannot-destroy-the-ecs-ec2-cluster">I cannot destroy the ECS EC2 cluster<a class="headerlink" href="#i-cannot-destroy-the-ecs-ec2-cluster" title="Permanent link">&para;</a></h2>
 <p>The problem is that this new capacity_provider property on the aws_ecs_cluster introduces a new dependency:
 aws_ecs_cluster depends on aws_ecs_capacity_provider depends on aws_autoscaling_group.</p>
