@@ -1032,8 +1032,20 @@
 <p>Set/update:</p>
 <ul>
 <li><code>Access IPs/CIDRs</code>:</li>
-<li>If you're running on a local Ubuntu server (not Cloud9), get your public IP and set the value to <code>["&lt;YOUR IP&gt;/32"]</code>.</li>
-<li>If you're working on a Cloud9, get your public IP from home AND from the Cloud9 instance. Set the value to <code>["&lt;YOUR IP&gt;/32","&lt;YOUR CLOUD9 IP&gt;/32"]</code></li>
+<li>If you're running on a local Ubuntu server (not Cloud9), get your public IP and set the value to <code>&lt;YOUR IP&gt;/32</code> or type <code>pub</code> and let the config tool detect your public IP.</li>
+<li>If you're working on a Cloud9 you need enter two public IP/CIDRs separated by <code>,</code>.<ol>
+<li>Public IP from your Cloud9 or type <code>pub</code>.</li>
+<li>Public IP from your local client.  </li>
+</ol>
+</li>
+<li>If you want someone else grant access to your environment just add another IP/CIDR.</li>
+<li>Examples:<ul>
+<li><code>pub</code></li>
+<li><code>pub, 86.120.222.205</code></li>
+<li><code>3.121.226.247/32, 86.120.222.20/32</code></li>
+<li><code>0.0.0.0/0</code> <em>Dangerous!</em></li>
+</ul>
+</li>
 <li><code>EC2 - create Linux EC2</code>: Enable/disable Linux instances in the <code>ec2</code> configuration.</li>
 <li><code>EC2 - create Windows EC2</code>: Enable/disable Windows instances in the <code>ec2</code> configuration.</li>
 <li><code>EKS - create Fargate profile</code>: Enable/disable the Fargate profile on the EKS cluster.</li>
