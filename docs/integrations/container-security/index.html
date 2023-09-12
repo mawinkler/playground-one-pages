@@ -463,6 +463,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#outdated-cloud-one-container-security" class="md-nav__link">
+    (Outdated): Cloud One Container Security
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#scenarios" class="md-nav__link">
     Scenarios
   </a>
@@ -887,6 +894,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#outdated-cloud-one-container-security" class="md-nav__link">
+    (Outdated): Cloud One Container Security
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#scenarios" class="md-nav__link">
     Scenarios
   </a>
@@ -909,11 +923,30 @@
 
 
 <h1 id="vision-one-container-security">Vision One Container Security<a class="headerlink" href="#vision-one-container-security" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p><strong><em>Note:</em></strong> At the time of writing, Container Security is integrated in Playground One by the helm chart on EKS only. The UI is still on Cloud One.</p>
-</blockquote>
 <h2 id="setup-of-container-security-with-the-playground-one">Setup of Container Security with the Playground One<a class="headerlink" href="#setup-of-container-security-with-the-playground-one" title="Permanent link">&para;</a></h2>
-<p>Container Security is automatically deployed to the EKS cluster of Playground One. If you provided a proper Cloud One information it is already up and running.</p>
+<p>This guide provides step-by-step instructions on how to deploy Vision One Container Security on a Playground One EKS cluster.</p>
+<p>There is currently no way to fully automate the Vision One Container Security solution the an EKS cluster. This process will be automated in the near future so that Vision One Container Security can be deployed via Terraform.</p>
+<p>Prerequisites:</p>
+<ul>
+<li>Deployed eks cluster configuration (<code>pgo -a eks</code>).</li>
+</ul>
+<p>Required information:</p>
+<ul>
+<li>EKS Cluster ARN from eks outputs (<code>pgo -o eks</code>).</li>
+</ul>
+<p>Steps:</p>
+<ol>
+<li>Head over to <code>Cloud Security Operations --&gt; Container Security --&gt; Container Inventory</code>.</li>
+<li>Select <code>[Kubernetes] --&gt; [+ Add Cluster]</code>.</li>
+<li>Type in a name to use to identify the cluster.</li>
+<li>Set <code>Map to Cloud Account</code> to <code>Yes</code> and paste the cluster ARN from the outputs of the <code>eks</code>-configuration.</li>
+<li>Click the <code>Runtime Scanning</code> switch to enable Runtime Vulnerability Scanning.</li>
+<li>Click the <code>Runtime Security</code> switch to enable Runtime Security protection.</li>
+<li>Clich <code>[Next]</code> to create the cluster in the inventory view.</li>
+<li>Download the generated <code>overrides.yaml</code> and copy/paste the <code>helm install</code> command to your terminal. This will deploy Vision One Container Security to your EKS cluster.</li>
+</ol>
+<h2 id="outdated-cloud-one-container-security">(Outdated): Cloud One Container Security<a class="headerlink" href="#outdated-cloud-one-container-security" title="Permanent link">&para;</a></h2>
+<p>Container Security can automatically be deployed to the EKS cluster of Playground One if enabled in the configuration. If you provided a proper Cloud One information it is already up and running.</p>
 <p>Required information:</p>
 <ul>
 <li>Trend Cloud One API Key</li>
@@ -932,6 +965,9 @@
 <ul>
 <li><a href="../../scenarios/container-security-eks-escape/">Escape to the Host System</a></li>
 <li><a href="../../scenarios/container-security-eks-dind-exploitation/">ContainerD Abuse</a></li>
+<li><a href="../../scenarios/container-security-eks-runtime-vulnerability/">Runtime Vulnerability Scan on EKS</a></li>
+<li><a href="../../scenarios/container-security-ecs-runtime-vulnerability/">Runtime Vulnerability Scan on ECS</a></li>
+<li><a href="../../scenarios/container-security-eks-runtime-violations/">Runtime Violations</a></li>
 </ul>
 
 
