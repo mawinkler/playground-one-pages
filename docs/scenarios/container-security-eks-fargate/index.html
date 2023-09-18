@@ -9,13 +9,17 @@
       
       
       
+        <link rel="prev" href="../container-security-ecs-runtime-vulnerability/">
+      
+      
+        <link rel="next" href="../container-security-eks-runtime-violations/">
       
       <link rel="icon" href="../../images/playground-icon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
-        <title>Scenario: Vision One XDR for Containers Detect Malware Upload - Playground One</title>
+        <title>Runtime Vulnerability Scan on EKS Fargate - Playground One</title>
       
     
     
@@ -69,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scenario-vision-one-xdr-for-containers-detect-malware-upload" class="md-skip">
+        <a href="#scenario-runtime-vulnerability-scanning-on-eks-fargate" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Scenario: Vision One XDR for Containers Detect Malware Upload
+              Runtime Vulnerability Scan on EKS Fargate
             
           </span>
         </div>
@@ -436,14 +440,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
       
       
       
@@ -452,7 +458,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Scenarios
@@ -553,14 +559,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
       
       
       
@@ -569,7 +577,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_5_2">
           <span class="md-nav__icon md-icon"></span>
           Container Protection
@@ -636,11 +644,100 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../container-security-eks-fargate/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Runtime Vulnerability Scan on EKS Fargate
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Runtime Vulnerability Scan on EKS Fargate
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disclaimer" class="md-nav__link">
+    Disclaimer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-story" class="md-nav__link">
+    The story
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    Goals
+  </a>
+  
+    <nav class="md-nav" aria-label="Goals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hints" class="md-nav__link">
+    Hints
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution-walkthrough" class="md-nav__link">
+    Solution &amp; Walkthrough
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -778,26 +875,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#optional-retrieve-tenant-id-and-token-from-server-workload-protection" class="md-nav__link">
-    Optional: Retrieve Tenant ID and Token from Server &amp; Workload Protection
-  </a>
-  
-    <nav class="md-nav" aria-label="Optional: Retrieve Tenant ID and Token from Server & Workload Protection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#section-vision-one" class="md-nav__link">
-    Section: Vision One
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     Prerequisites
   </a>
@@ -812,22 +889,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#exploiting" class="md-nav__link">
-    Exploiting
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
-    <nav class="md-nav" aria-label="Exploiting">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-story" class="md-nav__link">
+    The story
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    Goals
+  </a>
+  
+    <nav class="md-nav" aria-label="Goals">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exploit" class="md-nav__link">
-    Exploit
+  <a href="#hints" class="md-nav__link">
+    Hints
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution-walkthrough" class="md-nav__link">
+    Solution &amp; Walkthrough
+  </a>
   
 </li>
       
@@ -846,59 +944,84 @@
                   
 
 
-<h1 id="scenario-vision-one-xdr-for-containers-detect-malware-upload">Scenario: Vision One XDR for Containers Detect Malware Upload<a class="headerlink" href="#scenario-vision-one-xdr-for-containers-detect-malware-upload" title="Permanent link">&para;</a></h1>
+<h1 id="scenario-runtime-vulnerability-scanning-on-eks-fargate">Scenario: Runtime Vulnerability Scanning on EKS Fargate<a class="headerlink" href="#scenario-runtime-vulnerability-scanning-on-eks-fargate" title="Permanent link">&para;</a></h1>
 <p><strong><em>DRAFT</em></strong></p>
-<h2 id="optional-retrieve-tenant-id-and-token-from-server-workload-protection">Optional: Retrieve Tenant ID and Token from Server &amp; Workload Protection<a class="headerlink" href="#optional-retrieve-tenant-id-and-token-from-server-workload-protection" title="Permanent link">&para;</a></h2>
-<p>You might want to know the tenant ID and token from your Server &amp; Workload Protection to continue using deployment scripts we know from Deep/Workload Security.</p>
-<p>To get them navigate to your instance in Vision One. Then head over to <code>Administration --&gt; Updates --&gt; Software --&gt; Local --&gt; Generate Deployment Scripts...</code></p>
-<p>Either copy the full script or find the tenant ID and token on the very bottom of the script.</p>
-<p>If you save these values to the Playground One configuration with <code>pgo -c</code> the EC2 instances of the ECS (EC2) cluster will get an agent deployed.</p>
-<h3 id="section-vision-one">Section: Vision One<a class="headerlink" href="#section-vision-one" title="Permanent link">&para;</a></h3>
-<p>Vision One Server &amp; Workload Protection does support the deployment script functionality from Cloud One Workload Security. The ECS EC2 cluster can optionally deploy the agent using this mechanism. To enable this</p>
-<p>Set/update:</p>
-<ul>
-<li><code>Server &amp; Workload Protection tenant ID</code>: The tenant ID to use. If the tenant ID is omitted the Server &amp; Workload Protection configuration will be skipped.</li>
-<li><code>Server &amp; Workload Protection token</code>: The token to use</li>
-<li><code>Server &amp; Workload Protection policy ID</code>: The policy to assign</li>
-</ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Vision One XDR for Containers linked with Playground One VPC</li>
-<li>Playground One ECS Cluster with EC2 instances</li>
-<li>Running app: Java-Goof running on vulnerable Tomcat</li>
-<li>Server &amp; Workload Protection configuration set for</li>
-<li>Tenant ID</li>
-<li>Token</li>
-<li>Policy ID of policy with Anti Malware protection enabled</li>
+<li>Vision One Container Security</li>
+<li>Playground One EKS Cluster with Fargate Profile</li>
+<li>Playground One Scenarios</li>
+<li>Running app: Nginx</li>
 </ul>
-<p>Eventually set/update the Server &amp; Workload Protection configuration</p>
+<p>Ensure to have the EKS Cluster with the Fargate profile enabled up and running:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--config
-</code></pre></div>
-<p>Ensure to have an ECS Cluster up and running:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>ecs
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># verify that:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># EKS - create Fargate profile [true]:</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># is true, otherwise set it to true</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># If you changed the config for Fargate run</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>pgo<span class="w"> </span>--init<span class="w"> </span>eks
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>pgo<span class="w"> </span>--init<span class="w"> </span>scenarios
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Ensure to have eks and the scenarios deployed</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>eks
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>scenarios
 </code></pre></div>
 <h2 id="disclaimer">Disclaimer<a class="headerlink" href="#disclaimer" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p><strong><em>Note:</em></strong> It is highly recommended to have the <code>awsone.access_ip</code> set to a single IP or at least a small CIDR before deploying the ECS cluster. This will prevent anonymous users playing with your environmnent. Remember: we're using vulnerable apps.</p>
+<p><strong><em>Note:</em></strong> It is highly recommended to have the <code>awsone.access_ip</code> set to a single IP or at least a small CIDR before deploying the EKS cluster. This will prevent anonymous users playing with your environmnent. Remember: we're using vulnerable apps.</p>
 </blockquote>
-<h2 id="exploiting">Exploiting<a class="headerlink" href="#exploiting" title="Permanent link">&para;</a></h2>
-<p>First, retrieve the load balancer DNS name</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pgo<span class="w"> </span>-o<span class="w"> </span>ecs
-</code></pre></div>
-<p>Example output with ECS EC2:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">cluster_name_ec2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;playground-ecs-ec2&quot;</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">loadbalancer_dns_ec2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com&quot;</span>
-</code></pre></div>
-<h3 id="exploit">Exploit<a class="headerlink" href="#exploit" title="Permanent link">&para;</a></h3>
-<p>To access the <code>todolist</code> application append <code>/todolist</code> to the loadbalancer DNS name in your browser.</p>
-<p>Navigate to <a href="http://playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com/todolist">http://playground-ecs-ec2-135067951.eu-central-1.elb.amazonaws.com/todolist</a></p>
-<p>Click <code>[Sign in]</code></p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This scenario showcases the vulnerability detection functionalities of Vision One Container Security at runtime for EKS with Fargate profiles.</p>
+<p>By the end of the scenario, you will understand and learn the following:</p>
 <ul>
-<li>Username: <code>foo@bar.org</code></li>
-<li>Password: <code>foobar</code></li>
+<li>Reviewing vulnerability findings and searching for a specific vulnerability</li>
 </ul>
-<p>Then navigate to <code>Upload files</code> and upload some malware.</p>
-<p>View events in Server &amp; Workload Protection</p>
+<h2 id="the-story">The story<a class="headerlink" href="#the-story" title="Permanent link">&para;</a></h2>
+<p>Here we're checking for the <a href="https://nvd.nist.gov/vuln/detail/cve-2021-3711">CVE-2021-3711</a> in OpenSSL with a criticality of 9.8 (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H).</p>
+<p>You want to search this specific vulnerability in your production environment.</p>
+<h2 id="goals">Goals<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h2>
+<p>The goal of this scenario is to identify the vulnerable deployment and proof that it is vulnerable.</p>
+<h3 id="hints">Hints<a class="headerlink" href="#hints" title="Permanent link">&para;</a></h3>
+<details>
+<summary>Click here</summary>
+
+✨ Didn't find the vulnerable deployment?
+<br><br>
+Head over to Container Security --> Runtime vulnerability and search for CVE-2017-5638. 🙌
+<br><br>
+
+</details>
+
+<h2 id="solution-walkthrough">Solution &amp; Walkthrough<a class="headerlink" href="#solution-walkthrough" title="Permanent link">&para;</a></h2>
+<details>
+<summary>Click here</summary>
+
+Head over to Attack Surface Risk Managemet and search for the vulnerability CVE-2021-3711
+
+Identify the vulnerable deployment/container.
+
+Find out the node(s) running the pod(s).
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-A<span class="w"> </span>-o<span class="w"> </span>wide
+</code></pre></div>
+
+You'll see that the deployment is running within the `fargate` namespace. The name(s) of the worker nodes start with `fargate-ip-...` which indicate that these nodes are AWS managed Fargate nodes.
+
+Checking the services in the namespace `fargate` 
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>kubectl<span class="w"> </span>-n<span class="w"> </span>fargate<span class="w"> </span>get<span class="w"> </span>services
+</code></pre></div>
+
+tells us
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>NAME            TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>nginx-service   NodePort   172.20.48.60   &lt;none&gt;        80:32443/TCP   26m
+</code></pre></div>
+
+🎉 Success 🎉
+
+</details>
 
 
 

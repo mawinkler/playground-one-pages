@@ -400,13 +400,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#section-vision-one" class="md-nav__link">
-    Section: Vision One
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -653,14 +646,14 @@
       
       
         <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
-          Container Security
+          Container Protection
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5_2">
           <span class="md-nav__icon md-icon"></span>
-          Container Security
+          Container Protection
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -726,6 +719,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../scenarios/container-security-eks-fargate/" class="md-nav__link">
+        Runtime Vulnerability Scan on EKS Fargate
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../scenarios/container-security-eks-runtime-violations/" class="md-nav__link">
         Runtime Violations
       </a>
@@ -757,60 +764,12 @@
       
       
         <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
-          Server & Workload Protection
+          Miscellaneous
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5_3">
-          <span class="md-nav__icon md-icon"></span>
-          Server & Workload Protection
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../scenarios/server-workload-ecs-ec2-malware-upload/" class="md-nav__link">
-        Malware Upload
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
-          Miscellaneous
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5_4">
           <span class="md-nav__icon md-icon"></span>
           Miscellaneous
         </label>
@@ -824,20 +783,6 @@
     <li class="md-nav__item">
       <a href="../../scenarios/hunger-check/" class="md-nav__link">
         Hunger Check
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../scenarios/sentry/" class="md-nav__link">
-        Sentry
       </a>
     </li>
   
@@ -945,13 +890,6 @@
           <li class="md-nav__item">
   <a href="#section-cloud-one" class="md-nav__link">
     Section: Cloud One
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#section-vision-one" class="md-nav__link">
-    Section: Vision One
   </a>
   
 </li>
@@ -1077,14 +1015,6 @@
 <li><code>Container Security policy ID</code>: To get the Policy ID for your Container Security deployment head over to Container Security on Cloud One and navigate to the policy. The Policy ID is the part after the last <code>/</code> in the URL: <a href="https://cloudone.trendmicro.com/container/policies/relaxed_playground-2OxPQEiC6Jo4dbDVfebKiZMured">https://cloudone.trendmicro.com/container/policies/relaxed_playground-2OxPQEiC6Jo4dbDVfebKiZMured</a><br>Here: <code>relaxed_playground-2OxPQEiC6Jo4dbDVfebKiZMured</code></li>
 <li><code>Cloud One region name</code>: Set your Cloud One region here if it is not <code>trend-us-1</code>.</li>
 <li><code>Cloud One API Key</code>: Your Cloud One API Key with full access. This is mandatory.</li>
-</ul>
-<h3 id="section-vision-one">Section: Vision One<a class="headerlink" href="#section-vision-one" title="Permanent link">&para;</a></h3>
-<p>Vision One Server &amp; Workload Protection does support the deployment script functionality from Cloud One Workload Security. The ECS EC2 cluster can optionally deploy the agent using this mechanism. To enable this</p>
-<p>Set/update:</p>
-<ul>
-<li><code>Server &amp; Workload Protection tenant ID</code>: The tenant ID to use. If the tenant ID is omitted the Server &amp; Workload Protection configuration will be skipped.</li>
-<li><code>Server &amp; Workload Protection token</code>: The token to use</li>
-<li><code>Server &amp; Workload Protection policy ID</code>: The policy to assign</li>
 </ul>
 <p>Now, continue with the chapter <a href="../life-cycle/">General Life-Cycle</a>.</p>
 

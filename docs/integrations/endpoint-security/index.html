@@ -448,13 +448,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#optional-retrieve-tenant-id-and-token-from-server-workload-protection" class="md-nav__link">
-    Optional: Retrieve Tenant ID and Token from Server &amp; Workload Protection
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -633,14 +626,14 @@
       
       
         <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
-          Container Security
+          Container Protection
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5_2">
           <span class="md-nav__icon md-icon"></span>
-          Container Security
+          Container Protection
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -706,6 +699,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../scenarios/container-security-eks-fargate/" class="md-nav__link">
+        Runtime Vulnerability Scan on EKS Fargate
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../scenarios/container-security-eks-runtime-violations/" class="md-nav__link">
         Runtime Violations
       </a>
@@ -737,60 +744,12 @@
       
       
         <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
-          Server & Workload Protection
+          Miscellaneous
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5_3">
-          <span class="md-nav__icon md-icon"></span>
-          Server & Workload Protection
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../scenarios/server-workload-ecs-ec2-malware-upload/" class="md-nav__link">
-        Malware Upload
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
-          Miscellaneous
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5_4">
           <span class="md-nav__icon md-icon"></span>
           Miscellaneous
         </label>
@@ -804,20 +763,6 @@
     <li class="md-nav__item">
       <a href="../../scenarios/hunger-check/" class="md-nav__link">
         Hunger Check
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../scenarios/sentry/" class="md-nav__link">
-        Sentry
       </a>
     </li>
   
@@ -914,13 +859,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#optional-retrieve-tenant-id-and-token-from-server-workload-protection" class="md-nav__link">
-    Optional: Retrieve Tenant ID and Token from Server &amp; Workload Protection
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -993,11 +931,6 @@
 <p>The Atomic Launcher is stored within the downloads folder of each of the instances.</p>
 <p>The unzip password is <code>virus</code>.</p>
 <p>You should disable Anti Malware protection und set the IPS module to detect only before using Atomic Launcher :-).</p>
-<h2 id="optional-retrieve-tenant-id-and-token-from-server-workload-protection">Optional: Retrieve Tenant ID and Token from Server &amp; Workload Protection<a class="headerlink" href="#optional-retrieve-tenant-id-and-token-from-server-workload-protection" title="Permanent link">&para;</a></h2>
-<p>You might want to know the tenant ID and token from your Server &amp; Workload Protection to continue using deployment scripts we know from Deep/Workload Security.</p>
-<p>To get them navigate to your instance in Vision One. Then head over to <code>Administration --&gt; Updates --&gt; Software --&gt; Local --&gt; Generate Deployment Scripts...</code></p>
-<p>Either copy the full script or find the tenant ID and token on the very bottom of the script.</p>
-<p>If you save these values to the Playground One configuration with <code>pgo -c</code> the EC2 instances of the ECS (EC2) cluster will get an agent deployed.</p>
 
 
 
