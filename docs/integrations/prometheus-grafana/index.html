@@ -908,13 +908,13 @@
 <p>Query, visualize, alert on, and understand your data no matter where it’s stored. With Grafana you can create, explore, and share all of your data through beautiful, flexible dashboards.</p>
 <h2 id="playground-one-integration">Playground One Integration<a class="headerlink" href="#playground-one-integration" title="Permanent link">&para;</a></h2>
 <p>As soon as you create your EKS cluster with Playground One and have Prometheus enabled it Grafana and Prometheus will get deployed. They are already preconfigured for your convenience.</p>
-<p>To enable/disable the Prometheus &amp; Grafana combo and set the administrator password run <code>pgo --configure</code></p>
+<p>To enable/disable the Prometheus &amp; Grafana combo and to set the administrator password run <code>pgo --configure</code></p>
 <p>To get the DNS names of Prometheus and Grafana check the outputs of the EKS configuraiton with <code>pgo -o eks</code></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Example</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">loadbalancer_dns_grafana</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;k8s-promethe-promethe-95d61839fe-676288571.eu-central-1.elb.amazonaws.com&quot;</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nv">loadbalancer_dns_prometheus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;k8s-promethe-promethe-a040b2a261-633411715.eu-central-1.elb.amazonaws.com&quot;</span>
 </code></pre></div>
-<p>Copy the Grafana URL to your browser and authenticate with <code>admin/playground</code>.</p>
+<p>Copy the Grafana URL to your browser and authenticate with <code>admin</code> and the password you have set.</p>
 <p>Then head over to Dashboards </p>
 <p><img alt="alt text" src="../images/grafana-home.png" title="Dashboards" /></p>
 <p>and search for <code>kubernetes</code>:</p>
