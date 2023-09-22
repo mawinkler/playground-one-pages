@@ -995,23 +995,20 @@
 <ul>
 <li>WebApp System-Monitor (see <a href="../../scenarios/container-security-eks-escape/">Escape to the Host System</a>)</li>
 <li>WebApp Health-Check (see <a href="../../scenarios/container-security-eks-dind-exploitation/">ContainerD Abuse</a>)</li>
+<li>WebApp Hunger-Check (see <a href="../../scenarios/hunger-check/">ContainerD Abuse</a>)</li>
 <li>Java-Goof</li>
 <li>WebApp OpenSSL3</li>
+<li>Nginx</li>
 </ul>
 <h2 id="ecs-clusters">ECS Clusters<a class="headerlink" href="#ecs-clusters" title="Permanent link">&para;</a></h2>
 <p><em>Configuration located in <code>awsone/5-cluster-ecs</code></em></p>
 <p><em>Depends on <code>awsone/2-network</code></em></p>
 <p>Here we're building an ECS cluster using EC2 instances and/or Fargate profile. Key features:</p>
 <ul>
-<li>Two autoscaling groups (on-demand and spot) when using the EC2 variant</li>
-<li>Fargate profile with a mix of on-demand and spot instances</li>
+<li>Autoscaling group for spot instances when using the EC2 variant. On-demand autoscaler can be enabled in Terraform script.</li>
+<li>Fargate profile with spot instances. Fargate with on-demand instances can be enabled in Terraform script.</li>
 <li>ALB Load Balancer</li>
-<li>Located in the private subnets</li>
 <li>Automatic deployment of a vulnerable service (Java-Goof)</li>
-</ul>
-<p>Currently, the following (vulnerable) service is defined:</p>
-<ul>
-<li>Java-Goof</li>
 </ul>
 
 
