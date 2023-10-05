@@ -795,8 +795,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#i-cannot-destroy-the-ecs-ec2-cluster-with-terraform-destroy" class="md-nav__link">
-    I cannot destroy the ECS EC2 cluster with terraform destroy
+  <a href="#i-cannot-destroy-the-ecs-clusters" class="md-nav__link">
+    I cannot destroy the ECS cluster(s)
   </a>
   
 </li>
@@ -872,8 +872,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#i-cannot-destroy-the-ecs-ec2-cluster-with-terraform-destroy" class="md-nav__link">
-    I cannot destroy the ECS EC2 cluster with terraform destroy
+  <a href="#i-cannot-destroy-the-ecs-clusters" class="md-nav__link">
+    I cannot destroy the ECS cluster(s)
   </a>
   
 </li>
@@ -970,8 +970,11 @@
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
 </code></pre></div>
 <p>Then reaply your eks, ecs, ec2 or scenarios by <code>pgo --apply &lt;configuration&gt;</code>.</p>
-<h2 id="i-cannot-destroy-the-ecs-ec2-cluster-with-terraform-destroy">I cannot destroy the ECS EC2 cluster with <code>terraform destroy</code><a class="headerlink" href="#i-cannot-destroy-the-ecs-ec2-cluster-with-terraform-destroy" title="Permanent link">&para;</a></h2>
-<p>The problem is that this new capacity_provider property on the aws_ecs_cluster introduces a new dependency:
+<h2 id="i-cannot-destroy-the-ecs-clusters">I cannot destroy the ECS cluster(s)<a class="headerlink" href="#i-cannot-destroy-the-ecs-clusters" title="Permanent link">&para;</a></h2>
+<p>If you have enabled <code>Runtime Scanning</code> and/or <code>Runtime Security</code> in your Vision One console for your ECS clusters disable them and press <code>[Save]</code>. The clusters should then be successfully destroyed.</p>
+<p><strong><em>Background:</em></strong> Vision One injects addisional tasks to the ECS clusters which are not known by the playground. Even if you delete the task in the AWS console they are injected again by Vision One. This causes a remaining dependency on the AWS side which prevents the destruction of ECS.</p>
+<p><strong><em>Special case for ECS EC2</em></strong></p>
+<p>There's a known bug in Terraform. The problem is that this new capacity_provider property on the aws_ecs_cluster introduces a new dependency:
 aws_ecs_cluster depends on aws_ecs_capacity_provider depends on aws_autoscaling_group.</p>
 <p>This causes terraform to destroy the ECS cluster before the autoscaling group, which is the wrong way around: the autoscaling group must be destroyed first because the cluster must contain zero instances before it can be destroyed.</p>
 <p>This leads to Terraform error out with the cluster partly alive and the capacity providers fully alive.</p>
