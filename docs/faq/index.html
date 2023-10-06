@@ -781,8 +781,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-update-the-playgounr-one" class="md-nav__link">
-    How to update the Playgounr One?
+  <a href="#how-to-update-the-playgound-one" class="md-nav__link">
+    How to update the Playgound One?
   </a>
   
 </li>
@@ -795,8 +795,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#my-ip-address-has-changed-and-i-cannot-access-my-apps-anymore" class="md-nav__link">
-    My IP address has changed and I cannot access my apps anymore
+  <a href="#my-ip-address-has-changed-and-i-cannot-access-my-environment-anymore" class="md-nav__link">
+    My IP address has changed and I cannot access my environment anymore
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-restarted-my-cloud9-instance-and-i-cannot-access-my-environment-anymore" class="md-nav__link">
+    I restarted my Cloud9 instance and I cannot access my environment anymore
   </a>
   
 </li>
@@ -865,8 +872,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-update-the-playgounr-one" class="md-nav__link">
-    How to update the Playgounr One?
+  <a href="#how-to-update-the-playgound-one" class="md-nav__link">
+    How to update the Playgound One?
   </a>
   
 </li>
@@ -879,8 +886,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#my-ip-address-has-changed-and-i-cannot-access-my-apps-anymore" class="md-nav__link">
-    My IP address has changed and I cannot access my apps anymore
+  <a href="#my-ip-address-has-changed-and-i-cannot-access-my-environment-anymore" class="md-nav__link">
+    My IP address has changed and I cannot access my environment anymore
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-restarted-my-cloud9-instance-and-i-cannot-access-my-environment-anymore" class="md-nav__link">
+    I restarted my Cloud9 instance and I cannot access my environment anymore
   </a>
   
 </li>
@@ -915,7 +929,7 @@
 
 
 <h1 id="frequently-asked-questions">Frequently asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permanent link">&para;</a></h1>
-<h2 id="how-to-update-the-playgounr-one">How to update the Playgounr One?<a class="headerlink" href="#how-to-update-the-playgounr-one" title="Permanent link">&para;</a></h2>
+<h2 id="how-to-update-the-playgound-one">How to update the Playgound One?<a class="headerlink" href="#how-to-update-the-playgound-one" title="Permanent link">&para;</a></h2>
 <p>The Playground is under contiuous development. Even if I try to not implement breaking changes please follow the steps below <strong><em>before</em></strong> updating it to the latest version:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Destroy your deployments</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>all
@@ -962,7 +976,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pgo<span class="w"> </span>--init<span class="w"> </span>nw
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
 </code></pre></div>
-<h2 id="my-ip-address-has-changed-and-i-cannot-access-my-apps-anymore">My IP address has changed and I cannot access my apps anymore<a class="headerlink" href="#my-ip-address-has-changed-and-i-cannot-access-my-apps-anymore" title="Permanent link">&para;</a></h2>
+<h2 id="my-ip-address-has-changed-and-i-cannot-access-my-environment-anymore">My IP address has changed and I cannot access my environment anymore<a class="headerlink" href="#my-ip-address-has-changed-and-i-cannot-access-my-environment-anymore" title="Permanent link">&para;</a></h2>
 <p>If you need to change the access IP later on, maybe your provider assigned you a new one, follow these steps:</p>
 <ol>
 <li>Run <code>pgo --updateip</code> and set the new IP address as described in <a href="../getting-started/configuration/#section-playground-one">Getting Started Configuration</a></li>
@@ -991,6 +1005,8 @@
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
 </code></pre></div>
 <p>Then reapply your eks, ecs, ec2 or scenarios by <code>pgo --apply &lt;configuration&gt;</code>.</p>
+<h2 id="i-restarted-my-cloud9-instance-and-i-cannot-access-my-environment-anymore">I restarted my Cloud9 instance and I cannot access my environment anymore<a class="headerlink" href="#i-restarted-my-cloud9-instance-and-i-cannot-access-my-environment-anymore" title="Permanent link">&para;</a></h2>
+<p>See above.</p>
 <h2 id="i-cannot-destroy-the-ecs-clusters">I cannot destroy the ECS cluster(s)<a class="headerlink" href="#i-cannot-destroy-the-ecs-clusters" title="Permanent link">&para;</a></h2>
 <p>If you have enabled <code>Runtime Scanning</code> and/or <code>Runtime Security</code> in your Vision One console for your ECS clusters disable them and press <code>[Save]</code>. The clusters should then be successfully destroyed.</p>
 <p><strong><em>Background:</em></strong> Vision One injects addisional tasks to the ECS clusters which are not known by the playground. Even if you delete the task in the AWS console they are injected again by Vision One. This causes a remaining dependency on the AWS side which prevents the destruction of ECS.</p>
