@@ -954,22 +954,13 @@
 <p>Approve the actions by entering <code>yes</code>, otherwise press <code>^c</code>.</p>
 </li>
 </ol>
-<p>If you have applied the ecs and/or scenarios configuration(s) you need to init and apply them again. This will update the IP address(es) in the ingresses:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># ecs</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>pgo<span class="w"> </span>--init<span class="w"> </span>ecs
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>ecs
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># scenarios</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>pgo<span class="w"> </span>--init<span class="w"> </span>scenarios
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>scenarios
-</code></pre></div>
-<p>This should be completed within seconds.</p>
+<p>This should be completed within a minute.</p>
 <p>If the above didn't work for you and you still need to update the IP(s) you need to run</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>all
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>pgo<span class="w"> </span>--init<span class="w"> </span>all
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>all
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>pgo<span class="w"> </span>--init<span class="w"> </span>all
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
 </code></pre></div>
-<p>Then reaply your eks, ecs, ec2 or scenarios by <code>pgo --apply &lt;configuration&gt;</code>.</p>
+<p>Then reapply your eks, ecs, ec2 or scenarios by <code>pgo --apply &lt;configuration&gt;</code>.</p>
 <h2 id="i-cannot-destroy-the-ecs-clusters">I cannot destroy the ECS cluster(s)<a class="headerlink" href="#i-cannot-destroy-the-ecs-clusters" title="Permanent link">&para;</a></h2>
 <p>If you have enabled <code>Runtime Scanning</code> and/or <code>Runtime Security</code> in your Vision One console for your ECS clusters disable them and press <code>[Save]</code>. The clusters should then be successfully destroyed.</p>
 <p><strong><em>Background:</em></strong> Vision One injects addisional tasks to the ECS clusters which are not known by the playground. Even if you delete the task in the AWS console they are injected again by Vision One. This causes a remaining dependency on the AWS side which prevents the destruction of ECS.</p>
