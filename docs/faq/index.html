@@ -781,6 +781,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#how-to-update-the-playgounr-one" class="md-nav__link">
+    How to update the Playgounr One?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#im-running-the-playground-on-a-cloud9-and-want-to-restrict-access-to-my-home-ip" class="md-nav__link">
     I'm running the Playground on a Cloud9 and want to restrict access to my home IP
   </a>
@@ -858,6 +865,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#how-to-update-the-playgounr-one" class="md-nav__link">
+    How to update the Playgounr One?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#im-running-the-playground-on-a-cloud9-and-want-to-restrict-access-to-my-home-ip" class="md-nav__link">
     I'm running the Playground on a Cloud9 and want to restrict access to my home IP
   </a>
@@ -901,6 +915,22 @@
 
 
 <h1 id="frequently-asked-questions">Frequently asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permanent link">&para;</a></h1>
+<h2 id="how-to-update-the-playgounr-one">How to update the Playgounr One?<a class="headerlink" href="#how-to-update-the-playgounr-one" title="Permanent link">&para;</a></h2>
+<p>The Playground is under contiuous development. Even if I try to not implement breaking changes please follow the steps below <strong><em>before</em></strong> updating it to the latest version:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Destroy your deployments</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>all
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Destroy your network</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>nw
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Do the update</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>git<span class="w"> </span>pull
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># Run config</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>pgo<span class="w"> </span>--config
+</code></pre></div>
+<p>If everything went well you should be able to recreate your environment. If you run into trouble please open an <a href="https://github.com/mawinkler/playground-one/issues/new">issue</a>.</p>
 <h2 id="im-running-the-playground-on-a-cloud9-and-want-to-restrict-access-to-my-home-ip">I'm running the Playground on a Cloud9 and want to restrict access to my home IP<a class="headerlink" href="#im-running-the-playground-on-a-cloud9-and-want-to-restrict-access-to-my-home-ip" title="Permanent link">&para;</a></h2>
 <p>If you work on a Cloud9 you need to take care on two public IP addresses instead of one when having the playground locally. These are the public IP of your own network (where your own computer is located) and the public IP of your Cloud9.</p>
 <p>Your own IP is required since you likely want to access the applications provided by the Playground One running on EKS, ECS and connect to the EC2 instances.</p>
@@ -912,25 +942,25 @@
 <li>Cloud 9 instance: <code>3.123.18.11</code> (get it from the EC2 console), and</li>
 <li>Client at home: <code>87.170.6.193</code></li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w"> </span>__<span class="w">                 </span>__<span class="w">   </span>__<span class="w">   </span>__<span class="w">             </span>__<span class="w">      </span>__<span class="w">        </span>___<span class="w"> </span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">|</span>__<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w">     </span>/<span class="se">\ </span><span class="w"> </span><span class="se">\ </span>/<span class="w"> </span>/<span class="w"> </span>_<span class="sb">`</span><span class="w"> </span><span class="p">|</span>__<span class="o">)</span><span class="w"> </span>/<span class="w">  </span><span class="se">\ </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\ </span><span class="w">   </span>/<span class="w">  </span><span class="se">\ </span><span class="p">|</span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>__<span class="w">  </span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">|</span><span class="w">    </span><span class="p">|</span>___<span class="w"> </span>/~~<span class="se">\ </span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\_</span>_&gt;<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\ \_</span>_/<span class="w"> </span><span class="se">\_</span>_/<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span>__/<span class="w">    </span><span class="se">\_</span>_/<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span>___<span class="w"> </span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>...
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>Please<span class="w"> </span>set/update<span class="w"> </span>your<span class="w"> </span>Playground<span class="w"> </span>One<span class="w"> </span>configuration
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Access<span class="w"> </span>IPs/CIDRs<span class="w"> </span><span class="o">[]</span>:<span class="w"> </span><span class="m">3</span>.123.18.11,<span class="w"> </span><span class="m">87</span>.170.6.193
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>...
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w"> </span>__<span class="w">                 </span>__<span class="w">   </span>__<span class="w">   </span>__<span class="w">             </span>__<span class="w">      </span>__<span class="w">        </span>___<span class="w"> </span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">|</span>__<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w">     </span>/<span class="se">\ </span><span class="w"> </span><span class="se">\ </span>/<span class="w"> </span>/<span class="w"> </span>_<span class="sb">`</span><span class="w"> </span><span class="p">|</span>__<span class="o">)</span><span class="w"> </span>/<span class="w">  </span><span class="se">\ </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\ </span><span class="w">   </span>/<span class="w">  </span><span class="se">\ </span><span class="p">|</span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>__<span class="w">  </span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">|</span><span class="w">    </span><span class="p">|</span>___<span class="w"> </span>/~~<span class="se">\ </span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\_</span>_&gt;<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\ \_</span>_/<span class="w"> </span><span class="se">\_</span>_/<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span>__/<span class="w">    </span><span class="se">\_</span>_/<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span>___<span class="w"> </span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>...
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Please<span class="w"> </span>set/update<span class="w"> </span>your<span class="w"> </span>Playground<span class="w"> </span>One<span class="w"> </span>configuration
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Access<span class="w"> </span>IPs/CIDRs<span class="w"> </span><span class="o">[]</span>:<span class="w"> </span><span class="m">3</span>.123.18.11,<span class="w"> </span><span class="m">87</span>.170.6.193
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>...
 </code></pre></div>
 <p>The above will automatically be converted into the correct CIDRs <code>3.123.18.11/32, 87.170.6.193/32</code></p>
 <p>To simplify this process you can easily let the config tool determine the Cloud9 public IP address by entering the keyword <code>pub</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>...
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Please<span class="w"> </span>set/update<span class="w"> </span>your<span class="w"> </span>Playground<span class="w"> </span>One<span class="w"> </span>configuration
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Access<span class="w"> </span>IPs/CIDRs<span class="w"> </span><span class="o">[]</span>:<span class="w"> </span>pub,<span class="w"> </span><span class="m">87</span>.170.6.193
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>...
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>...
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Please<span class="w"> </span>set/update<span class="w"> </span>your<span class="w"> </span>Playground<span class="w"> </span>One<span class="w"> </span>configuration
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Access<span class="w"> </span>IPs/CIDRs<span class="w"> </span><span class="o">[]</span>:<span class="w"> </span>pub,<span class="w"> </span><span class="m">87</span>.170.6.193
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>...
 </code></pre></div>
 <p>Then run</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pgo<span class="w"> </span>--init<span class="w"> </span>nw
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pgo<span class="w"> </span>--init<span class="w"> </span>nw
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
 </code></pre></div>
 <h2 id="my-ip-address-has-changed-and-i-cannot-access-my-apps-anymore">My IP address has changed and I cannot access my apps anymore<a class="headerlink" href="#my-ip-address-has-changed-and-i-cannot-access-my-apps-anymore" title="Permanent link">&para;</a></h2>
 <p>If you need to change the access IP later on, maybe your provider assigned you a new one, follow these steps:</p>
@@ -938,16 +968,16 @@
 <li>Run <code>pgo --updateip</code> and set the new IP address as described in <a href="../getting-started/configuration/#section-playground-one">Getting Started Configuration</a></li>
 <li>
 <p>Terraform tells you which actions will be performed when approving them. Validate that there will be only one in-place update on the resource <code>module.ec2.aws_security_group.sg["public"]</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  ~ update in-place
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Terraform will perform the following actions:
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  # module.ec2.aws_security_group.sg[&quot;public&quot;] will be updated in-place
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  ~ resource &quot;aws_security_group&quot; &quot;sg&quot; {
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        id                     = &quot;sg-01e76a72ffd468baa&quot;
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>      ~ ingress                = [
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>...
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  ~ update in-place
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Terraform will perform the following actions:
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  # module.ec2.aws_security_group.sg[&quot;public&quot;] will be updated in-place
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  ~ resource &quot;aws_security_group&quot; &quot;sg&quot; {
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>        id                     = &quot;sg-01e76a72ffd468baa&quot;
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>      ~ ingress                = [
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>...
 </code></pre></div>
 </li>
 <li>
@@ -956,9 +986,9 @@
 </ol>
 <p>This should be completed within a minute.</p>
 <p>If the above didn't work for you and you still need to update the IP(s) you need to run</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>all
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>pgo<span class="w"> </span>--init<span class="w"> </span>all
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>all
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>pgo<span class="w"> </span>--init<span class="w"> </span>all
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
 </code></pre></div>
 <p>Then reapply your eks, ecs, ec2 or scenarios by <code>pgo --apply &lt;configuration&gt;</code>.</p>
 <h2 id="i-cannot-destroy-the-ecs-clusters">I cannot destroy the ECS cluster(s)<a class="headerlink" href="#i-cannot-destroy-the-ecs-clusters" title="Permanent link">&para;</a></h2>
