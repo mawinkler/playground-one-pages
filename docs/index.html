@@ -994,8 +994,8 @@
 </tr>
 </tbody>
 </table>
-<p>1) Deleting the cluster requires the deactivation runtime scanning and runtime security before destroying the cluster. If destroy process <code>module.ecs-ec2[0].module.ecs_service.aws_ecs_service.this[0]: Still destroying...</code> hangs for a couple of minutes manually terminate the autoscaling group <code>pgo4-ecs-ec2-asg-spot-...</code> in AWS.
-2) Activating Runtime Security requires some manual steps, see <a href="https://docs.trendmicro.com/en-us/enterprise/trend-vision-one/cloudsecurityoperati/about-container-secu/next-steps/containerinventory/ecs-fargate-deployme/ecs-fargate-add.aspx">documentation</a>. Deleting the cluster requires the deactivation of runtime scanning and runtime security before destroying the cluster. Newly created task definitions must be removed manually.</p>
+<p>1) Deleting the cluster requires the deactivation runtime scanning and runtime security before destroying the cluster. If destroy process <code>module.ecs-ec2[0].module.ecs_service.aws_ecs_service.this[0]: Still destroying...</code> hangs for a couple of minutes manually terminate the autoscaling group <code>pgo4-ecs-ec2-asg-spot-...</code> in AWS.</p>
+<p>2) Activating Runtime Security requires some manual steps, see <a href="https://docs.trendmicro.com/en-us/enterprise/trend-vision-one/cloudsecurityoperati/about-container-secu/next-steps/containerinventory/ecs-fargate-deployme/ecs-fargate-add.aspx">documentation</a>. Deleting the cluster requires the deactivation of runtime scanning and runtime security before destroying the cluster. Newly created task definitions must be removed manually.</p>
 <h2 id="cli-commands-of-the-playground">CLI Commands of the Playground<a class="headerlink" href="#cli-commands-of-the-playground" title="Permanent link">&para;</a></h2>
 <p>Besides the obvious cli tools like <code>kubectl</code>, etc. the Playground offers you additional commands shown in the table below (and more):</p>
 <table>
