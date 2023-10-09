@@ -256,15 +256,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#currently-work-in-progress" class="md-nav__link">
-    Currently Work in Progress
+  <a href="#requirements" class="md-nav__link">
+    Requirements
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#requirements-and-support-matrix" class="md-nav__link">
-    Requirements and Support Matrix
+  <a href="#system-health" class="md-nav__link">
+    System Health
   </a>
   
 </li>
@@ -863,15 +863,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#currently-work-in-progress" class="md-nav__link">
-    Currently Work in Progress
+  <a href="#requirements" class="md-nav__link">
+    Requirements
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#requirements-and-support-matrix" class="md-nav__link">
-    Requirements and Support Matrix
+  <a href="#system-health" class="md-nav__link">
+    System Health
   </a>
   
 </li>
@@ -921,17 +921,81 @@
 <ul>
 <li>Initial release</li>
 </ul>
-<h2 id="currently-work-in-progress">Currently Work in Progress<a class="headerlink" href="#currently-work-in-progress" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Fine-tuning and fixing bugs :-)</li>
-<li>Documentation of scenarios and adapting to changes in Vision One</li>
-</ul>
-<h2 id="requirements-and-support-matrix">Requirements and Support Matrix<a class="headerlink" href="#requirements-and-support-matrix" title="Permanent link">&para;</a></h2>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
 <p>The Playground One is designed to work with AWS and is tested these operating systems</p>
 <ul>
 <li>Ubuntu Bionic and newer</li>
 <li>Cloud9 with Ubuntu</li>
 </ul>
+<h2 id="system-health">System Health<a class="headerlink" href="#system-health" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Configuration</th>
+<th>Operational</th>
+<th>Known Issues</th>
+<th>Vision One Cloud Security</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EC2 Linux</td>
+<td>Yes</td>
+<td>None</td>
+<td>V1 Server &amp; Workload Protection</td>
+</tr>
+<tr>
+<td>EC2 Windows</td>
+<td>Yes</td>
+<td>None</td>
+<td>V1 Server &amp; Workload Protection</td>
+</tr>
+<tr>
+<td>EKS EC2</td>
+<td>Yes</td>
+<td>None</td>
+<td>V1CS Runtime Scanning<br>V1CS Runtime Security<br>OAT Generation</td>
+</tr>
+<tr>
+<td>EKS Fargate</td>
+<td>WIP</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>EKS Calico</td>
+<td>WIP</td>
+<td>Unstable</td>
+<td></td>
+</tr>
+<tr>
+<td>EKS Prometheus</td>
+<td>Yes</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>EKS Trivy</td>
+<td>Yes</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>ECS EC2</td>
+<td>Yes</td>
+<td>See 1)</td>
+<td>V1CS Runtime Scanning<br>V1CS Runtime Security</td>
+</tr>
+<tr>
+<td>ECS Fargate</td>
+<td>Yes</td>
+<td>See 2)</td>
+<td>V1CS Runtime Scanning<br>V1CS Runtime Security</td>
+</tr>
+</tbody>
+</table>
+<p>1) Deleting the cluster requires the deactivation runtime scanning and runtime security before destroying the cluster. If destroy process <code>module.ecs-ec2[0].module.ecs_service.aws_ecs_service.this[0]: Still destroying...</code> hangs for a couple of minutes manually terminate the autoscaling group <code>pgo4-ecs-ec2-asg-spot-...</code> in AWS.
+2) Activating Runtime Security requires some manual steps, see <a href="https://docs.trendmicro.com/en-us/enterprise/trend-vision-one/cloudsecurityoperati/about-container-secu/next-steps/containerinventory/ecs-fargate-deployme/ecs-fargate-add.aspx">documentation</a>. Deleting the cluster requires the deactivation of runtime scanning and runtime security before destroying the cluster.</p>
 <h2 id="cli-commands-of-the-playground">CLI Commands of the Playground<a class="headerlink" href="#cli-commands-of-the-playground" title="Permanent link">&para;</a></h2>
 <p>Besides the obvious cli tools like <code>kubectl</code>, etc. the Playground offers you additional commands shown in the table below (and more):</p>
 <table>
