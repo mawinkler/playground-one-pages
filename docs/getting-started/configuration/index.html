@@ -400,6 +400,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#section-integrations-configuration" class="md-nav__link">
+    Section: Integrations Configuration
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -894,6 +901,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#section-integrations-configuration" class="md-nav__link">
+    Section: Integrations Configuration
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -972,6 +986,9 @@
 <p>This process will create or update your personal <code>config.yaml</code>. Eventually existing setting will be shown in square brackets. To accept them just press enter.</p>
 <p>The configuration tool is devided into sections. The following chapters walk you through the process.</p>
 <h3 id="section-aws">Section: AWS<a class="headerlink" href="#section-aws" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong><em>Note:</em></strong> This section is skipped when you have any configuration applied.</p>
+</blockquote>
 <p>Set/update:</p>
 <ul>
 <li><code>AWS Account ID</code>: The ID of your AWS subscription (just numbers no <code>-</code>). This is mandatory.</li>
@@ -981,7 +998,7 @@
 <h3 id="section-playground-one">Section: Playground One<a class="headerlink" href="#section-playground-one" title="Permanent link">&para;</a></h3>
 <p>You don't necessarily need to change anything here if you're satisfied with the defaults, but</p>
 <blockquote>
-<p><strong><em>note:</em></strong> It is highly recommended to change the <code>Access IPs/CIDRs</code> to (a) single IP(s) or at least a small CIDR to prevent anonymous users playing with your environmnent. Remember: we might deploy vulnerable applications.</p>
+<p><strong><em>Note:</em></strong> It is highly recommended to change the <code>Access IPs/CIDRs</code> to (a) single IP(s) or at least a small CIDR to prevent anonymous users playing with your environmnent. Remember: we might deploy vulnerable applications.</p>
 </blockquote>
 <p>Set/update:</p>
 <ul>
@@ -1019,6 +1036,13 @@
 <li><code>Container Security policy ID</code>: To get the Policy ID for your Container Security deployment head over to Container Security on Cloud One and navigate to the policy. The Policy ID is the part after the last <code>/</code> in the URL: <a href="https://cloudone.trendmicro.com/container/policies/relaxed_playground-2OxPQEiC6Jo4dbDVfebKiZMured">https://cloudone.trendmicro.com/container/policies/relaxed_playground-2OxPQEiC6Jo4dbDVfebKiZMured</a><br>Here: <code>relaxed_playground-2OxPQEiC6Jo4dbDVfebKiZMured</code></li>
 <li><code>Cloud One region name</code>: Set your Cloud One region here if it is not <code>trend-us-1</code>.</li>
 <li><code>Cloud One API Key</code>: Your Cloud One API Key with full access. This is mandatory.</li>
+</ul>
+<h3 id="section-integrations-configuration">Section: Integrations Configuration<a class="headerlink" href="#section-integrations-configuration" title="Permanent link">&para;</a></h3>
+<p>Set/update:</p>
+<ul>
+<li><code>EKS Calico</code>: Enable/disable the most used Pod network on your EKS cluster. It's currently disabled by default but will come shortly</li>
+<li><code>EKS Prometheus &amp; Grafana</code>: Enable/disable Prometheus. It is an open-source systems monitoring and alerting toolkit integrated with a preconfigured Grafana.</li>
+<li><code>EKS Trivy</code>: Enable/disable Trivy vulnerability scanning for comparison.</li>
 </ul>
 <p>Now, continue with the chapter <a href="../life-cycle/">General Life-Cycle</a>.</p>
 
