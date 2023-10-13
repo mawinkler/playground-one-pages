@@ -961,7 +961,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>awsone
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>└── network (2-network)
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    ├── ec2 (3-instances)
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ├── eks (4-cluster-eks-ec2)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ├── eks (4-cluster-eks)
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    |   ├── eks-deployments (8-cluster-eks-deployments)
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    |   └── scenarios (7-scenarios)
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    └── ecs (5-cluster-ecs)
@@ -982,7 +982,7 @@
 <p>If you store the agent installers for Server and Workload Security in <code>0-files</code> the instances will connect to Vision One.</p>
 <p>You can optionally drop any file or installer in the <code>0-files</code> directory which will then be available in the ec2 instances download folder.</p>
 <h2 id="eks-cluster">EKS Cluster<a class="headerlink" href="#eks-cluster" title="Permanent link">&para;</a></h2>
-<p><em>Configuration located in <code>awsone/4-cluster-eks-ec2</code></em></p>
+<p><em>Configuration located in <code>awsone/4-cluster-eks</code></em></p>
 <p><em>Depends on <code>awsone/2-network</code></em></p>
 <p>So, this is my favorite part. This configuration creates an EKS cluster with some nice key features:</p>
 <ul>
@@ -995,7 +995,7 @@
 </ul>
 <h3 id="cluster-deployments">Cluster Deployments<a class="headerlink" href="#cluster-deployments" title="Permanent link">&para;</a></h3>
 <p><em>Configuration located in <code>awsone/8-cluster-deployments</code></em></p>
-<p><em>Depends on <code>awsone/4-cluster-eks-ec2</code></em></p>
+<p><em>Depends on <code>awsone/4-cluster-eks</code></em></p>
 <p>Currently, the following deployments are defined:</p>
 <ul>
 <li>Container Security</li>
@@ -1004,7 +1004,7 @@
 </ul>
 <h3 id="scenarios">Scenarios<a class="headerlink" href="#scenarios" title="Permanent link">&para;</a></h3>
 <p><em>Configuration located in <code>awsone/7-scenarios</code></em></p>
-<p><em>Depends on <code>awsone/4-cluster-eks-ec2</code></em></p>
+<p><em>Depends on <code>awsone/4-cluster-eks</code></em></p>
 <p>Currently, the following (vulnerable) deployments are defined:</p>
 <ul>
 <li>WebApp System-Monitor (see <a href="../../scenarios/container-security-eks-escape/">Escape to the Host System</a>)</li>
