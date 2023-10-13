@@ -921,16 +921,15 @@
 </ul>
 <p>Required information:</p>
 <ul>
-<li>
-<p>ECS Fargate Cluster name from ecs outputs (<code>pgo -o ecs</code>).</p>
-</li>
-<li>
-<p>On Vision One, head over to <code>Cloud Security Operations --&gt; Container Security --&gt; Container Inventory</code>.</p>
-</li>
+<li>ECS Fargate Cluster name from ecs outputs (<code>pgo -o ecs</code>).</li>
+</ul>
+<p>Steps:</p>
+<ol>
+<li>On Vision One, head over to <code>Cloud Security Operations --&gt; Container Security --&gt; Container Inventory</code>.</li>
 <li>Select <code>[Amazon ECS] --&gt; [Account ID] --&gt; [Region] --&gt; [Your ECS Fargate Cluster]</code>.</li>
 <li>Select a Policy and enable Runtime Security.</li>
 <li>Run <code>ecsfg-add-v1cs &lt;CLUSTER NAME&gt;</code></li>
-</ul>
+</ol>
 <p>Done.</p>
 <blockquote>
 <p><strong><em>Note:</em></strong> Deletion of the cluster via <code>pgo -d ecs</code> will fail until you manually delete the <code>trendmicro-scout</code>-service in the ECS console. Then delete the cluster in the console. There will be an IAM policy starting with your cluster name not being deleted automatically.</p>
