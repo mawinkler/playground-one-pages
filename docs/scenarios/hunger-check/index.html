@@ -989,13 +989,13 @@
 <h1 id="scenario-hunger-check">Scenario: Hunger Check<a class="headerlink" href="#scenario-hunger-check" title="Permanent link">&para;</a></h1>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Playground One EKS Cluster</li>
+<li>Playground One EKS EC2 Cluster</li>
 <li>Playground One Scenarios</li>
 <li>Running app: Hunger Check</li>
 </ul>
-<p>Ensure to have the EKS Cluster including the Scenarios up and running:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>eks
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>scenarios
+<p>Ensure to have the EKS EC2 Cluster including the Scenarios up and running:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>eks-ec2
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>scenarios-ec2
 </code></pre></div>
 <p>We will use the Kubernetes Metrics Server which is an aggregator of resource usage data in our cluster. The Metrics Server isn't deployed by default in Amazon EKS clusters. To deploy it run</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
