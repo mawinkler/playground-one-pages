@@ -903,8 +903,16 @@
 <p>First, set the Artifact Scanner API-Key as an environment variable:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">TMAS_API_KEY</span><span class="o">=</span>&lt;YOUR<span class="w"> </span>API-Key&gt;
 </code></pre></div>
+<blockquote>
+<p><strong><em>Note:</em></strong> tmas defaults to the Vision One service region <code>us-east-1</code>. If your Vision One is serviced from any other region you need to add the <code>--region</code> flag to the scan request.</p>
+<p>Valid regions: <code>[ap-southeast-2 eu-central-1 ap-south-1 ap-northeast-1 ap-southeast-1 us-east-1]</code></p>
+</blockquote>
 <p>To easily scan an image for vulnerabililies run</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>tmas<span class="w"> </span>scan<span class="w"> </span>docker:nginx:latest
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Service region us-east-1</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>tmas<span class="w"> </span>scan<span class="w"> </span>docker:nginx:latest
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Service region eu-central-1</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>tmas<span class="w"> </span>scan<span class="w"> </span>docker:nginx:latest<span class="w"> </span>--region<span class="w"> </span>eu-central-1
 </code></pre></div>
 <p>Scanning an image for vulnerabilities and malware simultaneously is as easy as above</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>tmas<span class="w"> </span>scan<span class="w"> </span>docker:mawinkler/evil2:latest<span class="w"> </span>--malwareScan
