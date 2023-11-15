@@ -363,6 +363,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#deep-security" class="md-nav__link">
+    Deep Security
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -506,6 +513,20 @@
     <li class="md-nav__item">
       <a href="../../integrations/container-security/" class="md-nav__link">
         Container Security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrations/deep-security/" class="md-nav__link">
+        Deep Security
       </a>
     </li>
   
@@ -913,6 +934,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#deep-security" class="md-nav__link">
+    Deep Security
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -931,14 +959,15 @@
 <h1 id="playground-one-configurations">Playground One Configurations<a class="headerlink" href="#playground-one-configurations" title="Permanent link">&para;</a></h1>
 <p>The Playground One has a modular structure as shown in the following tree:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>awsone
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>└── network (2-network)
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    ├── ec2 (3-instances)
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ├── eks (4-cluster-eks-ec2)
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    |   ├── eks-deployments (8-cluster-eks-ec2-deployments)
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    |   └── scenarios (7-scenarios-ec2)
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    ├── eks (4-cluster-eks-fargate)
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    |   └── scenarios (7-scenarios-fargate)
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    └── ecs (5-cluster-ecs)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── network (2-network)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>|   ├── ec2 (3-instances)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>|   ├── eks (4-cluster-eks-ec2)
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>|   |   ├── eks-deployments (8-cluster-eks-ec2-deployments)
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>|   |   └── scenarios (7-scenarios-ec2)
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>|   ├── eks (4-cluster-eks-fargate)
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>|   |   └── scenarios (7-scenarios-fargate)
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>|   └── ecs (5-cluster-ecs)
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>└── dsm (9-deep-security)
 </code></pre></div>
 <p>As we can see, the configuration <code>network</code> is the base for the other configurations. It creates the VPC, Subnets, Route Tables, Security Groups, etc. One can choose to only create the EKS cluster, or ECS cluster, or even the full stack. Everything will reside in the same VPC.</p>
 <p><em>Architecture: Example environment name <code>pgo8</code></em></p>
@@ -1016,6 +1045,25 @@
 <li>Fargate profile with spot instances. Fargate with on-demand instances can be enabled in Terraform script.</li>
 <li>ALB Load Balancer</li>
 <li>Automatic deployment of a vulnerable service (Java-Goof)</li>
+</ul>
+<h2 id="deep-security">Deep Security<a class="headerlink" href="#deep-security" title="Permanent link">&para;</a></h2>
+<p><em>Configuration located in <code>awsone/9-deep-security</code></em></p>
+<p>This configuration is to simulate an on-premise Deep Security environment meant to be used in migration scenarios. For simulation purposes it creates a dedicated VPC with the most commonly used architecture, private and public subnets accross two availability zones. It includes everything what a VPC should have, this is amongst others an internet gateway, NAT gateway, security groups, etc.</p>
+<p>The Deep Security Manager is currently deployed to the public subnet with port <code>4119</code> exposed. It uses an AWS RDS PostgreSQL in the private subnet.</p>
+<p>Current state of implementation:</p>
+<ul>
+<li>VPC, network implemented.</li>
+<li>Database setup done.</li>
+<li>Deep Security installation and bootstrap done.</li>
+</ul>
+<p>To come:</p>
+<ul>
+<li>Documentation of migration scenarios.</li>
+<li>DS --&gt; WS --&gt; V1ES</li>
+<li>DS --&gt; V1ES</li>
+<li>WS --&gt; V1ES</li>
+<li>Creation of protected instances.</li>
+<li>Move DSM to private subnet and add load balancer.</li>
 </ul>
 
 

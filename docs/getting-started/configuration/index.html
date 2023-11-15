@@ -407,6 +407,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#section-deep-security" class="md-nav__link">
+    Section: Deep Security
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -492,6 +499,20 @@
     <li class="md-nav__item">
       <a href="../../integrations/container-security/" class="md-nav__link">
         Container Security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrations/deep-security/" class="md-nav__link">
+        Deep Security
       </a>
     </li>
   
@@ -880,6 +901,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#section-deep-security" class="md-nav__link">
+    Section: Deep Security
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -946,14 +974,15 @@
 <a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">  </span>eks-ec2<span class="w">       </span>EKS<span class="w"> </span>configuration
 <a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">  </span>eks-fg<span class="w">        </span>EKS<span class="w"> </span>configuration
 <a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">  </span>ecs<span class="w">           </span>ECS<span class="w"> </span>configurations
-<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">  </span>kind<span class="w">          </span>Kind<span class="w"> </span>configurations
-<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="w">  </span>scenarios-ec2<span class="w"> </span>Scenario<span class="w"> </span>configurations
-<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">  </span>scenarios-fg<span class="w">  </span>Scenario<span class="w"> </span>configurations
-<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="w">  </span>all<span class="w">           </span>All<span class="w"> </span>configurations
-<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>
-<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>Examples:
-<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="w">  </span>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
-<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="w">  </span>pgo<span class="w"> </span>--state<span class="w"> </span>all
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">  </span>kind<span class="w">          </span>Kind<span class="w"> </span>configuration
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="w">  </span>scenarios-ec2<span class="w"> </span>Scenario<span class="w"> </span>configuration
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">  </span>scenarios-fg<span class="w">  </span>Scenario<span class="w"> </span>configuration
+<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="w">  </span>dsm<span class="w">           </span>Deep<span class="w"> </span>Security<span class="w"> </span>configuration
+<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="w">  </span>all<span class="w">           </span>All<span class="w"> </span>configurations
+<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>
+<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>Examples:
+<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="w">  </span>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
+<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a><span class="w">  </span>pgo<span class="w"> </span>--state<span class="w"> </span>all
 </code></pre></div>
 <h2 id="configure">Configure<a class="headerlink" href="#configure" title="Permanent link">&para;</a></h2>
 <p>After bootstrapping you need to configure Playground One. To simplify the process use the built in configuration tool. An eventually already existing <code>config.yaml</code> will be saved as <code>config.yaml.bak</code>. Run</p>
@@ -1018,6 +1047,14 @@
 <li><code>EKS Calico</code>: Enable/disable the most used Pod network on your EKS cluster. It's currently disabled by default but will come shortly</li>
 <li><code>EKS Prometheus &amp; Grafana</code>: Enable/disable Prometheus. It is an open-source systems monitoring and alerting toolkit integrated with a preconfigured Grafana.</li>
 <li><code>EKS Trivy</code>: Enable/disable Trivy vulnerability scanning for comparison.</li>
+</ul>
+<h3 id="section-deep-security">Section: Deep Security<a class="headerlink" href="#section-deep-security" title="Permanent link">&para;</a></h3>
+<p>Set/update:</p>
+<ul>
+<li><code>Deep Security</code>: Enable or disable the Deep Security deployment. If set to <code>false</code> Deep Security configuration will be skipped.</li>
+<li><code>Deep Security License</code>: Your Deep Security license key.</li>
+<li><code>Deep Security Username</code>: Username of the MasterAdmin.</li>
+<li><code>Deep Security Password</code>: Password of the MasterAdmin.</li>
 </ul>
 <p>Now, continue with the chapter <a href="../life-cycle/">General Life-Cycle</a>.</p>
 
