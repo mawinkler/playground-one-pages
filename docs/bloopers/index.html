@@ -703,6 +703,130 @@
 
             
           
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+          Integrations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Integrations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scenarios/ds/ds-integrate/" class="md-nav__link">
+        Integrate Deep Security with Vision One
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scenarios/ds/ws-integrate/" class="md-nav__link">
+        Integrate Workload Security with Vision One
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+          Migration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Migration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scenarios/ds/ds-migrate/" class="md-nav__link">
+        Migrate Deep Security to Vision One
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scenarios/ds/ws-migrate/" class="md-nav__link">
+        Migrate Workload Security to Vision One
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -854,6 +978,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#eks-ec2-autoscaler" class="md-nav__link">
+    EKS EC2 Autoscaler
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -973,6 +1104,13 @@
         <li class="md-nav__item">
   <a href="#misc-commands-which-helped-at-some-point" class="md-nav__link">
     Misc commands which helped at some point
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eks-ec2-autoscaler" class="md-nav__link">
+    EKS EC2 Autoscaler
   </a>
   
 </li>
@@ -1120,6 +1258,33 @@ aws_ecs_cluster depends on aws_ecs_capacity_provider depends on aws_autoscaling_
 <h2 id="misc-commands-which-helped-at-some-point">Misc commands which helped at some point<a class="headerlink" href="#misc-commands-which-helped-at-some-point" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>aws<span class="w"> </span>kms<span class="w"> </span>delete-alias<span class="w"> </span>--alias-name<span class="w"> </span>alias/eks/playground-one-eks
 </code></pre></div>
+<h2 id="eks-ec2-autoscaler">EKS EC2 Autoscaler<a class="headerlink" href="#eks-ec2-autoscaler" title="Permanent link">&para;</a></h2>
+<p>In some cases creating the EKS cluster with EC2 instances failes just before finishing with the following error:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>╷
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>│<span class="w"> </span>Warning:<span class="w"> </span>Helm<span class="w"> </span>release<span class="w"> </span><span class="s2">&quot;cluster-autoscaler&quot;</span><span class="w"> </span>was<span class="w"> </span>created<span class="w"> </span>but<span class="w"> </span>has<span class="w"> </span>a<span class="w"> </span>failed<span class="w"> </span>status.<span class="w"> </span>Use<span class="w"> </span>the<span class="w"> </span><span class="sb">`</span>helm<span class="sb">`</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>to<span class="w"> </span>investigate<span class="w"> </span>the<span class="w"> </span>error,<span class="w"> </span>correct<span class="w"> </span>it,<span class="w"> </span><span class="k">then</span><span class="w"> </span>run<span class="w"> </span>Terraform<span class="w"> </span>again.
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>│<span class="w"> </span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>│<span class="w">   </span>with<span class="w"> </span>module.eks.helm_release.cluster_autoscaler<span class="o">[</span><span class="m">0</span><span class="o">]</span>,
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>│<span class="w">   </span>on<span class="w"> </span>eks-ec2/autoscaler.tf<span class="w"> </span>line<span class="w"> </span><span class="m">25</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>resource<span class="w"> </span><span class="s2">&quot;helm_release&quot;</span><span class="w"> </span><span class="s2">&quot;cluster_autoscaler&quot;</span>:
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>│<span class="w">   </span><span class="m">25</span>:<span class="w"> </span>resource<span class="w"> </span><span class="s2">&quot;helm_release&quot;</span><span class="w"> </span><span class="s2">&quot;cluster_autoscaler&quot;</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>│<span class="w"> </span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>╵
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>...
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>╷
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>│<span class="w"> </span>Error:<span class="w"> </span><span class="m">1</span><span class="w"> </span>error<span class="w"> </span>occurred:
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>│<span class="w">       </span>*<span class="w"> </span>Internal<span class="w"> </span>error<span class="w"> </span>occurred:<span class="w"> </span>failed<span class="w"> </span>calling<span class="w"> </span>webhook<span class="w"> </span><span class="s2">&quot;mservice.elbv2.k8s.aws&quot;</span>:<span class="w"> </span>failed<span class="w"> </span>to<span class="w"> </span>call<span class="w"> </span>webhook:<span class="w"> </span>Post<span class="w"> </span><span class="s2">&quot;https://aws-load-balancer-webhook-service.kube-system.svc:443/mutate-v1-service?timeout=10s&quot;</span>:<span class="w"> </span>no<span class="w"> </span>endpoints<span class="w"> </span>available<span class="w"> </span><span class="k">for</span><span class="w"> </span>service<span class="w"> </span><span class="s2">&quot;aws-load-balancer-webhook-service&quot;</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>│<span class="w"> </span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>│<span class="w"> </span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>│<span class="w"> </span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>│<span class="w">   </span>with<span class="w"> </span>module.eks.helm_release.cluster_autoscaler<span class="o">[</span><span class="m">0</span><span class="o">]</span>,
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>│<span class="w">   </span>on<span class="w"> </span>eks-ec2/autoscaler.tf<span class="w"> </span>line<span class="w"> </span><span class="m">25</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>resource<span class="w"> </span><span class="s2">&quot;helm_release&quot;</span><span class="w"> </span><span class="s2">&quot;cluster_autoscaler&quot;</span>:
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>│<span class="w">   </span><span class="m">25</span>:<span class="w"> </span>resource<span class="w"> </span><span class="s2">&quot;helm_release&quot;</span><span class="w"> </span><span class="s2">&quot;cluster_autoscaler&quot;</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>│<span class="w"> </span>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>╵
+</code></pre></div>
+<p>This looks like a timing issue for me which I need to investigate further. If you run into this problem just rerun</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>eks-ec2
+</code></pre></div>
+<p>This should complete the cluster creation within seconds then.</p>
 
 
 
