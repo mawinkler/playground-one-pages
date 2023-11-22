@@ -1172,15 +1172,7 @@
 </ul>
 <h2 id="deep-security">Deep Security<a class="headerlink" href="#deep-security" title="Permanent link">&para;</a></h2>
 <p><em>Configuration located in <code>awsone/9-deep-security</code></em></p>
-<p>This configuration is to simulate an on-premise Deep Security environment meant to be used in migration scenarios. For simulation purposes it creates a dedicated VPC with the most commonly used architecture, private and public subnets accross two availability zones. It includes everything what a VPC should have, this is amongst others an internet gateway, NAT gateway, security groups, etc.</p>
-<p>The Deep Security Manager is deployed to the private subnet with port <code>4119</code> exposed. It uses an AWS RDS PostgreSQL in the private subnet. Access to Deep Security is granted by the help of a bastion host in the public subnet. This host supports ssh tunneling and an upstream proxy on port 4119.</p>
-<p>Current state of implementation:</p>
-<ul>
-<li>VPC, network implemented.</li>
-<li>Database setup done.</li>
-<li>Deep Security installation and bootstrap done.</li>
-</ul>
-<p>An applied dsm configuration can be quickly stopped and started via the commands <code>dsm stop</code> and <code>dsm start</code> without losing any configurations within Deep Security.</p>
+<p>This configuration is to simulate an on-premise Deep Security environment meant to be used in integration and migration scenarios. For simulation purposes it creates a dedicated VPC with the most commonly used architecture, private and public subnets accross two availability zones. It includes everything what a VPC should have, this is amongst others an internet gateway, NAT gateway, security groups, etc.</p>
 <p>To come:</p>
 <ul>
 <li>Documentation of integraion scenarios:</li>
