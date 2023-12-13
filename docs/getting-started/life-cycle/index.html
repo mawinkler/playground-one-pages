@@ -1037,36 +1037,47 @@
 <p><strong><em>Note</em></strong>: If you're using both EKS cluster variants simultaneously you can easily switch in between the clusters using the command <code>pgo-context</code>.</p>
 </blockquote>
 <p><img alt="alt text" src="../images/pgo-context.png" title="Context" /></p>
+<ol>
+<li>
+<p>Create a dedicated (on-prem like) Deep Security environment with activated Computers.</p>
+<p>VPC and Deep Security:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>dsm
+</code></pre></div>
+<p>Activated Linux &amp; Windows Computers:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>dsw
+</code></pre></div>
+</li>
+</ol>
 <h2 id="query-outputs-and-state">Query Outputs and State<a class="headerlink" href="#query-outputs-and-state" title="Permanent link">&para;</a></h2>
 <p>The most relevant information on your configuration can be queried by running</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pgo<span class="w"> </span>--output<span class="w"> </span>&lt;configuration&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>pgo<span class="w"> </span>--output<span class="w"> </span>&lt;configuration&gt;
 </code></pre></div>
 <p>Example: <code>pgo --output ec2</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">public_instance_id_db1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;i-072abd953dedaae5d&quot;</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nv">public_instance_id_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;i-0f2c91e08fd054510&quot;</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nv">public_instance_id_web1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;i-048ecedf660236f47&quot;</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nv">public_instance_ip_db1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3.76.39.227&quot;</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nv">public_instance_ip_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3.75.219.198&quot;</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="nv">public_instance_ip_web1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;18.197.106.33&quot;</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="nv">public_instance_password_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;sensitive&gt;
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="nv">s3_bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;playground-awsone-cesh306v&quot;</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="nv">ssh_instance_db1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i ../playground-key-pair.pem -o StrictHostKeyChecking=no ubuntu@3.76.39.227&quot;</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="nv">ssh_instance_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i ../playground-key-pair.pem -o StrictHostKeyChecking=no admin@3.75.219.198&quot;</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="nv">ssh_instance_web1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i ../playground-key-pair.pem -o StrictHostKeyChecking=no ubuntu@18.197.106.33&quot;</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="nv">public_instance_password_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;4h1v}Q7Hc9tbGWdM&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nv">public_instance_id_db1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;i-072abd953dedaae5d&quot;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nv">public_instance_id_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;i-0f2c91e08fd054510&quot;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nv">public_instance_id_web1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;i-048ecedf660236f47&quot;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nv">public_instance_ip_db1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3.76.39.227&quot;</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nv">public_instance_ip_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3.75.219.198&quot;</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="nv">public_instance_ip_web1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;18.197.106.33&quot;</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="nv">public_instance_password_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;sensitive&gt;
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="nv">s3_bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;playground-awsone-cesh306v&quot;</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="nv">ssh_instance_db1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i ../playground-key-pair.pem -o StrictHostKeyChecking=no ubuntu@3.76.39.227&quot;</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="nv">ssh_instance_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i ../playground-key-pair.pem -o StrictHostKeyChecking=no admin@3.75.219.198&quot;</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="nv">ssh_instance_web1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i ../playground-key-pair.pem -o StrictHostKeyChecking=no ubuntu@18.197.106.33&quot;</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="nv">public_instance_password_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;4h1v}Q7Hc9tbGWdM&quot;</span>
 </code></pre></div>
 <p>With this you can always query how to connect to your running EC2 instances. All instances support SSH connections, the Windows Server Remote Desktop as well. For RDP Use the configured <code>admin</code> user, the ip address and password for srv1.</p>
 <h2 id="play-with-the-playground-one">Play with the Playground One<a class="headerlink" href="#play-with-the-playground-one" title="Permanent link">&para;</a></h2>
 <p>It's a playground, or? Experiment and hopefully learn a few things. For your guidance, there are some prepared scenarios for you to go through. Find them in the navigation pane.</p>
 <h2 id="tear-down">Tear Down<a class="headerlink" href="#tear-down" title="Permanent link">&para;</a></h2>
 <p>If you want to destroy your environment completely or only parts of it</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>&lt;configuration&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>&lt;configuration&gt;
 </code></pre></div>
 <p>If you want to tear down everything run</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>all
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>all
 </code></pre></div>
 <blockquote>
-<p><strong><em>Note:</em></strong> The network and VPC are not automatically destroyed. You can do this manually by running <code>pgo --destroy nw</code>. Be sure to have the CloudFormation stack of XDR for Containers deleted before doing so. Otherwise it will be in a fail (blackhole) state.</p>
+<p><strong><em>Note:</em></strong> The network and VPC are not automatically destroyed. You can do this manually by running <code>pgo --destroy nw</code>. Be sure to have the CloudFormation stack of XDR for Containers deleted before doing so. Otherwise it will be in a failed (blackhole) state.</p>
 </blockquote>
 
 
