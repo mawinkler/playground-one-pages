@@ -912,12 +912,16 @@
 
 <h1 id="deep-security">Deep Security<a class="headerlink" href="#deep-security" title="Permanent link">&para;</a></h1>
 <p>This configuration is to simulate an on-premise Deep Security environment meant to be used in integration and migration scenarios. For simulation purposes it creates a dedicated VPC with the most commonly used architecture, private and public subnets accross two availability zones. It includes everything what a VPC should have, this is amongst others an internet gateway, NAT gateway, security groups, etc.</p>
-<p>The Deep Security Manager is deployed to the private subnet with port <code>4119</code> exposed. It uses an AWS RDS PostgreSQL in the private subnet. Access to Deep Security is granted by the help of a bastion host in the public subnet. This host supports ssh tunneling and acts as an upstream proxy on port 4119.</p>
+<p>The Deep Security Manager is deployed to the private subnet. It uses an AWS RDS PostgreSQL in the private subnet. Access to Deep Security is granted by the help of a bastion host in the public subnet. This host supports ssh tunneling and acts as an upstream proxy on port 4119.</p>
 <p>To create a Deep Security instance run</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>dsm
 </code></pre></div>
+<p>To create Computers activated with the Deep Security Manager run</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>dsw
+</code></pre></div>
 <p>To destroy the instance run</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>dsm
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>dsw
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>dsm
 </code></pre></div>
 <p>An applied dsm configuration can be quickly stopped and started via the commands <code>dsm stop</code> and <code>dsm start</code> without losing any configurations within Deep Security.</p>
 <p>To come:</p>

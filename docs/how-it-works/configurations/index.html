@@ -1092,6 +1092,7 @@
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>|   |   └── scenarios (7-scenarios-fargate)
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>|   └── ecs (5-cluster-ecs)
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>└── dsm (9-deep-security)
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    └── workload (9-deep-security-workload) 
 </code></pre></div>
 <p>As we can see, the configuration <code>network</code> is the base for the other configurations. It creates the VPC, Subnets, Route Tables, Security Groups, etc. One can choose to only create the EKS cluster, or ECS cluster, or even the full stack. Everything will reside in the same VPC.</p>
 <p><em>Architecture: Example environment name <code>pgo8</code></em></p>
@@ -1171,17 +1172,17 @@
 <li>Automatic deployment of a vulnerable service (Java-Goof)</li>
 </ul>
 <h2 id="deep-security">Deep Security<a class="headerlink" href="#deep-security" title="Permanent link">&para;</a></h2>
-<p><em>Configuration located in <code>awsone/9-deep-security</code></em></p>
+<p><em>Configuration located in <code>awsone/9-deep-security</code> and <code>awsone/9-deep-security-workload</code></em></p>
 <p>This configuration is to simulate an on-premise Deep Security environment meant to be used in integration and migration scenarios. For simulation purposes it creates a dedicated VPC with the most commonly used architecture, private and public subnets accross two availability zones. It includes everything what a VPC should have, this is amongst others an internet gateway, NAT gateway, security groups, etc.</p>
+<p>The workload configuration creates a demo configuration for Deep Security and two custom policies. Two linux and one windows instances are created and activated with Deep Security. Some minutes after instance creation the activated computers will run a recommendation scan.</p>
 <p>To come:</p>
 <ul>
-<li>Documentation of integraion scenarios:</li>
+<li>Documentation of integration scenarios:</li>
 <li>DS with V1ES</li>
 <li>WS with V1ES</li>
 <li>Documentation of migration scenarios:</li>
 <li>DS --&gt; V1ES</li>
 <li>WS --&gt; V1ES</li>
-<li>Creation of protected instances and policies.</li>
 </ul>
 
 

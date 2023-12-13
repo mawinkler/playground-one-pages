@@ -782,6 +782,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#current-situation" class="md-nav__link">
+    Current Situation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    Workflow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#result-and-benefits" class="md-nav__link">
+    Result and Benefits
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -943,6 +964,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#current-situation" class="md-nav__link">
+    Current Situation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    Workflow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#result-and-benefits" class="md-nav__link">
+    Result and Benefits
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -961,9 +1003,36 @@
 <h1 id="scenario-integrate-deep-security-with-vision-one">Scenario: Integrate Deep Security with Vision One<a class="headerlink" href="#scenario-integrate-deep-security-with-vision-one" title="Permanent link">&para;</a></h1>
 <p><strong><em>DRAFT</em></strong></p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<h2 id="current-situation">Current Situation<a class="headerlink" href="#current-situation" title="Permanent link">&para;</a></h2>
 <ul>
-<li></li>
+<li>DS to secure on-prem and/or cloud instances</li>
+<li>V1</li>
 </ul>
+<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h2>
+<p>Vision One</p>
+<ol>
+<li>Vision One Product Instances --&gt; Add Existing Product</li>
+<li>Choose Trend Micro Deep Security --&gt; Click to generate the enrollment tokenClick to generate the enrollment token. </li>
+<li>Copy the enrollment token and paster to DSM web console to complete the registration.</li>
+<li>Click Save.</li>
+<li>Connect and Transfer.</li>
+</ol>
+<p>Deep Security</p>
+<ol>
+<li>Login to DSM Console as administrator.</li>
+<li>Paste the enrollment token to the Deep Security software.</li>
+<li>On the Deep Security software console, go to Administration &gt; System Settings &gt; Trend Vision One</li>
+<li>Under Registration, click Registration enrollment token.</li>
+<li>In the dialog that appears, paste the enrollment token and click Register.</li>
+<li>After successful registration, your Deep Security software automatically enables Forward security events to Trend Vision One and changes the Enrollment status to "Registered".</li>
+</ol>
+<p>Vision One</p>
+<ol>
+<li>Go to Product Instance App, and DSM On Perm should be onncted.</li>
+<li>Go to EI App, Existing On Perm DSA shold be show in the list.</li>
+<li>Customers are able to install Endpoint Sensor as well as check detaile dprofile.</li>
+</ol>
+<h2 id="result-and-benefits">Result and Benefits<a class="headerlink" href="#result-and-benefits" title="Permanent link">&para;</a></h2>
 <p>🎉 Success 🎉</p>
 
 
