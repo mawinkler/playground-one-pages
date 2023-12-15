@@ -1007,6 +1007,7 @@
 <th>Provider</th>
 <th>Link</th>
 <th>Version</th>
+<th>Used in</th>
 </tr>
 </thead>
 <tbody>
@@ -1014,46 +1015,61 @@
 <td>AWS</td>
 <td>https://registry.terraform.io/providers/hashicorp/aws</td>
 <td>5.30.0</td>
+<td>all</td>
 </tr>
 <tr>
 <td>Cloudinit</td>
 <td>https://registry.terraform.io/providers/hashicorp/cloudinit</td>
 <td>2.3.3</td>
+<td>ec2, eks-ec2, eks-fg</td>
 </tr>
 <tr>
 <td>Helm</td>
 <td>https://registry.terraform.io/providers/hashicorp/helm</td>
 <td>2.12.1</td>
+<td>eks-ec2, eks-fg</td>
 </tr>
 <tr>
 <td>Kubernetes</td>
 <td>https://registry.terraform.io/providers/hashicorp/kubernetes</td>
 <td>2.24.0</td>
+<td>nw, eks-ec2, eks-fg, ecs</td>
 </tr>
 <tr>
 <td>Local</td>
 <td>https://registry.terraform.io/providers/hashicorp/local</td>
 <td>2.4.1</td>
+<td>nw, eks-ec2, eks-fg, kind, dsm</td>
 </tr>
 <tr>
 <td>Random</td>
 <td>https://registry.terraform.io/providers/hashicorp/random</td>
 <td>3.6.0</td>
+<td>nw, ec2, eks-ec2, eks-fg</td>
+</tr>
+<tr>
+<td>RestAPI</td>
+<td>https://registry.terraform.io/providers/Mastercard/restapi</td>
+<td>1.18.2</td>
+<td>eks-ec2, eks-fg, dsw</td>
 </tr>
 <tr>
 <td>Template</td>
 <td>https://registry.terraform.io/providers/hashicorp/template</td>
 <td>2.2.0</td>
+<td>ec2, eks-ec2, eks-fg, dsm, dsw</td>
 </tr>
 <tr>
 <td>Time</td>
 <td>https://registry.terraform.io/providers/hashicorp/time</td>
 <td>0.10.0</td>
+<td>dsw</td>
 </tr>
 <tr>
 <td>TLS</td>
 <td>https://registry.terraform.io/providers/hashicorp/tls</td>
 <td>4.0.5</td>
+<td>all</td>
 </tr>
 </tbody>
 </table>
@@ -1069,6 +1085,13 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>AWS ALB</td>
+<td>https://registry.terraform.io/modules/terraform-aws-modules/alb/aws</td>
+<td>~&gt; 8.0</td>
+<td>9.2.0</td>
+<td>ecs</td>
+</tr>
 <tr>
 <td>AWS Autoscaling</td>
 <td>https://registry.terraform.io/modules/terraform-aws-modules/autoscaling/aws</td>
@@ -1098,17 +1121,17 @@
 <td>eks-ec2</td>
 </tr>
 <tr>
+<td>AWS RDS</td>
+<td>https://registry.terraform.io/modules/terraform-aws-modules/rds/aws</td>
+<td>6.3.0</td>
+<td>6.3.0</td>
+<td>dsm</td>
+</tr>
+<tr>
 <td>AWS Security Group</td>
 <td>https://registry.terraform.io/modules/terraform-aws-modules/security-group/aws</td>
 <td>~&gt; 4.0</td>
 <td>5.1.0</td>
-<td>ecs</td>
-</tr>
-<tr>
-<td>AWS ALB</td>
-<td>https://registry.terraform.io/modules/terraform-aws-modules/alb/aws</td>
-<td>~&gt; 8.0</td>
-<td>9.2.0</td>
 <td>ecs</td>
 </tr>
 </tbody>
@@ -1121,38 +1144,45 @@
 <th>Chart</th>
 <th>Link</th>
 <th>Version</th>
+<th>Used in</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Autoscaler</td>
 <td>https://kubernetes.github.io/autoscaler</td>
-<td>9.34.0 (9.29.3)</td>
+<td>9.34.0</td>
+<td>eks-ec2, ecs</td>
 </tr>
 <tr>
 <td>Calico</td>
 <td>https://docs.tigera.io/calico/charts/tigera-operator</td>
 <td>3.25.0</td>
+<td>eks-ec2</td>
 </tr>
 <tr>
 <td>Load Balancer Controller</td>
 <td>https://aws.github.io/eks-charts/aws-load-balancer-controller</td>
 <td>latest</td>
+<td>eks-ec2</td>
 </tr>
 <tr>
 <td>Prometheus &amp; Grafana</td>
 <td>https://prometheus-community.github.io/helm-charts/kube-prometheus-stack</td>
 <td>latest</td>
+<td>eks-ec2</td>
 </tr>
 <tr>
 <td>Trivy</td>
 <td>https://aquasecurity.github.io/helm-charts/trivy-operator</td>
 <td>latest</td>
+<td>eks-ec2</td>
 </tr>
 <tr>
 <td>Vision One Container Security</td>
 <td>https://github.com/trendmicro/cloudone-container-security-helm</td>
 <td>latest</td>
+<td>eks-ec2, eks-fg</td>
 </tr>
 </tbody>
 </table>
