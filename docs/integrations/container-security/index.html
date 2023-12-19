@@ -463,13 +463,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#container-security-with-the-playground-one-eks-fargate-cluster" class="md-nav__link">
-    Container Security with the Playground One EKS Fargate Cluster
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#container-security-with-the-playground-one-ecs-fargate-cluster" class="md-nav__link">
     Container Security with the Playground One ECS Fargate Cluster
   </a>
@@ -970,13 +963,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#container-security-with-the-playground-one-eks-fargate-cluster" class="md-nav__link">
-    Container Security with the Playground One EKS Fargate Cluster
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#container-security-with-the-playground-one-ecs-fargate-cluster" class="md-nav__link">
     Container Security with the Playground One ECS Fargate Cluster
   </a>
@@ -1000,50 +986,36 @@
 
 <h1 id="vision-one-container-security">Vision One Container Security<a class="headerlink" href="#vision-one-container-security" title="Permanent link">&para;</a></h1>
 <h2 id="container-security-with-the-playground-one-eks-ec2-cluster">Container Security with the Playground One EKS EC2 Cluster<a class="headerlink" href="#container-security-with-the-playground-one-eks-ec2-cluster" title="Permanent link">&para;</a></h2>
-<p>This guide provides step-by-step instructions on how to deploy Vision One Container Security on a Playground One EKS EC2 cluster.</p>
-<p>There is currently no way to fully automate the Vision One Container Security deployment the an EKS cluster. This process will be automated in the near future so that Vision One Container Security can be deployed via Terraform.</p>
+<p>This guide provides step-by-step instructions on how to use Vision One Container Security on a Playground One EKS EC2 cluster.</p>
 <p>Prerequisites:</p>
 <ul>
-<li>Deployed eks cluster configuration (<code>pgo -a eks-ec2</code>).</li>
+<li>Vision One API Key with the following permissions:</li>
+<li>Container Inventory<ul>
+<li>View</li>
+<li>Configure Settings</li>
+</ul>
+</li>
+<li>Container Protection<ul>
+<li>View</li>
+</ul>
+</li>
 </ul>
 <p>Required information:</p>
 <ul>
-<li>EKS Cluster ARN from eks outputs (<code>pgo -o eks-ec2</code>).</li>
+<li>Name of already existing Container Protection Policy to assign to the cluster installation.</li>
 </ul>
 <p>Steps:</p>
 <ol>
-<li>Head over to <code>Cloud Security Operations --&gt; Container Security --&gt; Container Inventory</code>.</li>
-<li>Select <code>[Kubernetes] --&gt; [+ Add Cluster]</code>.</li>
-<li>Type in a name to use to identify the cluster.</li>
-<li>Set <code>Map to Cloud Account</code> to <code>Yes</code> and paste the cluster ARN from the outputs of the <code>eks</code>-configuration.</li>
-<li>Click the <code>Runtime Scanning</code> switch to enable Runtime Vulnerability Scanning.</li>
-<li>Click the <code>Runtime Security</code> switch to enable Runtime Security protection.</li>
-<li>Clich <code>[Next]</code> to create the cluster in the inventory view.</li>
-<li>Download the generated <code>overrides.yaml</code>, copy/paste the <code>helm install</code> command to your terminal, and run the command. This will deploy Vision One Container Security to your EKS cluster.</li>
-</ol>
-<p>Done.</p>
-<h2 id="container-security-with-the-playground-one-eks-fargate-cluster">Container Security with the Playground One EKS Fargate Cluster<a class="headerlink" href="#container-security-with-the-playground-one-eks-fargate-cluster" title="Permanent link">&para;</a></h2>
-<p>This guide provides step-by-step instructions on how to deploy Vision One Container Security on a Playground One EKS Fargate cluster.</p>
-<p>There is currently no way to fully automate the Vision One Container Security deployment the an EKS cluster. This process will be automated in the near future so that Vision One Container Security can be deployed via Terraform.</p>
-<p>Prerequisites:</p>
-<ul>
-<li>Deployed eks cluster configuration (<code>pgo -a eks-fg</code>).</li>
-</ul>
-<p>Required information:</p>
-<ul>
-<li>EKS Cluster ARN from eks outputs (<code>pgo -o eks-fg</code>).</li>
-</ul>
-<p>Steps:</p>
-<ol>
-<li>Head over to <code>Cloud Security Operations --&gt; Container Security --&gt; Container Inventory</code>.</li>
-<li>Select <code>[Kubernetes] --&gt; [+ Add Cluster]</code>.</li>
-<li>Type in a name to use to identify the cluster.</li>
-<li>Set <code>Map to Cloud Account</code> to <code>Yes</code> and paste the cluster ARN from the outputs of the <code>eks</code>-configuration.</li>
-<li>Click the <code>Runtime Scanning</code> switch to enable Runtime Vulnerability Scanning.</li>
-<li>Click the <code>Runtime Security</code> switch to enable Runtime Security protection.</li>
-<li>Clich <code>[Next]</code> to create the cluster in the inventory view.</li>
-<li>Click the <code>Fargate environment</code> switch to enable Fargate support.</li>
-<li>Download the generated <code>overrides.yaml</code>, copy/paste the <code>helm install</code> command to your terminal, and run the command. This will deploy Vision One Container Security to your EKS cluster.</li>
+<li>Run the configuration tool with <code>pgo --config</code> to set or verify the values in the <code>Vision One Container Security</code> section.</li>
+<li>
+<p>Create the EKS cluster</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># EKS with EC2 nodes</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>eks-ec2
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># EKS with Fargate profiles</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>eks-ec2
+</code></pre></div>
+</li>
 </ol>
 <p>Done.</p>
 <h2 id="container-security-with-the-playground-one-ecs-fargate-cluster">Container Security with the Playground One ECS Fargate Cluster<a class="headerlink" href="#container-security-with-the-playground-one-ecs-fargate-cluster" title="Permanent link">&para;</a></h2>
