@@ -12,14 +12,14 @@
         <link rel="prev" href="../../ecs/runtime-vulnerability/">
       
       
-        <link rel="next" href="../../ds/ds-integrate/">
+        <link rel="next" href="../tmfs-artifact-scanning/">
       
       <link rel="icon" href="../../../images/playground-icon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
-        <title>Scan for Vulnerabilities and Malware - Playground One</title>
+        <title>Scan Containers for Vulnerabilities and Malware - Playground One</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scenario-vulnerability-and-malware-scanning" class="md-skip">
+        <a href="#scenario-container-vulnerability-and-malware-scanning" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Scan for Vulnerabilities and Malware
+              Scan Containers for Vulnerabilities and Malware
             
           </span>
         </div>
@@ -718,12 +718,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Scan for Vulnerabilities and Malware
+          Scan Containers for Vulnerabilities and Malware
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Scan for Vulnerabilities and Malware
+        Scan Containers for Vulnerabilities and Malware
       </a>
       
         
@@ -759,6 +759,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tmfs-artifact-scanning/" class="md-nav__link">
+        Scan Files and Directories for Malware
+      </a>
     </li>
   
 
@@ -986,14 +1000,19 @@
                   
 
 
-<h1 id="scenario-vulnerability-and-malware-scanning">Scenario: Vulnerability and Malware Scanning<a class="headerlink" href="#scenario-vulnerability-and-malware-scanning" title="Permanent link">&para;</a></h1>
+<h1 id="scenario-container-vulnerability-and-malware-scanning">Scenario: Container Vulnerability and Malware Scanning<a class="headerlink" href="#scenario-container-vulnerability-and-malware-scanning" title="Permanent link">&para;</a></h1>
 <p><strong><em>DRAFT</em></strong></p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Vision One Container Security Artifact Scanner API-Key</li>
+<li>Vision One Container Security Artifact Scanner API-Key with the following permissions:</li>
+<li>Cloud Security Operations<ul>
+<li>Container Protection</li>
+<li>Run artifact scan</li>
+</ul>
+</li>
 </ul>
 <p>Ensure to have the latest <code>tmas</code> deployed:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>tmas-update
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>tmcli-update
 </code></pre></div>
 <h2 id="scan-images">Scan Images<a class="headerlink" href="#scan-images" title="Permanent link">&para;</a></h2>
 <p>First, set the Artifact Scanner API-Key as an environment variable:</p>
