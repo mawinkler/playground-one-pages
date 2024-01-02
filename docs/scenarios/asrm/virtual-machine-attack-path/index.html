@@ -1366,6 +1366,7 @@
 
 <h1 id="scenario-asrm-to-detect-potential-attack-path">Scenario: ASRM to detect Potential Attack Path<a class="headerlink" href="#scenario-asrm-to-detect-potential-attack-path" title="Permanent link">&para;</a></h1>
 <p><strong><em>DRAFT</em></strong></p>
+<p><strong><em>To verify: Is it required to set the access IP to 0.0.0.0/0 or is a subnet sufficient?</em></strong></p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
 <li>AWS Cloud Account integrated with Vision One</li>
@@ -1375,10 +1376,19 @@
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
 </code></pre></div>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
-<p>The Playground One configuration for EC2 (ec2 or instances) creates two Linux servers when enabled in the config tool. The one of interest here is the <code>db1</code> instance since it get's an instance profile assigned which allows database read access to RDS.</p>
-<p>A (free-tier) PostgreSQL dabase is automatically created when applying the configuration. It is now actively used but required to have an endpoint of the potential attack path.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># With Linux machines enabled (verify with pgo --config)</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>ec2
+<p>The Playground One configuration for EC2 (<code>ec2</code> or <code>instances</code>) creates two Linux servers when enabled in the config tool. The one of interest is the <code>db1</code> instance since it get's an instance profile assigned which allows read access to RDS.</p>
+<p>Verify, that you have <code>EC2 - create RDS Database</code> enabled in your configuration.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pgo<span class="w"> </span>--config
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>...
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>EC2<span class="w"> </span>-<span class="w"> </span>create<span class="w"> </span>Linux<span class="w"> </span>EC2<span class="w"> </span><span class="o">[</span>true<span class="o">]</span>:
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>...
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>EC2<span class="w"> </span>-<span class="w"> </span>create<span class="w"> </span>RDS<span class="w"> </span>Database<span class="w"> </span><span class="o">[</span>true<span class="o">]</span>:<span class="w"> </span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>...
+</code></pre></div>
+<p>A (free-tier) PostgreSQL dabase is automatically created when applying the configuration. It is not actively used but required to have a target in the potential attack path.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># With Linux machines enabled</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>ec2
 </code></pre></div>
 <p>The Linux instances are detected by Vision One ASRM after some time when you configured your CAM stack properly. The full analysis which should lead to a potential attack path for the <code>db1</code> instance as seen in the below screenshot can take up to 24hs.</p>
 <p><img alt="alt text" src="../images/asrm-ec2-attack-path-01.png" title="Attack Path" /></p>
