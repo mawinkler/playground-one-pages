@@ -12,7 +12,7 @@
         <link rel="prev" href="../../as/tmfs-artifact-scanning/">
       
       
-        <link rel="next" href="../../ds/ds-integrate/">
+        <link rel="next" href="../../xdr/oat-generation/">
       
       
       <link rel="icon" href="../../../images/playground-icon.png">
@@ -1107,7 +1107,7 @@
             
   
   <span class="md-ellipsis">
-    Integrations
+    XDR
   </span>
   
 
@@ -1116,6 +1116,93 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            XDR
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../xdr/oat-generation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automated Observed Attack Techniques Generation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../xdr/workbench-generation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automated Workbench Generation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Integrations
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
             <span class="md-nav__icon md-icon"></span>
             Integrations
           </label>
@@ -1187,10 +1274,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
         
           
-          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1201,8 +1288,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7">
             <span class="md-nav__icon md-icon"></span>
             Migration
           </label>
@@ -1376,7 +1463,7 @@
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
 </code></pre></div>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
-<p>The Playground One configuration for EC2 (<code>ec2</code> or <code>instances</code>) creates two Linux servers when enabled in the config tool. The one of interest is the <code>db1</code> instance since it get's an instance profile assigned which allows read access to RDS.</p>
+<p>The Playground One configuration for EC2 (<code>ec2</code> or <code>instances</code>) creates two Linux servers when enabled in the config tool. The one of interest is the <code>db1</code> instance since it get's an instance profile assigned which allows read access to RDS. Contrary to all other instances this instance will use a dedicated security group which is open to the internet using the CIDR block <code>0.0.0.0/0</code>.</p>
 <p>Verify, that you have <code>EC2 - create RDS Database</code> enabled in your configuration.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pgo<span class="w"> </span>--config
 </code></pre></div>
