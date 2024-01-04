@@ -1006,7 +1006,7 @@
         
   
   <span class="md-ellipsis">
-    Virtual Instance potential Attack Path
+    Virtual Instance Potential Attack Path
   </span>
   
 
@@ -1232,6 +1232,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#current-situation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current Situation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#result-and-benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Result and Benefits
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1418,6 +1445,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#current-situation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current Situation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#result-and-benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Result and Benefits
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1437,8 +1491,38 @@
 <p><strong><em>DRAFT</em></strong></p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li></li>
+<li>Cloud One Workload Security instance</li>
 </ul>
+<p>It is recommended to have some policies and computers already active in your Workload Security instance.</p>
+<h2 id="current-situation">Current Situation<a class="headerlink" href="#current-situation" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Cloud One Workload Security is securing instances.</li>
+<li>Since you want to move to the Vision One platform you start with integrating Workload Security with the platform.</li>
+</ul>
+<h2 id="integration-workflow">Integration Workflow<a class="headerlink" href="#integration-workflow" title="Permanent link">&para;</a></h2>
+<p>Vision One</p>
+<ol>
+<li><code>Vision One Product Instances --&gt; Add Existing Product</code>.</li>
+<li>Choose <code>Trend Cloud One</code> --&gt; Click the button to generate the enrollment token. </li>
+<li>Copy the enrollment token and save the token.</li>
+<li>Click <code>[Save]</code>.</li>
+<li>CLick <code>[Connect and Transfer]</code>.</li>
+</ol>
+<p>Workload Security</p>
+<ol>
+<li>Login to Workload Security Console.</li>
+<li>On the Workload Security software console, go to <code>Administration &gt; System Settings &gt; Trend Micro Vision One (XDR)</code>.</li>
+<li>Click <code>Register enrollment token</code>.</li>
+<li>In the dialog that appears, paste the enrollment token and click  <code>[Register]</code>.</li>
+<li>After successful registration, your Workload Security software automatically enables Forward security events to Trend Vision One and changes the Enrollment status to "Registered".</li>
+</ol>
+<p>Vision One</p>
+<ol>
+<li>Go to <code>Product Instance</code> App and verify the Workload Security instance being conncted.</li>
+<li>Optionally install Endpoint Sensor to the instances.</li>
+</ol>
+<h2 id="result-and-benefits">Result and Benefits<a class="headerlink" href="#result-and-benefits" title="Permanent link">&para;</a></h2>
+<p>You now have control of the Workload Security instance via Vision One.</p>
 <p>🎉 Success 🎉</p>
 
 
