@@ -826,6 +826,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../scenarios/eks/hunger-check/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hunger Check
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../scenarios/eks/runtime-vulnerability-ec2/" class="md-nav__link">
         
   
@@ -852,27 +873,6 @@
   
   <span class="md-ellipsis">
     Runtime Vulnerability Scan on Fargate
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../scenarios/eks/hunger-check/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Hunger Check
   </span>
   
 
@@ -1240,7 +1240,7 @@
             
   
   <span class="md-ellipsis">
-    Integrations
+    Deep Security
   </span>
   
 
@@ -1250,7 +1250,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_6">
             <span class="md-nav__icon md-icon"></span>
-            Integrations
+            Deep Security
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1295,51 +1295,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
-        
-          
-          <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Migration
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_7">
-            <span class="md-nav__icon md-icon"></span>
-            Migration
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -1583,8 +1538,6 @@
 <p>As we can see, the configuration <code>network</code> is the base for the other configurations. It creates the VPC, Subnets, Route Tables, Security Groups, etc. One can choose to only create the EKS cluster, or ECS cluster, or even the full stack. Everything will reside in the same VPC.</p>
 <p><em>Architecture: Example environment name <code>pgo8</code></em></p>
 <p><img alt="alt text" src="../images/architecture.png" title="Architecture diagram" /></p>
-<p><em>Security Groups: Example environment name <code>pgo8</code></em></p>
-<p><img alt="alt text" src="../images/security-groups.png" title="Security Groups" /></p>
 <p>The following chapters describe the different configurations on a high level, refer the the dedicated documentation for more details.</p>
 <h2 id="virtual-private-cloud-and-network">Virtual Private Cloud and Network<a class="headerlink" href="#virtual-private-cloud-and-network" title="Permanent link">&para;</a></h2>
 <p><em>Configuration located in <code>awsone/2-network</code></em></p>
@@ -1592,7 +1545,7 @@
 <h2 id="virtual-instances">Virtual Instances<a class="headerlink" href="#virtual-instances" title="Permanent link">&para;</a></h2>
 <p><em>Configuration located in <code>awsone/3-instances</code></em></p>
 <p><em>Depends on <code>awsone/2-network</code></em></p>
-<p>Basically, a couple of EC2 instances are created with this configuration. Currently these are two linux and one windows instances.</p>
+<p>Basically, a couple of EC2 instances are created with this configuration. Currently these are two linux and one windows instances. One of the linux instances can be used to demo a potential attack path to RDS.</p>
 <p>If you store the agent installers for Server and Workload Security in <code>0-files</code> the instances will connect to Vision One.</p>
 <p>You can optionally drop any file or installer in the <code>0-files</code> directory which will then be available in the ec2 instances download folder.</p>
 <h2 id="eks-ec2-cluster">EKS EC2 Cluster<a class="headerlink" href="#eks-ec2-cluster" title="Permanent link">&para;</a></h2>
