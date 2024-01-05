@@ -1490,7 +1490,7 @@
 <h2 id="current-situation">Current Situation<a class="headerlink" href="#current-situation" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Deep Security is securing (simulated) on-premise instances.</li>
-<li>Since you want to move to the Vision One platform you to migrate Deep Security protected computers to Vision One Server &amp; Workload Protection.</li>
+<li>Since you want to move to the Vision One platform you want to migrate Deep Security protected computers to Vision One Server &amp; Workload Protection.</li>
 </ul>
 <h2 id="migration-workflow">Migration Workflow<a class="headerlink" href="#migration-workflow" title="Permanent link">&para;</a></h2>
 <p>Vision One</p>
@@ -1534,13 +1534,11 @@
 <p>The downloaded package is named similar to <code>TMServerAgent_Linux_auto_x86_64_Server_and_Workload_Protection_Manager_-_EU.tar</code>. </p>
 <ol>
 <li>Transfer the package to the computer via scp.</li>
-<li>
-<p>Get the ssh command for the instance by running <code>pgo --output dsw</code>.</p>
+<li>Get the ssh command for the instance by running <code>pgo --output dsw</code>.</li>
+</ol>
 <p><img alt="alt text" src="../images/ds-migrate-06.png" title="Output" /></p>
-</li>
-<li>
-<p>Copy and paste the ssh command shown but change <code>ssh</code> to <code>scp</code>, just before the username place the filename of the downloaded agent package and append a <code>:</code>. The complete command should look like this: <code>scp -i /home/markus/projects/opensource/playground/playground-one/pgo-dsm-key-pair.pem -o StrictHostKeyChecking=no &lt;DOWNLOADED TAR FILE NAME&gt; ec2-user@18.156.83.192:</code>.</p>
-</li>
+<ol>
+<li>Copy and paste the ssh command shown but change <code>ssh</code> to <code>scp</code>, just before the username place the filename of the downloaded agent package and append a <code>:</code>. The complete command should look like this: <code>scp -i /home/markus/projects/opensource/playground/playground-one/pgo-dsm-key-pair.pem -o StrictHostKeyChecking=no &lt;DOWNLOADED TAR FILE NAME&gt; ec2-user@18.156.83.192:</code>.</li>
 <li>Connect via ssh to the computer.</li>
 <li>Now, use the <code>ssh</code> shown in the <code>pgo</code> output from above to connect to the computer. Example: <code>ssh -i /home/markus/projects/opensource/playground/playground-one/pgo-dsm-key-pair.pem -o StrictHostKeyChecking=no ec2-user@18.156.83.192</code>.</li>
 <li>Running <code>ls</code> shows the uploaded package.</li>
