@@ -1230,21 +1230,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Why Migrate to the Cloud">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#benefits" class="md-nav__link">
-    <span class="md-ellipsis">
-      Benefits
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1269,6 +1254,15 @@
   <a href="#migration-workflow" class="md-nav__link">
     <span class="md-ellipsis">
       Migration Workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-deploy-full-endpoint-agent-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      (Optional): Deploy full Endpoint Agent Package
     </span>
   </a>
   
@@ -1401,21 +1395,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Why Migrate to the Cloud">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#benefits" class="md-nav__link">
-    <span class="md-ellipsis">
-      Benefits
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1446,6 +1425,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#optional-deploy-full-endpoint-agent-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      (Optional): Deploy full Endpoint Agent Package
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#result-and-benefits" class="md-nav__link">
     <span class="md-ellipsis">
       Result and Benefits
@@ -1470,7 +1458,6 @@
 
 
 <h1 id="scenario-migrate-deep-security-to-vision-one">Scenario: Migrate Deep Security to Vision One<a class="headerlink" href="#scenario-migrate-deep-security-to-vision-one" title="Permanent link">&para;</a></h1>
-<p><strong><em>DRAFT</em></strong></p>
 <h2 id="why-migrate-to-the-cloud">Why Migrate to the Cloud<a class="headerlink" href="#why-migrate-to-the-cloud" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Power of the Cloud</li>
@@ -1486,19 +1473,6 @@
 <li>24 x 7 x 365 always available</li>
 <li>Physically secure cloud environment</li>
 <li>Monitored by Trend Micro staff</li>
-</ul>
-<h3 id="benefits">Benefits<a class="headerlink" href="#benefits" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Workload detection and protection techniques including IDS/IPS, antimalware, firewall, application control, integrity monitoring, log inspection &amp; web reputation</li>
-<li>Continuous updates to services, updated by Trend Micro – leading to better security outcomes</li>
-<li>Compliance certifications for PCI-DSS, ISO 27001, ISO 27014, ISO 27017, SOC</li>
-<li>Managed compute, storage and network infrastructure – eliminates operational overhead of managing a solution</li>
-<li>24 x 7 x 365 operation and monitoring of the security service</li>
-<li>Provided via a highly scalable, high availability, physically secure cloud environment</li>
-<li>Disaster recovery and business continuity planning supported by compliance frameworks</li>
-<li>Vulnerability, penetration testing, and updating/patching of the service provided by Trend Micro</li>
-<li>Annual compliance audits on the service</li>
-<li>Access to other Cloud Security services from a common platform</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
@@ -1553,7 +1527,44 @@
 <p><img alt="alt text" src="../images/ds-migrate-03.png" title="Migrated" /></p>
 <p>The migrated policy tree shows the migrated policies including it's dependencies:</p>
 <p><img alt="alt text" src="../images/ds-migrate-04.png" title="Policy Tree" /></p>
+<h2 id="optional-deploy-full-endpoint-agent-package">(Optional): Deploy full Endpoint Agent Package<a class="headerlink" href="#optional-deploy-full-endpoint-agent-package" title="Permanent link">&para;</a></h2>
+<p>The migrated endpoints only have the basic Endpoint Protection agent installed. To get the full benefit and protection of Trend Vision One Endpoint Security, install the full Endpoint Agent package to enable sensor detection and response.</p>
+<ol>
+<li>Go to <code>Endpoint Inventory --&gt; Select the Server &amp; Workload Protection Manager</code></li>
+<li>Click on the <code>i1</code> marker and download the agent package</li>
+</ol>
+<p><img alt="alt text" src="../images/ds-migrate-05.png" title="Agent Package" /></p>
+<p>The downloaded package is named similar to <code>TMServerAgent_Linux_auto_x86_64_Server_and_Workload_Protection_Manager_-_EU.tar</code>. </p>
+<ol>
+<li>Transfer the package to the computer via scp.</li>
+<li>
+<p>Get the ssh command for the instance by running <code>pgo --output dsw</code></p>
+<p><img alt="alt text" src="../images/ds-migrate-06.png" title="Output" /></p>
+</li>
+<li>
+<p>Copy and paste the ssh command shown but change <code>ssh</code> to <code>scp</code>, just before the username place the filename of the downloaded agent package and append a <code>:</code>. The complete command should look like this: <code>scp -i /home/markus/projects/opensource/playground/playground-one/pgo-dsm-key-pair.pem -o StrictHostKeyChecking=no &lt;DOWNLOADED TAR FILE NAME&gt; ec2-user@18.156.83.192:</code></p>
+</li>
+<li>Connecto via ssh to the computer.</li>
+<li>Now, simply use the <code>ssh</code> shown in the pgo output above to connect to the computer. <code>ssh -i /home/markus/projects/opensource/playground/playground-one/pgo-dsm-key-pair.pem -o StrictHostKeyChecking=no ec2-user@18.156.83.192</code></li>
+<li>Running <code>ls</code> shows the uploaded package</li>
+<li>Run <code>tar xfv &lt;DOWNLOADED TAR FILE NAME&gt;</code></li>
+<li>Run <code>sudo ./tmxbc install</code></li>
+<li>Sensor connectivity turns to <code>Connected</code> in the Endpoint Inventory of Vision One</li>
+</ol>
+<p><img alt="alt text" src="../images/ds-migrate-07.png" title="Connected" /></p>
 <h2 id="result-and-benefits">Result and Benefits<a class="headerlink" href="#result-and-benefits" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Workload detection and protection techniques including IDS/IPS, antimalware, firewall, application control, integrity monitoring, log inspection &amp; web reputation</li>
+<li>Continuous updates to services, updated by Trend Micro – leading to better security outcomes</li>
+<li>Compliance certifications for PCI-DSS, ISO 27001, ISO 27014, ISO 27017, SOC</li>
+<li>Managed compute, storage and network infrastructure – eliminates operational overhead of managing a solution</li>
+<li>24 x 7 x 365 operation and monitoring of the security service</li>
+<li>Provided via a highly scalable, high availability, physically secure cloud environment</li>
+<li>Disaster recovery and business continuity planning supported by compliance frameworks</li>
+<li>Vulnerability, penetration testing, and updating/patching of the service provided by Trend Micro</li>
+<li>Annual compliance audits on the service</li>
+<li>Access to other Cloud Security services from a common platform</li>
+</ul>
 <p>🎉 Success 🎉</p>
 
 
