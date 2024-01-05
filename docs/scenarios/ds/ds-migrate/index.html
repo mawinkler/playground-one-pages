@@ -1266,9 +1266,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#workflow" class="md-nav__link">
+  <a href="#migration-workflow" class="md-nav__link">
     <span class="md-ellipsis">
-      Workflow
+      Migration Workflow
     </span>
   </a>
   
@@ -1437,9 +1437,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#workflow" class="md-nav__link">
+  <a href="#migration-workflow" class="md-nav__link">
     <span class="md-ellipsis">
-      Workflow
+      Migration Workflow
     </span>
   </a>
   
@@ -1501,16 +1501,58 @@
 <li>Access to other Cloud Security services from a common platform</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Playground One Deep Security</li>
+<li>Playground One Deep Security Workload</li>
+</ul>
+<p>The Playground One can provide a simulates on-premise Deep Security deployment. For simulation purposes it creates a dedicated VPC with the most commonly used architecture, private and public subnets accross two availability zones. </p>
+<p>Deep Security itself is located within the private subnet and uses a RDS Postgres as the database. The Deep Security Workload configuration creates two linux and one windows server with a deployed and activated Deep Security Agent. Some essential configurations in Deep Security are executed via REST. These are (amongst others):</p>
+<ul>
+<li>Creation of a Windows and Linux Policy with valid configurations for the security modules</li>
+<li>Activation of agent initiated activation</li>
+<li>Scheduling a recommendation scan for all created instances</li>
+</ul>
+<p>For this scenarion you need to ensure to have the Deep Security and Deep Security Workload configurations up and running:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>dsm
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>dsw
+</code></pre></div>
 <h2 id="current-situation">Current Situation<a class="headerlink" href="#current-situation" title="Permanent link">&para;</a></h2>
 <ul>
-<li>DS to secure on-prem and/or cloud instances</li>
+<li>Deep Security is securing (simulated) on-premise instances.</li>
+<li>Since you want to move to the Vision One platform you to migrate Deep Security protected computers to Vision One Server &amp; Workload Protection.</li>
 </ul>
-<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h2>
+<h2 id="migration-workflow">Migration Workflow<a class="headerlink" href="#migration-workflow" title="Permanent link">&para;</a></h2>
+<p>Vision One</p>
 <ol>
-<li>step</li>
-<li>step</li>
-<li>step</li>
+<li>Log in to Trend Vision One, and go to <code>Endpoint Security Operations --&gt; Server &amp; Workload Protection</code>.</li>
+<li>Navigate to <code>Administration &gt; User Management &gt; API keys</code>.</li>
+<li>Create a new API key with the predefined role “Deep Security Migration” and save the key for later use.</li>
 </ol>
+<p><img alt="alt text" src="../images/ds-migrate-00.png" title="API Key" /></p>
+<p>Deep Security</p>
+<ol>
+<li>Go to DSM and use the feature Migrate to Workload Security. <code>Support --&gt; Migrate to Workload Security</code>.</li>
+<li>When using this feature, it will need the API key and region. Specify them based on the result of the previous steps.</li>
+<li>In the tab <code>Configurations</code> select the Common Objects you want to migrate:</li>
+<li>Directory Exclusions (Windows). To migrate this select is and press <code>[Migrate Selected]</code>.</li>
+<li>Same for the other Common Objects.</li>
+<li>In the same tab click on the drop down <code>Migrate Policy (includes references Common Objects)</code> and press <code>[Migrate Selected]</code>.</li>
+<li>In the tab <code>Cloud Accounts</code> select the cloud accounts to migrate.</li>
+<li>In the tab <code>Agents</code> click on <code>Migrate using Computers page</code>.</li>
+<li>Select the agents to migrate in the Computers page. Right click on a selected Computer and go to <code>Actions --&gt; Migrate to Workload Security</code>.</li>
+<li>In the <code>Cloud One Workload Security Agent Reactivation Configurations</code> adapt the settings when needed and check that <code>Security Policy --&gt; Assign migrated policy</code> is activated.</li>
+<li>Press the button <code>[Migrate]</code></li>
+<li>Review the Migration Summary.</li>
+</ol>
+<p><img alt="alt text" src="../images/ds-migrate-01.png" title="Moving" /></p>
+<p>Turns to</p>
+<p><img alt="alt text" src="../images/ds-migrate-02.png" title="Complete" /></p>
+<p>If the migration is successful, the DSM UI’s status will show “Migrated” or “Move Complete”. </p>
+<p>Vision One</p>
+<p>In Trend Vision One Server &amp; Workload Protection, you will also see the new migrated objects appear.</p>
+<p><img alt="alt text" src="../images/ds-migrate-03.png" title="Migrated" /></p>
+<p>The migrated policy tree shows the migrated policies including it's dependencies:</p>
+<p><img alt="alt text" src="../images/ds-migrate-04.png" title="Policy Tree" /></p>
 <h2 id="result-and-benefits">Result and Benefits<a class="headerlink" href="#result-and-benefits" title="Permanent link">&para;</a></h2>
 <p>🎉 Success 🎉</p>
 
