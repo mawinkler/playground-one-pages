@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../ws-integrate/">
+        <link rel="prev" href="../ds-integrate/">
       
       
-        <link rel="next" href="../ws-migrate/">
+        <link rel="next" href="../ws-integrate/">
       
       
       <link rel="icon" href="../../../images/playground-icon.png">
@@ -1154,27 +1154,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../ws-integrate/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Integrate Workload Security with Vision One
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1293,11 +1272,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../ws-migrate/" class="md-nav__link">
+      <a href="../ws-integrate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Migrate Workload Security to Vision One
+    Integrate Workload Security with Vision One
   </span>
   
 
@@ -1498,7 +1477,7 @@
 <h2 id="migration-workflow">Migration Workflow<a class="headerlink" href="#migration-workflow" title="Permanent link">&para;</a></h2>
 <p>Vision One</p>
 <ol>
-<li>Log in to Trend Vision One, and go to <code>Endpoint Security Operations --&gt; Server &amp; Workload Protection</code>.</li>
+<li>Log in to Trend Vision One, and go to <code>Endpoint Security Operations --&gt; Server &amp; Workload Protection</code>. Choose an existing target instance of Server &amp; Workload Protection.</li>
 <li>Navigate to <code>Administration &gt; User Management &gt; API keys</code>.</li>
 <li>Create a new API key with the predefined role “Deep Security Migration” and save the key for later use.</li>
 </ol>
@@ -1544,8 +1523,8 @@
 <li>
 <p>Copy and paste the ssh command shown but change <code>ssh</code> to <code>scp</code>, just before the username place the filename of the downloaded agent package and append a <code>:</code>. The complete command should look like this: <code>scp -i /home/markus/projects/opensource/playground/playground-one/pgo-dsm-key-pair.pem -o StrictHostKeyChecking=no &lt;DOWNLOADED TAR FILE NAME&gt; ec2-user@18.156.83.192:</code></p>
 </li>
-<li>Connecto via ssh to the computer.</li>
-<li>Now, simply use the <code>ssh</code> shown in the pgo output above to connect to the computer. <code>ssh -i /home/markus/projects/opensource/playground/playground-one/pgo-dsm-key-pair.pem -o StrictHostKeyChecking=no ec2-user@18.156.83.192</code></li>
+<li>Connect via ssh to the computer.</li>
+<li>Now, use the <code>ssh</code> shown in the <code>pgo</code> output from above to connect to the computer. Example: <code>ssh -i /home/markus/projects/opensource/playground/playground-one/pgo-dsm-key-pair.pem -o StrictHostKeyChecking=no ec2-user@18.156.83.192</code></li>
 <li>Running <code>ls</code> shows the uploaded package</li>
 <li>Run <code>tar xfv &lt;DOWNLOADED TAR FILE NAME&gt;</code></li>
 <li>Run <code>sudo ./tmxbc install</code></li>
