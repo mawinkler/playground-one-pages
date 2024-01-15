@@ -296,6 +296,39 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="System Health">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Azure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1404,6 +1437,39 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="System Health">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Azure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1496,6 +1562,7 @@ The contents are therefore to be enjoyed with caution and can still change at an
 <li>Cloud9 with Ubuntu</li>
 </ul>
 <h2 id="system-health">System Health<a class="headerlink" href="#system-health" title="Permanent link">&para;</a></h2>
+<h3 id="aws">AWS<a class="headerlink" href="#aws" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -1531,24 +1598,6 @@ The contents are therefore to be enjoyed with caution and can still change at an
 <td>V1CS Runtime Scanning<br>V1CS Runtime Security<br>OAT&amp;WB Generation</td>
 </tr>
 <tr>
-<td>EKS Calico</td>
-<td>Yes</td>
-<td>EKS EC2 only</td>
-<td></td>
-</tr>
-<tr>
-<td>EKS Prometheus</td>
-<td>Yes</td>
-<td>EKS EC2 only</td>
-<td></td>
-</tr>
-<tr>
-<td>EKS Trivy</td>
-<td>Yes</td>
-<td>EKS EC2 only</td>
-<td></td>
-</tr>
-<tr>
 <td>ECS EC2</td>
 <td>Yes</td>
 <td>See 1)</td>
@@ -1561,16 +1610,74 @@ The contents are therefore to be enjoyed with caution and can still change at an
 <td>V1CS Runtime Scanning<br>V1CS Runtime Security</td>
 </tr>
 <tr>
-<td>TMAS</td>
+<td>Calico</td>
 <td>Yes</td>
-<td>None</td>
-<td>Artifact Scanning for Vulnerabilities and Malware</td>
+<td>EKS EC2 only</td>
+<td></td>
+</tr>
+<tr>
+<td>Prometheus</td>
+<td>Yes</td>
+<td>EKS EC2 only</td>
+<td></td>
+</tr>
+<tr>
+<td>Trivy</td>
+<td>Yes</td>
+<td>EKS EC2 only</td>
+<td></td>
 </tr>
 <tr>
 <td>Deep Security</td>
 <td>Yes</td>
 <td>None</td>
 <td>V1 Server &amp; Workload Protection</td>
+</tr>
+</tbody>
+</table>
+<p>1) Deleting the cluster requires the deactivation runtime scanning and runtime security before destroying the cluster. If destroy process <code>module.ecs-ec2[0].module.ecs_service.aws_ecs_service.this[0]: Still destroying...</code> hangs for a couple of minutes manually terminate the autoscaling group <code>pgo4-ecs-ec2-asg-spot-...</code> in AWS.</p>
+<p>2) Activating Runtime Security requires some manual steps, see <a href="https://docs.trendmicro.com/en-us/enterprise/trend-vision-one/cloudsecurityoperati/about-container-secu/next-steps/containerinventory/ecs-fargate-deployme/ecs-fargate-add.aspx">documentation</a>. Deleting the cluster requires the deactivation of runtime scanning and runtime security before destroying the cluster. Newly created task definitions must be removed manually.</p>
+<h3 id="azure">Azure<a class="headerlink" href="#azure" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Operational</th>
+<th>Known Issues</th>
+<th>Vision One Cloud Security</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AKS</td>
+<td>In progress</td>
+<td>None</td>
+<td>In progress</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">Other<a class="headerlink" href="#other" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Operational</th>
+<th>Known Issues</th>
+<th>Vision One Cloud Security</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TMAS</td>
+<td>Yes</td>
+<td>None</td>
+<td>Artifact Scanning for Vulnerabilities and Malware</td>
+</tr>
+<tr>
+<td>TMFS</td>
+<td>Yes</td>
+<td>None</td>
+<td>File and Directory Scanning for Malware</td>
 </tr>
 <tr>
 <td>Workload Security</td>
@@ -1580,8 +1687,6 @@ The contents are therefore to be enjoyed with caution and can still change at an
 </tr>
 </tbody>
 </table>
-<p>1) Deleting the cluster requires the deactivation runtime scanning and runtime security before destroying the cluster. If destroy process <code>module.ecs-ec2[0].module.ecs_service.aws_ecs_service.this[0]: Still destroying...</code> hangs for a couple of minutes manually terminate the autoscaling group <code>pgo4-ecs-ec2-asg-spot-...</code> in AWS.</p>
-<p>2) Activating Runtime Security requires some manual steps, see <a href="https://docs.trendmicro.com/en-us/enterprise/trend-vision-one/cloudsecurityoperati/about-container-secu/next-steps/containerinventory/ecs-fargate-deployme/ecs-fargate-add.aspx">documentation</a>. Deleting the cluster requires the deactivation of runtime scanning and runtime security before destroying the cluster. Newly created task definitions must be removed manually.</p>
 <h2 id="cli-commands-of-the-playground">CLI Commands of the Playground<a class="headerlink" href="#cli-commands-of-the-playground" title="Permanent link">&para;</a></h2>
 <p>Besides the obvious cli tools like <code>kubectl</code>, etc. the Playground offers you additional commands shown in the table below (and more):</p>
 <table>
