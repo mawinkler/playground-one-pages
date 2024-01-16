@@ -1540,6 +1540,11 @@
 <a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a><span class="w">  </span>pgo<span class="w"> </span>--state<span class="w"> </span>all
 </code></pre></div>
 <h2 id="configure">Configure<a class="headerlink" href="#configure" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong><em>Note:</em></strong> When using AWS you need to know your Account ID, for Azure you need your Subscription ID. Get these IDs using the following commands:</p>
+<p><code>aws sts get-caller-identity | jq -r '.Account'</code></p>
+<p><code>az account list | jq -r '.[] | [.name, .id] | @tsv'</code></p>
+</blockquote>
 <p>After bootstrapping you need to configure Playground One. To simplify the process use the built in configuration tool. An eventually already existing <code>config.yaml</code> will be saved as <code>config.yaml.bak</code>. Run</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pgo<span class="w"> </span>--config
 </code></pre></div>

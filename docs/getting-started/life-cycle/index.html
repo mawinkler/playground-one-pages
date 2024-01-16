@@ -473,15 +473,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#authentication" class="md-nav__link">
-    <span class="md-ellipsis">
-      Authentication
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#initialize" class="md-nav__link">
     <span class="md-ellipsis">
       Initialize
@@ -1384,15 +1375,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#authentication" class="md-nav__link">
-    <span class="md-ellipsis">
-      Authentication
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#initialize" class="md-nav__link">
     <span class="md-ellipsis">
       Initialize
@@ -1471,25 +1453,17 @@
 
 
 <h1 id="general-life-cycle">General Life-Cycle<a class="headerlink" href="#general-life-cycle" title="Permanent link">&para;</a></h1>
-<h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h2>
-<p>Playground One is designed to work on Ubuntu Linux or an Ubuntu Cloud9 on AWS. If you're using Cloud9 you will get prompted for your AWS Access and Secret Key. These credentials are never stored on any disk but used to create an EC2 instance role only.</p>
-<p>If you're using a <em>normal</em> Ubuntu server you manually need to authenticate to AWS and/or Azure by either running</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>aws configure
-</code></pre></div>
-<p>and/or</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>az login --use-device-code
-</code></pre></div>
 <h2 id="initialize">Initialize<a class="headerlink" href="#initialize" title="Permanent link">&para;</a></h2>
 <p>Initialize with</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pgo<span class="w"> </span>--init<span class="w"> </span>all
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--init<span class="w"> </span>all
 </code></pre></div>
-<p>This will prepare all available configurations. No changes done in the clouds yet. You only need to init once after cloning the repository.</p>
-<p>If you have changed Playground Ones main configuration using <code>pgo --config</code> please rerun <code>pgo --init all</code> again to apply eventual changes to the configurations.</p>
+<p>This will prepare all available configurations. No changes done in the clouds yet.</p>
+<p>If you have changed Playground Ones main configuration using <code>pgo --config</code> or updated it via <code>git pull</code> please rerun <code>pgo --init all</code> again to apply eventual changes to the configurations.</p>
 <h2 id="create-the-aws-environment">Create the AWS Environment<a class="headerlink" href="#create-the-aws-environment" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p>To create the VPC and Network run</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
 </code></pre></div>
 <p>This will create your VPC and network in the configured region (see <code>config.yaml</code>)</p>
 </li>
@@ -1499,25 +1473,25 @@
 <li>
 <p>Create Virtual Instances and/or Kubernetes Clusters with demo workload.</p>
 <p>EC2 instances:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>ec2
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>ec2
 </code></pre></div>
 <p>EKS EC2 cluster:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>eks-ec2
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>eks-ec2
 </code></pre></div>
 <p>EKS Fargate cluster:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>eks-fg
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>eks-fg
 </code></pre></div>
 <p>ECS cluster(s):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>ecs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>ecs
 </code></pre></div>
 </li>
 <li>
 <p>Create a dedicated (on-prem like) Deep Security environment with activated Computers.</p>
 <p>VPC and Deep Security:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>dsm
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>dsm
 </code></pre></div>
 <p>Activated Linux &amp; Windows Computers:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>dsw
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>dsw
 </code></pre></div>
 </li>
 </ol>
@@ -1526,27 +1500,27 @@
 <li>
 <p>Create Kubernetes Cluster with demo workload.</p>
 <p>AKS cluster:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>aks
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>aks
 </code></pre></div>
 </li>
 </ol>
 <h2 id="query-outputs-and-state">Query Outputs and State<a class="headerlink" href="#query-outputs-and-state" title="Permanent link">&para;</a></h2>
 <p>The most relevant information on your configuration can be queried by running</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>pgo<span class="w"> </span>--output<span class="w"> </span>&lt;configuration&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>pgo<span class="w"> </span>--output<span class="w"> </span>&lt;configuration&gt;
 </code></pre></div>
 <p>Example: <code>pgo --output ec2</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nv">public_instance_id_db1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;i-072abd953dedaae5d&quot;</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nv">public_instance_id_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;i-0f2c91e08fd054510&quot;</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nv">public_instance_id_web1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;i-048ecedf660236f47&quot;</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="nv">public_instance_ip_db1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3.76.39.227&quot;</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="nv">public_instance_ip_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3.75.219.198&quot;</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="nv">public_instance_ip_web1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;18.197.106.33&quot;</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="nv">public_instance_password_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;sensitive&gt;
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="nv">s3_bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;playground-awsone-cesh306v&quot;</span>
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="nv">ssh_instance_db1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i ../playground-key-pair.pem -o StrictHostKeyChecking=no ubuntu@3.76.39.227&quot;</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="nv">ssh_instance_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i ../playground-key-pair.pem -o StrictHostKeyChecking=no admin@3.75.219.198&quot;</span>
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="nv">ssh_instance_web1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i ../playground-key-pair.pem -o StrictHostKeyChecking=no ubuntu@18.197.106.33&quot;</span>
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="nv">public_instance_password_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;4h1v}Q7Hc9tbGWdM&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nv">public_instance_id_db1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;i-072abd953dedaae5d&quot;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nv">public_instance_id_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;i-0f2c91e08fd054510&quot;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nv">public_instance_id_web1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;i-048ecedf660236f47&quot;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="nv">public_instance_ip_db1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3.76.39.227&quot;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="nv">public_instance_ip_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3.75.219.198&quot;</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="nv">public_instance_ip_web1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;18.197.106.33&quot;</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="nv">public_instance_password_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;sensitive&gt;
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="nv">s3_bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;playground-awsone-cesh306v&quot;</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="nv">ssh_instance_db1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i ../playground-key-pair.pem -o StrictHostKeyChecking=no ubuntu@3.76.39.227&quot;</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="nv">ssh_instance_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i ../playground-key-pair.pem -o StrictHostKeyChecking=no admin@3.75.219.198&quot;</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="nv">ssh_instance_web1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i ../playground-key-pair.pem -o StrictHostKeyChecking=no ubuntu@18.197.106.33&quot;</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="nv">public_instance_password_srv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;4h1v}Q7Hc9tbGWdM&quot;</span>
 </code></pre></div>
 <p>With this you can always query how to connect to your running EC2 instances. All instances support SSH connections, the Windows Server Remote Desktop as well. For RDP Use the configured <code>admin</code> user, the ip address and password for srv1.</p>
 <h2 id="play-with-the-playground-one">Play with the Playground One<a class="headerlink" href="#play-with-the-playground-one" title="Permanent link">&para;</a></h2>
@@ -1556,10 +1530,10 @@
 <p><img alt="alt text" src="../images/pgo-context.png" title="Context" /></p>
 <h2 id="tear-down">Tear Down<a class="headerlink" href="#tear-down" title="Permanent link">&para;</a></h2>
 <p>If you want to destroy your environment completely or only parts of it</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>&lt;configuration&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>&lt;configuration&gt;
 </code></pre></div>
 <p>If you want to tear down everything run</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>all
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>all
 </code></pre></div>
 <blockquote>
 <p><strong><em>Note:</em></strong> The network and VPC are not automatically destroyed. You can do this manually by running <code>pgo --destroy nw</code>. Be sure to have the CloudFormation stack of XDR for Containers deleted before doing so. Otherwise it will be in a failed (blackhole) state.</p>
