@@ -1526,15 +1526,27 @@ The contents are therefore to be enjoyed with caution and can still change at an
 <p>!!! <strong><em>Playground integrated with Vision One</em></strong> !!!</p>
 <p>In a nutshell:</p>
 <ul>
-<li>Bootstrapping directly from the clouds. It will attempt to upgrade already installed tools to the latest available version.  </li>
+<li>Bootstrapping directly from the clouds.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/mawinkler/playground-one/main/bin/pgo<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">exit</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/mawinkler/playground-one/main/bin/pgoc<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>ssh<span class="w"> </span>-p<span class="w"> </span><span class="m">2222</span><span class="w"> </span>pgo@localhost
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># password: pgo</span>
 </code></pre></div>
 <ul>
 <li>Management of the environment with the help of an easy to use command line interface <code>pgo</code>.</li>
 <li>Based on Terraform &gt;1.5</li>
 </ul>
 <h2 id="change-log">Change Log<a class="headerlink" href="#change-log" title="Permanent link">&para;</a></h2>
+<p>02/01/2024</p>
+<ul>
+<li>Playground One in a Box - The Playground One Container<br>
+  The Playgrond One Container allows you to use the playground on any container engine hosted either on <code>arm64</code> or <code>amd64</code> from within a containerized environment not affecting your system.</li>
+</ul>
+<p>01/23/2024</p>
+<ul>
+<li>Playground One starts to support Intel and M1+ MacOS as host platform.</li>
+</ul>
 <p>01/16/2024</p>
 <ul>
 <li>Playground One starts to support AKS and V1CS on Azure.</li>
@@ -1564,6 +1576,7 @@ The contents are therefore to be enjoyed with caution and can still change at an
 <ul>
 <li>Ubuntu Bionic and newer</li>
 <li>Cloud9 with Ubuntu</li>
+<li>Intel and M1+ MacOS (likely older versions as well)</li>
 </ul>
 <h2 id="system-health">System Health<a class="headerlink" href="#system-health" title="Permanent link">&para;</a></h2>
 <h3 id="aws">AWS<a class="headerlink" href="#aws" title="Permanent link">&para;</a></h3>
@@ -1688,6 +1701,12 @@ The contents are therefore to be enjoyed with caution and can still change at an
 <td>Yes</td>
 <td>None</td>
 <td>V1 Server &amp; Workload Protection</td>
+</tr>
+<tr>
+<td>Kind Kubernetes</td>
+<td>In progress</td>
+<td>None</td>
+<td></td>
 </tr>
 </tbody>
 </table>
