@@ -1457,6 +1457,9 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>az login --use-device-code
 </code></pre></div>
 <p>Stopping the container is possible with <code>docker stop pgoc-latest</code>, to restart it just rerun <code>./pgoc</code></p>
+<blockquote>
+<p><strong><em>Note</em></strong>: For the curious ones, here's the <a href="https://github.com/mawinkler/playground-one/blob/main/container/Dockerfile">Dockerfile</a>.</p>
+</blockquote>
 <p>Then, continue with <a href="../configuration/">Configuration</a>.</p>
 <h2 id="advanced-but-native">Advanced but native<a class="headerlink" href="#advanced-but-native" title="Permanent link">&para;</a></h2>
 <h3 id="ubuntu">Ubuntu<a class="headerlink" href="#ubuntu" title="Permanent link">&para;</a></h3>
@@ -1487,7 +1490,7 @@
 <li>you're using the Playground on a MacOS machine with an M1+ (ARM) or Intel chip.</li>
 </ul>
 <blockquote>
-<p><strong><em>Note:</em></strong> The initial bootstrapping process might require administrative privileges. Depending on your OS configuration you might need to enable administrator mode. Updating an already installed Playground does <em>not</em> require admin provileges.</p>
+<p><strong><em>Note:</em></strong> The initial bootstrapping process might require administrative privileges. Depending on your OS configuration you might need to enable administrator mode. Updating an already installed Playground does <em>not</em> require admin privileges.</p>
 </blockquote>
 <p>Now, run the Playground</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/mawinkler/playground-one/main/bin/pgo<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">exit</span>
