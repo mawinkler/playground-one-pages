@@ -1448,10 +1448,12 @@
 <p>The above will pull the latest version of the container. If you're already authenticated to AWS and/or have an already existing <code>config.yaml</code> from a previous Playground One installation in the current directory, they will automatically be made available to the Playground One container.</p>
 <blockquote>
 <p><strong><em>Note:</em></strong> When running the above <code>curl</code>-command on an <strong><em>AWS Cloud9</em></strong> instance you will be asked to run <code>./get_pgoc.sh</code> manually. It will asked for your AWS credentials which will never be stored on disk and get removed from memory after creating and assigning an instance role to the Cloud9 instance.
-If you didn't do before, you will be asked to turn off AWS managed temporary credentials: 
-- Click the gear icon (in top right corner), or click to open a new tab and choose <code>[Open Preferences]</code>
-- Select AWS SETTINGS
-- Turn OFF <code>[AWS managed temporary credentials]</code></p>
+If you didn't do before, you will be asked to turn off AWS managed temporary credentials:<br> </p>
+<ul>
+<li>Click the gear icon (in top right corner), or click to open a new tab and choose <code>[Open Preferences]</code><br></li>
+<li>Select AWS SETTINGS<br></li>
+<li>Turn OFF <code>[AWS managed temporary credentials]</code></li>
+</ul>
 </blockquote>
 <p>You will notice, that a new directory called <code>workdir</code> has been created. This directory represents the <code>home</code>-directory from your Playground One Container. To access it run</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>./pgoc<span class="w"> </span>start
