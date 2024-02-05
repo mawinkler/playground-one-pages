@@ -1528,12 +1528,11 @@ The contents are therefore to be enjoyed with caution and can still change at an
 <ul>
 <li>Bootstrapping directly from the clouds.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/mawinkler/playground-one/main/bin/pgoc<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>ssh<span class="w"> </span>-p<span class="w"> </span><span class="m">2222</span><span class="w"> </span>pgo@localhost
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># password: pgo</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/mawinkler/playground-one/main/bin/get_pgoc.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
 </code></pre></div>
 <ul>
+<li>Playground One is containerized and supports any <code>arm64</code>  or <code>amd64</code> based container engine.</li>
+<li>A native installation is possible as well.</li>
 <li>Management of the environment with the help of an easy to use command line interface <code>pgo</code>.</li>
 <li>Based on Terraform &gt;1.5</li>
 </ul>

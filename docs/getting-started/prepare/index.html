@@ -1439,24 +1439,59 @@
 <h2 id="playground-one-container-easy-and-portable">Playground One Container (Easy and portable)<a class="headerlink" href="#playground-one-container-easy-and-portable" title="Permanent link">&para;</a></h2>
 <p>Follow this chapter if...</p>
 <ul>
-<li>you intent to use Playground One Container on any <code>arm64</code>  or <code>amd64</code> based container engine.</li>
+<li>you intent to use Playground One Container on any <code>arm64</code>  or <code>amd64</code> based container engine. This includes AWS Cloud9 environments with Amazon Linux or Ubuntu.</li>
 </ul>
-<p>Ensure to have a running container engine, eventually run <code>docker ps</code> to verify this.</p>
+<p>First, start a terminal and ensure to have a running container engine, eventually run <code>docker ps</code> to verify this.</p>
 <p>Then simply run</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/mawinkler/playground-one/main/bin/pgoc<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/mawinkler/playground-one/main/bin/get_pgoc.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
 </code></pre></div>
 <p>The above will pull the latest version of the container. If you're already authenticated to AWS and/or have an already existing <code>config.yaml</code> from a previous Playground One installation in the current directory, they will automatically be made available to the Playground One container.</p>
-<p>After the successful start of the container you will be able to ssh into the working environment of Playground One by running</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ssh<span class="w"> </span>-p<span class="w"> </span><span class="m">2222</span><span class="w"> </span>pgo@localhost
+<blockquote>
+<p><strong><em>Note:</em></strong> When running the above <code>curl</code>-command on an <strong><em>AWS Cloud9</em></strong> instance you will be asked to run <code>./get_pgoc.sh</code> manually. It will asked for your AWS credentials which will never be stored on disk and get removed from memory after creating and assigning an instance role to the Cloud9 instance.
+If you didn't do before, you will be asked to turn off AWS managed temporary credentials: 
+- Click the gear icon (in top right corner), or click to open a new tab and choose <code>[Open Preferences]</code>
+- Select AWS SETTINGS
+- Turn OFF <code>[AWS managed temporary credentials]</code></p>
+</blockquote>
+<p>You will notice, that a new directory called <code>workdir</code> has been created. This directory represents the <code>home</code>-directory from your Playground One Container. To access it run</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>./pgoc<span class="w"> </span>start
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># password: pgo</span>
 </code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Starting<span class="w"> </span>Playground<span class="w"> </span>One<span class="w"> </span>Container
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>cd741d37446ee0565f6da3f224eb60e4d3bab9824d3255ae08afef8b4263b2c9
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Connect:<span class="w">  </span>ssh<span class="w"> </span>-p<span class="w"> </span><span class="m">2222</span><span class="w"> </span>pgo@localhost
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Password:<span class="w"> </span>pgo
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>pgo@localhost<span class="s1">&#39;s password: </span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="s1">Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 6.1.72-96.166.amzn2023.x86_64 x86_64)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="s1"> * Documentation:  https://help.ubuntu.com</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="s1"> * Management:     https://landscape.canonical.com</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="s1"> * Support:        https://ubuntu.com/advantage</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="s1">This system has been minimized by removing packages and content that are</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="s1">not required on a system that users do not log into.</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="s1">To restore this content, you can run the &#39;</span>unminimize<span class="s1">&#39; command.</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="s1"> ____  _                                             _    ___             </span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="s1">|  _ \| | __ _ _   _  __ _ _ __ ___  _   _ _ __   __| |  / _ \ _ __   ___ </span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="s1">| |_) | |/ _` | | | |/ _` | &#39;</span>__/<span class="w"> </span>_<span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="s1">&#39;_ \ / _` | | | | | &#39;</span>_<span class="w"> </span><span class="se">\ </span>/<span class="w"> </span>_<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="p">|</span><span class="w">  </span>__/<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="o">(</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="o">(</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="o">(</span>_<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="o">(</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span>__/
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="p">|</span>_<span class="p">|</span><span class="w">   </span><span class="p">|</span>_<span class="p">|</span><span class="se">\_</span>_,_<span class="p">|</span><span class="se">\_</span>_,<span class="w"> </span><span class="p">|</span><span class="se">\_</span>_,<span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="w">  </span><span class="se">\_</span>__/<span class="w"> </span><span class="se">\_</span>_,_<span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="se">\_</span>_,_<span class="p">|</span><span class="w">  </span><span class="se">\_</span>__/<span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="se">\_</span>__<span class="p">|</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">               </span><span class="p">|</span>___/<span class="w"> </span><span class="p">|</span>___/<span class="w">                                                </span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>pgo@cd741d37446e:~$<span class="w"> </span>
+</code></pre></div>
+<p>If you exited the container, reconnect with</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ssh<span class="w"> </span>-p<span class="w"> </span><span class="m">2222</span><span class="w"> </span>pgo@localhost
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># password: pgo</span>
+</code></pre></div>
 <p>Eventually authenticate to AWS and/or Azure by either running</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>aws configure
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>aws configure
 </code></pre></div>
 <p>and/or</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>az login --use-device-code
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>az login --use-device-code
 </code></pre></div>
-<p>Stopping the container is possible with <code>docker stop pgoc-latest</code>, to restart it just rerun <code>./pgoc</code></p>
+<p>Stopping the container is possible with <code>./pgoc stop</code>, to restart it just rerun <code>./pgoc start</code>.</p>
 <blockquote>
 <p><strong><em>Note</em></strong>: For the curious ones, here's the <a href="https://github.com/mawinkler/playground-one/blob/main/container/Dockerfile">Dockerfile</a>.</p>
 </blockquote>
@@ -1468,20 +1503,20 @@
 <li>you're using the Playground on a Ubuntu machine (not Cloud9).</li>
 </ul>
 <p>Test if <code>sudo</code> requires a password by running <code>sudo ls /etc</code>. If you don't get a password prompt you're fine, otherwise run.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>visudo<span class="w"> </span>-f<span class="w"> </span>/etc/sudoers.d/custom-users
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>visudo<span class="w"> </span>-f<span class="w"> </span>/etc/sudoers.d/custom-users
 </code></pre></div>
 <p>Add the following line:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>&lt;YOUR<span class="w"> </span>USER<span class="w"> </span>NAME&gt;<span class="w"> </span><span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span><span class="w"> </span>NOPASSWD:ALL<span class="w"> </span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>&lt;YOUR<span class="w"> </span>USER<span class="w"> </span>NAME&gt;<span class="w"> </span><span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span><span class="w"> </span>NOPASSWD:ALL<span class="w"> </span>
 </code></pre></div>
 <p>Now, run the Playground</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/mawinkler/playground-one/main/bin/pgo<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">exit</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/mawinkler/playground-one/main/bin/pgo<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">exit</span>
 </code></pre></div>
 <p>The bootstrapping process will exit your current terminal or shell after it has done it's work. Depending on your environment just create a new terminal session.</p>
 <p>You now need to manually authenticate to AWS and/or Azure by either running</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>aws configure
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>aws configure
 </code></pre></div>
 <p>and/or</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>az login --use-device-code
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>az login --use-device-code
 </code></pre></div>
 <p>Then, continue with <a href="../configuration/">Configuration</a>.</p>
 <h3 id="experimental-macos-apple-silicon-and-intel"><strong><em>EXPERIMENTAL</em></strong> - MacOS Apple silicon and Intel<a class="headerlink" href="#experimental-macos-apple-silicon-and-intel" title="Permanent link">&para;</a></h3>
@@ -1493,14 +1528,14 @@
 <p><strong><em>Note:</em></strong> The initial bootstrapping process might require administrative privileges. Depending on your OS configuration you might need to enable administrator mode. Updating an already installed Playground does <em>not</em> require admin privileges.</p>
 </blockquote>
 <p>Now, run the Playground</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/mawinkler/playground-one/main/bin/pgo<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">exit</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/mawinkler/playground-one/main/bin/pgo<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">exit</span>
 </code></pre></div>
 <p>The bootstrapping process will exit your current terminal or shell after it has done it's work. Depending on your environment just create a new terminal session.</p>
 <p>You now need to manually authenticate to AWS and/or Azure by either running</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>aws configure
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>aws configure
 </code></pre></div>
 <p>and/or</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>az login --use-device-code
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>az login --use-device-code
 </code></pre></div>
 <p>Then, continue with <a href="../configuration/">Configuration</a>.</p>
 <h3 id="cloud9">Cloud9<a class="headerlink" href="#cloud9" title="Permanent link">&para;</a></h3>
@@ -1527,17 +1562,17 @@
 <li>Close the Preferences tab</li>
 </ul>
 <p>Now, run the Playground</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/mawinkler/playground-one/main/bin/pgo<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">exit</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/mawinkler/playground-one/main/bin/pgo<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">exit</span>
 </code></pre></div>
 <p>If you run the above command on a newly created or rebooted Cloud9 instance and are receiving the following error, just wait a minute or two and rerun the curl command. The reason for this error is, that directly after starting the machine some update processes are running in the background causing the lock to the package manager process.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>E:<span class="w"> </span>Could<span class="w"> </span>not<span class="w"> </span>get<span class="w"> </span>lock<span class="w"> </span>/var/lib/dpkg/lock-frontend<span class="w"> </span>-<span class="w"> </span>open<span class="w"> </span><span class="o">(</span><span class="m">11</span>:<span class="w"> </span>Resource<span class="w"> </span>temporarily<span class="w"> </span>unavailable<span class="o">)</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>E:<span class="w"> </span>Unable<span class="w"> </span>to<span class="w"> </span>acquire<span class="w"> </span>the<span class="w"> </span>dpkg<span class="w"> </span>frontend<span class="w"> </span>lock<span class="w"> </span><span class="o">(</span>/var/lib/dpkg/lock-frontend<span class="o">)</span>,<span class="w"> </span>is<span class="w"> </span>another<span class="w"> </span>process<span class="w"> </span>using<span class="w"> </span>it?
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>E:<span class="w"> </span>Could<span class="w"> </span>not<span class="w"> </span>get<span class="w"> </span>lock<span class="w"> </span>/var/lib/dpkg/lock-frontend<span class="w"> </span>-<span class="w"> </span>open<span class="w"> </span><span class="o">(</span><span class="m">11</span>:<span class="w"> </span>Resource<span class="w"> </span>temporarily<span class="w"> </span>unavailable<span class="o">)</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>E:<span class="w"> </span>Unable<span class="w"> </span>to<span class="w"> </span>acquire<span class="w"> </span>the<span class="w"> </span>dpkg<span class="w"> </span>frontend<span class="w"> </span>lock<span class="w"> </span><span class="o">(</span>/var/lib/dpkg/lock-frontend<span class="o">)</span>,<span class="w"> </span>is<span class="w"> </span>another<span class="w"> </span>process<span class="w"> </span>using<span class="w"> </span>it?
 </code></pre></div>
 <p>You will be asked for your AWS credentials. They will never be stored on disk and get removed from memory after creating and assigning an instance role to the Cloud9 instance.</p>
 <p>If you forgot to disable AWS managed temporary credentials you will asked to do it again.</p>
 <p>The bootstrapping process will exit your current terminal or shell after it has done it's work. Depending on your environment just create a new terminal session and continue with <a href="../configuration/">Configuration</a>.</p>
 <p>If you want to work on Azure you now need to authenticate the <code>az</code> cli with</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>az login --use-device-code
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>az login --use-device-code
 </code></pre></div>
 <p>Then, continue with <a href="../configuration/">Configuration</a>.</p>
 

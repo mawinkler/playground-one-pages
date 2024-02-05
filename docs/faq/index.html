@@ -1309,6 +1309,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#upgrade-vision-one-container-security-to-the-latest-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upgrade Vision One Container Security to the latest Release
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1412,6 +1421,15 @@
   <a href="#i-dont-find-the-todolist-app-of-java-goof" class="md-nav__link">
     <span class="md-ellipsis">
       I don't find the todolist-app of Java-Goof
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgrade-vision-one-container-security-to-the-latest-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upgrade Vision One Container Security to the latest Release
     </span>
   </a>
   
@@ -1527,6 +1545,12 @@ aws_ecs_cluster depends on aws_ecs_capacity_provider depends on aws_autoscaling_
 <li>Username: <code>foo@bar.org</code></li>
 <li>Password: <code>foobar</code></li>
 </ul>
+<h2 id="upgrade-vision-one-container-security-to-the-latest-release">Upgrade Vision One Container Security to the latest Release<a class="headerlink" href="#upgrade-vision-one-container-security-to-the-latest-release" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>helm<span class="w"> </span>get<span class="w"> </span>values<span class="w"> </span>--namespace<span class="w"> </span>trendmicro-system<span class="w"> </span>container-security<span class="w"> </span><span class="p">|</span><span class="w"> </span>helm<span class="w"> </span>upgrade<span class="w"> </span>container-security<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span>--namespace<span class="w"> </span>trendmicro-system<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span>--values<span class="w"> </span>-<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span>https://github.com/trendmicro/cloudone-container-security-helm/archive/master.tar.gz
+</code></pre></div>
 
 
 
