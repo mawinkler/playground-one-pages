@@ -1532,7 +1532,7 @@ The contents are therefore to be enjoyed with caution and can still change at an
 </code></pre></div>
 <ul>
 <li>Playground One is containerized and supports any <code>arm64</code>  or <code>amd64</code> based container engine.</li>
-<li>A native installation is possible as well.</li>
+<li>Alternatively, you can install natively on your system.</li>
 <li>Management of the environment with the help of an easy to use command line interface <code>pgo</code>.</li>
 <li>Based on Terraform &gt;1.5</li>
 </ul>
@@ -1571,11 +1571,14 @@ The contents are therefore to be enjoyed with caution and can still change at an
 <li>Initial release.</li>
 </ul>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
-<p>The Playground One is designed to work with AWS and is tested these operating systems:</p>
+<p>The Playground One is designed to work on these platforms:</p>
 <ul>
-<li>Ubuntu Bionic and newer</li>
-<li>Cloud9 with Ubuntu</li>
-<li>Intel and M1+ MacOS (likely older versions as well)</li>
+<li>Playground One Container:</li>
+<li>Container engine hosted either on <code>arm64</code> or <code>amd64</code>.</li>
+<li>Tested with Docker and Colima on Ubuntu, Cloud9, MacOS Intel and Apple Silicon.</li>
+<li>Playground One native installation:</li>
+<li>Ubuntu Bionic and newer.</li>
+<li>Intel and M1+ MacOS.</li>
 </ul>
 <h2 id="system-health">System Health<a class="headerlink" href="#system-health" title="Permanent link">&para;</a></h2>
 <h3 id="aws">AWS<a class="headerlink" href="#aws" title="Permanent link">&para;</a></h3>
@@ -1724,6 +1727,14 @@ The contents are therefore to be enjoyed with caution and can still change at an
 <td>The command line interface for Playground One</td>
 </tr>
 <tr>
+<td>dsm</td>
+<td>Start or stop a deployed Deep Security</td>
+</tr>
+<tr>
+<td>tmcli-update</td>
+<td>Update TMAS and TMFS to the latest version</td>
+</tr>
+<tr>
 <td>stern</td>
 <td>Tail logs from multiple pods simultaneously</td>
 </tr>
@@ -1738,6 +1749,10 @@ The contents are therefore to be enjoyed with caution and can still change at an
 <tr>
 <td>k9s</td>
 <td>See <a href="https://k9scli.io/">k9scli.io</a></td>
+</tr>
+<tr>
+<td>kubie</td>
+<td>See <a href="https://github.com/sbstp/kubie?tab=readme-ov-file#usage">github.com/sbstp/kubie</a></td>
 </tr>
 </tbody>
 </table>

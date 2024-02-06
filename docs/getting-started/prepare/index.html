@@ -1447,15 +1447,16 @@
 </code></pre></div>
 <p>The above will pull the latest version of the container. If you're already authenticated to AWS and/or have an already existing <code>config.yaml</code> from a previous Playground One installation in the current directory, they will automatically be made available to the Playground One container.</p>
 <blockquote>
-<p><strong><em>Note:</em></strong> When running the above <code>curl</code>-command on an <strong><em>AWS Cloud9</em></strong> instance you will be asked to run <code>./get_pgoc.sh</code> manually. It will asked for your AWS credentials which will never be stored on disk and get removed from memory after creating and assigning an instance role to the Cloud9 instance.
-If you didn't do before, you will be asked to turn off AWS managed temporary credentials:<br> </p>
+<p><strong><em>Note:</em></strong> When running the above <code>curl</code>-command on an <strong><em>AWS Cloud9</em></strong> instance, the instance should be at least a <code>t3.medium</code> and you will be asked to run <code>./get_pgoc.sh</code> manually. The script will ask for your AWS credentials which will never be stored on disk and get removed from memory after creating and assigning an instance role to the Cloud9 instance.</p>
+<p>If you didn't do before, you will be asked to turn off AWS managed temporary credentials:<br> </p>
 <ul>
 <li>Click the gear icon (in top right corner), or click to open a new tab and choose <code>[Open Preferences]</code><br></li>
 <li>Select AWS SETTINGS<br></li>
 <li>Turn OFF <code>[AWS managed temporary credentials]</code></li>
 </ul>
 </blockquote>
-<p>You will notice, that a new directory called <code>workdir</code> has been created. This directory represents the <code>home</code>-directory from your Playground One Container. To access it run</p>
+<p>You will notice, that a new directory called <code>workdir</code> has been created. This directory represents the <code>home</code>-directory from your Playground One Container.</p>
+<p>To access the container run</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>./pgoc<span class="w"> </span>start
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># password: pgo</span>
 </code></pre></div>
@@ -1483,17 +1484,18 @@ If you didn't do before, you will be asked to turn off AWS managed temporary cre
 <a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">               </span><span class="p">|</span>___/<span class="w"> </span><span class="p">|</span>___/<span class="w">                                                </span>
 <a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>pgo@cd741d37446e:~$<span class="w"> </span>
 </code></pre></div>
-<p>If you exited the container, reconnect with</p>
+<p>If you exited the container, reconnect anytime with</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ssh<span class="w"> </span>-p<span class="w"> </span><span class="m">2222</span><span class="w"> </span>pgo@localhost
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># password: pgo</span>
 </code></pre></div>
 <p>Eventually authenticate to AWS and/or Azure by either running</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>aws configure
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Not required when using Cloud9</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>aws<span class="w"> </span>configure
 </code></pre></div>
 <p>and/or</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>az login --use-device-code
 </code></pre></div>
-<p>Stopping the container is possible with <code>./pgoc stop</code>, to restart it just rerun <code>./pgoc start</code>.</p>
+<p>Stopping the container is possible with <code>./pgoc stop</code>, to start it again just run <code>./pgoc start</code>.</p>
 <blockquote>
 <p><strong><em>Note</em></strong>: For the curious ones, here's the <a href="https://github.com/mawinkler/playground-one/blob/main/container/Dockerfile">Dockerfile</a>.</p>
 </blockquote>
@@ -1541,42 +1543,9 @@ If you didn't do before, you will be asked to turn off AWS managed temporary cre
 </code></pre></div>
 <p>Then, continue with <a href="../configuration/">Configuration</a>.</p>
 <h3 id="cloud9">Cloud9<a class="headerlink" href="#cloud9" title="Permanent link">&para;</a></h3>
-<p>Follow this chapter if...</p>
-<ul>
-<li>you're using the Playground on a AWS Cloud9 environment.</li>
-</ul>
-<p>Follow the steps below to create a Cloud9 suitable for the Playground.</p>
-<ul>
-<li>Point your browser to AWS</li>
-<li>Choose your default AWS region in the top right</li>
-<li>Go to the Cloud9 service</li>
-<li>Select <code>[Create Cloud9 environment]</code></li>
-<li>Name it as you like</li>
-<li>Choose <code>[t3.medium]</code> for instance type and</li>
-<li><code>Ubuntu 22.04 LTS</code> as the platform</li>
-<li>For the rest take all default values and click <code>[Create environment]</code></li>
-</ul>
-<p>Update IAM Settings for the Workspace</p>
-<ul>
-<li>Click the gear icon (in top right corner), or click to open a new tab and choose <code>[Open Preferences]</code></li>
-<li>Select AWS SETTINGS</li>
-<li>Turn OFF <code>[AWS managed temporary credentials]</code></li>
-<li>Close the Preferences tab</li>
-</ul>
-<p>Now, run the Playground</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/mawinkler/playground-one/main/bin/pgo<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">exit</span>
-</code></pre></div>
-<p>If you run the above command on a newly created or rebooted Cloud9 instance and are receiving the following error, just wait a minute or two and rerun the curl command. The reason for this error is, that directly after starting the machine some update processes are running in the background causing the lock to the package manager process.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>E:<span class="w"> </span>Could<span class="w"> </span>not<span class="w"> </span>get<span class="w"> </span>lock<span class="w"> </span>/var/lib/dpkg/lock-frontend<span class="w"> </span>-<span class="w"> </span>open<span class="w"> </span><span class="o">(</span><span class="m">11</span>:<span class="w"> </span>Resource<span class="w"> </span>temporarily<span class="w"> </span>unavailable<span class="o">)</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>E:<span class="w"> </span>Unable<span class="w"> </span>to<span class="w"> </span>acquire<span class="w"> </span>the<span class="w"> </span>dpkg<span class="w"> </span>frontend<span class="w"> </span>lock<span class="w"> </span><span class="o">(</span>/var/lib/dpkg/lock-frontend<span class="o">)</span>,<span class="w"> </span>is<span class="w"> </span>another<span class="w"> </span>process<span class="w"> </span>using<span class="w"> </span>it?
-</code></pre></div>
-<p>You will be asked for your AWS credentials. They will never be stored on disk and get removed from memory after creating and assigning an instance role to the Cloud9 instance.</p>
-<p>If you forgot to disable AWS managed temporary credentials you will asked to do it again.</p>
-<p>The bootstrapping process will exit your current terminal or shell after it has done it's work. Depending on your environment just create a new terminal session and continue with <a href="../configuration/">Configuration</a>.</p>
-<p>If you want to work on Azure you now need to authenticate the <code>az</code> cli with</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>az login --use-device-code
-</code></pre></div>
-<p>Then, continue with <a href="../configuration/">Configuration</a>.</p>
+<blockquote>
+<p><strong><em>Note:</em></strong> Native installation on Cloud9 is no longer supported. Use <a href="#playground-one-container-easy-and-portable">Playground One Container (Easy and portable)</a> instead.</p>
+</blockquote>
 
 
 
