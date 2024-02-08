@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scenario-container-vulnerability-and-malware-scanning-as-github-action" class="md-skip">
+        <a href="#scenario-container-image-vulnerability-and-malware-scanning-as-github-action" class="md-skip">
           Skip to content
         </a>
       
@@ -1589,7 +1589,7 @@
                   
 
 
-<h1 id="scenario-container-vulnerability-and-malware-scanning-as-github-action">Scenario: Container Vulnerability and Malware Scanning as GitHub Action<a class="headerlink" href="#scenario-container-vulnerability-and-malware-scanning-as-github-action" title="Permanent link">&para;</a></h1>
+<h1 id="scenario-container-image-vulnerability-and-malware-scanning-as-github-action">Scenario: Container Image Vulnerability and Malware Scanning as GitHub Action<a class="headerlink" href="#scenario-container-image-vulnerability-and-malware-scanning-as-github-action" title="Permanent link">&para;</a></h1>
 <p><strong><em>DRAFT</em></strong></p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
@@ -1599,8 +1599,9 @@
 <li>Run artifact scan</li>
 </ul>
 </li>
-<li>GitHub Account</li>
-<li>Docker Hub Account (ideally)</li>
+<li>GitHub Account.</li>
+<li>Docker Hub Account (optional).</li>
+<li>Kubernetes Cluster (ideally) with Vision One Container Security deployed.</li>
 </ul>
 <h2 id="about-github-actions">About GitHub Actions<a class="headerlink" href="#about-github-actions" title="Permanent link">&para;</a></h2>
 <p>GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production.</p>
@@ -1612,17 +1613,17 @@
 <h2 id="fork-the-scenario-repo">Fork the Scenario Repo<a class="headerlink" href="#fork-the-scenario-repo" title="Permanent link">&para;</a></h2>
 <p>The first step is to fork the scenarios GitHub repo. For this go to <a href="https://github.com/">github.com</a> and sign in or create a free account if you need to.</p>
 <p>Next, we want to create a Fork of the scenarios repo. A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.</p>
-<p>To do this navigate to the repo <a href="https://github.com/mawinkler/pgo-scenario-github-action">pgo-scenario-github-action</a> and click on the <code>Fork</code>-button in the upper right.</p>
+<p>To do this navigate to the repo <a href="https://github.com/mawinkler/playground-one-scenario-github-action">playground-one-scenario-github-action</a> and click on the <code>Fork</code>-button in the upper right.</p>
 <p>On the next screen press <code>[Create fork]</code> which will bring you back to your account.</p>
 <h2 id="the-repo">The Repo<a class="headerlink" href="#the-repo" title="Permanent link">&para;</a></h2>
-<p>The repo containes basically a very simple Dockerfile and a hidden directory <code>.github/workflows</code> with a yaml file.</p>
-<p>The Dockerfile specified the image to build. As we can easily see, it is using the latest <code>nginx</code> as the base image and just adds (very obviously) an Eicar.</p>
+<p>The repo containes basically a very simple Dockerfile and a hidden directory <code>.github/workflows</code> with a <code>yaml</code>-file.</p>
+<p>The Dockerfile specifies the image to build. As we can easily see, it is using the latest <code>nginx</code> as the base image and just adds (very obviously) an Eicar.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">nginx</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">RUN</span><span class="w"> </span>curl<span class="w"> </span>-fsSL<span class="w"> </span>http://eicar.eu/eicarcom2.zip<span class="w"> </span>-o<span class="w"> </span>/usr/share/nginx/html/eicarcom2.zip
 </code></pre></div>
 <h3 id="the-workflow">The Workflow<a class="headerlink" href="#the-workflow" title="Permanent link">&para;</a></h3>
-<p>The yaml file in <code>.github/workflows</code> is more interesting. Let's go through it.</p>
+<p>The <code>yaml</code>-file in <code>.github/workflows</code> is more interesting. Let's go through it.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ci</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># A push on the repo triggers the workflow</span>
@@ -1749,34 +1750,37 @@
 </ul>
 <p>Optionally:</p>
 <ul>
-<li>DOCKERHUB_TOKEN: <code>&lt;your DockerHub Token</code></li>
-<li>DOCKERHUB_USERNAME: <code>&lt;Your DockerHub username</code></li>
+<li>DOCKERHUB_TOKEN: <code>&lt;your DockerHub Token&gt;</code></li>
+<li>DOCKERHUB_USERNAME: <code>&lt;Your DockerHub username&gt;</code></li>
 </ul>
 <h3 id="actions">Actions<a class="headerlink" href="#actions" title="Permanent link">&para;</a></h3>
-<p>Navigate to <code>Actions</code> and enable Workflows for the forked repository</p>
+<p>Navigate to <code>Actions</code> and enable Workflows for the forked repository.</p>
 <h2 id="test-it">Test it<a class="headerlink" href="#test-it" title="Permanent link">&para;</a></h2>
 <h3 id="change-something">Change something<a class="headerlink" href="#change-something" title="Permanent link">&para;</a></h3>
 <p>Do any kind of change in the repo. You can easily do this on the GitHub webpage as well and don't need to clone the repo. Simply delete the <code>LICENSE</code> file for simplicity and commit the changes directly to the main branch.</p>
 <p>Any push to the repo will trigger the workflow.</p>
 <p>Again, navigate to <code>Actions</code> and click on the running workflow to see it's output.</p>
-<p>According to the logic in the <code>Fail Scan</code> step, whenever a file called <code>malware</code> and/or <code>vulnerabilities</code> is found in the repos directory, the workflow will fail. </p>
+<p>According to the logic in the <code>Fail Scan</code> step, whenever a file called <code>malware</code> and/or <code>vulnerabilities</code> is found in the repos directory, the workflow will fail. These files are created in the <code>Scan</code>-step when the vulnerability threshold reached and/or a malware is detected.</p>
 <p><img alt="alt text" src="../images/action-fail-scan.png" title="Fail Scan" /></p>
+<p>At the bottom of the page you can download the <code>sbom.json</code> and/or scan <code>results.json</code> for review.</p>
 <h3 id="let-the-workflow-pass">Let the workflow pass...<a class="headerlink" href="#let-the-workflow-pass" title="Permanent link">&para;</a></h3>
 <p>If you want to continue the scenario you now need to set the following two secrets as above:</p>
 <ul>
-<li>DOCKERHUB_TOKEN: <code>&lt;your DockerHub Token</code></li>
-<li>DOCKERHUB_USERNAME: <code>&lt;Your DockerHub username</code></li>
+<li>DOCKERHUB_TOKEN: <code>&lt;your DockerHub Token&gt;</code></li>
+<li>DOCKERHUB_USERNAME: <code>&lt;Your DockerHub username&gt;</code></li>
 </ul>
-<p>Now, we want the image to be published, even though that it has vulnerabilities and a malware inside. To achieve this for this scenario we simply comment out the following last line in the Fail Scan stem of the workflow file:</p>
+<p>Now, we want the image to be published, even though that it has vulnerabilities and a malware inside. To achieve this in this scenario we simply comment out the following last line in the Fail Scan step of the workflow file:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Fail Scan</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">          </span><span class="no">ls -l</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">          </span><span class="no">if [ -f &quot;malware&quot; ]; then cat malware; fi</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">          </span><span class="no">if [ -f &quot;vulnerabilities&quot; ]; then cat vulnerabilities; fi</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">          </span><span class="no"># if [ -f &quot;malware&quot; ] || [ -f &quot;vulnerabilities&quot; ]; then exit 1; fi</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">          </span><span class="no"># if [ -f &quot;malware&quot; ] || [ -f &quot;vulnerabilities&quot; ]; then exit 1; fi</span>
 </code></pre></div>
-<p>Again, do this by directly editing on GitHub and commit the changes to main.</p>
+<p>Again, do this by directly editing on GitHub and commit the changes to main. This will trigger the workflow another time and should successfully push the image to DockerHub.</p>
 <h3 id="configure-vision-one-container-protection-policy">Configure Vision One Container Protection Policy<a class="headerlink" href="#configure-vision-one-container-protection-policy" title="Permanent link">&para;</a></h3>
+<p>Next, ensure to have your Container Security policy set with the following properties:</p>
 <p><img alt="alt text" src="../images/action-policy.png" title="Policy" /></p>
 <h3 id="try-deployment">Try deployment<a class="headerlink" href="#try-deployment" title="Permanent link">&para;</a></h3>
 <p>Assuming you have access to a Kubernetes cluster with Vision One Container Security deployed and a policy assigned with the setting from above, you can now run</p>
