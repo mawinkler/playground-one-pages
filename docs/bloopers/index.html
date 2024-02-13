@@ -1626,37 +1626,41 @@ aws_ecs_cluster depends on aws_ecs_capacity_provider depends on aws_autoscaling_
 <p>To delete a namespace, Kubernetes must first delete all the resources in the namespace. Then, it must check registered API services for the status. A namespace gets stuck in Terminating status for the following reasons:</p>
 <ul>
 <li>The namespace contains resources that Kubernetes can't delete.</li>
-<li>
-<p>An API service has a False status.</p>
-</li>
-<li>
-<p>Save a JSON file like in the following example:</p>
-</li>
+<li>An API service has a False status.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>namespace<span class="w"> </span><span class="nv">$namespace</span><span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>&gt;<span class="w"> </span>tempfile.json
+<p>Scripted:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>knsrm-finalizer<span class="w"> </span>&lt;NAMESPACE&gt;
+</code></pre></div>
+<p>Manual:</p>
+<ol>
+<li>Save a JSON file like in the following example:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nv">namespace</span><span class="o">=</span>&lt;NAMESPACE&gt;
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>kubectl<span class="w"> </span>get<span class="w"> </span>namespace<span class="w"> </span><span class="nv">$namespace</span><span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>&gt;<span class="w"> </span>tempfile.json
 </code></pre></div>
 <ol>
 <li>Remove the finalizers array block from the spec section of the JSON file:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">&quot;spec&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">        </span><span class="nt">&quot;finalizers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">            </span><span class="s2">&quot;kubernetes&quot;</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">        </span><span class="p">]</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">&quot;spec&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">        </span><span class="nt">&quot;finalizers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">            </span><span class="s2">&quot;kubernetes&quot;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">        </span><span class="p">]</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="p">}</span>
 </code></pre></div>
 <p>After you remove the finalizers array block, the spec section of the JSON file looks like this:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">&quot;spec&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">&quot;spec&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="p">}</span>
 </code></pre></div>
 <ol>
 <li>To apply the changes, run the following command:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>kubectl<span class="w"> </span>replace<span class="w"> </span>--raw<span class="w"> </span><span class="s2">&quot;/api/v1/namespaces/</span><span class="nv">$namespace</span><span class="s2">/finalize&quot;</span><span class="w"> </span>-f<span class="w"> </span>./tempfile.json
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>kubectl<span class="w"> </span>replace<span class="w"> </span>--raw<span class="w"> </span><span class="s2">&quot;/api/v1/namespaces/</span><span class="nv">$namespace</span><span class="s2">/finalize&quot;</span><span class="w"> </span>-f<span class="w"> </span>./tempfile.json
 </code></pre></div>
 <ol>
 <li>Verify that the terminating namespace is removed:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>namespaces
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>namespaces
 </code></pre></div>
 <p>Repeat these steps for any remaining namespaces that are stuck in the Terminating status.</p>
 <h3 id="eksworkernode-is-not-joining-node-group">EKSWorkerNode is not joining Node Group<a class="headerlink" href="#eksworkernode-is-not-joining-node-group" title="Permanent link">&para;</a></h3>
@@ -1667,40 +1671,40 @@ aws_ecs_cluster depends on aws_ecs_capacity_provider depends on aws_autoscaling_
 <li><a href="https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootEKSWorkerNode">https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootEKSWorkerNode</a></li>
 </ul>
 <h3 id="eks-service-behind-alb-shows-only-html">EKS Service behind ALB shows only HTML<a class="headerlink" href="#eks-service-behind-alb-shows-only-html" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;kubernetes_ingress_v1&quot;</span><span class="w"> </span><span class="nv">&quot;openssl3_ingress&quot;</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="na">wait_for_load_balancer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="nb">metadata</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="nb">annotations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">      </span><span class="s2">&quot;alb.ingress.kubernetes.io/scheme&quot;</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;internet-facing&quot;</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">      </span><span class="s2">&quot;alb.ingress.kubernetes.io/target-type&quot;</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ip&quot;</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">      </span><span class="s2">&quot;kubernetes.io/ingress.class&quot;</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;alb&quot;</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">      </span><span class="s2">&quot;alb.ingress.kubernetes.io/inbound-cidrs&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.access_ip</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="nb">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">      </span><span class="na">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;web-app&quot;</span>
-<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="na">name</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;web-app-ingress&quot;</span>
-<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="na">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.namespace</span>
-<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">  </span><span class="nb">spec</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">    </span><span class="nb">rule</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">      </span><span class="nb">http</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">        </span><span class="nb">path</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">          </span><span class="nb">backend</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">            </span><span class="nb">service</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">              </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;web-app-service&quot;</span>
-<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">              </span><span class="nb">port</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="w">                </span><span class="na">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">80</span>
-<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">              </span><span class="p">}</span>
-<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="w">            </span><span class="p">}</span>
-<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="w">          </span><span class="p">}</span>
-<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="w">          </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/*&quot;</span>
-<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;kubernetes_ingress_v1&quot;</span><span class="w"> </span><span class="nv">&quot;openssl3_ingress&quot;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="na">wait_for_load_balancer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nb">metadata</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="nb">annotations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">      </span><span class="s2">&quot;alb.ingress.kubernetes.io/scheme&quot;</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;internet-facing&quot;</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">      </span><span class="s2">&quot;alb.ingress.kubernetes.io/target-type&quot;</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ip&quot;</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">      </span><span class="s2">&quot;kubernetes.io/ingress.class&quot;</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;alb&quot;</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">      </span><span class="s2">&quot;alb.ingress.kubernetes.io/inbound-cidrs&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.access_ip</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="nb">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">      </span><span class="na">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;web-app&quot;</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">    </span><span class="na">name</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;web-app-ingress&quot;</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">    </span><span class="na">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.namespace</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">  </span><span class="nb">spec</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">    </span><span class="nb">rule</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">      </span><span class="nb">http</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">        </span><span class="nb">path</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">          </span><span class="nb">backend</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">            </span><span class="nb">service</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">              </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;web-app-service&quot;</span>
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="w">              </span><span class="nb">port</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="w">                </span><span class="na">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">80</span>
+<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="w">              </span><span class="p">}</span>
+<a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="w">          </span><span class="p">}</span>
+<a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="w">          </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/*&quot;</span>
+<a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-9-34" name="__codelineno-9-34" href="#__codelineno-9-34"></a><span class="p">}</span>
 </code></pre></div>
 <p>The <code>*</code> in <code>path</code> is important :-)</p>
 <h2 id="route53">Route53<a class="headerlink" href="#route53" title="Permanent link">&para;</a></h2>
@@ -1709,33 +1713,33 @@ aws_ecs_cluster depends on aws_ecs_capacity_provider depends on aws_autoscaling_
 <h2 id="xdr-for-containers">XDR for Containers<a class="headerlink" href="#xdr-for-containers" title="Permanent link">&para;</a></h2>
 <p>Initially, I thought I just need to leave the VPC alone when changing/destroying part of the network configuration. This was a failure...</p>
 <h2 id="misc-commands-which-helped-at-some-point">Misc commands which helped at some point<a class="headerlink" href="#misc-commands-which-helped-at-some-point" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>aws<span class="w"> </span>kms<span class="w"> </span>delete-alias<span class="w"> </span>--alias-name<span class="w"> </span>alias/eks/playground-one-eks
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>aws<span class="w"> </span>kms<span class="w"> </span>delete-alias<span class="w"> </span>--alias-name<span class="w"> </span>alias/eks/playground-one-eks
 </code></pre></div>
 <h2 id="eks-ec2-autoscaler">EKS EC2 Autoscaler<a class="headerlink" href="#eks-ec2-autoscaler" title="Permanent link">&para;</a></h2>
 <p>In some cases creating the EKS cluster with EC2 instances failes just before finishing with the following error:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>╷
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>│<span class="w"> </span>Warning:<span class="w"> </span>Helm<span class="w"> </span>release<span class="w"> </span><span class="s2">&quot;cluster-autoscaler&quot;</span><span class="w"> </span>was<span class="w"> </span>created<span class="w"> </span>but<span class="w"> </span>has<span class="w"> </span>a<span class="w"> </span>failed<span class="w"> </span>status.<span class="w"> </span>Use<span class="w"> </span>the<span class="w"> </span><span class="sb">`</span>helm<span class="sb">`</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>to<span class="w"> </span>investigate<span class="w"> </span>the<span class="w"> </span>error,<span class="w"> </span>correct<span class="w"> </span>it,<span class="w"> </span><span class="k">then</span><span class="w"> </span>run<span class="w"> </span>Terraform<span class="w"> </span>again.
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>│<span class="w"> </span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>│<span class="w">   </span>with<span class="w"> </span>module.eks.helm_release.cluster_autoscaler<span class="o">[</span><span class="m">0</span><span class="o">]</span>,
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>│<span class="w">   </span>on<span class="w"> </span>eks-ec2/autoscaler.tf<span class="w"> </span>line<span class="w"> </span><span class="m">25</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>resource<span class="w"> </span><span class="s2">&quot;helm_release&quot;</span><span class="w"> </span><span class="s2">&quot;cluster_autoscaler&quot;</span>:
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>│<span class="w">   </span><span class="m">25</span>:<span class="w"> </span>resource<span class="w"> </span><span class="s2">&quot;helm_release&quot;</span><span class="w"> </span><span class="s2">&quot;cluster_autoscaler&quot;</span><span class="w"> </span><span class="o">{</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>│<span class="w"> </span>
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>╵
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>...
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>╷
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>│<span class="w"> </span>Error:<span class="w"> </span><span class="m">1</span><span class="w"> </span>error<span class="w"> </span>occurred:
-<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>│<span class="w">       </span>*<span class="w"> </span>Internal<span class="w"> </span>error<span class="w"> </span>occurred:<span class="w"> </span>failed<span class="w"> </span>calling<span class="w"> </span>webhook<span class="w"> </span><span class="s2">&quot;mservice.elbv2.k8s.aws&quot;</span>:<span class="w"> </span>failed<span class="w"> </span>to<span class="w"> </span>call<span class="w"> </span>webhook:<span class="w"> </span>Post<span class="w"> </span><span class="s2">&quot;https://aws-load-balancer-webhook-service.kube-system.svc:443/mutate-v1-service?timeout=10s&quot;</span>:<span class="w"> </span>no<span class="w"> </span>endpoints<span class="w"> </span>available<span class="w"> </span><span class="k">for</span><span class="w"> </span>service<span class="w"> </span><span class="s2">&quot;aws-load-balancer-webhook-service&quot;</span>
-<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>│<span class="w"> </span>
-<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>│<span class="w"> </span>
-<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>│<span class="w"> </span>
-<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>│<span class="w">   </span>with<span class="w"> </span>module.eks.helm_release.cluster_autoscaler<span class="o">[</span><span class="m">0</span><span class="o">]</span>,
-<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>│<span class="w">   </span>on<span class="w"> </span>eks-ec2/autoscaler.tf<span class="w"> </span>line<span class="w"> </span><span class="m">25</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>resource<span class="w"> </span><span class="s2">&quot;helm_release&quot;</span><span class="w"> </span><span class="s2">&quot;cluster_autoscaler&quot;</span>:
-<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>│<span class="w">   </span><span class="m">25</span>:<span class="w"> </span>resource<span class="w"> </span><span class="s2">&quot;helm_release&quot;</span><span class="w"> </span><span class="s2">&quot;cluster_autoscaler&quot;</span><span class="w"> </span><span class="o">{</span>
-<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>│<span class="w"> </span>
-<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>╵
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>╷
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>│<span class="w"> </span>Warning:<span class="w"> </span>Helm<span class="w"> </span>release<span class="w"> </span><span class="s2">&quot;cluster-autoscaler&quot;</span><span class="w"> </span>was<span class="w"> </span>created<span class="w"> </span>but<span class="w"> </span>has<span class="w"> </span>a<span class="w"> </span>failed<span class="w"> </span>status.<span class="w"> </span>Use<span class="w"> </span>the<span class="w"> </span><span class="sb">`</span>helm<span class="sb">`</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>to<span class="w"> </span>investigate<span class="w"> </span>the<span class="w"> </span>error,<span class="w"> </span>correct<span class="w"> </span>it,<span class="w"> </span><span class="k">then</span><span class="w"> </span>run<span class="w"> </span>Terraform<span class="w"> </span>again.
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>│<span class="w"> </span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>│<span class="w">   </span>with<span class="w"> </span>module.eks.helm_release.cluster_autoscaler<span class="o">[</span><span class="m">0</span><span class="o">]</span>,
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>│<span class="w">   </span>on<span class="w"> </span>eks-ec2/autoscaler.tf<span class="w"> </span>line<span class="w"> </span><span class="m">25</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>resource<span class="w"> </span><span class="s2">&quot;helm_release&quot;</span><span class="w"> </span><span class="s2">&quot;cluster_autoscaler&quot;</span>:
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>│<span class="w">   </span><span class="m">25</span>:<span class="w"> </span>resource<span class="w"> </span><span class="s2">&quot;helm_release&quot;</span><span class="w"> </span><span class="s2">&quot;cluster_autoscaler&quot;</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>│<span class="w"> </span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>╵
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>...
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>╷
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>│<span class="w"> </span>Error:<span class="w"> </span><span class="m">1</span><span class="w"> </span>error<span class="w"> </span>occurred:
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>│<span class="w">       </span>*<span class="w"> </span>Internal<span class="w"> </span>error<span class="w"> </span>occurred:<span class="w"> </span>failed<span class="w"> </span>calling<span class="w"> </span>webhook<span class="w"> </span><span class="s2">&quot;mservice.elbv2.k8s.aws&quot;</span>:<span class="w"> </span>failed<span class="w"> </span>to<span class="w"> </span>call<span class="w"> </span>webhook:<span class="w"> </span>Post<span class="w"> </span><span class="s2">&quot;https://aws-load-balancer-webhook-service.kube-system.svc:443/mutate-v1-service?timeout=10s&quot;</span>:<span class="w"> </span>no<span class="w"> </span>endpoints<span class="w"> </span>available<span class="w"> </span><span class="k">for</span><span class="w"> </span>service<span class="w"> </span><span class="s2">&quot;aws-load-balancer-webhook-service&quot;</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>│<span class="w"> </span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>│<span class="w"> </span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>│<span class="w"> </span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>│<span class="w">   </span>with<span class="w"> </span>module.eks.helm_release.cluster_autoscaler<span class="o">[</span><span class="m">0</span><span class="o">]</span>,
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>│<span class="w">   </span>on<span class="w"> </span>eks-ec2/autoscaler.tf<span class="w"> </span>line<span class="w"> </span><span class="m">25</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>resource<span class="w"> </span><span class="s2">&quot;helm_release&quot;</span><span class="w"> </span><span class="s2">&quot;cluster_autoscaler&quot;</span>:
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>│<span class="w">   </span><span class="m">25</span>:<span class="w"> </span>resource<span class="w"> </span><span class="s2">&quot;helm_release&quot;</span><span class="w"> </span><span class="s2">&quot;cluster_autoscaler&quot;</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>│<span class="w"> </span>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>╵
 </code></pre></div>
 <p>This looks like a timing issue for me which I need to investigate further. If you run into this problem just rerun</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>eks-ec2
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>eks-ec2
 </code></pre></div>
 <p>This should complete the cluster creation within seconds then.</p>
 
