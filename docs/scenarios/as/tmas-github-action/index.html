@@ -1051,9 +1051,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#change-something" class="md-nav__link">
+  <a href="#create-a-tag" class="md-nav__link">
     <span class="md-ellipsis">
-      Change something
+      Create a Tag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-the-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check the Action
     </span>
   </a>
   
@@ -1552,9 +1561,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#change-something" class="md-nav__link">
+  <a href="#create-a-tag" class="md-nav__link">
     <span class="md-ellipsis">
-      Change something
+      Create a Tag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-the-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check the Action
     </span>
   </a>
   
@@ -1642,7 +1660,7 @@
 <p>The first step is to fork the scenarios GitHub repo. For this go to <a href="https://github.com/">github.com</a> and sign in or create a free account if you need to.</p>
 <p>Next, you want to create a Fork of the scenarios repo. A fork is basically a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.</p>
 <p>To do this navigate to the repo <a href="https://github.com/mawinkler/playground-one-scenario-github-action">playground-one-scenario-github-action</a> and click on the <code>Fork</code>-button in the upper right.</p>
-<p>On the next screen press <code>[Create fork]</code> which will bring you back to your account.</p>
+<p>On the next screen you change the name to something shorter like <code>action</code>. Then press <code>[Create fork]</code> which will bring you back to your account.</p>
 <h2 id="the-repo">The Repo<a class="headerlink" href="#the-repo" title="Permanent link">&para;</a></h2>
 <p>The repo containes a very simple Dockerfile and a hidden directory <code>.github/workflows</code> with a <code>yaml</code>-file.</p>
 <p>The Dockerfile specifies the image to build. As we can easily see, it is using the latest <code>nginx</code> as the base image and just adds (very obviously) an Eicar.</p>
@@ -1846,36 +1864,39 @@
 <h3 id="actions">Actions<a class="headerlink" href="#actions" title="Permanent link">&para;</a></h3>
 <p>Navigate to <code>Actions</code> and enable Workflows for the forked repository.</p>
 <h2 id="test-it">Test it<a class="headerlink" href="#test-it" title="Permanent link">&para;</a></h2>
-<h3 id="change-something">Change something<a class="headerlink" href="#change-something" title="Permanent link">&para;</a></h3>
-<p>Do any kind of change in the repo. You can easily do this on the GitHub webpage as well and don't need to clone the repo. Simply delete the <code>LICENSE</code> file for simplicity and commit the changes directly to the main branch.</p>
-<p>Any push to the repo will trigger the workflow.</p>
-<p>Again, navigate to <code>Actions</code> and click on the running workflow to see it's output.</p>
-<p>According to the logic in the <code>Fail Scan</code> step, whenever a file called <code>malware</code> and/or <code>vulnerabilities</code> is found in the repos directory, the workflow will fail. These files are created in the <code>Scan</code>-step when the vulnerability threshold reached and/or a malware is detected.</p>
-<p><img alt="alt text" src="../images/action-fail-scan.png" title="Fail Scan" /></p>
-<p>At the bottom of the page you can download the <code>sbom.json</code> and/or scan <code>results.json</code> for review.</p>
+<h3 id="create-a-tag">Create a Tag<a class="headerlink" href="#create-a-tag" title="Permanent link">&para;</a></h3>
+<p>To trigger the action we simply create a tag.</p>
+<p>Navigate to <code>Releases</code> on the right and then click on <code>[Draft a new release]</code>.</p>
+<p>Next, click on <code>[Choose a tag]</code> and type <code>v0.1</code>. A new button called <code>[Create new tag]</code> should get visible. Click on it.</p>
+<p>Leave the rest as it is and finally click on the green button <code>[Publish release]</code>. This will trigger the action workflow.</p>
+<blockquote>
+<p><strong><em>CLI:</em></strong> <code>git tag v0.1 &amp;&amp; git push --tags</code></p>
+</blockquote>
+<h3 id="check-the-action">Check the Action<a class="headerlink" href="#check-the-action" title="Permanent link">&para;</a></h3>
+<p>Now, navigate to the tab <code>Actions</code> and review the actions output. Click on the workflow run.</p>
+<p>You should now see three main sections:</p>
+<ol>
+<li><code>build-push.yaml</code>: Clicking on <code>docker</code> reveals the output of the steps from the workflow (and where it failed).
+   <img alt="alt text" src="../images/action-fail-scan.png" title="Fail Scan" /></li>
+<li>Annotations: Telling you in this case that the process completed with exit code 1.</li>
+<li>Artifacts: These are the artifacts created by the action. There should be a <code>sbom</code> and <code>scan-result</code>.</li>
+</ol>
 <h3 id="let-the-workflow-pass">Let the workflow pass...<a class="headerlink" href="#let-the-workflow-pass" title="Permanent link">&para;</a></h3>
-<p>If you want to continue the scenario you now need to set the following two secrets as above:</p>
-<ul>
-<li>DOCKERHUB_TOKEN: <code>&lt;your DockerHub Token&gt;</code></li>
-<li>DOCKERHUB_USERNAME: <code>&lt;Your DockerHub username&gt;</code></li>
-</ul>
-<p>Now, we want the image to be published, even though that it has vulnerabilities and a malware inside. To achieve this in this scenario we simply comment out the following last line in the Fail Scan step of the workflow file:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Fail Scan</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">          </span><span class="no">ls -l</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">          </span><span class="no">if [ -f &quot;malware&quot; ]; then cat malware; fi</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">          </span><span class="no">if [ -f &quot;vulnerabilities&quot; ]; then cat vulnerabilities; fi</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">          </span><span class="no"># if [ -f &quot;malware&quot; ] || [ -f &quot;vulnerabilities&quot; ]; then exit 1; fi</span>
+<p>Now, we want the image to be published, even though that it has vulnerabilities and a malware inside. To achieve this in this scenario we simply change the environment variable <code>FAIL_ACTION</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">env</span><span class="p">:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nn">...</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">FAIL_ACTION</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
-<p>Again, do this by directly editing on GitHub and commit the changes to main. This will trigger the workflow another time and should successfully push the image to DockerHub.</p>
+<p>Again, do this by directly editing the workflow file on GitHub and commit the changes to main. Then, repeat the steps to create a new tag as above, but choose a different tag (e.g. <code>v0.2</code>).</p>
+<p>The action should now complete successfully and the container image is pushed to the registry.</p>
 <h3 id="configure-vision-one-container-protection-policy">Configure Vision One Container Protection Policy<a class="headerlink" href="#configure-vision-one-container-protection-policy" title="Permanent link">&para;</a></h3>
 <p>Next, ensure to have your Container Security policy set with the following properties:</p>
 <p><img alt="alt text" src="../images/action-policy.png" title="Policy" /></p>
 <h3 id="try-deployment">Try deployment<a class="headerlink" href="#try-deployment" title="Permanent link">&para;</a></h3>
 <p>Assuming you have access to a Kubernetes cluster with Vision One Container Security deployed and a policy assigned with the setting from above, you can now run</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>kubectl<span class="w"> </span>run<span class="w"> </span>--image<span class="o">=</span>&lt;DOCKERHUB_USERNAME&gt;/&lt;IMAGE_NAME&gt;:&lt;IMAGE_TAG&gt;<span class="w"> </span>nginx
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>kubectl<span class="w"> </span>run<span class="w"> </span>--image<span class="o">=</span>ghcr.io/&lt;GITHUB_USERNAME&gt;/&lt;GITHUB_REPO_NAME&gt;:&lt;IMAGE_TAG&gt;<span class="w"> </span>action
 </code></pre></div>
+<p>This should result in the following error message since Container Security blocks the deploament:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Error<span class="w"> </span>from<span class="w"> </span>server:<span class="w"> </span>admission<span class="w"> </span>webhook<span class="w"> </span><span class="s2">&quot;trendmicro-admission-controller.trendmicro-system.svc&quot;</span><span class="w"> </span>denied<span class="w"> </span>the<span class="w"> </span>request:<span class="w"> </span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>-<span class="w"> </span>malware<span class="w"> </span>violates<span class="w"> </span>rule<span class="w"> </span>with<span class="w"> </span>properties<span class="w"> </span><span class="o">{</span><span class="w"> </span>count:0<span class="w"> </span><span class="o">}</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>container<span class="o">(</span>s<span class="o">)</span><span class="w"> </span><span class="s2">&quot;nginx&quot;</span><span class="w"> </span><span class="o">(</span>block<span class="o">)</span>.
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>-<span class="w"> </span>vulnerabilities<span class="w"> </span>violates<span class="w"> </span>rule<span class="w"> </span>with<span class="w"> </span>properties<span class="w"> </span><span class="o">{</span><span class="w"> </span>max-severity:high<span class="w"> </span><span class="o">}</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>container<span class="o">(</span>s<span class="o">)</span><span class="w"> </span><span class="s2">&quot;nginx&quot;</span><span class="w"> </span><span class="o">(</span>block<span class="o">)</span>.
