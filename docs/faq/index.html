@@ -1551,7 +1551,7 @@
 <h2 id="i-restarted-my-cloud9-instance-and-i-cannot-access-my-environment-anymore">I restarted my Cloud9 instance and I cannot access my environment anymore<a class="headerlink" href="#i-restarted-my-cloud9-instance-and-i-cannot-access-my-environment-anymore" title="Permanent link">&para;</a></h2>
 <p>See above.</p>
 <h2 id="i-cannot-destroy-the-ecs-clusters">I cannot destroy the ECS cluster(s)<a class="headerlink" href="#i-cannot-destroy-the-ecs-clusters" title="Permanent link">&para;</a></h2>
-<p>If you have enabled <code>Runtime Scanning</code> and/or <code>Runtime Security</code> in your Vision One console for your ECS clusters disable them and press <code>[Save]</code>. The clusters should then be successfully destroyed.</p>
+<p>If you have enabled <code>Runtime Scanning</code> and/or <code>Runtime Security</code> in your Vision One console for your ECS clusters disable them and press <code>[Save]</code>. Wait for the container security services/tasks disappear on the EC2 console. The clusters should then be successfully destroyed.</p>
 <p><strong><em>Background:</em></strong> Vision One injects addisional tasks to the ECS clusters which are not known by the playground. Even if you delete the task in the AWS console they are injected again by Vision One. This causes a remaining dependency on the AWS side which prevents the destruction of ECS.</p>
 <p><strong><em>Special case for ECS EC2</em></strong></p>
 <p>There's a known bug in Terraform. The problem is that this new capacity_provider property on the aws_ecs_cluster introduces a new dependency:

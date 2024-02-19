@@ -481,6 +481,63 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#change-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change Log
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Change Log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#02-maintenance-release-02062024" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.2 Maintenance release (02/06/2024)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0.2 Maintenance release (02/06/2024)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#01-initial-release-02062024" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.1 Initial release (02/06/2024)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1434,6 +1491,63 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#change-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change Log
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Change Log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#02-maintenance-release-02062024" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.2 Maintenance release (02/06/2024)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0.2 Maintenance release (02/06/2024)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#01-initial-release-02062024" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.1 Initial release (02/06/2024)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1463,6 +1577,13 @@
 <li>you intent to use Playground One Container on any <code>arm64</code>  or <code>amd64</code> based container engine. This includes AWS Cloud9 environments with Amazon Linux or Ubuntu.</li>
 </ul>
 <p>First, start a terminal and ensure to have a running container engine, eventually run <code>docker ps</code> to verify this.</p>
+<blockquote>
+<p><strong><em>Note:</em></strong> If you want to specify a Playground One Container version instead of using latest create a file with the version (tag) to use by running:</p>
+<p><code>echo "&lt;VERSION&gt;" &gt;.PGO_VERSION</code></p>
+<p>Example:</p>
+<p><code>echo "0.2" &gt;.PGO_VERSION</code></p>
+<p>See <a href="#change-log">Change Log</a>.</p>
+</blockquote>
 <p>Then simply run</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/mawinkler/playground-one/main/bin/get_pgoc.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
 </code></pre></div>
@@ -1567,6 +1688,21 @@
 <blockquote>
 <p><strong><em>Note:</em></strong> Native installation on Cloud9 is no longer supported. Use <a href="#playground-one-container-easy-and-portable">Playground One Container (Easy and portable)</a> instead.</p>
 </blockquote>
+<h2 id="change-log">Change Log<a class="headerlink" href="#change-log" title="Permanent link">&para;</a></h2>
+<h3 id="02-maintenance-release-02062024">0.2 Maintenance release (02/06/2024)<a class="headerlink" href="#02-maintenance-release-02062024" title="Permanent link">&para;</a></h3>
+<h4 id="fixes">Fixes<a class="headerlink" href="#fixes" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Vision One Container Security gets unregistered from Vision One on cluster destroy.</li>
+<li>Cluster deployments are now correctly destroyed after the scenarios.</li>
+</ul>
+<h4 id="changes">Changes<a class="headerlink" href="#changes" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Playground One Container now supports versioning.</li>
+<li>ECS Fargate task definition patcher bumped to version 2.3.30</li>
+<li>New scenario added: <a href="https://mawinkler.github.io/playground-one-pages/scenarios/as/tmas-github-action/">Container Image Vulnerability and Malware Scanning as GitHub Action</a>.</li>
+<li>Removed openssl3 demo app.</li>
+</ul>
+<h3 id="01-initial-release-02062024">0.1 Initial release (02/06/2024)<a class="headerlink" href="#01-initial-release-02062024" title="Permanent link">&para;</a></h3>
 
 
 
