@@ -492,13 +492,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#02-maintenance-release-02062024" class="md-nav__link">
+  <a href="#02-maintenance-release-02202024" class="md-nav__link">
     <span class="md-ellipsis">
-      0.2 Maintenance release (02/06/2024)
+      0.2 Maintenance release (02/20/2024)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="0.2 Maintenance release (02/06/2024)">
+    <nav class="md-nav" aria-label="0.2 Maintenance release (02/20/2024)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1502,13 +1502,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#02-maintenance-release-02062024" class="md-nav__link">
+  <a href="#02-maintenance-release-02202024" class="md-nav__link">
     <span class="md-ellipsis">
-      0.2 Maintenance release (02/06/2024)
+      0.2 Maintenance release (02/20/2024)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="0.2 Maintenance release (02/06/2024)">
+    <nav class="md-nav" aria-label="0.2 Maintenance release (02/20/2024)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1651,6 +1651,7 @@
 <li>The previous <code>config.yaml</code> is restored alongside the eventually existing <code>.aws</code> config.</li>
 <li>Start the new container with <code>./pgoc start</code> and login via ssh.</li>
 </ol>
+<p>You likely get an error when connecting with ssh. If so, delete the offending line in <code>~/.ssh/known_hosts</code> and retry.</p>
 </blockquote>
 <p>Then, continue with <a href="../configuration/">Configuration</a>.</p>
 <h2 id="advanced-but-native">Advanced but native<a class="headerlink" href="#advanced-but-native" title="Permanent link">&para;</a></h2>
@@ -1700,11 +1701,12 @@
 <p><strong><em>Note:</em></strong> Native installation on Cloud9 is no longer supported. Use <a href="#playground-one-container-easy-and-portable">Playground One Container (Easy and portable)</a> instead.</p>
 </blockquote>
 <h2 id="change-log">Change Log<a class="headerlink" href="#change-log" title="Permanent link">&para;</a></h2>
-<h3 id="02-maintenance-release-02062024">0.2 Maintenance release (02/06/2024)<a class="headerlink" href="#02-maintenance-release-02062024" title="Permanent link">&para;</a></h3>
+<h3 id="02-maintenance-release-02202024">0.2 Maintenance release (02/20/2024)<a class="headerlink" href="#02-maintenance-release-02202024" title="Permanent link">&para;</a></h3>
 <h4 id="fixes">Fixes<a class="headerlink" href="#fixes" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Vision One Container Security gets unregistered from Vision One on cluster destroy.</li>
-<li>Cluster deployments are now correctly destroyed after the scenarios.</li>
+<li>Cluster deployments are now correctly destroyed in the correct order.</li>
+<li>Allow docker client to work with docker.sock on Cloud9</li>
 </ul>
 <h4 id="changes">Changes<a class="headerlink" href="#changes" title="Permanent link">&para;</a></h4>
 <ul>
