@@ -1590,7 +1590,7 @@
 <p>Then simply run</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/mawinkler/playground-one/main/bin/get_pgoc.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
 </code></pre></div>
-<p>The above will pull the latest version of the container. If you're already authenticated to AWS and/or have an already existing <code>config.yaml</code> from a previous Playground One installation in the current directory, they will automatically be made available to the Playground One container.</p>
+<p>The above will pull the latest version (or the version you specified in the <code>.PGO_VERSION</code>-file) of the container. If you're already authenticated to AWS and/or have an already existing <code>config.yaml</code> from a previous Playground One installation in the current directory, they will automatically be made available to the Playground One container.</p>
 <blockquote>
 <p><strong><em>Note:</em></strong> When running the above <code>curl</code>-command on an <strong><em>AWS Cloud9</em></strong> instance, the instance should be at least a <code>t3.medium</code> and you will be asked to run <code>./get_pgoc.sh</code> manually. The script will ask for your AWS credentials which will never be stored on disk and get removed from memory after creating and assigning an instance role to the Cloud9 instance.</p>
 <p>If you didn't do before, you will be asked to turn off AWS managed temporary credentials:<br> </p>
