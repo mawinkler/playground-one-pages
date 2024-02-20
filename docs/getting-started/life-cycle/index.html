@@ -1547,8 +1547,18 @@
 <h2 id="play-with-the-playground-one">Play with the Playground One<a class="headerlink" href="#play-with-the-playground-one" title="Permanent link">&para;</a></h2>
 <p>It's a playground, or? Experiment and hopefully learn a few things. For your guidance, there are some prepared scenarios for you to go through. Find them in the navigation pane.</p>
 <h2 id="switch-in-between-multiple-kubernetes-clusters">Switch in between multiple Kubernetes Clusters<a class="headerlink" href="#switch-in-between-multiple-kubernetes-clusters" title="Permanent link">&para;</a></h2>
-<p>If you're using multiple cluster variants simultaneously you can easily switch in between the clusters using the command <code>pgo-context</code>.</p>
-<p><img alt="alt text" src="../images/pgo-context.png" title="Context" /></p>
+<p>If you're using multiple cluster variants simultaneously you can easily switch in between the clusters using the command <code>kubie</code>.</p>
+<p>Main commands:</p>
+<ul>
+<li><code>kubie ctx</code> display a selectable menu of contexts or directly spawns a shell if there is only one context available.</li>
+<li><code>kubie ctx &lt;context&gt;</code> switch the current shell to the given context (spawns a shell if not a kubie shell).</li>
+<li><code>kubie ctx -</code> switch back to the previous context</li>
+<li><code>kubie ns</code> display a selectable menu of namespaces</li>
+<li><code>kubie ns &lt;namespace&gt;</code> switch the current shell to the given namespace</li>
+<li><code>kubie ns -</code> switch back to the previous namespace</li>
+</ul>
+<p>Exit a context by pressing <code>^d</code>.</p>
+<p>Full list of kubie commands <a href="https://github.com/sbstp/kubie#usage">here</a>.</p>
 <h2 id="tear-down">Tear Down<a class="headerlink" href="#tear-down" title="Permanent link">&para;</a></h2>
 <p>If you want to destroy your environment completely or only parts of it</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>&lt;configuration&gt;
