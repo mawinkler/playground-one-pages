@@ -492,13 +492,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#02-maintenance-release-02202024" class="md-nav__link">
+  <a href="#021-fix-release-02222024" class="md-nav__link">
     <span class="md-ellipsis">
-      0.2 Maintenance release (02/20/2024)
+      0.2.1 Fix release (02/22/2024)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="0.2 Maintenance release (02/20/2024)">
+    <nav class="md-nav" aria-label="0.2.1 Fix release (02/22/2024)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -512,6 +512,39 @@
         
           <li class="md-nav__item">
   <a href="#changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-maintenance-release-02202024" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.2 Maintenance release (02/20/2024)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0.2 Maintenance release (02/20/2024)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changes_1" class="md-nav__link">
     <span class="md-ellipsis">
       Changes
     </span>
@@ -1502,13 +1535,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#02-maintenance-release-02202024" class="md-nav__link">
+  <a href="#021-fix-release-02222024" class="md-nav__link">
     <span class="md-ellipsis">
-      0.2 Maintenance release (02/20/2024)
+      0.2.1 Fix release (02/22/2024)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="0.2 Maintenance release (02/20/2024)">
+    <nav class="md-nav" aria-label="0.2.1 Fix release (02/22/2024)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1522,6 +1555,39 @@
         
           <li class="md-nav__item">
   <a href="#changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-maintenance-release-02202024" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.2 Maintenance release (02/20/2024)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0.2 Maintenance release (02/20/2024)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changes_1" class="md-nav__link">
     <span class="md-ellipsis">
       Changes
     </span>
@@ -1590,7 +1656,7 @@
 <p>Then simply run</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/mawinkler/playground-one/main/bin/get_pgoc.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
 </code></pre></div>
-<p>The above will pull the latest version (or the version you specified in the <code>.PGO_VERSION</code>-file) of the container. If you're already authenticated to AWS and/or have an already existing <code>config.yaml</code> from a previous Playground One installation in the current directory, they will automatically be made available to the Playground One container.</p>
+<p>The above will pull the latest version (or the version you specified in the <code>.PGO_VERSION</code>-file) of the container. If you're already authenticated to AWS, Azure, and/or have an already existing <code>config.yaml</code> from a previous Playground One installation in the current directory, they will automatically be made available to the Playground One container.</p>
 <blockquote>
 <p><strong><em>Note:</em></strong> When running the above <code>curl</code>-command on an <strong><em>AWS Cloud9</em></strong> instance, the instance should be at least a <code>t3.medium</code> and you will be asked to run <code>./get_pgoc.sh</code> manually. The script will ask for your AWS credentials which will never be stored on disk and get removed from memory after creating and assigning an instance role to the Cloud9 instance.</p>
 <p>If you didn't do before, you will be asked to turn off AWS managed temporary credentials:<br> </p>
@@ -1701,14 +1767,25 @@
 <p><strong><em>Note:</em></strong> Native installation on Cloud9 is no longer supported. Use <a href="#playground-one-container-easy-and-portable">Playground One Container (Easy and portable)</a> instead.</p>
 </blockquote>
 <h2 id="change-log">Change Log<a class="headerlink" href="#change-log" title="Permanent link">&para;</a></h2>
-<h3 id="02-maintenance-release-02202024">0.2 Maintenance release (02/20/2024)<a class="headerlink" href="#02-maintenance-release-02202024" title="Permanent link">&para;</a></h3>
+<h3 id="021-fix-release-02222024">0.2.1 Fix release (02/22/2024)<a class="headerlink" href="#021-fix-release-02222024" title="Permanent link">&para;</a></h3>
 <h4 id="fixes">Fixes<a class="headerlink" href="#fixes" title="Permanent link">&para;</a></h4>
+<ul>
+<li>The implementation of a proper Vision One Container Security life-cycle broke the deployment since the DELETE api_call was fired too early.</li>
+</ul>
+<h4 id="changes">Changes<a class="headerlink" href="#changes" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Simple S3 Bucket scanner now part of Playground One. This includes a dedicated <a href="https://mawinkler.github.io/playground-one-pages/scenarios/as/tmfs-s3-bucket-scanning/">scenario</a>.</li>
+<li>Improved handling of public IPs in configflow when running on Cloud9.</li>
+<li>Eventually existing Azure credentials are now made available within the container.</li>
+</ul>
+<h3 id="02-maintenance-release-02202024">0.2 Maintenance release (02/20/2024)<a class="headerlink" href="#02-maintenance-release-02202024" title="Permanent link">&para;</a></h3>
+<h4 id="fixes_1">Fixes<a class="headerlink" href="#fixes_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Vision One Container Security gets unregistered from Vision One on cluster destroy.</li>
 <li>Cluster deployments are now correctly destroyed in the correct order.</li>
 <li>Allow docker client to work with docker.sock on Cloud9</li>
 </ul>
-<h4 id="changes">Changes<a class="headerlink" href="#changes" title="Permanent link">&para;</a></h4>
+<h4 id="changes_1">Changes<a class="headerlink" href="#changes_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Playground One Container now supports versioning.</li>
 <li>ECS Fargate task definition patcher bumped to version 2.3.30</li>
