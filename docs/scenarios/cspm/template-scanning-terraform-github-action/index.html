@@ -1105,6 +1105,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#terraform-scan-using-terraform-plan-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terraform Scan using Terraform plan action
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1603,6 +1612,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#terraform-scan-using-terraform-plan-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terraform Scan using Terraform plan action
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1689,6 +1707,7 @@
 
 
 <h1 id="scenario-terraform-iac-scanning-as-github-action">Scenario: Terraform IaC Scanning as GitHub Action<a class="headerlink" href="#scenario-terraform-iac-scanning-as-github-action" title="Permanent link">&para;</a></h1>
+<p><strong><em>DRAFT</em></strong></p>
 <div class="admonition danger">
 <p class="admonition-title">Warning!</p>
 <p>This scenario does use Cloud One Conformity!</p>
@@ -1856,6 +1875,26 @@
 <a id="__codelineno-0-112" name="__codelineno-0-112" href="#__codelineno-0-112"></a><span class="w">          </span><span class="no">ls -l</span>
 <a id="__codelineno-0-113" name="__codelineno-0-113" href="#__codelineno-0-113"></a><span class="w">          </span><span class="no">if [ -f &quot;exceeded&quot; ]; then exit 1; fi</span>
 </code></pre></div>
+<h4 id="terraform-scan-using-terraform-plan-action">Terraform Scan using Terraform plan action<a class="headerlink" href="#terraform-scan-using-terraform-plan-action" title="Permanent link">&para;</a></h4>
+<p>This workflow is a variant of the above, simplifying the Terraform install and plan steps. All the rest is identical.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">obs</span><span class="p">:</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">docker</span><span class="p">:</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nn">...</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="c1"># Terraform plan</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Terraform Plan</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terraform_plan</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dflook/terraform-plan@v1</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">infra</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">          </span><span class="nt">variables</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">            </span><span class="no">account_id=&quot;${{ secrets.AWS_ACCOUNT_ID }}&quot;</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">            </span><span class="no">aws_region=&quot;${{ secrets.AWS_REGION }}&quot;</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="nn">...</span>
+</code></pre></div>
+<p>The <code>Terraform Plan</code> step replaces the install and plan steps by using the plan action from <a href="https://github.com/dflook/terraform-github-actions/tree/main/terraform-plan">Daniel Flook</a>.</p>
 <h3 id="secrets">Secrets<a class="headerlink" href="#secrets" title="Permanent link">&para;</a></h3>
 <p>For simplicity, authentication to AWS is done via access and secret access key. Alternative and likely better variants are described <a href="https://github.com/marketplace/actions/configure-aws-credentials-action-for-github-actions">here</a>.</p>
 <p>The workflow requires a secret to be set. For that navigate to <code>Settings --&gt; Security --&gt; Secrets and variables --&gt; Actions --&gt; Secrets</code>.</p>
@@ -1912,10 +1951,10 @@
 <p><strong><em>CLI:</em></strong> <code>git tag v0.1 &amp;&amp; git push --tags</code></p>
 </blockquote>
 <h3 id="check-the-action">Check the Action<a class="headerlink" href="#check-the-action" title="Permanent link">&para;</a></h3>
-<p>Now, navigate to the tab <code>Actions</code> and review the actions output. Click on <code>Terraform Scan Shell</code>.</p>
+<p>Now, navigate to the tab <code>Actions</code> and review the actions output. Click on <code>Terraform Scan Shell</code> or <code>Terraform Scan TfAction</code>.</p>
 <p>You should now see three main sections:</p>
 <ol>
-<li><code>terraform-template-scan-shell.yaml</code>: Clicking on <code>docker</code> reveals the output of the steps from the workflow (and where it failed).</li>
+<li><code>terraform-template-scan-shell.yaml</code> or <code>terraform-template-scan-tfaction.yaml</code>: Clicking on <code>docker</code> reveals the output of the steps from the workflow (and where it failed).</li>
 <li>Annotations: Telling you in this case that the process completed with exit code 1.</li>
 <li>Artifacts: These are the artifacts created by the action. There should be a <code>scan-result</code>.</li>
 </ol>
