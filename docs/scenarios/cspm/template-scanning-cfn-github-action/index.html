@@ -9,21 +9,25 @@
       
       
       
+        <link rel="prev" href="../template-scanning-terraform-github-action/">
       
       
-      <link rel="icon" href="../images/playground-icon.png">
+        <link rel="next" href="../../asrm/virtual-machine-attack-path/">
+      
+      
+      <link rel="icon" href="../../../images/playground-icon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.8">
     
     
       
-        <title>Playground One Security - Playground One</title>
+        <title>CloudFormation IaC Scanning with a GitHub Action - Playground One</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.f2e4d321.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.f2e4d321.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -42,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../css/extra.css">
+      <link rel="stylesheet" href="../../../css/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -70,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#playground-one-security" class="md-skip">
+        <a href="#scenario-cloudformation-iac-scanning-as-github-action" class="md-skip">
           Skip to content
         </a>
       
@@ -86,7 +90,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Playground One" class="md-header__button md-logo" aria-label="Playground One" data-md-component="logo">
+    <a href="../../.." title="Playground One" class="md-header__button md-logo" aria-label="Playground One" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -106,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Playground One Security
+              CloudFormation IaC Scanning with a GitHub Action
             
           </span>
         </div>
@@ -197,7 +201,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Playground One" class="md-nav__button md-logo" aria-label="Playground One" data-md-component="logo">
+    <a href="../../.." title="Playground One" class="md-nav__button md-logo" aria-label="Playground One" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -215,7 +219,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -272,7 +276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-it-works/orchestration/" class="md-nav__link">
+      <a href="../../../how-it-works/orchestration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -293,7 +297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-it-works/configurations/" class="md-nav__link">
+      <a href="../../../how-it-works/configurations/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -314,7 +318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-it-works/versions/" class="md-nav__link">
+      <a href="../../../how-it-works/versions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -379,7 +383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started/prepare/" class="md-nav__link">
+      <a href="../../../getting-started/prepare/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -400,7 +404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started/configuration/" class="md-nav__link">
+      <a href="../../../getting-started/configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -421,7 +425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started/life-cycle/" class="md-nav__link">
+      <a href="../../../getting-started/life-cycle/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -486,7 +490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../integrations/endpoint-security/" class="md-nav__link">
+      <a href="../../../integrations/endpoint-security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -507,7 +511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../integrations/container-security/" class="md-nav__link">
+      <a href="../../../integrations/container-security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -528,7 +532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../integrations/deep-security/" class="md-nav__link">
+      <a href="../../../integrations/deep-security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -549,7 +553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../integrations/prometheus-grafana/" class="md-nav__link">
+      <a href="../../../integrations/prometheus-grafana/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -574,19 +578,21 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -600,7 +606,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Scenarios
@@ -651,7 +657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scenarios/eks/escape/" class="md-nav__link">
+      <a href="../../eks/escape/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -672,7 +678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scenarios/eks/dind-exploitation/" class="md-nav__link">
+      <a href="../../eks/dind-exploitation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -693,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scenarios/eks/hunger-check/" class="md-nav__link">
+      <a href="../../eks/hunger-check/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -714,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scenarios/eks/runtime-vulnerability-ec2/" class="md-nav__link">
+      <a href="../../eks/runtime-vulnerability-ec2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -735,7 +741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scenarios/eks/runtime-vulnerability-fargate/" class="md-nav__link">
+      <a href="../../eks/runtime-vulnerability-fargate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -801,7 +807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scenarios/ecs/apache-struts-rce/" class="md-nav__link">
+      <a href="../../ecs/apache-struts-rce/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -822,7 +828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scenarios/ecs/runtime-vulnerability/" class="md-nav__link">
+      <a href="../../ecs/runtime-vulnerability/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -888,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scenarios/as/tmas-artifact-scanning/" class="md-nav__link">
+      <a href="../../as/tmas-artifact-scanning/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -909,7 +915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scenarios/as/tmas-github-action/" class="md-nav__link">
+      <a href="../../as/tmas-github-action/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -930,7 +936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scenarios/as/tmfs-artifact-scanning/" class="md-nav__link">
+      <a href="../../as/tmfs-artifact-scanning/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -956,19 +962,21 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
         
           
           <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
@@ -982,7 +990,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             Posture Management
@@ -996,7 +1004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scenarios/cspm/template-scanning-terraform-github-action/" class="md-nav__link">
+      <a href="../template-scanning-terraform-github-action/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1014,10 +1022,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../scenarios/cspm/template-scanning-cfn-github-action/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    CloudFormation IaC Scanning with a GitHub Action
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1026,6 +1054,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#about-github-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      About GitHub Actions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fork-the-scenario-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fork the Scenario Repo
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1083,7 +1158,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scenarios/asrm/virtual-machine-attack-path/" class="md-nav__link">
+      <a href="../../asrm/virtual-machine-attack-path/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1149,7 +1224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scenarios/xdr/oat-generation/" class="md-nav__link">
+      <a href="../../xdr/oat-generation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1170,7 +1245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scenarios/xdr/workbench-generation/" class="md-nav__link">
+      <a href="../../xdr/workbench-generation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1236,7 +1311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scenarios/ds/ds-integrate/" class="md-nav__link">
+      <a href="../../ds/ds-integrate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1257,7 +1332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scenarios/ds/ds-migrate/" class="md-nav__link">
+      <a href="../../ds/ds-migrate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1278,7 +1353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scenarios/ds/ws-integrate/" class="md-nav__link">
+      <a href="../../ds/ws-integrate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1314,7 +1389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../faq/" class="md-nav__link">
+      <a href="../../../faq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1334,7 +1409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../bloopers/" class="md-nav__link">
+      <a href="../../../bloopers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1374,42 +1449,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#network" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Network
+      Prerequisites
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#eks" class="md-nav__link">
+  <a href="#about-github-actions" class="md-nav__link">
     <span class="md-ellipsis">
-      EKS
+      About GitHub Actions
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="EKS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#54-cluster-networking" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.4. Cluster Networking
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#vision-one-container-security" class="md-nav__link">
+  <a href="#fork-the-scenario-repo" class="md-nav__link">
     <span class="md-ellipsis">
-      Vision One Container Security
+      Fork the Scenario Repo
     </span>
   </a>
   
@@ -1430,121 +1490,44 @@
                   
 
 
-<h1 id="playground-one-security">Playground One Security<a class="headerlink" href="#playground-one-security" title="Permanent link">&para;</a></h1>
-<h2 id="network">Network<a class="headerlink" href="#network" title="Permanent link">&para;</a></h2>
-<h2 id="eks">EKS<a class="headerlink" href="#eks" title="Permanent link">&para;</a></h2>
-<h3 id="54-cluster-networking">5.4. Cluster Networking<a class="headerlink" href="#54-cluster-networking" title="Permanent link">&para;</a></h3>
-<p><strong><em>Restrict Access to the Control Plane Endpoint</em></strong></p>
-<p>Authorized networks are a way of specifying a restricted range of IP addresses that are permitted to access your cluster's control plane. Kubernetes Engine uses both Transport Layer Security (TLS) and authentication to provide secure access to your cluster's control plane from the public internet. This provides you the flexibility to administer your cluster from anywhere; however, you might want to further restrict access to a set of IP addresses that you control. You can set this restriction by specifying an authorized network.</p>
-<p>Restricting access to an authorized network can provide additional security benefits for your container cluster, including:</p>
+<h1 id="scenario-cloudformation-iac-scanning-as-github-action">Scenario: CloudFormation IaC Scanning as GitHub Action<a class="headerlink" href="#scenario-cloudformation-iac-scanning-as-github-action" title="Permanent link">&para;</a></h1>
+<div class="admonition danger">
+<p class="admonition-title">Warning!</p>
+<p>This scenario does use Cloud One Conformity!</p>
+</div>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Better protection from outsider attacks: Authorized networks provide an additional layer of security by limiting external access to a specific set of addresses you designate, such as those that originate from your premises. This helps protect access to your cluster in the case of a vulnerability in the cluster's authentication or authorization mechanism.</li>
-<li>Better protection from insider attacks: Authorized networks help protect your cluster from accidental leaks of master certificates from your company's premises. Leaked certificates used from outside Cloud Services and outside the authorized IP ranges (for example, from addresses outside your company) are still denied access.</li>
+<li>Clouud One API-Key with the following permissions:</li>
+<li>Conformity<ul>
+<li>PowerUser</li>
 </ul>
-<p>By enabling private endpoint access to the Kubernetes API server, all communication between your nodes and the API server stays within your VPC. You can also limit the IP addresses that can access your API server from the internet, or completely disable internet access to the API server.</p>
-<p>With this in mind, you can update your cluster accordingly using the AWS CLI to ensure that Private Endpoint Access is enabled.</p>
-<p>If you choose to also enable Public Endpoint Access then you should also configure a list of allowable CIDR blocks, resulting in restricted access from the internet. If you specify no CIDR blocks, then the public API server endpoint is able to receive and process requests from all IP addresses by defaulting to ['0.0.0.0/0'].</p>
-<p>For example, the following command would enable private access to the Kubernetes API as well as limited public access over the internet from a single IP address (noting the /32 CIDR suffix):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>aws<span class="w"> </span>eks<span class="w"> </span>update-cluster-config<span class="w"> </span>--region<span class="w"> </span><span class="si">${</span><span class="nv">aws_region</span><span class="si">}</span><span class="w"> </span>--name<span class="w"> </span><span class="si">${</span><span class="nv">cluster_name</span><span class="si">}</span><span class="w"> </span>--resources-vpc-config<span class="w"> </span><span class="nv">endpointPrivateAccess</span><span class="o">=</span>true,<span class="w"> </span><span class="nv">endpointPrivateAccess</span><span class="o">=</span>true,publicAccessCidrs<span class="o">=</span><span class="s2">&quot;203.0.113.5/32&quot;</span>
-</code></pre></div>
-<p>Audit - Playground One:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>/awsone/4-cluster-eks-ec2
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">cluster_name</span><span class="o">=</span><span class="k">$(</span>terraform<span class="w"> </span>output<span class="w"> </span>-raw<span class="w"> </span>cluster_name<span class="k">)</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">echo</span><span class="w"> </span>Cluster<span class="w"> </span>private<span class="w"> </span>access<span class="w"> </span>enpoint<span class="w"> </span>enabled:
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>aws<span class="w"> </span>eks<span class="w"> </span>describe-cluster<span class="w"> </span>--name<span class="w"> </span><span class="si">${</span><span class="nv">cluster_name</span><span class="si">}</span><span class="w"> </span>--query<span class="w"> </span><span class="s2">&quot;cluster.resourcesVpcConfig.endpointPrivateAccess&quot;</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nb">echo</span><span class="w"> </span>Cluster<span class="w"> </span>public<span class="w"> </span>access<span class="w"> </span>enpoint<span class="w"> </span>enabled:
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>aws<span class="w"> </span>eks<span class="w"> </span>describe-cluster<span class="w"> </span>--name<span class="w"> </span><span class="si">${</span><span class="nv">cluster_name</span><span class="si">}</span><span class="w"> </span>--query<span class="w"> </span><span class="s2">&quot;cluster.resourcesVpcConfig.endpointPublicAccess&quot;</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="nb">echo</span><span class="w"> </span>Cluster<span class="w"> </span>public<span class="w"> </span>access<span class="w"> </span>CIDRs:
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>aws<span class="w"> </span>eks<span class="w"> </span>describe-cluster<span class="w"> </span>--name<span class="w"> </span><span class="si">${</span><span class="nv">cluster_name</span><span class="si">}</span><span class="w"> </span>--query<span class="w"> </span><span class="s2">&quot;cluster.resourcesVpcConfig.publicAccessCidrs&quot;</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Example</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Cluster<span class="w"> </span>private<span class="w"> </span>access<span class="w"> </span>enpoint<span class="w"> </span>enabled:
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nb">true</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Cluster<span class="w"> </span>public<span class="w"> </span>access<span class="w"> </span>enpoint<span class="w"> </span>enabled:
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nb">true</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Cluster<span class="w"> </span>public<span class="w"> </span>access<span class="w"> </span>CIDRs:
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="o">[</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="s2">&quot;84.190.104.66/32&quot;</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="o">]</span>
-</code></pre></div>
-<p>References: <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html</a></p>
-<p>CIS Controls:</p>
+</li>
+<li>GitHub Account.</li>
+<li>Forked <a href="https://github.com/mawinkler/playground-one-template-scanner">playground-one-template-scanner</a>.</li>
+</ul>
+<h2 id="about-github-actions">About GitHub Actions<a class="headerlink" href="#about-github-actions" title="Permanent link">&para;</a></h2>
+<p>GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline on GitHub.</p>
+<p>GitHub Actions goes beyond just DevOps and lets you run workflows when other events happen in your repository. For example, you can run a workflow to automatically add the appropriate labels whenever someone creates a new issue in your repository.</p>
+<p>You can configure a GitHub Actions workflow to be triggered when an event occurs in your repository, such as a pull request being opened, an issue being created or a push happened. Your workflow contains one or more jobs which can run in sequential order or in parallel. Each job will run inside its own virtual machine runner, or inside a container, and has one or more steps that either run a script that you define or run an action, which is a reusable extension that can simplify your workflow.</p>
+<p>Workflows are defined as YAML files in the .github/workflows directory in a repository, and a repository can have multiple workflows, each of which can perform a different set of tasks.</p>
+<p>In this scenario we're going to create a workflow to automatically build, push and scan a container image with Trend Micro Artifact Scanning. The scan will check the image for vulnerabilities and malware and eventually push it to the registry.</p>
+<p>The logic implemented in this Action template is as follows:</p>
 <ul>
-<li>4.4 Implement and Manage a Firewall on Servers Implement and manage a firewall on servers, where supported. Example implementations include a virtual firewall, operating system firewall, or a third-party firewall agent.</li>
-<li>9.3 Maintain and Enforce Network-Based URL Filters Enforce and update network-based URL filters to limit an enterprise asset from connecting to potentially malicious or unapproved websites. Example implementations include category-based filtering, reputation-based filtering, or through the use of block lists. Enforce filters for all enterprise assets.</li>
-<li>7.4 Maintain and Enforce Network-Based URL Filters Enforce network-based URL filters that limit a system's ability to connect to websites not approved by the organization. This filtering shall be enforced for each of the organization's systems, whether they are physically at an organization's facilities or not.</li>
+<li>Prepare the Docker Buildx environment.</li>
+<li>Build the image and save it as a tar ball.</li>
+<li>Scan the built image for vulnerabilities and malware using Vision One Container Security.</li>
+<li>Upload Scan Result and SBOM Artifact if available. Artifacts allow you to share data between jobs in a workflow and store data once that workflow has completed, in this case saving the scan result and the container image SBOM as an artifact allow you to have proof on what happened on past scans.</li>
+<li>Optionally fail the workflow if malware and/or the vulnerability threshold was reached. Failing the workflow at this stage prevents the registry to get polluted with insecure images.</li>
+<li>Authenticate to the deployment registry.</li>
+<li>Rebuild the image from cache for the desired architectures.</li>
+<li>Push the image to the registry.</li>
+<li>Rescan the image in the registry to allow proper admission control integration.</li>
 </ul>
-<p><strong><em>Ensure clusters are created with Private Endpoint Enabled and Public Access Disabled</em></strong></p>
-<p>In a private cluster, the master node has two endpoints, a private and public endpoint. The private endpoint is the internal IP address of the master, behind an internal load balancer in the master's VPC network. Nodes communicate with the master using the private endpoint. The public endpoint enables the Kubernetes API to be accessed from outside the master's VPC network.</p>
-<p>Although Kubernetes API requires an authorized token to perform sensitive actions, a vulnerability could potentially expose the Kubernetes publically with unrestricted access. Additionally, an attacker may be able to identify the current cluster and Kubernetes API version and determine whether it is vulnerable to an attack. Unless required, disabling public endpoint will help prevent such threats, and require the attacker to be on the master's VPC network to perform any attack on the Kubernetes API.
-Impact:</p>
-<p>Configure the EKS cluster endpoint to be private.</p>
-<ol>
-<li>LeavetheclusterendpointpublicandspecifywhichCIDRblockscan communicate with the cluster endpoint. The blocks are effectively a whitelisted set of public IP addresses that are allowed to access the cluster endpoint.</li>
-<li>ConfigurepublicaccesswithasetofwhitelistedCIDRblocksandsetprivate endpoint access to enabled. This will allow public access from a specific range of public IPs while forcing all network traffic between the kubelets (workers) and the Kubernetes API through the cross-account ENIs that get provisioned into the cluster VPC when the control plane is provisioned.</li>
-</ol>
-<p>Audit - Playground One (see above)</p>
-<p>References: <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html</a></p>
-<p>CIS Controls:</p>
-<ul>
-<li>4.4 Implement and Manage a Firewall on Servers Implement and manage a firewall on servers, where supported. Example implementations include a virtual firewall, operating system firewall, or a third-party firewall agent.</li>
-<li>12 Boundary Defense</li>
-</ul>
-<p><strong><em>Ensure clusters are created with Private Nodes</em></strong></p>
-<p>Disabling public IP addresses on cluster nodes restricts access to only internal networks, forcing attackers to obtain local network access before attempting to compromise the underlying Kubernetes hosts.</p>
-<p>To enable Private Nodes, the cluster has to also be configured with a private master IP range and IP Aliasing enabled.</p>
-<p>Private Nodes do not have outbound access to the public internet. If you want to provide outbound Internet access for your private nodes, you can use Cloud NAT or you can manage your own NAT gateway.</p>
-<p>Audit - Playground One (see above)</p>
-<p>References: <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html</a></p>
-<p>CIS Controls:</p>
-<ul>
-<li>4.4 Implement and Manage a Firewall on Servers Implement and manage a firewall on servers, where supported. Example implementations include a virtual firewall, operating system firewall, or a third-party firewall agent.</li>
-<li>12 Boundary Defense</li>
-</ul>
-<p><strong><em>Ensure Network Policy is Enabled and set as appropriate</em></strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>/awsone/4-cluster-eks-ec2
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">cluster_name</span><span class="o">=</span><span class="k">$(</span>terraform<span class="w"> </span>output<span class="w"> </span>-raw<span class="w"> </span>cluster_name<span class="k">)</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nb">echo</span><span class="w"> </span>Cluster<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>id:
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>aws<span class="w"> </span>eks<span class="w"> </span>describe-cluster<span class="w"> </span>--name<span class="w"> </span><span class="si">${</span><span class="nv">cluster_name</span><span class="si">}</span><span class="w"> </span>--query<span class="w"> </span><span class="s2">&quot;cluster.resourcesVpcConfig.clusterSecurityGroupId&quot;</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Example</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Cluster<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>id:
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="s2">&quot;sg-0a8c50569b529a3b3&quot;</span>
-</code></pre></div>
-<p>CIS Controls:</p>
-<ul>
-<li>12.6 Use of Secure Network Management and Communication Protocols. Use secure network management and communication protocols (e.g., 802.1X, Wi-Fi Protected Access 2 (WPA2) Enterprise or greater).</li>
-<li>9.2 Ensure Only Approved Ports, Protocols and Services Are Running. Ensure that only network ports, protocols, and services listening on a system with validated business needs, are running on each system.</li>
-<li>9.4 Apply Host-based Firewalls or Port Filtering Apply host-based firewalls or port filtering tools on end systems, with a default-deny rule that drops all traffic except those services and ports that are explicitly allowed.</li>
-</ul>
-<p><strong><em>Encrypt traffic to HTTPS load balancers with TLS certificates</em></strong></p>
-<p>Encrypting traffic between users and your Kubernetes workload is fundamental to protecting data sent over the web.</p>
-<p>Audit:</p>
-<p>Your load balancer vendor can provide details on auditing the certificates and policies required to utilize TLS.</p>
-<p>CIS Controls:</p>
-<ul>
-<li>3.10 Encrypt Sensitive Data in Transit. Encrypt sensitive data in transit. Example implementations can include: Transport Layer Security (TLS) and Open Secure Shell (OpenSSH).</li>
-<li>14.4 Encrypt All Sensitive Information in Transit Encrypt all sensitive information in transit.</li>
-</ul>
-<h2 id="vision-one-container-security">Vision One Container Security<a class="headerlink" href="#vision-one-container-security" title="Permanent link">&para;</a></h2>
-<p>The API key is used for communication with the backend throughout the life of the in-cluster app.</p>
-<p>The API key is generated when generating the cluster and copied to the <code>overrides.yaml</code>.</p>
-<p>Determine whether to use existing secrets in the target namespace rather than specifying in overrides.yaml. Useful if you want to manage secrets on your own, e.g., in argocd.</p>
-<p>When this is enabled, typically you will need these secrets created in your target namespace.
-(names may vary depending on your settings):</p>
-<ul>
-<li>trendmicro-container-security-auth</li>
-<li>trendmicro-container-security-outbound-proxy-credentials</li>
-</ul>
-<p>You can fill overrides.yaml and use helm install --dry-run to generate these secret's
-template.</p>
-<p>After deployment, if you update the secret after deployment, you will need to restart pods of
-container security to make changes take effect.</p>
-<p><code>useExistingSecrets: false</code></p>
+<h2 id="fork-the-scenario-repo">Fork the Scenario Repo<a class="headerlink" href="#fork-the-scenario-repo" title="Permanent link">&para;</a></h2>
+<p>The first step is to fork the scenarios GitHub repo. For this go to <a href="https://github.com/">github.com</a> and sign in or create a free account if you need to.</p>
+<p>Next, you want to create a Fork of the scenarios repo. A fork is basically a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.</p>
+<p>To do this navigate to the repo <a href="https://github.com/mawinkler/playground-one-template-scanner">playground-one-template-scanner</a> and click on the <code>Fork</code>-button in the upper right.</p>
+<p>On the next screen you change the name to something shorter like <code>action</code>. Then press <code>[Create fork]</code> which will bring you back to your account.</p>
 
 
 
@@ -1608,10 +1591,10 @@ container security to make changes take effect.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.tabs.link", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
       
     
   </body>
