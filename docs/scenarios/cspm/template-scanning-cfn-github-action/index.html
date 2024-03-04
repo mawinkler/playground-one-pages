@@ -1097,6 +1097,90 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Repo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Repo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Workflow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secrets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test it
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test it">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Tag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-the-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check the Action
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1475,6 +1559,90 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Repo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Repo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Workflow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secrets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test it
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test it">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Tag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-the-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check the Action
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1529,6 +1697,159 @@
 <p>Next, you want to create a Fork of the scenarios repo. A fork is basically a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.</p>
 <p>To do this navigate to the repo <a href="https://github.com/mawinkler/playground-one-template-scanner">playground-one-template-scanner</a> and click on the <code>Fork</code>-button in the upper right.</p>
 <p>On the next screen you change the name to something shorter like <code>action</code>. Then press <code>[Create fork]</code> which will bring you back to your account.</p>
+<h2 id="the-repo">The Repo<a class="headerlink" href="#the-repo" title="Permanent link">&para;</a></h2>
+<p>The repo containes a hidden directory <code>.github/workflows</code> with some <code>yaml</code>-files, a <code>cfn</code> and an <code>infra</code>-directory.</p>
+<p>The <code>cfn</code> holds an example CloudFormation template for the scan, whereby the <code>infra</code> directory contains some Terraform modules which would create a VPC, subnets, security groups, etc.</p>
+<h3 id="the-workflow">The Workflow<a class="headerlink" href="#the-workflow" title="Permanent link">&para;</a></h3>
+<p>In the following section we'll review the different GitHub Actions for CloudFormation scanning of this repo.</p>
+<p>Let's go through it.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CloudFormation Scan</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># A push --tags on the repo triggers the workflow</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">on</span><span class="p">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">v*</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">env</span><span class="p">:</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="c1"># Conformity API Key</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="nt">CLOUD_ONE_API_KEY</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.API_KEY }}</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="c1"># Region in which Cloud Conformity serves your organisation</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="nt">CLOUD_ONE_REGION</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eu-central-1</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="c1"># Scan result threshold (fail on risk-level or higher)</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="c1"># THRESHOLD: any</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">  </span><span class="c1"># THRESHOLD: critical</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="nt">THRESHOLD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">high</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">  </span><span class="c1"># THRESHOLD: medium</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="c1"># THRESHOLD: low</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">  </span><span class="nt">docker</span><span class="p">:</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">      </span><span class="c1"># Prepare and authenticate to AWS using the given credentials</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Configure AWS Credentials</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws-actions/configure-aws-credentials@v4</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">          </span><span class="nt">aws-access-key-id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_ACCESS_KEY_ID }}</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">          </span><span class="nt">aws-secret-access-key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_SECRET_ACCESS_KEY }}</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">          </span><span class="nt">aws-region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_REGION }}</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">      </span><span class="c1"># CloudFormation scan</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CloudFormation Scan</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">          </span><span class="no">contents=$(cat cfn/template.json | jq &#39;.&#39; -MRs)</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">          </span><span class="no">payload=&quot;{\&quot;data\&quot;:{\&quot;attributes\&quot;:{\&quot;type\&quot;:\&quot;cloudformation-template\&quot;,\&quot;contents\&quot;:${contents}}}}&quot;</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">          </span><span class="no">printf &#39;%s&#39; ${payload} &gt; data.txt</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">          </span><span class="no"># # Scan template</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">          </span><span class="no">curl -s -X POST \</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="w">              </span><span class="no">-H &quot;Authorization: ApiKey ${CLOUD_ONE_API_KEY}&quot; \</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">              </span><span class="no">-H &quot;Content-Type: application/vnd.api+json&quot; \</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">              </span><span class="no">https://${CLOUD_ONE_REGION}-api.cloudconformity.com/v1/template-scanner/scan \</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="w">              </span><span class="no">-d @data.txt &gt; result.json</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>
+<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="w">          </span><span class="no"># Extract findings risk-level</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="w">          </span><span class="no">risk_levels=$(cat result.json | jq -r &#39;.data[] | select(.attributes.status == &quot;FAILURE&quot;) | .attributes.&quot;risk-level&quot;&#39;)</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>
+<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="w">          </span><span class="no">fail=0</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="w">          </span><span class="no">[ &quot;${THRESHOLD}&quot; = &quot;any&quot; ] &amp;&amp; \</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a><span class="w">            </span><span class="no">[ ! -z &quot;${risk_levels}&quot; ] &amp;&amp; fail=1</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>
+<a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a><span class="w">          </span><span class="no">[ &quot;${THRESHOLD}&quot; = &quot;critical&quot; ] &amp;&amp; \</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a><span class="w">            </span><span class="no">[[ ${risk_levels} == *CRITICAL* ]] &amp;&amp; fail=2</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a>
+<a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a><span class="w">          </span><span class="no">[ &quot;${THRESHOLD}&quot; = &quot;high&quot; ] &amp;&amp; \</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a><span class="w">            </span><span class="no">([[ ${risk_levels} == *CRITICAL* ]] || [[ ${risk_levels} == *HIGH* ]]) &amp;&amp; fail=3</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a>
+<a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a><span class="w">          </span><span class="no">[ &quot;${THRESHOLD}&quot; = &quot;medium&quot; ] &amp;&amp; \</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a><span class="w">            </span><span class="no">([[ ${risk_levels} == *CRITICAL* ]] || [[ ${risk_levels} == *HIGH* ]] || [[ ${risk_levels} == *MEDIUM* ]]) &amp;&amp; fail=4</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a>
+<a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a><span class="w">          </span><span class="no">[ &quot;${THRESHOLD}&quot; = &quot;low&quot; ] &amp;&amp; \</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a><span class="w">            </span><span class="no">([[ ${risk_levels} == *CRITICAL* ]] || [[ ${risk_levels} == *HIGH* ]] || [[ ${risk_levels} == *MEDIUM* ]] || [[ ${risk_levels} == *LOW* ]]) &amp;&amp; fail=5</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a>
+<a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a><span class="w">          </span><span class="no">[ $fail -ne 0 ] &amp;&amp; echo !!! Threshold exceeded !!! &gt; exceeded || true</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a><span class="w">          </span><span class="no">rm -f data.txt</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a>
+<a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a><span class="w">      </span><span class="c1"># Upload Scan Result if available</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload Scan Result Artifact</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76" href="#__codelineno-0-76"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v3</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78" href="#__codelineno-0-78"></a><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scan-result</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79" href="#__codelineno-0-79"></a><span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">result.json</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80" href="#__codelineno-0-80"></a><span class="w">          </span><span class="nt">retention-days</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81" href="#__codelineno-0-81"></a>
+<a id="__codelineno-0-82" name="__codelineno-0-82" href="#__codelineno-0-82"></a><span class="w">      </span><span class="c1"># Fail the workflow if theshold reached</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83" href="#__codelineno-0-83"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Fail Scan</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84" href="#__codelineno-0-84"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85" href="#__codelineno-0-85"></a><span class="w">          </span><span class="no">ls -l</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86" href="#__codelineno-0-86"></a><span class="w">          </span><span class="no">if [ -f &quot;exceeded&quot; ]; then exit 1; fi</span>
+</code></pre></div>
+<h3 id="secrets">Secrets<a class="headerlink" href="#secrets" title="Permanent link">&para;</a></h3>
+<p>For simplicity, authentication to AWS is done via access and secret access key. Alternative and likely better variants are described <a href="https://github.com/marketplace/actions/configure-aws-credentials-action-for-github-actions">here</a>.</p>
+<p>The workflow requires a secret to be set. For that navigate to <code>Settings --&gt; Security --&gt; Secrets and variables --&gt; Actions --&gt; Secrets</code>.</p>
+<p>Add the following secrets:</p>
+<ul>
+<li>API_KEY: <code>&lt;Your Cloud One API Key&gt;</code></li>
+<li>AWS_ACCESS_KEY_ID</li>
+<li>AWS_SECRET_ACCESS_KEY</li>
+</ul>
+<h3 id="template">Template<a class="headerlink" href="#template" title="Permanent link">&para;</a></h3>
+<p>Adapt the environment variables in the <code>env:</code>-section as required.</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CLOUD_ONE_REGION</code></td>
+<td>Cloud One Region of choice (e.g. eu-central-1, us-west-2, etc.).</td>
+</tr>
+<tr>
+<td><code>THRESHOLD</code></td>
+<td>Defines the fail condition of the action in relation to discovered vulnerabilities. A threshold of <code>critical</code> does allow any number of vulnerabilities up to the criticality <code>high</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Allowed values for the <code>THRESHOLD</code> are:</p>
+<ul>
+<li><code>any</code>: No vulnerabilities allowed.</li>
+<li><code>critical</code>: Max risk-level of discovered findings is <code>high</code>.</li>
+<li><code>high</code>: Max risk-level of discovered findings is <code>medium</code>.</li>
+<li><code>medium</code>: Max risk-level of discovered findings is <code>low</code>.</li>
+<li><code>low</code>: Max risk-level of discovered findings is <code>negligible</code>.</li>
+</ul>
+<p>If the <code>THRESHOLD</code> is not set, vulnerabilities will not fail the pipeline.</p>
+<p>The workflow will trigger on <code>git push --tags</code>.</p>
+<h3 id="actions">Actions<a class="headerlink" href="#actions" title="Permanent link">&para;</a></h3>
+<p>Navigate to <code>Actions</code> and enable Workflows for the forked repository.</p>
+<h2 id="test-it">Test it<a class="headerlink" href="#test-it" title="Permanent link">&para;</a></h2>
+<h3 id="create-a-tag">Create a Tag<a class="headerlink" href="#create-a-tag" title="Permanent link">&para;</a></h3>
+<p>To trigger the action we simply create a tag.</p>
+<p>Navigate to <code>Releases</code> on the right and then click on <code>[Draft a new release]</code>.</p>
+<p>Next, click on <code>[Choose a tag]</code> and type <code>v0.1</code>. A new button called <code>[Create new tag]</code> should get visible. Click on it.</p>
+<p>Leave the rest as it is and finally click on the green button <code>[Publish release]</code>. This will trigger the action workflow.</p>
+<blockquote>
+<p><strong><em>CLI:</em></strong> <code>git tag v0.1 &amp;&amp; git push --tags</code></p>
+</blockquote>
+<h3 id="check-the-action">Check the Action<a class="headerlink" href="#check-the-action" title="Permanent link">&para;</a></h3>
+<p>Now, navigate to the tab <code>Actions</code> and review the actions output. Click on <code>CloudFormation Scan</code>.</p>
+<p>You should now see three main sections:</p>
+<ol>
+<li><code>cloudformation-template-scan-shell.yaml</code>: Clicking on <code>docker</code> reveals the output of the steps from the workflow (and where it failed).</li>
+<li>Annotations: Telling you in this case that the process completed with exit code 1.</li>
+<li>Artifacts: These are the artifacts created by the action. There should be a <code>scan-result</code>.</li>
+</ol>
+<p>Feel free to review the scan results to find out why the action did fail.</p>
+<p>🎉 Success 🎉</p>
 
 
 
