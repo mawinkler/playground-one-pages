@@ -498,9 +498,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#section-vision-one-container-security" class="md-nav__link">
+  <a href="#section-vision-one-configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      Section: Vision One Container Security
+      Section: Vision One Configuration
     </span>
   </a>
   
@@ -1565,9 +1565,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#section-vision-one-container-security" class="md-nav__link">
+  <a href="#section-vision-one-configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      Section: Vision One Container Security
+      Section: Vision One Configuration
     </span>
   </a>
   
@@ -1691,14 +1691,12 @@
 <ul>
 <li><code>AWS Account ID</code>: The ID of your AWS subscription (just numbers no <code>-</code>). This is mandatory.</li>
 <li><code>AWS region name</code>: If you want to use another region as <code>eu-central-1</code>.</li>
-<li><code>AWS environment name</code>: Your to be built environment name. It MUST NOT be longer than 12 characters.</li>
 </ul>
 <h3 id="section-azure">Section: Azure<a class="headerlink" href="#section-azure" title="Permanent link">&para;</a></h3>
 <p>Set/update:</p>
 <ul>
 <li><code>Azure Subscription ID</code>: The ID of your Azure subscription. This is mandatory.</li>
 <li><code>Azure region name</code>: If you want to use another region as <code>westeurope</code>.</li>
-<li><code>Azure environment name</code>: Your to be built environment name. It MUST NOT be longer than 12 characters.</li>
 </ul>
 <h3 id="section-playground-one">Section: Playground One<a class="headerlink" href="#section-playground-one" title="Permanent link">&para;</a></h3>
 <p>You don't necessarily need to change anything here if you're satisfied with the defaults, but</p>
@@ -1707,9 +1705,10 @@
 </blockquote>
 <p>Set/update:</p>
 <ul>
+<li><code>PGO environment name</code>: Your to be built environment name. It MUST NOT be longer than 12 characters.</li>
 <li><code>Access IPs/CIDRs</code>:</li>
 <li>If you're running on a local Ubuntu server or are using Playground One Container locally (not on Cloud9), get your public IP and set the value to <code>&lt;YOUR IP&gt;/32</code> or type <code>pub</code> and let the config tool detect your public IP.</li>
-<li>If you're working on a Cloud9 you need enter two public IP/CIDRs separated by <code>,</code>.<ol>
+<li>If you're working on a Cloud9 you need to enter a second public IP/CIDRs.<ol>
 <li>Public IP from your Cloud9 or type <code>pub</code>.</li>
 <li>Public IP from your local client.  </li>
 </ol>
@@ -1724,25 +1723,29 @@
 </li>
 <li><code>EC2 - create Linux EC2</code>: Enable/disable Linux instances in the <code>ec2</code> configuration.</li>
 <li><code>EC2 - create Windows EC2</code>: Enable/disable Windows instances in the <code>ec2</code> configuration.</li>
+<li><code>RDS - create RDS Database</code>: Enable/disable creation of a RDS database</li>
 <li><code>ECS - utilize EC2 nodes</code>: Enable/disable ECS cluster with EC2 nodes.</li>
 <li><code>ECS - utilize Fargate nodes</code>: Enable/disable ECS cluster with Fargate nodes.</li>
 </ul>
 <blockquote>
 <p>If your IP address has changed see <a href="../../faq/#my-ip-address-has-changed-and-i-cannot-access-my-apps-anymore">FAQ</a>.</p>
 </blockquote>
-<h3 id="section-vision-one-container-security">Section: Vision One Container Security<a class="headerlink" href="#section-vision-one-container-security" title="Permanent link">&para;</a></h3>
+<h3 id="section-vision-one-configuration">Section: Vision One Configuration<a class="headerlink" href="#section-vision-one-configuration" title="Permanent link">&para;</a></h3>
 <p>Set/update:</p>
 <ul>
-<li><code>Vision One Container Security</code>: Enable or disable the Container Security deployment. If set to <code>false</code> Cloud One configuration will be skipped.</li>
 <li><code>Vision One API Key</code>: Your Vision One API Key.</li>
+<li><code>Vision One region name</code>: Your Vision One Region.</li>
+<li><code>Vision One ASRM - create Potential Attack Path(s)</code>: Create potential attack path detections for ASRM.</li>
+<li><code>Vision One Container Security</code>: Enable or disable the Container Security deployment. If set to <code>false</code> Cloud One configuration will be skipped.</li>
 <li><code>Container Security Policy Name</code>: The name of the Policy to assign.</li>
 </ul>
 <h3 id="section-integrations-configuration">Section: Integrations Configuration<a class="headerlink" href="#section-integrations-configuration" title="Permanent link">&para;</a></h3>
 <p>Set/update:</p>
 <ul>
-<li><code>EKS Calico</code>: Enable/disable the most used Pod network on your EKS cluster. It's currently disabled by default but will come shortly</li>
-<li><code>EKS Prometheus &amp; Grafana</code>: Enable/disable Prometheus. It is an open-source systems monitoring and alerting toolkit integrated with a preconfigured Grafana.</li>
-<li><code>EKS Trivy</code>: Enable/disable Trivy vulnerability scanning for comparison.</li>
+<li><code>Calico</code>: Enable/disable the most used Pod network on your EKS cluster. It's currently disabled by default but will come shortly</li>
+<li><code>Prometheus &amp; Grafana</code>: Enable/disable Prometheus. It is an open-source systems monitoring and alerting toolkit integrated with a preconfigured Grafana.</li>
+<li><code>Trivy</code>: Enable/disable Trivy vulnerability scanning for comparison.</li>
+<li><code>MetalLB</code>: Enable/disable MetalLB for Kind cluster.</li>
 </ul>
 <h3 id="section-deep-security">Section: Deep Security<a class="headerlink" href="#section-deep-security" title="Permanent link">&para;</a></h3>
 <p>Set/update:</p>
