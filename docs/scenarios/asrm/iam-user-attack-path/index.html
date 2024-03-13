@@ -9,21 +9,25 @@
       
       
       
+        <link rel="prev" href="../virtual-machine-attack-path/">
       
       
-      <link rel="icon" href="../../images/playground-icon.png">
+        <link rel="next" href="../../xdr/oat-generation/">
+      
+      
+      <link rel="icon" href="../../../images/playground-icon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.8">
     
     
       
-        <title>Vision One XDR for Containers - Playground One</title>
+        <title>IAM User Potential Attack Path - Playground One</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.f2e4d321.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.f2e4d321.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -42,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../../css/extra.css">
+      <link rel="stylesheet" href="../../../css/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -70,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vision-one-xdr-for-containers" class="md-skip">
+        <a href="#scenario-asrm-to-detect-potential-attack-path-to-rds-via-iam-user" class="md-skip">
           Skip to content
         </a>
       
@@ -86,7 +90,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Playground One" class="md-header__button md-logo" aria-label="Playground One" data-md-component="logo">
+    <a href="../../.." title="Playground One" class="md-header__button md-logo" aria-label="Playground One" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -106,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Vision One XDR for Containers
+              IAM User Potential Attack Path
             
           </span>
         </div>
@@ -197,7 +201,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Playground One" class="md-nav__button md-logo" aria-label="Playground One" data-md-component="logo">
+    <a href="../../.." title="Playground One" class="md-nav__button md-logo" aria-label="Playground One" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -215,7 +219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -272,7 +276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-it-works/orchestration/" class="md-nav__link">
+      <a href="../../../how-it-works/orchestration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -293,7 +297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-it-works/configurations/" class="md-nav__link">
+      <a href="../../../how-it-works/configurations/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -314,7 +318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-it-works/versions/" class="md-nav__link">
+      <a href="../../../how-it-works/versions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -379,7 +383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/prepare/" class="md-nav__link">
+      <a href="../../../getting-started/prepare/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -400,7 +404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/configuration/" class="md-nav__link">
+      <a href="../../../getting-started/configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -421,7 +425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/life-cycle/" class="md-nav__link">
+      <a href="../../../getting-started/life-cycle/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -486,7 +490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../endpoint-security/" class="md-nav__link">
+      <a href="../../../integrations/endpoint-security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -507,7 +511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../container-security/" class="md-nav__link">
+      <a href="../../../integrations/container-security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -528,7 +532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deep-security/" class="md-nav__link">
+      <a href="../../../integrations/deep-security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -549,7 +553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../prometheus-grafana/" class="md-nav__link">
+      <a href="../../../integrations/prometheus-grafana/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -574,19 +578,21 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -600,7 +606,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Scenarios
@@ -651,7 +657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/eks/escape/" class="md-nav__link">
+      <a href="../../eks/escape/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -672,7 +678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/eks/dind-exploitation/" class="md-nav__link">
+      <a href="../../eks/dind-exploitation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -693,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/eks/hunger-check/" class="md-nav__link">
+      <a href="../../eks/hunger-check/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -714,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/eks/runtime-vulnerability-ec2/" class="md-nav__link">
+      <a href="../../eks/runtime-vulnerability-ec2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -735,7 +741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/eks/runtime-vulnerability-fargate/" class="md-nav__link">
+      <a href="../../eks/runtime-vulnerability-fargate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -801,7 +807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/ecs/apache-struts-rce/" class="md-nav__link">
+      <a href="../../ecs/apache-struts-rce/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -822,7 +828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/ecs/runtime-vulnerability/" class="md-nav__link">
+      <a href="../../ecs/runtime-vulnerability/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -888,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/as/tmas-artifact-scanning/" class="md-nav__link">
+      <a href="../../as/tmas-artifact-scanning/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -909,7 +915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/as/tmas-github-action/" class="md-nav__link">
+      <a href="../../as/tmas-github-action/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -930,7 +936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/as/tmfs-artifact-scanning/" class="md-nav__link">
+      <a href="../../as/tmfs-artifact-scanning/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -951,7 +957,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/as/tmfs-s3-bucket-scanning/" class="md-nav__link">
+      <a href="../../as/tmfs-s3-bucket-scanning/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1017,7 +1023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/cspm/template-scanning-terraform-github-action/" class="md-nav__link">
+      <a href="../../cspm/template-scanning-terraform-github-action/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1038,7 +1044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/cspm/template-scanning-cfn-github-action/" class="md-nav__link">
+      <a href="../../cspm/template-scanning-cfn-github-action/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1064,19 +1070,21 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
@@ -1090,7 +1098,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_5">
             <span class="md-nav__icon md-icon"></span>
             Attack Surface Risk Management
@@ -1104,7 +1112,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/asrm/virtual-machine-attack-path/" class="md-nav__link">
+      <a href="../virtual-machine-attack-path/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1122,10 +1130,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../scenarios/asrm/iam-user-attack-path/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    IAM User Potential Attack Path
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1134,6 +1162,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tear-down" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tear Down
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1191,7 +1266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/xdr/oat-generation/" class="md-nav__link">
+      <a href="../../xdr/oat-generation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1212,7 +1287,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/xdr/workbench-generation/" class="md-nav__link">
+      <a href="../../xdr/workbench-generation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1278,7 +1353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/ds/ds-integrate/" class="md-nav__link">
+      <a href="../../ds/ds-integrate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1299,7 +1374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/ds/ds-migrate/" class="md-nav__link">
+      <a href="../../ds/ds-migrate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1320,7 +1395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/ds/ws-integrate/" class="md-nav__link">
+      <a href="../../ds/ws-integrate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1356,7 +1431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../faq/" class="md-nav__link">
+      <a href="../../../faq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1376,7 +1451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bloopers/" class="md-nav__link">
+      <a href="../../../bloopers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1416,18 +1491,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#connect-xdr-for-containers-with-the-playground-one" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Connect XDR for Containers with the Playground One
+      Prerequisites
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#scenarios" class="md-nav__link">
+  <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
-      Scenarios
+      Setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tear-down" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tear Down
     </span>
   </a>
   
@@ -1448,39 +1532,43 @@
                   
 
 
-<h1 id="vision-one-xdr-for-containers">Vision One XDR for Containers<a class="headerlink" href="#vision-one-xdr-for-containers" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p><strong><em>Note:</em></strong> At the time of writing, XDR for Containers is in an early preview stage and only one to be protected VPC is supported. The cluster variants provided by Playground One support Application Load Balancing which is required for XDR for Containers.</p>
-</blockquote>
-<p>You need to create a connection with XDR for Containers by going through the workflow in your Vision One environment.</p>
-<h2 id="connect-xdr-for-containers-with-the-playground-one">Connect XDR for Containers with the Playground One<a class="headerlink" href="#connect-xdr-for-containers-with-the-playground-one" title="Permanent link">&para;</a></h2>
-<p>Before connecting XDR for Containers you need to have the VPC and network of Playground One created already.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
+<h1 id="scenario-asrm-to-detect-potential-attack-path-to-rds-via-iam-user">Scenario: ASRM to detect Potential Attack Path to RDS via IAM User<a class="headerlink" href="#scenario-asrm-to-detect-potential-attack-path-to-rds-via-iam-user" title="Permanent link">&para;</a></h1>
+<p><strong><em>DRAFT</em></strong></p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>AWS Cloud Account integrated with Vision One</li>
+</ul>
+<p>Ensure to have the Playground One Network up and running:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Network configuration</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>network
 </code></pre></div>
-<blockquote>
-<p><strong><em>Note:</em></strong> You don't need to destroy the VPC and network each time because this would mean to disconnect Vision One from it and reestablish the connection the next time. This takes about 20 minutes overall. So leave the VPC as it is.</p>
-</blockquote>
-<p>Required information:</p>
-<ul>
-<li>Trend Cloud One API Key</li>
-<li>Trend Cloud One Region</li>
-<li>AWS Account ID</li>
-<li>AWS VPC ID</li>
-<li>VPC Region</li>
-</ul>
-<p>Follow the deployment instructions from Vision One. You can query your <code>AWS VPC ID</code> by running <code>pgo --output nw</code>.</p>
-<blockquote>
-<p><strong><em>Note:</em></strong> Make sure to deploy the stack in the region of the VPC when pressing <code>[Launch Stack]</code>.</p>
-</blockquote>
-<p><img alt="alt text" src="../images/xdr-for-containers-01.png" title="Connect VPC" /></p>
-<p>All provided clusters from Playground One can be used with XDR for Containers.</p>
-<h2 id="scenarios">Scenarios<a class="headerlink" href="#scenarios" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../../scenarios/xdr4c/ecs-tomcat-rce/">Tomcat Remote Code Execution</a></li>
-<li><a href="../../scenarios/xdr4c/ecs-log4j/">JNDI Injection in HTTP Request</a></li>
-<li><a href="../../scenarios/xdr4c/ecs-struts/">Apache Struts Multipart Encoding Command Injection (ECS)</a></li>
-<li><a href="../../scenarios/xdr4c/eks-struts/">Apache Struts Multipart Encoding Command Injection (EKS)</a></li>
-</ul>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
+<p>The Playground One configuration for EC2 (<code>ec2</code> or <code>instances</code>) can create an IAM User and IAM User Group with RDS Full Access and some EC2 action permissions when the creation of Potential Attack Path(s) is enabled in the config tool. The one of interest is the user <code>dbadmin</code> within the group dbadmins.</p>
+<p>Verify, that you have <code>Vision One ASRM - create Potential Attack Path(s)</code> enabled in your configuration.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pgo<span class="w"> </span>--config
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>...
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Vision<span class="w"> </span>One<span class="w"> </span>ASRM<span class="w"> </span>-<span class="w"> </span>create<span class="w"> </span>Potential<span class="w"> </span>Attack<span class="w"> </span>Path<span class="o">(</span>s<span class="o">)</span><span class="w"> </span><span class="o">[</span>true<span class="o">]</span>:
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>...
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># With Potential Attack Path enabled</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>instances
+</code></pre></div>
+<p>The IAM User is detected by Vision One ASRM after some time when you configured your CAM stack properly. The full analysis which should lead to a potential attack path as seen in the below screenshot can take up to 48hs.</p>
+<p><img alt="alt text" src="images/asrm-iam-attack-path-01.png" title="Attack Path" /></p>
+<p>Below the Asset Graph of the high risk instance:</p>
+<p><img alt="alt text" src="images/asrm-iam-attack-path-02.png" title="Asset Graph" /></p>
+<p>🎉 Success 🎉</p>
+<h2 id="tear-down">Tear Down<a class="headerlink" href="#tear-down" title="Permanent link">&para;</a></h2>
+<p>At minimum, disable <code>Vision One ASRM - create Potential Attack Path(s)</code> in your configuration.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pgo<span class="w"> </span>--config
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>...
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Vision<span class="w"> </span>One<span class="w"> </span>ASRM<span class="w"> </span>-<span class="w"> </span>create<span class="w"> </span>Potential<span class="w"> </span>Attack<span class="w"> </span>Path<span class="o">(</span>s<span class="o">)</span><span class="w"> </span><span class="o">[</span>true<span class="o">]</span>:<span class="w"> </span><span class="nb">false</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>...
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>instances
+</code></pre></div>
 
 
 
@@ -1544,10 +1632,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.tabs.link", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.tabs.link", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
       
     
   </body>
