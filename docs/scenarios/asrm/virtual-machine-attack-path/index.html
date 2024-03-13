@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scenario-asrm-to-detect-potential-attack-path" class="md-skip">
+        <a href="#scenario-asrm-to-detect-potential-attack-path-to-rds-with-ec2" class="md-skip">
           Skip to content
         </a>
       
@@ -1493,11 +1493,19 @@
                   
 
 
-<h1 id="scenario-asrm-to-detect-potential-attack-path">Scenario: ASRM to detect Potential Attack Path<a class="headerlink" href="#scenario-asrm-to-detect-potential-attack-path" title="Permanent link">&para;</a></h1>
+<h1 id="scenario-asrm-to-detect-potential-attack-path-to-rds-with-ec2">Scenario: ASRM to detect Potential Attack Path to RDS with EC2<a class="headerlink" href="#scenario-asrm-to-detect-potential-attack-path-to-rds-with-ec2" title="Permanent link">&para;</a></h1>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
 <li>AWS Cloud Account integrated with Vision One</li>
 </ul>
+<div class="admonition danger">
+<p class="admonition-title">Insecure Configuration</p>
+<p>Playing through this scenario requires the Playground One to be
+configured insecurely. This is because one of the AWS EC2 Security
+Groups will be configured to <code>0.0.0.0/0</code> inbound rules. Depending
+on the governance restrictions you need to comply with you might
+receive a (friendly) notification. </p>
+</div>
 <p>Ensure to have the Playground One Network up and running:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Network configuration</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
@@ -1512,10 +1520,15 @@
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>...
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>EC2<span class="w"> </span>-<span class="w"> </span>create<span class="w"> </span>RDS<span class="w"> </span>Database<span class="w"> </span><span class="o">[</span>true<span class="o">]</span>:<span class="w"> </span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>...
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Vision<span class="w"> </span>One<span class="w"> </span>ASRM<span class="w"> </span>-<span class="w"> </span>create<span class="w"> </span>Potential<span class="w"> </span>Attack<span class="w"> </span>Path<span class="o">(</span>s<span class="o">)</span><span class="w"> </span><span class="o">[</span>true<span class="o">]</span>:
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>...
 </code></pre></div>
 <p>A (free-tier) PostgreSQL dabase is automatically created when applying the configuration. It is not actively used but required to have a target in the potential attack path.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># With Linux machines enabled</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>ec2
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># With Potential Attack Path enabled</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># With Linux machines enabled</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>ec2
 </code></pre></div>
 <p>The Linux instances are detected by Vision One ASRM after some time when you configured your CAM stack properly. The full analysis which should lead to a potential attack path for the <code>db1</code> instance as seen in the below screenshot can take up to 48hs.</p>
 <p><img alt="alt text" src="../images/asrm-ec2-attack-path-01.png" title="Attack Path" /></p>
