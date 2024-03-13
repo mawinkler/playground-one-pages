@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scenario-asrm-to-detect-potential-attack-path-to-rds-with-ec2" class="md-skip">
+        <a href="#scenario-asrm-to-detect-potential-attack-path-to-rds-via-ec2" class="md-skip">
           Skip to content
         </a>
       
@@ -1175,6 +1175,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#tear-down" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tear Down
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1478,6 +1487,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#tear-down" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tear Down
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1493,7 +1511,7 @@
                   
 
 
-<h1 id="scenario-asrm-to-detect-potential-attack-path-to-rds-with-ec2">Scenario: ASRM to detect Potential Attack Path to RDS with EC2<a class="headerlink" href="#scenario-asrm-to-detect-potential-attack-path-to-rds-with-ec2" title="Permanent link">&para;</a></h1>
+<h1 id="scenario-asrm-to-detect-potential-attack-path-to-rds-via-ec2">Scenario: ASRM to detect Potential Attack Path to RDS via EC2<a class="headerlink" href="#scenario-asrm-to-detect-potential-attack-path-to-rds-via-ec2" title="Permanent link">&para;</a></h1>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
 <li>AWS Cloud Account integrated with Vision One</li>
@@ -1508,11 +1526,11 @@ receive a (friendly) notification. </p>
 </div>
 <p>Ensure to have the Playground One Network up and running:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Network configuration</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>network
 </code></pre></div>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
 <p>The Playground One configuration for EC2 (<code>ec2</code> or <code>instances</code>) creates two Linux servers when enabled in the config tool. The one of interest is the <code>db1</code> instance since it get's an instance profile assigned which allows read access to RDS. Contrary to all other instances this instance will use a dedicated security group which is open to the internet using the CIDR block <code>0.0.0.0/0</code>.</p>
-<p>Verify, that you have <code>EC2 - create RDS Database</code> enabled in your configuration.</p>
+<p>Verify, that you have <code>EC2 - create Linux EC2</code>, <code>EC2 - create RDS Database</code> and <code>Vision One ASRM - create Potential Attack Path(s)</code> enabled in your configuration.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pgo<span class="w"> </span>--config
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>...
@@ -1525,16 +1543,26 @@ receive a (friendly) notification. </p>
 </code></pre></div>
 <p>A (free-tier) PostgreSQL dabase is automatically created when applying the configuration. It is not actively used but required to have a target in the potential attack path.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># With Potential Attack Path enabled</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>network
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># With Linux machines enabled</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>ec2
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>instances
 </code></pre></div>
 <p>The Linux instances are detected by Vision One ASRM after some time when you configured your CAM stack properly. The full analysis which should lead to a potential attack path for the <code>db1</code> instance as seen in the below screenshot can take up to 48hs.</p>
 <p><img alt="alt text" src="../images/asrm-ec2-attack-path-01.png" title="Attack Path" /></p>
 <p>Below the Asset Graph of the high risk instance:</p>
 <p><img alt="alt text" src="../images/asrm-ec2-attack-path-02.png" title="Asset Graph" /></p>
 <p>🎉 Success 🎉</p>
+<h2 id="tear-down">Tear Down<a class="headerlink" href="#tear-down" title="Permanent link">&para;</a></h2>
+<p>At minimum, disable <code>Vision One ASRM - create Potential Attack Path(s)</code> in your configuration.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pgo<span class="w"> </span>--config
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>...
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Vision<span class="w"> </span>One<span class="w"> </span>ASRM<span class="w"> </span>-<span class="w"> </span>create<span class="w"> </span>Potential<span class="w"> </span>Attack<span class="w"> </span>Path<span class="o">(</span>s<span class="o">)</span><span class="w"> </span><span class="o">[</span>true<span class="o">]</span>:<span class="w"> </span><span class="nb">false</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>...
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>network
+</code></pre></div>
 
 
 
