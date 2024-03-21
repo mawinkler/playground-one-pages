@@ -1468,6 +1468,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#aws-ec2-instance-connect-does-not-work-from-the-aws-ec2-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS EC2 Instance Connect does not work from the AWS EC2 Console
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1580,6 +1589,15 @@
   <a href="#upgrade-vision-one-container-security-to-the-latest-release" class="md-nav__link">
     <span class="md-ellipsis">
       Upgrade Vision One Container Security to the latest Release
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-ec2-instance-connect-does-not-work-from-the-aws-ec2-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS EC2 Instance Connect does not work from the AWS EC2 Console
     </span>
   </a>
   
@@ -1701,6 +1719,64 @@ aws_ecs_cluster depends on aws_ecs_capacity_provider depends on aws_autoscaling_
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span>--values<span class="w"> </span>-<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span>https://github.com/trendmicro/cloudone-container-security-helm/archive/master.tar.gz
 </code></pre></div>
+<h2 id="aws-ec2-instance-connect-does-not-work-from-the-aws-ec2-console">AWS EC2 Instance Connect does not work from the AWS EC2 Console<a class="headerlink" href="#aws-ec2-instance-connect-does-not-work-from-the-aws-ec2-console" title="Permanent link">&para;</a></h2>
+<p>EC2 Instance Connect uses specific IP address ranges for browser-based SSH connections to your instance (when users use the Amazon EC2 console to connect to an instance). These IP address ranges are documented <a href="https://ip-ranges.amazonaws.com/ip-ranges.json">here</a>.</p>
+<p>To filter this large list for instance connect run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>jq<span class="w"> </span><span class="s1">&#39;.prefixes[] | select(.service==&quot;EC2_INSTANCE_CONNECT&quot;) | .&#39;</span><span class="w"> </span>ip-ranges.json
+</code></pre></div>
+<p>Currently, Playground One does only allow Instance Connect from the following regions:</p>
+<table>
+<thead>
+<tr>
+<th>Region</th>
+<th>IP address range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eu-central-1</td>
+<td>3.120.181.40/29</td>
+</tr>
+<tr>
+<td>eu-west-1</td>
+<td>18.202.216.48/29</td>
+</tr>
+<tr>
+<td>eu-west-2</td>
+<td>3.8.37.24/29</td>
+</tr>
+<tr>
+<td>eu-west-3</td>
+<td>35.180.112.80/29</td>
+</tr>
+<tr>
+<td>eu-north-1</td>
+<td>13.48.4.200/30</td>
+</tr>
+<tr>
+<td>us-east-1</td>
+<td>18.206.107.24/29</td>
+</tr>
+<tr>
+<td>us-east-2</td>
+<td>3.16.146.0/29</td>
+</tr>
+<tr>
+<td>us-west-1</td>
+<td>13.52.6.112/29</td>
+</tr>
+<tr>
+<td>us-west-2</td>
+<td>18.237.140.160/29</td>
+</tr>
+</tbody>
+</table>
+<p>If you need any other reagion, please let me know.</p>
+<p>See:</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-linux-inst-eic.html">AWS Documentation</a></li>
+<li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/aws-ip-ranges.html">AWS IP Ranges</a></li>
+</ul>
 
 
 
