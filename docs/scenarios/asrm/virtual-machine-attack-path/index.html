@@ -1570,9 +1570,16 @@ receive a (friendly) notification. </p>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>instances
 </code></pre></div>
 <p>The Linux instances are detected by Vision One ASRM after some time when you configured your CAM stack properly. The full analysis which should lead to a potential attack path for the <code>db1</code> instance as seen in the below screenshot can take up to 48hs.</p>
-<p><img alt="alt text" src="../images/asrm-ec2-attack-path-01.png" title="Attack Path" /></p>
+<p><img alt="alt text" src="../images/asrm-ec2-attack-path-v2-01.png" title="Risk Detection" /></p>
+<p><img alt="alt text" src="../images/asrm-ec2-attack-path-v2-02.png" title="Attack Path" /></p>
 <p>Below the Asset Graph of the high risk instance:</p>
-<p><img alt="alt text" src="../images/asrm-ec2-attack-path-02.png" title="Asset Graph" /></p>
+<p><img alt="alt text" src="../images/asrm-ec2-attack-path-v2-03.png" title="Asset Graph" /></p>
+<p>It's profile:</p>
+<p><img alt="alt text" src="../images/asrm-ec2-attack-path-v2-05.png" title="Asset Profile" /></p>
+<p>The assigned policy:</p>
+<p><img alt="alt text" src="../images/asrm-ec2-attack-path-v2-04.png" title="Instance Policy" /></p>
+<p>And where it's located:</p>
+<p><img alt="alt text" src="../images/asrm-ec2-attack-path-v2-06.png" title="Region View" /></p>
 <p>🎉 Success 🎉</p>
 <h2 id="tear-down">Tear Down<a class="headerlink" href="#tear-down" title="Permanent link">&para;</a></h2>
 <p>At minimum, disable <code>Vision One ASRM - create Potential Attack Path(s)</code> in your configuration.</p>
