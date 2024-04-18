@@ -1658,7 +1658,7 @@ receive a (friendly) notification. </p>
 </code></pre></div>
 <p>The Linux instances are detected by Vision One ASRM after some time when you configured your CAM stack properly. The full analysis which should lead to a potential attack path for the <code>db1</code> instance as seen in the below screenshot can take up to 48hs.</p>
 <p><img alt="alt text" src="../images/asrm-ec2-attack-path-v2-01.png" title="Risk Detection" /></p>
-<p>As we can see, there is a high risk EC2 instance listed with a risk score of 72. Following the link of <code>i-0726e545c73222cbf</code> will explain us the cause of the risk rating. The instance is detected as an Internet-Facin EC2 instance with unrestricted Access.</p>
+<p>As we can see, there is a high risk EC2 instance listed with a risk score of 72. Following the link of <code>i-0726e545c73222cbf</code> will explain us the cause of the risk rating. The instance is detected as an Internet-facing EC2 instance with unrestricted Access.</p>
 <p>Additionally, the full potential attack path is shown in the lower half of the screen. It shows that one might be able to reach out to an RDS instance due to the assigned IAM instance role.</p>
 <p><img alt="alt text" src="../images/asrm-ec2-attack-path-v2-02.png" title="Attack Path" /></p>
 <p>Navigating to the tab <code>Asset Risk Graph</code> creates a graphical representaion on the currently inspected asset. The instance of interest is the in grey highlighted one. On it's right the EC2 instance role granting database access is shown.</p>
