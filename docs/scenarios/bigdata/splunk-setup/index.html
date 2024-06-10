@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../../ds/ws-integrate/">
+      
+      
+        <link rel="next" href="../splunk-integrate-vision-one-xdr/">
       
       
       <link rel="icon" href="../../../images/playground-icon.png">
@@ -16,7 +20,7 @@
     
     
       
-        <title>Scenario: Vision One Container Security Generate Runtime Violations - Playground One</title>
+        <title>Setup Splunk - Playground One</title>
       
     
     
@@ -70,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scenario-vision-one-container-security-generate-runtime-violations" class="md-skip">
+        <a href="#get-splunk-up-and-running-locally" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Scenario: Vision One Container Security Generate Runtime Violations
+              Setup Splunk
             
           </span>
         </div>
@@ -661,19 +665,21 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -687,7 +693,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Scenarios
@@ -738,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../escape/" class="md-nav__link">
+      <a href="../../eks/escape/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -759,7 +765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dind-exploitation/" class="md-nav__link">
+      <a href="../../eks/dind-exploitation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -780,7 +786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hunger-check/" class="md-nav__link">
+      <a href="../../eks/hunger-check/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -801,7 +807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../runtime-vulnerability-ec2/" class="md-nav__link">
+      <a href="../../eks/runtime-vulnerability-ec2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -822,7 +828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../runtime-vulnerability-fargate/" class="md-nav__link">
+      <a href="../../eks/runtime-vulnerability-fargate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1433,19 +1439,21 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8" checked>
         
           
           <label class="md-nav__link" for="__nav_5_8" id="__nav_5_8_label" tabindex="0">
@@ -1459,7 +1467,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_8">
             <span class="md-nav__icon md-icon"></span>
             Big Data
@@ -1470,10 +1478,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../bigdata/splunk-setup/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Setup Splunk
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1482,6 +1510,62 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-docker-composeyaml-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      The docker-compose.yaml-File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-splunk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Start Splunk
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#have-a-splunk-user-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      Have a Splunk User Account
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1494,7 +1578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bigdata/splunk-integrate-vision-one-xdr/" class="md-nav__link">
+      <a href="../splunk-integrate-vision-one-xdr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1599,36 +1683,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#disclaimer" class="md-nav__link">
+  <a href="#the-docker-composeyaml-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Disclaimer
+      The docker-compose.yaml-File
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#start-splunk" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Start Splunk
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-story" class="md-nav__link">
+  <a href="#have-a-splunk-user-account" class="md-nav__link">
     <span class="md-ellipsis">
-      The story
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#goals" class="md-nav__link">
-    <span class="md-ellipsis">
-      Goals
+      Have a Splunk User Account
     </span>
   </a>
   
@@ -1649,27 +1724,69 @@
                   
 
 
-<h1 id="scenario-vision-one-container-security-generate-runtime-violations">Scenario: Vision One Container Security Generate Runtime Violations<a class="headerlink" href="#scenario-vision-one-container-security-generate-runtime-violations" title="Permanent link">&para;</a></h1>
+<h1 id="get-splunk-up-and-running-locally">Get Splunk Up and Running Locally<a class="headerlink" href="#get-splunk-up-and-running-locally" title="Permanent link">&para;</a></h1>
+<p><strong><em>DRAFT</em></strong></p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Playground One EKS EC2 Cluster</li>
-<li>Vision One Container Security</li>
-<li>Playground One Scenarios</li>
+<li>Docker Engine with Compose enabled</li>
 </ul>
-<p>Ensure to have the EKS EC2 Cluster including the Scenarios up and running:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>eks-ec2
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>scenarios-ec2
+<h2 id="the-docker-composeyaml-file">The <code>docker-compose.yaml</code>-File<a class="headerlink" href="#the-docker-composeyaml-file" title="Permanent link">&para;</a></h2>
+<p>Create a file named <code>docker-compose.yaml</code> with the following content:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.2&quot;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">services</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">splunk</span><span class="p">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">splunk</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">splunk</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${SPLUNK_IMAGE:-splunk/splunk:latest}</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SPLUNK_START_ARGS=--accept-license --answer-yes --no-prompt --gen-and-print-passwd --seed-passwd TrendMicro.1</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SPLUNK_USER=admin</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SPLUNK_PASSWORD=TrendMicro.1</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SPLUNK_ENABLE_LISTEN=9997</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SPLUNK_ADD=tcp 1514</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TZ=Europe/Berlin</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PHP_TZ=Europe/Berlin</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">opt-splunk-etc:/opt/splunk/etc</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">opt-splunk-var:/opt/splunk/var</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/localtime:/etc/localtime:ro</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/timezone:/etc/timezone:ro</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8000:8000&quot;</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;9997:9997&quot;</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8088:8088&quot;</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;1514:1514&quot;</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;10701:10701/udp&quot;</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;10702:10702/udp&quot;</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;10703:10703/udp&quot;</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;10704:10704/udp&quot;</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;10705:10705/udp&quot;</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;10706:10706/udp&quot;</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;10707:10707/udp&quot;</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="c1"># ##########################################################################</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="c1"># Volumes</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="c1"># ##########################################################################</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="nt">volumes</span><span class="p">:</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">  </span><span class="nt">opt-splunk-etc</span><span class="p">:</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">  </span><span class="nt">opt-splunk-var</span><span class="p">:</span>
 </code></pre></div>
-<h2 id="disclaimer">Disclaimer<a class="headerlink" href="#disclaimer" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p><strong><em>Note:</em></strong> It is highly recommended to have the <code>awsone.access_ip</code> set to a single IP or at least a small CIDR before deploying the EKS cluster. This will prevent anonymous users playing with your environmnent. Remember: we're using vulnerable apps.</p>
-</blockquote>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Automated malicious actions are executed every full hour on your cluster which lead to detections in Container Security.</p>
-<h2 id="the-story">The story<a class="headerlink" href="#the-story" title="Permanent link">&para;</a></h2>
-<p>There is no real story here :-)</p>
-<h2 id="goals">Goals<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h2>
-<p>Review the detections in Vision One. Check Observed Attack Techniques and Workbenches.</p>
+<p>This will prepare a Splunk Free, which can process up to 500MB per day.</p>
+<h2 id="start-splunk">Start Splunk<a class="headerlink" href="#start-splunk" title="Permanent link">&para;</a></h2>
+<p>In your shell run</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>splunk
+</code></pre></div>
+<p>The first startup requires some minutes to complete.</p>
+<p>Try to access your Splunk instance at <a href="http://localhost:8000">http://localhost:8000</a> and use the following credentials:</p>
+<ul>
+<li>Username: <code>admin</code></li>
+<li>Password: <code>TrendMicro.1</code></li>
+</ul>
+<h2 id="have-a-splunk-user-account">Have a Splunk User Account<a class="headerlink" href="#have-a-splunk-user-account" title="Permanent link">&para;</a></h2>
+<p>To be able to download Add-Ons for your Splunk you need to own a free Splunk user account. If you don't already have one, create it <a href="https://www.splunk.com/en_us/sign-up.html?redirecturl=https://www.splunk.com/">here</a>.</p>
 
 
 
