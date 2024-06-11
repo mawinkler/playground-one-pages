@@ -829,6 +829,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../integrations/splunk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Splunk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1977,12 +1998,13 @@
 <p>Name it <code>v1cs_custom_rule_events</code>, and change App to <code>Splunk Analytics Workspace</code>. </p>
 <p><img alt="alt text" src="../images/splunk-app-v1cs-custom-06.png" title="Splunk" /></p>
 <p>Leave all the rest as default and click <code>[Save]</code>.</p>
-<p>Back at the Input Settings, move the newly created index to the right box by clicking on it.</p>
+<p>Back at the Input Settings, move the newly created index to the right by clicking on it.</p>
 <p><img alt="alt text" src="../images/splunk-app-v1cs-custom-07.png" title="Splunk" /></p>
 <p>Proceed with <code>[Review &gt;]</code> in the upper right.</p>
 <p>Proceed with <code>[Submit &gt;]</code> in the upper right.</p>
 <p><img alt="alt text" src="../images/splunk-app-v1cs-custom-08.png" title="Splunk" /></p>
-<p>Finally, move back to <code>Settings -&gt; Data -&gt; Data inputs</code> and select <code>HTTP Event Collector</code> which now shows our just created collector. You now want to copy the <code>Token Value</code> and paste it to your notes.</p>
+<p>You now want to copy the <code>Token Value</code> and paste it to your notes.</p>
+<p>The <code>Token Value</code> is also shown on <code>Settings -&gt; Data -&gt; Data inputs</code>, select <code>HTTP Event Collector</code> which shows our just created collector and the <code>Token Value</code>.</p>
 <p><img alt="alt text" src="../images/splunk-app-v1cs-custom-09.png" title="Splunk" /></p>
 <p>Btw, you need to know the IP address of your docker host later.</p>
 <h2 id="integrate-custom-rules-to-v1cs">Integrate Custom Rules to V1CS<a class="headerlink" href="#integrate-custom-rules-to-v1cs" title="Permanent link">&para;</a></h2>
@@ -2036,24 +2058,25 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>/customrules
 </code></pre></div>
 <p>we create an additional overrides file which enables custom rules in Container Security. Run</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># splunk_http_event_collector=http://&lt;IP address of your docker host&gt;:8088</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nv">splunk_http_event_collector</span><span class="o">=</span>http://192.168.1.122:8088
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># splunk_token_value=&lt;Token Value from the previous step&gt;</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nv">splunk_token_value</span><span class="o">=</span>e21a2ff0-3c17-4be7-9871-2417f3c9e19f
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>cat<span class="w"> </span><span class="s">&lt;&lt;EOF &gt;./overrides-custom-rules.yaml</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="s">cloudOne:</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="s">  runtimeSecurity:</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="s">    enabled: true</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="s">    customRules:</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="s">      enabled: true</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="s">      output:</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="s">        json: true</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="s">        splunk:</span>
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="s">          url: ${splunk_http_event_collector}/services/collector/raw</span>
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="s">          headers:</span>
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="s">          - &quot;Authorization: Splunk ${splunk_token_value}&quot;</span>
-<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="s">EOF</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nv">splunk_http_event_collector</span><span class="o">=</span>http://&lt;IP<span class="w"> </span>address<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>docker<span class="w"> </span>host&gt;:8088
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nv">splunk_token_value</span><span class="o">=</span>&lt;Token<span class="w"> </span>Value<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>previous<span class="w"> </span>step&gt;
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># Example:</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># splunk_http_event_collector=http://192.168.1.122:8088</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># splunk_token_value=e21a2ff0-3c17-4be7-9871-2417f3c9e19f</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>cat<span class="w"> </span><span class="s">&lt;&lt;EOF &gt;./overrides-custom-rules.yaml</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="s">cloudOne:</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="s">  runtimeSecurity:</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="s">    enabled: true</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="s">    customRules:</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="s">      enabled: true</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="s">      output:</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="s">        json: true</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="s">        splunk:</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="s">          url: ${splunk_http_event_collector}/services/collector/raw</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="s">          headers:</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="s">          - &quot;Authorization: Splunk ${splunk_token_value}&quot;</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="s">EOF</span>
 </code></pre></div>
 <p>Now, upgrade the helm deployment of Container Security in your cluster. Run:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>helm<span class="w"> </span>get<span class="w"> </span>values<span class="w"> </span>--namespace<span class="w"> </span>trendmicro-system<span class="w"> </span>container-security<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
