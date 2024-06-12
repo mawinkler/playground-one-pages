@@ -9,25 +9,25 @@
       
       
       
-        <link rel="prev" href="../../how-it-works/configurations-kind/">
+        <link rel="prev" href="../splunk-integrate-vision-one-custom-rules/">
       
       
-        <link rel="next" href="../configuration/">
+        <link rel="next" href="../elastic-stack-vision-one/">
       
       
-      <link rel="icon" href="../../images/playground-icon.png">
+      <link rel="icon" href="../../../images/playground-icon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
     
     
       
-        <title>Prepare - Playground One</title>
+        <title>Setup Elastic Stack - Playground One</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../../css/extra.css">
+      <link rel="stylesheet" href="../../../css/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#getting-started" class="md-skip">
+        <a href="#get-the-elastic-stack-up-and-running-locally" class="md-skip">
           Skip to content
         </a>
       
@@ -88,7 +88,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Playground One" class="md-header__button md-logo" aria-label="Playground One" data-md-component="logo">
+    <a href="../../.." title="Playground One" class="md-header__button md-logo" aria-label="Playground One" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Prepare
+              Setup Elastic Stack
             
           </span>
         </div>
@@ -207,7 +207,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -226,7 +226,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../how-it-works/orchestration/" class="md-tabs__link">
+        <a href="../../../how-it-works/orchestration/" class="md-tabs__link">
           
   
   How it Works
@@ -240,13 +240,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../getting-started/prepare/" class="md-tabs__link">
           
   
   Getting Started
@@ -264,7 +262,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../integrations/endpoint-security/" class="md-tabs__link">
+        <a href="../../../integrations/endpoint-security/" class="md-tabs__link">
           
   
   Integrations
@@ -278,17 +276,21 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../scenarios/eks/escape/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../eks/escape/" class="md-tabs__link">
           
   
   Scenarios
@@ -307,7 +309,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../faq/" class="md-tabs__link">
+      <a href="../../../faq/" class="md-tabs__link">
         
   
     
@@ -324,7 +326,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../bloopers/" class="md-tabs__link">
+      <a href="../../../bloopers/" class="md-tabs__link">
         
   
     
@@ -358,7 +360,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Playground One" class="md-nav__button md-logo" aria-label="Playground One" data-md-component="logo">
+    <a href="../../.." title="Playground One" class="md-nav__button md-logo" aria-label="Playground One" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -388,7 +390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -446,7 +448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-it-works/orchestration/" class="md-nav__link">
+      <a href="../../../how-it-works/orchestration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -505,7 +507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-it-works/configurations/" class="md-nav__link">
+      <a href="../../../how-it-works/configurations/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -526,7 +528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-it-works/configurations-aws/" class="md-nav__link">
+      <a href="../../../how-it-works/configurations-aws/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -547,7 +549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-it-works/configurations-azure/" class="md-nav__link">
+      <a href="../../../how-it-works/configurations-azure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -568,7 +570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-it-works/configurations-kind/" class="md-nav__link">
+      <a href="../../../how-it-works/configurations-kind/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -601,28 +603,23 @@
       
   
   
-    
   
   
-  
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -633,7 +630,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Getting Started
@@ -644,30 +641,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Prepare
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../getting-started/prepare/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -676,77 +653,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#playground-one-container-easy-and-portable" class="md-nav__link">
-    <span class="md-ellipsis">
-      Playground One Container (Easy and portable)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-but-native" class="md-nav__link">
-    <span class="md-ellipsis">
-      Advanced but native
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Advanced but native">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ubuntu" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ubuntu
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#experimental-macos-apple-silicon-and-intel" class="md-nav__link">
-    <span class="md-ellipsis">
-      EXPERIMENTAL - MacOS Apple silicon and Intel
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cloud9" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cloud9
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -759,7 +665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../configuration/" class="md-nav__link">
+      <a href="../../../getting-started/configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -780,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../life-cycle/" class="md-nav__link">
+      <a href="../../../getting-started/life-cycle/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -846,7 +752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../integrations/endpoint-security/" class="md-nav__link">
+      <a href="../../../integrations/endpoint-security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -867,7 +773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../integrations/container-security/" class="md-nav__link">
+      <a href="../../../integrations/container-security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -888,7 +794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../integrations/deep-security/" class="md-nav__link">
+      <a href="../../../integrations/deep-security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -909,7 +815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../integrations/prometheus-grafana/" class="md-nav__link">
+      <a href="../../../integrations/prometheus-grafana/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -930,7 +836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../integrations/splunk/" class="md-nav__link">
+      <a href="../../../integrations/splunk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -951,7 +857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../integrations/elastic-stack/" class="md-nav__link">
+      <a href="../../../integrations/elastic-stack/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -976,23 +882,28 @@
       
   
   
+    
   
   
+  
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1003,7 +914,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Scenarios
@@ -1055,7 +966,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/eks/escape/" class="md-nav__link">
+      <a href="../../eks/escape/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1076,7 +987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/eks/dind-exploitation/" class="md-nav__link">
+      <a href="../../eks/dind-exploitation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1097,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/eks/hunger-check/" class="md-nav__link">
+      <a href="../../eks/hunger-check/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1118,7 +1029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/eks/runtime-vulnerability-ec2/" class="md-nav__link">
+      <a href="../../eks/runtime-vulnerability-ec2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1139,7 +1050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/eks/runtime-vulnerability-fargate/" class="md-nav__link">
+      <a href="../../eks/runtime-vulnerability-fargate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1206,7 +1117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/ecs/apache-struts-rce/" class="md-nav__link">
+      <a href="../../ecs/apache-struts-rce/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1227,7 +1138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/ecs/runtime-vulnerability/" class="md-nav__link">
+      <a href="../../ecs/runtime-vulnerability/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1294,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/as/tmas-artifact-scanning/" class="md-nav__link">
+      <a href="../../as/tmas-artifact-scanning/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1315,7 +1226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/as/tmas-github-action/" class="md-nav__link">
+      <a href="../../as/tmas-github-action/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1336,7 +1247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/as/tmfs-artifact-scanning/" class="md-nav__link">
+      <a href="../../as/tmfs-artifact-scanning/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1357,7 +1268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/as/tmfs-s3-bucket-scanning/" class="md-nav__link">
+      <a href="../../as/tmfs-s3-bucket-scanning/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1424,7 +1335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/cspm/template-scanning-terraform-github-action/" class="md-nav__link">
+      <a href="../../cspm/template-scanning-terraform-github-action/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1445,7 +1356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/cspm/template-scanning-cfn-github-action/" class="md-nav__link">
+      <a href="../../cspm/template-scanning-cfn-github-action/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1512,7 +1423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/asrm/virtual-machine-attack-path/" class="md-nav__link">
+      <a href="../../asrm/virtual-machine-attack-path/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1533,7 +1444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/asrm/iam-user-attack-path/" class="md-nav__link">
+      <a href="../../asrm/iam-user-attack-path/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1600,7 +1511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/xdr/oat-generation/" class="md-nav__link">
+      <a href="../../xdr/oat-generation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1621,7 +1532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/xdr/workbench-generation/" class="md-nav__link">
+      <a href="../../xdr/workbench-generation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1688,7 +1599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/ds/ds-integrate/" class="md-nav__link">
+      <a href="../../ds/ds-integrate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1709,7 +1620,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/ds/ds-migrate/" class="md-nav__link">
+      <a href="../../ds/ds-migrate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1730,7 +1641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/ds/ws-integrate/" class="md-nav__link">
+      <a href="../../ds/ws-integrate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1756,6 +1667,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1765,11 +1678,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8" checked>
         
           
           <label class="md-nav__link" for="__nav_5_8" id="__nav_5_8_label" tabindex="0">
@@ -1783,7 +1696,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_8">
             <span class="md-nav__icon md-icon"></span>
             Big Data
@@ -1797,7 +1710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/bigdata/splunk-setup/" class="md-nav__link">
+      <a href="../splunk-setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1818,7 +1731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/bigdata/splunk-integrate-vision-one-xdr/" class="md-nav__link">
+      <a href="../splunk-integrate-vision-one-xdr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1839,7 +1752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/bigdata/splunk-integrate-vision-one-custom-rules/" class="md-nav__link">
+      <a href="../splunk-integrate-vision-one-custom-rules/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1857,10 +1770,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../scenarios/bigdata/elastic-stack/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Setup Elastic Stack
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1869,6 +1802,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-compose-if-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install Compose (if required)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prepare" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prepare
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-your-elk-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Start your ELK-Stack
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tear-down-elastic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tear Down Elastic
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1881,7 +1888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenarios/bigdata/elastic-stack-vision-one/" class="md-nav__link">
+      <a href="../elastic-stack-vision-one/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1917,7 +1924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../faq/" class="md-nav__link">
+      <a href="../../../faq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1937,7 +1944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bloopers/" class="md-nav__link">
+      <a href="../../../bloopers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1977,53 +1984,56 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#playground-one-container-easy-and-portable" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Playground One Container (Easy and portable)
+      Prerequisites
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#advanced-but-native" class="md-nav__link">
+  <a href="#install-compose-if-required" class="md-nav__link">
     <span class="md-ellipsis">
-      Advanced but native
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Advanced but native">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ubuntu" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ubuntu
+      Install Compose (if required)
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#experimental-macos-apple-silicon-and-intel" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#prepare" class="md-nav__link">
     <span class="md-ellipsis">
-      EXPERIMENTAL - MacOS Apple silicon and Intel
+      Prepare
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#cloud9" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#start-your-elk-stack" class="md-nav__link">
     <span class="md-ellipsis">
-      Cloud9
+      Start your ELK-Stack
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tear-down-elastic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tear Down Elastic
+    </span>
+  </a>
   
 </li>
       
@@ -2045,142 +2055,95 @@
   
 
 
-<h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
-<p>There are multiple ways to prepare Playground One:</p>
+<h1 id="get-the-elastic-stack-up-and-running-locally">Get the Elastic Stack Up and Running Locally<a class="headerlink" href="#get-the-elastic-stack-up-and-running-locally" title="Permanent link">&para;</a></h1>
+<p><strong><em>DRAFT</em></strong></p>
+<div class="admonition warning">
+<p class="admonition-title">Challenge ahead!</p>
+<p>This scenario is a bit challenging, but you should be able to get through it easily.</p>
+</div>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>The Playground One Container, or</li>
-<li>the native use on your system.</li>
+<li>Docker Engine with Compose enabled</li>
+<li>The host needs at least 8GB RAM available</li>
 </ul>
-<p>The Playground One Container runs on <code>arm64</code>  or <code>amd64</code> machines providing a container engine like Docker, Docker Desktop or Colima to run the container. It is the most simple way to use. The container contains everything what is needed by the Playground One to operate and does not change your local system in any way.</p>
-<p>Running Playground One natively allows you to have all components available system wide. This makes it possible to not only manage an environment implemented by Playground One.</p>
-<h2 id="playground-one-container-easy-and-portable">Playground One Container (Easy and portable)<a class="headerlink" href="#playground-one-container-easy-and-portable" title="Permanent link">&para;</a></h2>
-<p>Follow this chapter if...</p>
+<h2 id="install-compose-if-required">Install Compose (if required)<a class="headerlink" href="#install-compose-if-required" title="Permanent link">&para;</a></h2>
+<p>Use the following command to download:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.docker/cli-plugins/
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>curl<span class="w"> </span>-SL<span class="w"> </span>https://github.com/docker/compose/releases/download/v2.3.3/docker-compose-linux-x86_64<span class="w"> </span>-o<span class="w"> </span>~/.docker/cli-plugins/docker-compose
+</code></pre></div>
+<p>Next, set the correct permissions so that the docker compose command is executable:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>~/.docker/cli-plugins/docker-compose
+</code></pre></div>
+<p>To verify that the installation was successful, you can run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>version
+</code></pre></div>
+<p>You’ll see output similar to this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Output
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Docker<span class="w"> </span>Compose<span class="w"> </span>version<span class="w"> </span>v2.3.3
+</code></pre></div>
+<p>Docker Compose is now successfully installed on your system. In the next section, you’ll see how to set up a <code>docker-compose.yaml</code> file and get a containerized environment up and running with this tool.</p>
+<h2 id="prepare">Prepare<a class="headerlink" href="#prepare" title="Permanent link">&para;</a></h2>
+<p>Now, run the following commands in your shell to create a working directory:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Create and change to working directory</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>/stacks
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>/stacks
+</code></pre></div>
+<p>Next, download the <code>docker-compose.yaml</code> and some configuration files.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>curl<span class="w"> </span>-Ls<span class="w"> </span>https://mawinkler.github.io/playground-one-pages/scenarios/bigdata/files/elastic/docker-compose.yaml<span class="w"> </span>-o<span class="w"> </span>docker-compose-elastic.yaml
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>curl<span class="w"> </span>-LsO<span class="w"> </span>https://mawinkler.github.io/playground-one-pages/scenarios/bigdata/files/elastic/.env
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>curl<span class="w"> </span>-LsO<span class="w"> </span>https://mawinkler.github.io/playground-one-pages/scenarios/bigdata/files/elastic/filebeat.yml
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>curl<span class="w"> </span>-LsO<span class="w"> </span>https://mawinkler.github.io/playground-one-pages/scenarios/bigdata/files/elastic/logstash.conf
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>curl<span class="w"> </span>-LsO<span class="w"> </span>https://mawinkler.github.io/playground-one-pages/scenarios/bigdata/files/elastic/metricbeat.yml
+</code></pre></div>
+<h2 id="start-your-elk-stack">Start your ELK-Stack<a class="headerlink" href="#start-your-elk-stack" title="Permanent link">&para;</a></h2>
+<p>In your shell run</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose-elastic.yaml<span class="w"> </span>up
+</code></pre></div>
+<p>The first startup requires some minutes to complete.</p>
+<p>Optionally, check the certificate for your stack:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>cp<span class="w"> </span>elastic-es01-1:/usr/share/elasticsearch/config/certs/ca/ca.crt<span class="w"> </span>/tmp/.
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>curl<span class="w"> </span>--cacert<span class="w"> </span>/tmp/ca.crt<span class="w"> </span>-u<span class="w"> </span>elastic:TrendMicro.1<span class="w"> </span>https://localhost:9200
+</code></pre></div>
+<p>Should return something similar like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;es01&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">&quot;cluster_name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;docker-cluster&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="nt">&quot;cluster_uuid&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;wmp-Yz-WQPq4_kfzzyo8wg&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="nt">&quot;number&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8.13.4&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="nt">&quot;build_flavor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="nt">&quot;build_type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;docker&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="nt">&quot;build_hash&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;da95df118650b55a500dcc181889ac35c6d8da7c&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="nt">&quot;build_date&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-05-06T22:04:45.107454559Z&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="nt">&quot;build_snapshot&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="nt">&quot;lucene_version&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;9.10.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="nt">&quot;minimum_wire_compatibility_version&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7.17.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="nt">&quot;minimum_index_compatibility_version&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7.0.0&quot;</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">  </span><span class="nt">&quot;tagline&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;You Know, for Search&quot;</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="p">}</span>
+</code></pre></div>
+<p>Try to access your Kibana instance, the main UI of your Elastic Stack, at <a href="http://localhost:5601">http://localhost:5601</a> and use the following credentials:</p>
 <ul>
-<li>you intent to use Playground One Container on any <code>arm64</code>  or <code>amd64</code> based container engine. This includes AWS Cloud9 environments with Amazon Linux or Ubuntu.</li>
+<li>Username: <code>elastic</code></li>
+<li>Password: <code>TrendMicro.1</code></li>
 </ul>
-<blockquote>
-<p><strong><em>Note</em></strong>: For the curious ones, here's the <a href="https://github.com/mawinkler/playground-one/blob/main/container/Dockerfile">Dockerfile</a>.</p>
-</blockquote>
-<p>First, start a terminal and ensure to have a running container engine, eventually run <code>docker ps</code> to verify this.</p>
-<blockquote>
-<p><strong><em>Note:</em></strong> If you want to specify a Playground One Container version instead of using <code>latest</code> create a file with the version (tag) to use by running:</p>
-<p><code>echo "&lt;VERSION&gt;" &gt;.PGO_VERSION</code></p>
-<p>Example:</p>
-<p><code>echo "0.2" &gt;.PGO_VERSION</code></p>
-</blockquote>
-<p>Then simply run</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/mawinkler/playground-one/main/bin/get_pgoc.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
-</code></pre></div>
-<p>The above will pull the latest version (or the version you specified in the <code>.PGO_VERSION</code>-file) of the container. If you're already authenticated to AWS, Azure, and/or have an already existing <code>config.yaml</code> from a previous Playground One installation in the current directory, they will automatically be made available to the Playground One container.</p>
-<blockquote>
-<p><strong><em>Note:</em></strong> When running the above <code>curl</code>-command on an <strong><em>AWS Cloud9</em></strong> instance, the instance should be at least a <code>t3.medium</code> and you will be asked to run <code>./get_pgoc.sh</code> manually. The script will ask for your AWS credentials which will never be stored on disk and get removed from memory after creating and assigning an instance role to the Cloud9 instance.</p>
-<p>If you didn't do before, you will be asked to turn off AWS managed temporary credentials:<br> </p>
+<p>Within Kibana, open the navigation (top left) and head over to <code>Management -&gt; Stack Monitoring</code>. There should be a dialog popping up to create <code>Out-of-the box rules</code>. Do it.</p>
+<p><img alt="alt text" src="../images/elastic-app-setup-02.png" title="App" /></p>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Click the gear icon (in top right corner), or click to open a new tab and choose <code>[Open Preferences]</code><br></li>
-<li>Select AWS SETTINGS<br></li>
-<li>Turn OFF <code>[AWS managed temporary credentials]</code></li>
+<li>Documentation:</li>
+<li><a href="https://www.elastic.co/de/blog/getting-started-with-the-elastic-stack-and-docker-compose">https://www.elastic.co/de/blog/getting-started-with-the-elastic-stack-and-docker-compose</a></li>
+<li><a href="https://www.elastic.co/de/blog/getting-started-with-the-elastic-stack-and-docker-compose-part-2">https://www.elastic.co/de/blog/getting-started-with-the-elastic-stack-and-docker-compose-part-2</a></li>
+<li>Repo: <a href="https://github.com/elkninja/elastic-stack-docker-part-one/tree/main">https://github.com/elkninja/elastic-stack-docker-part-one/tree/main</a></li>
 </ul>
-</blockquote>
-<p>You will notice, that a new directory called <code>workdir</code> has been created. This directory represents the <code>home</code>-directory from your Playground One Container.</p>
-<p>To access the container run</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>./pgoc<span class="w"> </span>start
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># password: pgo</span>
+<h2 id="tear-down-elastic">Tear Down Elastic<a class="headerlink" href="#tear-down-elastic" title="Permanent link">&para;</a></h2>
+<p>If you at some point want to delete your ELK Stack instance run the following command:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose-elastic.yaml<span class="w"> </span>down<span class="w"> </span>-v
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Starting<span class="w"> </span>Playground<span class="w"> </span>One<span class="w"> </span>Container
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>cd741d37446ee0565f6da3f224eb60e4d3bab9824d3255ae08afef8b4263b2c9
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Connect:<span class="w">  </span>ssh<span class="w"> </span>-p<span class="w"> </span><span class="m">2222</span><span class="w"> </span>pgo@localhost
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Password:<span class="w"> </span>pgo
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>pgo@localhost<span class="s1">&#39;s password: </span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="s1">Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 6.1.72-96.166.amzn2023.x86_64 x86_64)</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="s1"> * Documentation:  https://help.ubuntu.com</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="s1"> * Management:     https://landscape.canonical.com</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="s1"> * Support:        https://ubuntu.com/advantage</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="s1">This system has been minimized by removing packages and content that are</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="s1">not required on a system that users do not log into.</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="s1">To restore this content, you can run the &#39;</span>unminimize<span class="s1">&#39; command.</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="s1"> ____  _                                             _    ___             </span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="s1">|  _ \| | __ _ _   _  __ _ _ __ ___  _   _ _ __   __| |  / _ \ _ __   ___ </span>
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="s1">| |_) | |/ _` | | | |/ _` | &#39;</span>__/<span class="w"> </span>_<span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="s1">&#39;_ \ / _` | | | | | &#39;</span>_<span class="w"> </span><span class="se">\ </span>/<span class="w"> </span>_<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="p">|</span><span class="w">  </span>__/<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="o">(</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="o">(</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="o">(</span>_<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="o">(</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span>__/
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="p">|</span>_<span class="p">|</span><span class="w">   </span><span class="p">|</span>_<span class="p">|</span><span class="se">\_</span>_,_<span class="p">|</span><span class="se">\_</span>_,<span class="w"> </span><span class="p">|</span><span class="se">\_</span>_,<span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="w">  </span><span class="se">\_</span>__/<span class="w"> </span><span class="se">\_</span>_,_<span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="se">\_</span>_,_<span class="p">|</span><span class="w">  </span><span class="se">\_</span>__/<span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="se">\_</span>__<span class="p">|</span>
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">               </span><span class="p">|</span>___/<span class="w"> </span><span class="p">|</span>___/<span class="w">                                                </span>
-<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>pgo@cd741d37446e:~$<span class="w"> </span>
-</code></pre></div>
-<p>If you exited the container, reconnect anytime with</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ssh<span class="w"> </span>-p<span class="w"> </span><span class="m">2222</span><span class="w"> </span>pgo@localhost
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># password: pgo</span>
-</code></pre></div>
-<p>Eventually authenticate to AWS and/or Azure by either running</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Not required when using Cloud9</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>aws<span class="w"> </span>configure
-</code></pre></div>
-<p>and/or</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>az login --use-device-code
-</code></pre></div>
-<p>Stopping the container is possible with <code>./pgoc stop</code>, to start it again just run <code>./pgoc start</code>.</p>
-<blockquote>
-<p><strong><em>Note</em></strong>: Updating the container or changing to a different release of the container can be done following these steps:</p>
-<ol>
-<li>Edit the file <code>.PGO_VERSION</code> to set the version you want (e.g. <code>0.2</code>).</li>
-<li>Run <code>./pgoc update</code></li>
-<li>This will backup your current <code>workdir</code> and save your <code>config.yaml</code>.</li>
-<li>The desired version of the container is pulled and a new <code>workdir</code> is created.</li>
-<li>The previous <code>config.yaml</code> is restored alongside the eventually existing <code>.aws</code> config.</li>
-<li>Start the new container with <code>./pgoc start</code> and login via ssh.</li>
-</ol>
-<p>You likely get an error when connecting with ssh. If so, delete the offending line in <code>~/.ssh/known_hosts</code> and retry.</p>
-</blockquote>
-<p>Then, continue with <a href="../configuration/">Configuration</a>.</p>
-<h2 id="advanced-but-native">Advanced but native<a class="headerlink" href="#advanced-but-native" title="Permanent link">&para;</a></h2>
-<h3 id="ubuntu">Ubuntu<a class="headerlink" href="#ubuntu" title="Permanent link">&para;</a></h3>
-<p>Follow this chapter if...</p>
-<ul>
-<li>you're using the Playground on a Ubuntu machine (not Cloud9).</li>
-</ul>
-<p>Test if <code>sudo</code> requires a password by running <code>sudo ls /etc</code>. If you don't get a password prompt you're fine, otherwise run.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>visudo<span class="w"> </span>-f<span class="w"> </span>/etc/sudoers.d/custom-users
-</code></pre></div>
-<p>Add the following line:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>&lt;YOUR<span class="w"> </span>USER<span class="w"> </span>NAME&gt;<span class="w"> </span><span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span><span class="w"> </span>NOPASSWD:ALL<span class="w"> </span>
-</code></pre></div>
-<p>Now, run the Playground</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/mawinkler/playground-one/main/bin/pgo<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">exit</span>
-</code></pre></div>
-<p>The bootstrapping process will exit your current terminal or shell after it has done it's work. Depending on your environment just create a new terminal session.</p>
-<p>You now need to manually authenticate to AWS and/or Azure by either running</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>aws configure
-</code></pre></div>
-<p>and/or</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>az login --use-device-code
-</code></pre></div>
-<p>Then, continue with <a href="../configuration/">Configuration</a>.</p>
-<h3 id="experimental-macos-apple-silicon-and-intel"><strong><em>EXPERIMENTAL</em></strong> - MacOS Apple silicon and Intel<a class="headerlink" href="#experimental-macos-apple-silicon-and-intel" title="Permanent link">&para;</a></h3>
-<p>Follow this chapter if...</p>
-<ul>
-<li>you're using the Playground on a MacOS machine with an M1+ (ARM) or Intel chip.</li>
-</ul>
-<blockquote>
-<p><strong><em>Note:</em></strong> The initial bootstrapping process might require administrative privileges. Depending on your OS configuration you might need to enable administrator mode. Updating an already installed Playground does <em>not</em> require admin privileges.</p>
-</blockquote>
-<p>Now, run the Playground</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/mawinkler/playground-one/main/bin/pgo<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">exit</span>
-</code></pre></div>
-<p>The bootstrapping process will exit your current terminal or shell after it has done it's work. Depending on your environment just create a new terminal session.</p>
-<p>You now need to manually authenticate to AWS and/or Azure by either running</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>aws configure
-</code></pre></div>
-<p>and/or</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>az login --use-device-code
-</code></pre></div>
-<p>Then, continue with <a href="../configuration/">Configuration</a>.</p>
-<h3 id="cloud9">Cloud9<a class="headerlink" href="#cloud9" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p><strong><em>Note:</em></strong> Native installation on Cloud9 is no longer supported. Use <a href="#playground-one-container-easy-and-portable">Playground One Container (Easy and portable)</a> instead.</p>
-</blockquote>
+<p>This will remove all containers, volumes, and the network.</p>
 
 
 
@@ -2244,10 +2207,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.path", "content.tabs.link", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.path", "content.tabs.link", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
     
   </body>
