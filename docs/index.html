@@ -2303,6 +2303,12 @@ The capabilities and contents are therefore to be enjoyed with caution and can c
 </thead>
 <tbody>
 <tr>
+<td>Network</td>
+<td>Yes</td>
+<td>MAD and Service Gateway experimental</td>
+<td>Service Gateway</td>
+</tr>
+<tr>
 <td>EC2 Linux</td>
 <td>Yes</td>
 <td>None</td>
@@ -2467,14 +2473,29 @@ The capabilities and contents are therefore to be enjoyed with caution and can c
 </tbody>
 </table>
 <h2 id="change-log">Change Log<a class="headerlink" href="#change-log" title="Permanent link">&para;</a></h2>
+<p><strong><em>0.3.2</em></strong></p>
+<p><em>New</em></p>
+<ul>
+<li>The network configuration can now optionally create an AWS Managed Active Directory within the private subnet. Plan is to support Identity Security scenarios in the future.</li>
+<li>The same configuration can now optionally deploy a Vision One Service Gateway to the public subnet.</li>
+<li>There are two new scenarios for the above:</li>
+<li><a href="https://mawinkler.github.io/playground-one-pages/scenarios/vision-one/v1-aws-service-gateway-manually/">Deploy Service Gateway on AWS manually</a></li>
+<li><a href="https://mawinkler.github.io/playground-one-pages/scenarios/vision-one/v1-aws-service-gateway-automatically/">Deploy Service Gateway on AWS automatically</a></li>
+<li>New Scenario section: Big Data</li>
+<li><a href="https://mawinkler.github.io/playground-one-pages/scenarios/bigdata/elastic-stack/">Setup Elastic (ELK Stack)</a></li>
+</ul>
+<p><em>Fixes</em></p>
+<ul>
+<li>The deployment of Vision Container Security did use an incorrect API call when creating the cluster. Instead of <code>resourceId</code> the key <code>arn</code> from the old beta API was used.</li>
+</ul>
 <p><strong><em>0.3.1</em></strong></p>
 <p><em>New</em></p>
 <ul>
 <li>Cloud One Conformity Exception Workflows inspired by customer</li>
 <li>New Scenario section: Big Data<ul>
-<li>Setup Splunk</li>
-<li>Integrate Vision One with Splunk</li>
-<li>Integrate V1CS Customer Runtime Security Rules with Splunk</li>
+<li><a href="https://mawinkler.github.io/playground-one-pages/scenarios/bigdata/splunk-setup/">Setup Splunk</a></li>
+<li><a href="https://mawinkler.github.io/playground-one-pages/scenarios/bigdata/splunk-integrate-vision-one-xdr/">Integrate Vision One with Splunk</a></li>
+<li><a href="https://mawinkler.github.io/playground-one-pages/scenarios/bigdata/splunk-integrate-vision-one-custom-rules/">Integrate V1CS Customer Runtime Security Rules with Splunk</a></li>
 </ul>
 </li>
 </ul>
