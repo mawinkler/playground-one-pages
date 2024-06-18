@@ -12,7 +12,7 @@
         <link rel="prev" href="../../ds/ws-integrate/">
       
       
-        <link rel="next" href="../../bigdata/splunk-setup/">
+        <link rel="next" href="../v1-aws-service-gateway-automatically/">
       
       
       <link rel="icon" href="../../../images/playground-icon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Deploy Service Gateway on AWS - Playground One</title>
+        <title>Deploy Service Gateway on AWS Manually - Playground One</title>
       
     
     
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Deploy Service Gateway on AWS
+              Deploy Service Gateway on AWS Manually
             
           </span>
         </div>
@@ -1723,7 +1723,7 @@
           
   
   <span class="md-ellipsis">
-    Deploy Service Gateway on AWS
+    Deploy Service Gateway on AWS Manually
   </span>
   
 
@@ -1734,7 +1734,7 @@
         
   
   <span class="md-ellipsis">
-    Deploy Service Gateway on AWS
+    Deploy Service Gateway on AWS Manually
   </span>
   
 
@@ -1804,6 +1804,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../v1-aws-service-gateway-automatically/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deploy Service Gateway on AWS Automatically
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -2152,7 +2173,6 @@
 <p>When the instance is up and running, get the public IP of the instance and proceed with the next step.</p>
 <h2 id="activate-the-service-gateway">Activate the Service Gateway<a class="headerlink" href="#activate-the-service-gateway" title="Permanent link">&para;</a></h2>
 <p>Back to your console/shell run the following command (adapt the parameters to your environment):</p>
-<p>From within your console/shell run the following commands:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pgo<span class="w"> </span>--output<span class="w"> </span>network
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>...
@@ -2174,14 +2194,13 @@
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>ssh<span class="w"> </span>-i<span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">key_name</span><span class="si">}</span>.pem<span class="w"> </span>admin@<span class="si">${</span><span class="nv">public_ip</span><span class="si">}</span>
 </code></pre></div>
 <p><img alt="alt text" src="../images/v1-aws-sgm-12.png" title="Vision One" /></p>
+<p><em>TODO: Screenshot needs update</em></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">enable</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>configure
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>register<span class="w"> </span>&lt;your<span class="w"> </span>API<span class="w"> </span>Token<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>first<span class="w"> </span>step&gt;
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>register<span class="w"> </span>&lt;your<span class="w"> </span>API<span class="w"> </span>Token<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>first<span class="w"> </span>step&gt;
 </code></pre></div>
 <h2 id="connect-the-managed-active-directory">Connect the Managed Active Directory<a class="headerlink" href="#connect-the-managed-active-directory" title="Permanent link">&para;</a></h2>
-<p>Now to the last step. In Vision One head over to <code>Workflow and Automation -&gt; Service Gateway Management</code> again. There should now be a Service Gateway listed. Select it and download the <code>On-premise directory connection</code> to the gateway.</p>
+<p>Now to the last step. In Vision One head over to <code>Workflow and Automation -&gt; Service Gateway Management</code> again. There should now be a Service Gateway listed. Select it, click on <code>Manage Services</code> just in the center, and download the <code>On-premise directory connection</code> to the gateway.</p>
 <p><img alt="alt text" src="../images/v1-aws-sgm-13.png" title="Vision One" /></p>
 <p><img alt="alt text" src="../images/v1-aws-sgm-14.png" title="Vision One" /></p>
 <p>From within your console/shell run the following command (or find the output from the previous step):</p>
