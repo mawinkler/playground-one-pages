@@ -724,6 +724,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="how-it-works/add-ons/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add-Ons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2305,8 +2326,8 @@ The capabilities and contents are therefore to be enjoyed with caution and can c
 <tr>
 <td>Network</td>
 <td>Yes</td>
-<td>MAD and Service Gateway experimental</td>
-<td>Service Gateway</td>
+<td>See 1)</td>
+<td>Service Gateway<br>Identity Security</td>
 </tr>
 <tr>
 <td>EC2 Linux</td>
@@ -2335,13 +2356,13 @@ The capabilities and contents are therefore to be enjoyed with caution and can c
 <tr>
 <td>ECS EC2</td>
 <td>Yes</td>
-<td>See 1)</td>
+<td>See 2)</td>
 <td>V1CS Runtime Scanning<br>V1CS Runtime Security</td>
 </tr>
 <tr>
 <td>ECS Fargate</td>
 <td>Yes</td>
-<td>See 2)</td>
+<td>See 3)</td>
 <td>V1CS Runtime Scanning<br>V1CS Runtime Security</td>
 </tr>
 <tr>
@@ -2370,8 +2391,9 @@ The capabilities and contents are therefore to be enjoyed with caution and can c
 </tr>
 </tbody>
 </table>
-<p>1) Deleting the cluster requires the deactivation runtime scanning and runtime security before destroying the cluster. If destroy process <code>module.ecs-ec2[0].module.ecs_service.aws_ecs_service.this[0]: Still destroying...</code> hangs for a couple of minutes manually terminate the autoscaling group <code>pgo4-ecs-ec2-asg-spot-...</code> in AWS.</p>
-<p>2) Activating Runtime Security requires some manual steps, see <a href="https://docs.trendmicro.com/en-us/enterprise/trend-vision-one/cloudsecurityoperati/about-container-secu/next-steps/containerinventory/ecs-fargate-deployme/ecs-fargate-add.aspx">documentation</a>. Deleting the cluster requires the deactivation of runtime scanning and runtime security before destroying the cluster. Newly created task definitions must be removed manually.</p>
+<p>1) In addition to the network itself the following services can be enabled: Active Directory, AWS Managed Active Directory, and Trend Service Gateway. The Active Directories are experimental and to be integrated deeper in the Playground One over time. They will support additional scenarios with Identity Security, Data Security, and more.</p>
+<p>2) Deleting the cluster requires the deactivation runtime scanning and runtime security before destroying the cluster. If destroy process <code>module.ecs-ec2[0].module.ecs_service.aws_ecs_service.this[0]: Still destroying...</code> hangs for a couple of minutes manually terminate the autoscaling group <code>pgo4-ecs-ec2-asg-spot-...</code> in AWS.</p>
+<p>3) Activating Runtime Security requires some manual steps, see <a href="https://docs.trendmicro.com/en-us/enterprise/trend-vision-one/cloudsecurityoperati/about-container-secu/next-steps/containerinventory/ecs-fargate-deployme/ecs-fargate-add.aspx">documentation</a>. Deleting the cluster requires the deactivation of runtime scanning and runtime security before destroying the cluster. Newly created task definitions must be removed manually.</p>
 <h3 id="azure">Azure<a class="headerlink" href="#azure" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -2473,10 +2495,15 @@ The capabilities and contents are therefore to be enjoyed with caution and can c
 </tbody>
 </table>
 <h2 id="change-log">Change Log<a class="headerlink" href="#change-log" title="Permanent link">&para;</a></h2>
+<p><strong><em>0.3.3</em></strong></p>
+<p><em>New</em></p>
+<ul>
+<li>The network configuration can now optionally create an Active Directory (the PGO-style) within the VPC. Plan is to support Identity Security scenarios in the future. This is cheaper than the AWS Managed Active Directory.</li>
+</ul>
 <p><strong><em>0.3.2</em></strong></p>
 <p><em>New</em></p>
 <ul>
-<li>The network configuration can now optionally create an AWS Managed Active Directory within the private subnet. Plan is to support Identity Security scenarios in the future.</li>
+<li>The network configuration can now optionally create an AWS Managed Active Directory within the VPC. Plan is to support Identity Security scenarios in the future.</li>
 <li>The same configuration can now optionally deploy a Vision One Service Gateway to the public subnet.</li>
 <li>There are two new scenarios for the above:</li>
 <li><a href="https://mawinkler.github.io/playground-one-pages/scenarios/vision-one/v1-aws-service-gateway-manually/">Deploy Service Gateway on AWS manually</a></li>

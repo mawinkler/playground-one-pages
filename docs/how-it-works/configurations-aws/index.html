@@ -748,6 +748,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../add-ons/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add-Ons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2275,7 +2296,13 @@
 <p>The following chapters describe the different configurations on a high level, refer the the dedicated documentation for more details.</p>
 <h2 id="virtual-private-cloud-and-network">Virtual Private Cloud and Network<a class="headerlink" href="#virtual-private-cloud-and-network" title="Permanent link">&para;</a></h2>
 <p><em>Configuration located in <code>awsone/2-network</code></em></p>
-<p>This configuration defines a network with the most commonly used architecture, private and public subnets accross three availability zones. It includes everything what a VPC should have, this is amongst others an internet gateway, NAT gateway, security groups, etc. Since a VPC is cheap there's no real need to destroy the networking configuration everyday, just leave it as it is and reuse it the next time. This eases the handling of other components like Vision One XDR for Containers.</p>
+<p>This configuration defines a network with the most commonly used architecture, private and public subnets accross three availability zones. It includes everything what a VPC should have, this is amongst others an internet gateway, NAT gateway, security groups, etc. Since a VPC is cheap there's no real need to destroy the networking configuration everyday, just leave it as it is and reuse it the next time. This eases the handling of other components.</p>
+<p>In addition to the networking things the following central services can be deployed optionally:</p>
+<ul>
+<li>Active Directory including a Certification Authority: An AD the PGO way based on cheap <code>t2.micro</code> instances.</li>
+<li>AWS Managed Active Directory: The AWS native variant. This is more on the expensive side (USD 96.48/mo).</li>
+<li>Trend Service Gateway.</li>
+</ul>
 <h2 id="virtual-instances">Virtual Instances<a class="headerlink" href="#virtual-instances" title="Permanent link">&para;</a></h2>
 <p><em>Configuration located in <code>awsone/3-instances</code></em></p>
 <p><em>Depends on <code>awsone/2-network</code></em></p>
