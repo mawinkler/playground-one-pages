@@ -689,6 +689,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#instance-types-in-use-as-of-062024" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instance Types in Use as of 06/20/24
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2258,6 +2267,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#instance-types-in-use-as-of-062024" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instance Types in Use as of 06/20/24
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2301,7 +2319,7 @@
 <ul>
 <li>Active Directory including a Certification Authority: An AD the PGO way based on cheap <code>t2.micro</code> instances.</li>
 <li>AWS Managed Active Directory: The AWS native variant. This is more on the expensive side (USD 96.48/mo).</li>
-<li>Trend Service Gateway.</li>
+<li>Trend Service Gateway. The configured and recommended instance type <code>c5.2xlarge</code> (8 vCPU, 16GiB, 10 Gigabit) is 0.388 USD/h, just to note.</li>
 </ul>
 <h2 id="virtual-instances">Virtual Instances<a class="headerlink" href="#virtual-instances" title="Permanent link">&para;</a></h2>
 <p><em>Configuration located in <code>awsone/3-instances</code></em></p>
@@ -2387,6 +2405,58 @@
 <p>This configuration is to simulate an on-premise Deep Security environment meant to be used in integration and migration scenarios. For simulation purposes it creates a dedicated VPC with the most commonly used architecture, private and public subnets accross two availability zones. It includes everything what a VPC should have, this is amongst others an internet gateway, NAT gateway, security groups, etc.</p>
 <p>The workload configuration creates a demo configuration for Deep Security and two custom policies. Two linux and one windows instances are created and activated with Deep Security. Some minutes after instance creation the activated computers will run a recommendation scan.</p>
 <p>Check the Scenarios section to see available integration and migration scenarios.</p>
+<h2 id="instance-types-in-use-as-of-062024">Instance Types in Use as of 06/20/24<a class="headerlink" href="#instance-types-in-use-as-of-062024" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Instance name</th>
+<th>On-Demand hourly rate</th>
+<th>vCPU</th>
+<th>Memory</th>
+<th>Storage</th>
+<th>Network performance</th>
+<th>Configuration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>t2.micro</td>
+<td>$0.0134</td>
+<td>1</td>
+<td>1 GiB</td>
+<td>EBS Only</td>
+<td>Low to Moderate</td>
+<td>Deep Security Bastion</td>
+</tr>
+<tr>
+<td>t3.medium</td>
+<td>$0.048</td>
+<td>2</td>
+<td>4 GiB</td>
+<td>EBS Only</td>
+<td>Up to 5 Gigabit</td>
+<td>Various</td>
+</tr>
+<tr>
+<td>t3.xlarge</td>
+<td>$0.192</td>
+<td>4</td>
+<td>16 GiB</td>
+<td>EBS Only</td>
+<td>Up to 5 Gigabit</td>
+<td>Deep Security Manager</td>
+</tr>
+<tr>
+<td>c5.2xlarge</td>
+<td>$0.388</td>
+<td>8</td>
+<td>16 GiB</td>
+<td>EBS Only</td>
+<td>Up to 10 Gigabit</td>
+<td>Service Gateway</td>
+</tr>
+</tbody>
+</table>
 
 
 
