@@ -12,7 +12,7 @@
         <link rel="prev" href="../v1-aws-service-gateway-manually/">
       
       
-        <link rel="next" href="../../bigdata/splunk-setup/">
+        <link rel="next" href="../v1-integrate-active-directory/">
       
       
       <link rel="icon" href="../../../images/playground-icon.png">
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scenario-deploy-vision-one-service-gateway-on-aws-and-connect-aws-managed-ad-automatically" class="md-skip">
+        <a href="#scenario-deploy-vision-one-service-gateway-on-aws-automatically" class="md-skip">
           Skip to content
         </a>
       
@@ -1824,19 +1824,31 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#connect-the-managed-active-directory" class="md-nav__link">
-    <span class="md-ellipsis">
-      Connect the Managed Active Directory
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../v1-integrate-active-directory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrate an Active Directory via Service Gateway on AWS
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -2101,15 +2113,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#connect-the-managed-active-directory" class="md-nav__link">
-    <span class="md-ellipsis">
-      Connect the Managed Active Directory
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2128,11 +2131,11 @@
   
 
 
-<h1 id="scenario-deploy-vision-one-service-gateway-on-aws-and-connect-aws-managed-ad-automatically">Scenario: Deploy Vision One Service Gateway on AWS and connect AWS Managed AD - Automatically<a class="headerlink" href="#scenario-deploy-vision-one-service-gateway-on-aws-and-connect-aws-managed-ad-automatically" title="Permanent link">&para;</a></h1>
+<h1 id="scenario-deploy-vision-one-service-gateway-on-aws-automatically">Scenario: Deploy Vision One Service Gateway on AWS Automatically<a class="headerlink" href="#scenario-deploy-vision-one-service-gateway-on-aws-automatically" title="Permanent link">&para;</a></h1>
 <p><strong><em>DRAFT</em></strong></p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Playground One Network with Managed Active Directory enabled</li>
+<li>Playground One Network</li>
 <li>Activated Marketplace AMI for Trend Service Gateway BYOL</li>
 </ul>
 <p>You need to have activated the Trend Service Gateway BYOL AMI in Marketplace once. To do this, on the AWS Console choose the service EC2 and navigate to <code>Images --&gt; AMI Catalog</code>. Select the tab <code>AWS Marketplace AMIs</code> and seach for <code>Trend Micro Service Gateway</code>.</p>
@@ -2140,18 +2143,17 @@
 <p>There should only be one AMI shown for your current region. Click on <code>[Select]</code> and <code>[Subscribe on instance launch]</code>. </p>
 <p><img alt="alt text" src="../images/v1-aws-sgm-04.png" title="Vision One" /></p>
 <p>Now, check your Playground One configuration.</p>
-<p>Verify, that you have <code>AWS MAD - create Managed Active Directory</code> and <code>AWS SG - create Service Gateway</code> enabled in your configuration.</p>
+<p>Verify, that you have <code>AWS SG - create Service Gateway</code> enabled in your configuration.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--config
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>...
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>AWS<span class="w"> </span>MAD<span class="w"> </span>-<span class="w"> </span>create<span class="w"> </span>Managed<span class="w"> </span>Active<span class="w"> </span>Directory<span class="w"> </span><span class="o">[</span>true<span class="o">]</span>:
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>AWS<span class="w"> </span>SG<span class="w"> </span>-<span class="w"> </span>create<span class="w"> </span>Service<span class="w"> </span>Gateway<span class="w"> </span><span class="o">[</span>true<span class="o">]</span>:
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>...
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>AWS<span class="w"> </span>SG<span class="w"> </span>-<span class="w"> </span>create<span class="w"> </span>Service<span class="w"> </span>Gateway<span class="w"> </span><span class="o">[</span>true<span class="o">]</span>:
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>...
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># With MAD and SG enabled</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># With SG enabled</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>network
 </code></pre></div>
-<p>The Service Gateway gets a dedicated AWS Security Group assigned with allows SSH from your configured access IP(s) only. All other ports are only accessible from within the public and private subnets.</p>
+<p>The Service Gateway gets a dedicated AWS Security Group assigned which allows SSH from your configured access IP(s) only. All other ports are only accessible from within the public and private subnets.</p>
 <h2 id="get-the-vision-one-api-key">Get the Vision One API Key<a class="headerlink" href="#get-the-vision-one-api-key" title="Permanent link">&para;</a></h2>
 <p>In Vision One head over to <code>Workflow and Automation -&gt; Service Gateway Management</code> and click on <code>[Download Virtual Appliance]</code>.</p>
 <p><img alt="alt text" src="../images/v1-aws-sgm-01.png" title="Vision One" /></p>
@@ -2175,37 +2177,7 @@
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>register<span class="w"> </span>&lt;your<span class="w"> </span>API<span class="w"> </span>Token<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>first<span class="w"> </span>step&gt;
 </code></pre></div>
-<h2 id="connect-the-managed-active-directory">Connect the Managed Active Directory<a class="headerlink" href="#connect-the-managed-active-directory" title="Permanent link">&para;</a></h2>
-<p>Now to the last step. In Vision One head over to <code>Workflow and Automation -&gt; Service Gateway Management</code> again. There should now be a Service Gateway listed. Select it, click on <code>Manage Services</code> just in the center, and download the <code>On-premise directory connection</code> to the gateway.</p>
-<p><img alt="alt text" src="../images/v1-aws-sgm-13.png" title="Vision One" /></p>
-<p><img alt="alt text" src="../images/v1-aws-sgm-14.png" title="Vision One" /></p>
-<p>From within your console/shell run the following command (or find the output from the previous step):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>pgo<span class="w"> </span>--output<span class="w"> </span>network
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>...
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nv">mad_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;d-99677cba24&quot;</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nv">mad_ips</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>toset<span class="o">([</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="s2">&quot;10.0.0.37&quot;</span>,
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="s2">&quot;10.0.1.229&quot;</span>,
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="o">])</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>...
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="nv">key_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pgo-key-pair-oaxuizlr&quot;</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="nv">mad_admin_password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;sensitive&gt;
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>...
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="nv">mad_admin_password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>XrJ*5VPDZGmhhL70
-</code></pre></div>
-<p>The interesting values are now <code>mad_ips</code> and the <code>mad_admin_password</code>.</p>
-<p>Lastly, in the Connection Settings choose the following parameters:</p>
-<ul>
-<li>Server address: One of the private IPs out of <code>mad_ips</code></li>
-<li>Encryption: <code>NONE</code> (the MAD built by Playground One does not have a certificate yet)</li>
-<li>Port: <code>389</code></li>
-<li>Permission scope: <code>Read &amp; write</code></li>
-<li>User Name: <code>admin</code></li>
-<li>Password: <code>mad_admin_password</code></li>
-</ul>
-<p><img alt="alt text" src="../images/v1-aws-sgm-15.png" title="Vision One" /></p>
-<p>This should connect the Active Directory to Vision One via the Service Gateway.</p>
+<p>It can take some time for the Service Gateway to show up in the console.</p>
 <p>🎉 Success 🎉</p>
 
 
