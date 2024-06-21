@@ -2209,6 +2209,22 @@
 <p>Example with environment name <code>pgo-id</code>:</p>
 <p><img alt="alt text" src="../images/v1-aws-sgm-17.png" title="Vision One" /></p>
 <p>This should connect the Active Directory to Vision One via the Service Gateway.</p>
+<p>Using the PGO Active Directory allows you to utilize the Security Event Forwarding. For this functionality you need to download the current installation package on the Domain Controller and walk through the installation procedure.</p>
+<p>Let's start from the beginning:</p>
+<p>First, head over to <code>Workflow and Automation -&gt; Service Gateway Management</code> and obtain your API Key (top right, this will be the same for all Service Gateways connected) the private IP of your Service Gateway, here <code>10.0.4.40</code>.</p>
+<p><img alt="alt text" src="../images/v1-aws-sef-00.png" title="Vision One" /></p>
+<p>Next, in <code>Workflow and Automation -&gt; Service Gateway Management -&gt; Active Directory (on-premise)</code> open the tab <code>Security Event Forwarding</code> and click the button <code>[Download Installation Package]</code> to copy the link.</p>
+<p><img alt="alt text" src="../images/v1-aws-sef-01.png" title="Vision One" /></p>
+<p>Connect to the Domain Controller and download the agent via the browser by pasting the link from above.</p>
+<p>Open the downloaded executable and install. </p>
+<p><img alt="alt text" src="../images/v1-aws-sef-02.png" title="Vision One" /></p>
+<p><img alt="alt text" src="../images/v1-aws-sef-03.png" title="Vision One" /></p>
+<p><img alt="alt text" src="../images/v1-aws-sef-04.png" title="Vision One" /></p>
+<p><img alt="alt text" src="../images/v1-aws-sef-05.png" title="Vision One" /></p>
+<p>Follow the workflow and file in the IP and API Key of your Service Gateway.</p>
+<p><img alt="alt text" src="../images/v1-aws-sef-06.png" title="Vision One" /></p>
+<p>Heading back to the Active Directory integration of Vision One the agent should be listed after a short period of time.</p>
+<p><img alt="alt text" src="../images/v1-aws-sef-07.png" title="Vision One" /></p>
 <h3 id="connect-the-managed-active-directory">Connect the Managed Active Directory<a class="headerlink" href="#connect-the-managed-active-directory" title="Permanent link">&para;</a></h3>
 <p>From within your console/shell run the following command (or find the output from the previous step):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pgo<span class="w"> </span>--output<span class="w"> </span>network
