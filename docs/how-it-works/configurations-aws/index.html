@@ -663,9 +663,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ecs-clusters" class="md-nav__link">
+  <a href="#ecs-ec2-cluster" class="md-nav__link">
     <span class="md-ellipsis">
-      ECS Clusters
+      ECS EC2 Cluster
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ecs-fargate-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      ECS Fargate Cluster
     </span>
   </a>
   
@@ -2262,9 +2271,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ecs-clusters" class="md-nav__link">
+  <a href="#ecs-ec2-cluster" class="md-nav__link">
     <span class="md-ellipsis">
-      ECS Clusters
+      ECS EC2 Cluster
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ecs-fargate-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      ECS Fargate Cluster
     </span>
   </a>
   
@@ -2408,12 +2426,20 @@
 <li>Nginx</li>
 </ul>
 <p>Automated attacks are running every full hour.</p>
-<h2 id="ecs-clusters">ECS Clusters<a class="headerlink" href="#ecs-clusters" title="Permanent link">&para;</a></h2>
-<p><em>Configuration located in <code>awsone/5-cluster-ecs</code></em></p>
+<h2 id="ecs-ec2-cluster">ECS EC2 Cluster<a class="headerlink" href="#ecs-ec2-cluster" title="Permanent link">&para;</a></h2>
+<p><em>Configuration located in <code>awsone/5-cluster-ecs-ec2</code></em></p>
 <p><em>Depends on <code>awsone/2-network</code></em></p>
-<p>Here we're building an ECS cluster using EC2 instances and/or Fargate profile. Key features:</p>
+<p>Here we're building an ECS cluster using EC2 instances. Key features:</p>
 <ul>
-<li>Autoscaling group for spot instances when using the EC2 variant. On-demand autoscaler can be enabled in Terraform script.</li>
+<li>Autoscaling group for spot instances. On-demand autoscaler can be enabled in Terraform script.</li>
+<li>ALB Load Balancer</li>
+<li>Automatic deployment of a vulnerable service (Java-Goof)</li>
+</ul>
+<h2 id="ecs-fargate-cluster">ECS Fargate Cluster<a class="headerlink" href="#ecs-fargate-cluster" title="Permanent link">&para;</a></h2>
+<p><em>Configuration located in <code>awsone/5-cluster-ecs-fargate</code></em></p>
+<p><em>Depends on <code>awsone/2-network</code></em></p>
+<p>Here we're building an ECS cluster using Fargate profile. Key features:</p>
+<ul>
 <li>Fargate profile with spot instances. Fargate with on-demand instances can be enabled in Terraform script.</li>
 <li>ALB Load Balancer</li>
 <li>Automatic deployment of a vulnerable service (Java-Goof)</li>
