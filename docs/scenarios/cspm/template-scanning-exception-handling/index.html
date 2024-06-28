@@ -2543,9 +2543,9 @@
 <ul>
 <li>Resource IDs (e.g. ARNs) are often unknown at Terraform Plan stage</li>
 <li>Name-Tags might not be granular enough in regards Suppressions</li>
-<li>Tags on resources may be set incorrectly by the customer, possibly intentionally</li>
+<li>Tags on resources may be set incorrectly, possibly intentionally</li>
 <li>Resolution idea (partly implemented):<ul>
-<li>Customer triggers Template Scan</li>
+<li>Trigger Template Scan</li>
 <li>Findings trigger Exemption Workflow</li>
 <li>Approved Exceptions get a unique ID assigned which is bound to the Resource and Rule ID</li>
 <li>Allowed non-compliant resources are tagged in the Terraform Template with this unique ID</li>
