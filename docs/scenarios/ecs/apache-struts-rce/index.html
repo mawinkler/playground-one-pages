@@ -2542,7 +2542,11 @@
 <li>Extracted contents of <code>exploit.zip</code></li>
 </ul>
 <p>Ensure to have an ECS Cluster up and running:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>ecs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># EC2</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>ecs-ec2
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Fargate</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>ecs-fg
 </code></pre></div>
 <p>Ensure to have Runtime Security enabled on the Vision One Console for this cluster.</p>
 <p>If you need to extract the exploits unzip with the password <code>virus</code>:</p>
