@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../splunk-integrate-vision-one-xdr/">
+        <link rel="prev" href="../../eks/runtime-vulnerability-fargate/">
       
       
-        <link rel="next" href="../elastic-stack/">
+        <link rel="next" href="../../ecs/apache-struts-rce/">
       
       
       <link rel="icon" href="../../../images/playground-icon.png">
@@ -1144,7 +1144,7 @@
             
   
   <span class="md-ellipsis">
-    XDR
+    XDR Threat Investigation
   </span>
   
 
@@ -1154,7 +1154,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
-            XDR
+            XDR Threat Investigation
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1270,7 +1270,7 @@
             
   
   <span class="md-ellipsis">
-    Service Gateway
+    Third-Party Integration
   </span>
   
 
@@ -1279,6 +1279,242 @@
         
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Third-Party Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../splunk-setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup Splunk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../splunk-integrate-vision-one-xdr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrate Splunk with Vision One XDR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Integrate V1CS Customer Runtime Security Rules with Splunk
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Integrate V1CS Customer Runtime Security Rules with Splunk
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-http-event-collector-in-splunk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure HTTP Event Collector in Splunk
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrate-custom-rules-to-v1cs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrate Custom Rules to V1CS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing it...
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#some-other-custom-rules-you-can-play-with" class="md-nav__link">
+    <span class="md-ellipsis">
+      Some other Custom Rules You can Play with
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elastic-stack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup Elastic Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elastic-stack-vision-one/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrate Elastic Stack with Vision One
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3_2" id="__nav_5_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Service Gateway
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_2">
             <span class="md-nav__icon md-icon"></span>
             Service Gateway
           </label>
@@ -1367,6 +1603,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1376,11 +1614,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
         
           
           <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
@@ -1394,7 +1632,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             Cloud Security
@@ -1405,6 +1643,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1414,11 +1654,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1" checked>
         
           
           <label class="md-nav__link" for="__nav_5_4_1" id="__nav_5_4_1_label" tabindex="0">
@@ -1432,7 +1672,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_4_1">
             <span class="md-nav__icon md-icon"></span>
             Container Security
@@ -1443,6 +1683,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1452,11 +1694,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1_1" checked>
         
           
           <label class="md-nav__link" for="__nav_5_4_1_1" id="__nav_5_4_1_1_label" tabindex="0">
@@ -1470,7 +1712,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_1_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_1_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_4_1_1">
             <span class="md-nav__icon md-icon"></span>
             EKS
@@ -1577,6 +1819,112 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Integrate V1CS Customer Runtime Security Rules with Splunk
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Integrate V1CS Customer Runtime Security Rules with Splunk
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-http-event-collector-in-splunk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure HTTP Event Collector in Splunk
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrate-custom-rules-to-v1cs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrate Custom Rules to V1CS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing it...
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#some-other-custom-rules-you-can-play-with" class="md-nav__link">
+    <span class="md-ellipsis">
+      Some other Custom Rules You can Play with
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2058,244 +2406,6 @@
           </ul>
         </nav>
       
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Big Data & SIEM
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5_6">
-            <span class="md-nav__icon md-icon"></span>
-            Big Data & SIEM
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../splunk-setup/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Setup Splunk
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../splunk-integrate-vision-one-xdr/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Integrate Splunk with Vision One XDR
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Integrate V1CS Customer Runtime Security Rules with Splunk
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    Integrate V1CS Customer Runtime Security Rules with Splunk
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prerequisites
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-http-event-collector-in-splunk" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configure HTTP Event Collector in Splunk
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#integrate-custom-rules-to-v1cs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Integrate Custom Rules to V1CS
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing-it" class="md-nav__link">
-    <span class="md-ellipsis">
-      Testing it...
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#some-other-custom-rules-you-can-play-with" class="md-nav__link">
-    <span class="md-ellipsis">
-      Some other Custom Rules You can Play with
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../elastic-stack/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Setup Elastic Stack
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../elastic-stack-vision-one/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Integrate Elastic Stack with Vision One
-  </span>
-  
-
-      </a>
     </li>
   
 
