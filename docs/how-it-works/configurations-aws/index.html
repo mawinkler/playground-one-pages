@@ -671,6 +671,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="ECS EC2 Cluster">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenarios_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenarios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -679,6 +694,21 @@
       ECS Fargate Cluster
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="ECS Fargate Cluster">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenarios_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenarios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -689,6 +719,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="S3 Bucket Scanner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenarios_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenarios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -697,6 +742,21 @@
       Deep Security
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Deep Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenarios_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenarios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2643,6 +2703,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="ECS EC2 Cluster">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenarios_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenarios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2651,6 +2726,21 @@
       ECS Fargate Cluster
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="ECS Fargate Cluster">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenarios_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenarios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2661,6 +2751,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="S3 Bucket Scanner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenarios_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenarios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2669,6 +2774,21 @@
       Deep Security
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Deep Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenarios_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenarios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2803,6 +2923,13 @@
 <li>ALB Load Balancer</li>
 <li>Automatic deployment of a vulnerable service (Java-Goof)</li>
 </ul>
+<h3 id="scenarios_2">Scenarios<a class="headerlink" href="#scenarios_2" title="Permanent link">&para;</a></h3>
+<p><em>Depends on <code>awsone/4-cluster-ecs-ec2</code></em></p>
+<p><em>Documentation <a href="../../scenarios/cloud-security/container-security/ecs/apache-struts-rce/">Link</a></em></p>
+<p>Currently, the following (vulnerable) deployments are defined:</p>
+<ul>
+<li>Java-Goof</li>
+</ul>
 <h2 id="ecs-fargate-cluster">ECS Fargate Cluster<a class="headerlink" href="#ecs-fargate-cluster" title="Permanent link">&para;</a></h2>
 <p><em>Configuration located in <code>awsone/5-cluster-ecs-fargate</code></em></p>
 <p><em>Depends on <code>awsone/2-network</code></em></p>
@@ -2812,14 +2939,36 @@
 <li>ALB Load Balancer</li>
 <li>Automatic deployment of a vulnerable service (Java-Goof)</li>
 </ul>
+<p>You need to activate Container Security by running the supplied script <code>ecsfg-add-v1cs &lt;CLUSTER NAME&gt;</code> after enabling it within the Vision One console.</p>
+<h3 id="scenarios_3">Scenarios<a class="headerlink" href="#scenarios_3" title="Permanent link">&para;</a></h3>
+<p><em>Depends on <code>awsone/4-cluster-ecs-fargate</code></em></p>
+<p><em>Documentation <a href="../../scenarios/cloud-security/container-security/ecs/apache-struts-rce/">Link</a></em></p>
+<p>Currently, the following (vulnerable) deployments are defined:</p>
+<ul>
+<li>Java-Goof</li>
+</ul>
 <h2 id="s3-bucket-scanner">S3 Bucket Scanner<a class="headerlink" href="#s3-bucket-scanner" title="Permanent link">&para;</a></h2>
 <p><em>Configuration located in <code>awsone/6-bucket-scanner</code></em></p>
 <p>Simple S3 Bucket scanner using the File Security Python SDK within a Lambda Function. Scan results will show up on the Vision One console.</p>
+<h3 id="scenarios_4">Scenarios<a class="headerlink" href="#scenarios_4" title="Permanent link">&para;</a></h3>
+<p><em>Depends on <code>awsone/6-bucket-scanner</code></em></p>
+<p><em>Documentation <a href="../../scenarios/cloud-security/file-security/artifact-scanning/tmfs-s3-bucket-scanning/">Link</a></em></p>
+<p>Currently, the following (vulnerable) deployments are defined:</p>
+<ul>
+<li>Java-Goof</li>
+</ul>
 <h2 id="deep-security">Deep Security<a class="headerlink" href="#deep-security" title="Permanent link">&para;</a></h2>
 <p><em>Configuration located in <code>awsone/9-deep-security</code> and <code>awsone/9-deep-security-workload</code></em></p>
 <p>This configuration is to simulate an on-premise Deep Security environment meant to be used in integration and migration scenarios. For simulation purposes it creates a dedicated VPC with the most commonly used architecture, private and public subnets accross two availability zones. It includes everything what a VPC should have, this is amongst others an internet gateway, NAT gateway, security groups, etc.</p>
 <p>The workload configuration creates a demo configuration for Deep Security and two custom policies. Two linux and one windows instances are created and activated with Deep Security. Some minutes after instance creation the activated computers will run a recommendation scan.</p>
 <p>Check the Scenarios section to see available integration and migration scenarios.</p>
+<h3 id="scenarios_5">Scenarios<a class="headerlink" href="#scenarios_5" title="Permanent link">&para;</a></h3>
+<p><em>Depends on <code>awsone/9-deep-security</code> and <code>awsone/9-deep-security-workload</code></em></p>
+<p><em>Documentation <a href="../../scenarios/endpoint-security/deep-security/ds-integrate/">Link</a></em></p>
+<p>Currently, the following (vulnerable) deployments are defined:</p>
+<ul>
+<li>Java-Goof</li>
+</ul>
 <h2 id="instance-types-in-use-as-of-062024">Instance Types in Use as of 06/20/24<a class="headerlink" href="#instance-types-in-use-as-of-062024" title="Permanent link">&para;</a></h2>
 <p>Region: <code>eu-central-1</code></p>
 <table>
