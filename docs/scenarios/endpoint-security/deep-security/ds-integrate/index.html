@@ -12,7 +12,7 @@
         <link rel="prev" href="../../../cloud-security/file-security/artifact-scanning/tmfs-s3-bucket-scanning/">
       
       
-        <link rel="next" href="../ds-migrate/">
+        <link rel="next" href="../ds-integrate-and-service-gateway/">
       
       
       <link rel="icon" href="../../../../images/playground-icon.png">
@@ -2293,6 +2293,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../ds-integrate-and-service-gateway/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrate Deep Security with Vision One and Service Gateway
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../ds-migrate/" class="md-nav__link">
         
   
@@ -2540,27 +2561,36 @@
 <li>Since you want to move to the Vision One platform you start with integrating Deep Security with the platform.</li>
 </ul>
 <h2 id="integration-workflow">Integration Workflow<a class="headerlink" href="#integration-workflow" title="Permanent link">&para;</a></h2>
-<p>Vision One</p>
+<p><strong>Vision One</strong></p>
 <ol>
 <li><code>Vision One Product Instances --&gt; Add Existing Product</code>.</li>
 <li>Choose <code>Trend Micro Deep Security</code> --&gt; <code>Click to generate the enrollment token</code>.</li>
+</ol>
+<p><img alt="alt text" src="../images/ds-integrate-13.png" title="Vision One" /></p>
+<ol>
 <li>Copy the enrollment token and save the token.</li>
 <li>Click <code>[Save]</code>.</li>
 <li>CLick <code>[Connect and Transfer]</code>.</li>
 </ol>
-<p>Deep Security</p>
+<p><img alt="alt text" src="../images/ds-integrate-14.png" title="Vision One" /></p>
+<p><strong>Deep Security</strong></p>
 <ol>
 <li>Login to DSM Console as administrator.</li>
 <li>On the Deep Security software console, go to <code>Administration &gt; System Settings &gt; Trend Vision One</code></li>
 <li>Under <code>Registration</code>, click <code>Registration enrollment token</code>.</li>
+</ol>
+<p><img alt="alt text" src="../images/ds-integrate-15.png" title="Deep Security" /></p>
+<ol>
 <li>In the dialog that appears, paste the enrollment token and click  <code>[Register]</code>.</li>
 <li>After successful registration, your Deep Security software automatically enables Forward security events to Trend Vision One and changes the Enrollment status to "Registered".</li>
 </ol>
-<p>Vision One</p>
+<p><img alt="alt text" src="../images/ds-integrate-16.png" title="Deep Security" /></p>
+<p><strong>Vision One</strong></p>
 <ol>
 <li>Go to <code>Product Instance</code> App and verify the DSM On Premise being conncted.</li>
 <li>Optionally install Endpoint Sensor to the instances.</li>
 </ol>
+<p><img alt="alt text" src="../images/ds-integrate-14b.png" title="Vision One" /></p>
 <h2 id="result-and-benefits">Result and Benefits<a class="headerlink" href="#result-and-benefits" title="Permanent link">&para;</a></h2>
 <p>You now have control of the (simulated) on-premise environment via Vision One.</p>
 <p>🎉 Success 🎉</p>
