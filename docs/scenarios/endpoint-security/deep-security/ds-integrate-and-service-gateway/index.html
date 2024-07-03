@@ -2691,10 +2691,8 @@
 <p>The Service Gateway gets a dedicated AWS Security Group assigned which allows SSH from your configured access IP(s) only. All other ports are only accessible from within the public and private subnets.</p>
 <h2 id="current-situation">Current Situation<a class="headerlink" href="#current-situation" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Deep Security is securing (simulated) on-premise instances.</li>
-<li>Since you want to move to the Vision One platform you start with integrating Deep Security with the platform.</li>
-<li>You want to get the benefits of XDR for your environment.</li>
-<li>You want to utilize the Service Gateway for Smart Protection Network and Active Update functionalities.</li>
+<li>Deep Security secures instances in an on-premise environment simulated for this scenario, to which you want to add the XDR capabilities provided by Vision One.</li>
+<li>You start by integrating Deep Security into the platform and connect it to a service gateway for Smart Protection Network and Active Update capabilities.</li>
 </ul>
 <h2 id="integration-workflow">Integration Workflow<a class="headerlink" href="#integration-workflow" title="Permanent link">&para;</a></h2>
 <p><strong>Vision One</strong></p>
@@ -2732,7 +2730,7 @@
 <h3 id="get-the-vision-one-api-key">Get the Vision One API Key<a class="headerlink" href="#get-the-vision-one-api-key" title="Permanent link">&para;</a></h3>
 <p>In Vision One head over to <code>Workflow and Automation -&gt; Service Gateway Management</code> and click on <code>[Download Virtual Appliance]</code>.</p>
 <p><img alt="alt text" src="../images/ds-integrate-03.png" title="Vision One" /></p>
-<p>You don't need to download the virtual appliance since we're going to use a AWS Marketplace AMI. Simply copy the Registration Token shown in the bottom right and save it to a secure place.</p>
+<p>In a real environment, you would now download the virtual machine and deploy it to the virtualization infrastructure. In this scenario, you do not need to download the virtual appliance as we will be using an AWS Marketplace AMI. Simply copy the registration token shown at the bottom right and save it in a safe place.</p>
 <p><img alt="alt text" src="../images/ds-integrate-04.png" title="Vision One" /></p>
 <h3 id="activate-the-service-gateway">Activate the Service Gateway<a class="headerlink" href="#activate-the-service-gateway" title="Permanent link">&para;</a></h3>
 <p>Back to your console/shell run the following command (adapt the parameters to your environment):</p>
@@ -2754,17 +2752,17 @@
 <p>It can take some time for the Service Gateway to show up in the console.</p>
 <h3 id="add-services-to-the-service-gateway">Add Services to the Service Gateway<a class="headerlink" href="#add-services-to-the-service-gateway" title="Permanent link">&para;</a></h3>
 <p>Click on your newly created Service Gateway and press the button <code>[Manage Services]</code>.</p>
-<p>Download the Smart Protection Services and ActiveUpdate Service by pressing the blue circular buttons. Wait until download has finished.</p>
+<p>Download the <em>Smart Protection Services</em> and <em>ActiveUpdate Service</em> by pressing the blue circular buttons. Wait until download has finished.</p>
 <p><img alt="alt text" src="../images/ds-integrate-08.png" title="Vision One" /></p>
 <p><img alt="alt text" src="../images/ds-integrate-06.png" title="Vision One" /></p>
-<p>Back to the services click on the gear in the line of ActiveUpdate Service. Configure an Update Source by pressing <code>[+ Add]</code>.</p>
+<p>Back to the services click on the gear in the line of <em>ActiveUpdate Service</em>. Configure an Update Source by pressing <code>[+ Add]</code>.</p>
 <p>As the URL use <code>https://ipv6-iaus.trendmicro.com/iau_server.dll</code> and <code>Deep Security</code> as the Description.</p>
 <p>Then, using the newly configured Update source to generate the ActiveUpdate URL by pressing <code>[Generate]</code>.</p>
 <p><img alt="alt text" src="../images/ds-integrate-09.png" title="Vision One" /></p>
 <p>Press <code>[Save]</code>.</p>
-<p>Now choose the Smart Protection Services gear.</p>
+<p>Now choose the <em>Smart Protection Services</em> gear.</p>
 <p><img alt="alt text" src="../images/ds-integrate-07.png" title="Vision One" /></p>
-<p>The examples show the URLs for File and Web Reputation Services which we're now going to configure in Deep Security.</p>
+<p>The examples show the URLs for <em>File</em> and <em>Web Reputation Services</em> which we're now going to configure in Deep Security.</p>
 <h3 id="configure-deep-security">Configure Deep Security<a class="headerlink" href="#configure-deep-security" title="Permanent link">&para;</a></h3>
 <p>In Deep Security navigate to <code>Administration -&gt; Updates</code> and paste the <code>iau_server.dll</code> URL from above into the field <code>Other update source</code>.</p>
 <p><img alt="alt text" src="../images/ds-integrate-10.png" title="Deep Security" /></p>
@@ -2775,8 +2773,8 @@
 <p>Analogous for <code>Web Reputation</code>.</p>
 <p><img alt="alt text" src="../images/ds-integrate-12.png" title="Deep Security" /></p>
 <h2 id="install-basecamp-agent-on-instances">Install Basecamp Agent on Instances<a class="headerlink" href="#install-basecamp-agent-on-instances" title="Permanent link">&para;</a></h2>
-<p>First, lets get the ssh commands to access our servers by running</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>pgo<span class="w"> </span>-o<span class="w"> </span>dsw
+<p>First, lets get the <code>ssh</code> commands to access our servers by running</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>pgo<span class="w"> </span>--output<span class="w"> </span>dsw
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w"> </span>__<span class="w">                 </span>__<span class="w">   </span>__<span class="w">   </span>__<span class="w">             </span>__<span class="w">      </span>__<span class="w">        </span>___<span class="w"> </span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="p">|</span>__<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w">     </span>/<span class="se">\ </span><span class="w"> </span><span class="se">\ </span>/<span class="w"> </span>/<span class="w"> </span>_<span class="sb">`</span><span class="w"> </span><span class="p">|</span>__<span class="o">)</span><span class="w"> </span>/<span class="w">  </span><span class="se">\ </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\ </span><span class="w">   </span>/<span class="w">  </span><span class="se">\ </span><span class="p">|</span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>__<span class="w">  </span>
@@ -2788,7 +2786,7 @@
 <a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="nv">ssh_instance_windows1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i /home/markus/projects/opensource/playground/playground-one/pgo-id-dsm-key-pair.pem -o StrictHostKeyChecking=no admin@18.153.208.157&quot;</span>
 <a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>...
 </code></pre></div>
-<p>To connect to a linux instance via the provided ssh command copy and paste the commnd in your shell</p>
+<p>To connect to a linux instance via the provided <code>ssh</code> command copy and paste the commnd in your shell</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ssh<span class="w"> </span>-i<span class="w"> </span>/home/markus/projects/opensource/playground/playground-one/pgo-id-dsm-key-pair.pem<span class="w"> </span>-o<span class="w"> </span><span class="nv">StrictHostKeyChecking</span><span class="o">=</span>no<span class="w"> </span>ec2-user@3.79.102.108
 </code></pre></div>
 <p>On the Deep Security software console, go to <code>Administration &gt; System Settings &gt; Trend Vision One</code></p>
@@ -2809,7 +2807,6 @@
 <a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="o">[</span>ec2-user@ip-10-0-4-236<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>sudo<span class="w"> </span>su
 <a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="o">[</span>root@ip-10-0-4-236<span class="w"> </span>ec2-user<span class="o">]</span><span class="c1"># &lt;PASTE&gt;</span>
 </code></pre></div>
-<p>and paste the generated deployment script for Linux</p>
 <p>Similar for Windows. Connect to the instance and paste the windows deployment script to the console.  Ignore the error at the top. The agent will install just fine.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ssh<span class="w"> </span>-i<span class="w"> </span>/home/markus/projects/opensource/playground/playground-one/pgo-id-dsm-key-pair.pem<span class="w"> </span>-o<span class="w"> </span><span class="nv">StrictHostKeyChecking</span><span class="o">=</span>no<span class="w"> </span>admin@18.153.208.157
 </code></pre></div>
@@ -2820,7 +2817,7 @@
 <a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
 <a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">admin</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">PASTE</span><span class="p">&gt;</span>
 </code></pre></div>
-<p>When, as the final step, you head back to <code>Vision One -&gt; Endpoint Security -&gt; Endpoint Inventory</code> you will see the Deep security instance integrated with Vision One and the available computers.</p>
+<p>When, as the final step, you head back to <code>Vision One -&gt; Endpoint Security -&gt; Endpoint Inventory</code> you will see the Deep Security instance integrated with Vision One and the available computers.</p>
 <p><img alt="alt text" src="../images/ds-integrate-17.png" title="Vision One" /></p>
 <h2 id="result-and-benefits">Result and Benefits<a class="headerlink" href="#result-and-benefits" title="Permanent link">&para;</a></h2>
 <p>You now have integrated your on-prem Deep Security instance to Vision One and enabled the XDR functionality. Your Deep Security is additionally integrated with the Service Gateway to streamline the network communication.</p>

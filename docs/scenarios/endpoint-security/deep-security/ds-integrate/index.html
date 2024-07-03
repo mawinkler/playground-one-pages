@@ -2575,9 +2575,8 @@
 </code></pre></div>
 <h2 id="current-situation">Current Situation<a class="headerlink" href="#current-situation" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Deep Security is securing (simulated) on-premise instances.</li>
-<li>Since you want to move to the Vision One platform you start with integrating Deep Security with the platform.</li>
-<li>You want to get the benefits of XDR for your environment.</li>
+<li>Deep Security secures instances in an on-premise environment simulated for this scenario, to which you want to add the XDR capabilities provided by Vision One.</li>
+<li>You start by integrating Deep Security into the platform.</li>
 </ul>
 <h2 id="integration-workflow">Integration Workflow<a class="headerlink" href="#integration-workflow" title="Permanent link">&para;</a></h2>
 <p><strong>Vision One</strong></p>
@@ -2611,8 +2610,8 @@
 </ol>
 <p><img alt="alt text" src="../images/ds-integrate-14b.png" title="Vision One" /></p>
 <h2 id="install-basecamp-agent-on-instances">Install Basecamp Agent on Instances<a class="headerlink" href="#install-basecamp-agent-on-instances" title="Permanent link">&para;</a></h2>
-<p>First, lets get the ssh commands to access our servers by running</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pgo<span class="w"> </span>-o<span class="w"> </span>dsw
+<p>First, lets get the <code>ssh</code> commands to access our servers by running</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pgo<span class="w"> </span>--output<span class="w"> </span>dsw
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w"> </span>__<span class="w">                 </span>__<span class="w">   </span>__<span class="w">   </span>__<span class="w">             </span>__<span class="w">      </span>__<span class="w">        </span>___<span class="w"> </span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">|</span>__<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w">     </span>/<span class="se">\ </span><span class="w"> </span><span class="se">\ </span>/<span class="w"> </span>/<span class="w"> </span>_<span class="sb">`</span><span class="w"> </span><span class="p">|</span>__<span class="o">)</span><span class="w"> </span>/<span class="w">  </span><span class="se">\ </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\ </span><span class="w">   </span>/<span class="w">  </span><span class="se">\ </span><span class="p">|</span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>__<span class="w">  </span>
@@ -2624,7 +2623,7 @@
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nv">ssh_instance_windows1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i /home/markus/projects/opensource/playground/playground-one/pgo-id-dsm-key-pair.pem -o StrictHostKeyChecking=no admin@18.153.208.157&quot;</span>
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>...
 </code></pre></div>
-<p>To connect to a linux instance via the provided ssh command copy and paste the commnd in your shell</p>
+<p>To connect to a linux instance via the provided <code>ssh</code> command copy and paste the commnd in your shell</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ssh<span class="w"> </span>-i<span class="w"> </span>/home/markus/projects/opensource/playground/playground-one/pgo-id-dsm-key-pair.pem<span class="w"> </span>-o<span class="w"> </span><span class="nv">StrictHostKeyChecking</span><span class="o">=</span>no<span class="w"> </span>ec2-user@3.79.102.108
 </code></pre></div>
 <p>On the Deep Security software console, go to <code>Administration &gt; System Settings &gt; Trend Vision One</code></p>
@@ -2645,7 +2644,6 @@
 <a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="o">[</span>ec2-user@ip-10-0-4-236<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>sudo<span class="w"> </span>su
 <a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="o">[</span>root@ip-10-0-4-236<span class="w"> </span>ec2-user<span class="o">]</span><span class="c1"># &lt;PASTE&gt;</span>
 </code></pre></div>
-<p>and paste the generated deployment script for Linux</p>
 <p>Similar for Windows. Connect to the instance and paste the windows deployment script to the console.  Ignore the error at the top. The agent will install just fine.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ssh<span class="w"> </span>-i<span class="w"> </span>/home/markus/projects/opensource/playground/playground-one/pgo-id-dsm-key-pair.pem<span class="w"> </span>-o<span class="w"> </span><span class="nv">StrictHostKeyChecking</span><span class="o">=</span>no<span class="w"> </span>admin@18.153.208.157
 </code></pre></div>
@@ -2656,7 +2654,7 @@
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">admin</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">PASTE</span><span class="p">&gt;</span>
 </code></pre></div>
-<p>When, as the final step, you head back to <code>Vision One -&gt; Endpoint Security -&gt; Endpoint Inventory</code> you will see the Deep security instance integrated with Vision One and the available computers.</p>
+<p>When, as the final step, you head back to <code>Vision One -&gt; Endpoint Security -&gt; Endpoint Inventory</code> you will see the Deep Security instance integrated with Vision One and the available computers.</p>
 <p><img alt="alt text" src="../images/ds-integrate-17.png" title="Vision One" /></p>
 <h2 id="result-and-benefits">Result and Benefits<a class="headerlink" href="#result-and-benefits" title="Permanent link">&para;</a></h2>
 <p>You now have integrated your on-prem Deep Security instance to Vision One and enabled the XDR functionality.</p>
