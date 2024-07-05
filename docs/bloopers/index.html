@@ -2852,6 +2852,9 @@ aws_ecs_cluster depends on aws_ecs_capacity_provider depends on aws_autoscaling_
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>eks-ec2
 </code></pre></div>
 <p>This should complete the cluster creation within seconds then.</p>
+<p>Autoscaler Logs:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>kubectl<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>-n<span class="w"> </span>kube-system<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span>cluster-autoscaler
+</code></pre></div>
 
 
 

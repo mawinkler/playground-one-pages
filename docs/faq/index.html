@@ -2447,6 +2447,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#inspect-the-kubernetes-manifest-of-container-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inspect the Kubernetes Manifest of Container Security
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#aws-ec2-instance-connect-does-not-work-from-the-aws-ec2-console" class="md-nav__link">
     <span class="md-ellipsis">
       AWS EC2 Instance Connect does not work from the AWS EC2 Console
@@ -2576,6 +2585,15 @@
   <a href="#upgrade-vision-one-container-security-to-the-latest-release" class="md-nav__link">
     <span class="md-ellipsis">
       Upgrade Vision One Container Security to the latest Release
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspect-the-kubernetes-manifest-of-container-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inspect the Kubernetes Manifest of Container Security
     </span>
   </a>
   
@@ -2718,10 +2736,17 @@ aws_ecs_cluster depends on aws_ecs_capacity_provider depends on aws_autoscaling_
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span>--values<span class="w"> </span>-<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span>https://github.com/trendmicro/cloudone-container-security-helm/archive/master.tar.gz
 </code></pre></div>
+<h2 id="inspect-the-kubernetes-manifest-of-container-security">Inspect the Kubernetes Manifest of Container Security<a class="headerlink" href="#inspect-the-kubernetes-manifest-of-container-security" title="Permanent link">&para;</a></h2>
+<p>If you want to inspect the full kubernetes manifest of Container Security deployed on your environment run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>helm<span class="w"> </span>get<span class="w"> </span>values<span class="w"> </span>--namespace<span class="w"> </span>trendmicro-system<span class="w"> </span>container-security<span class="w"> </span><span class="p">|</span><span class="w"> </span>helm<span class="w"> </span>template<span class="w"> </span>container-security<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span>--namespace<span class="w"> </span>trendmicro-system<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span>--values<span class="w"> </span>-<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span>https://github.com/trendmicro/cloudone-container-security-helm/archive/master.tar.gz<span class="w"> </span>&gt;<span class="w"> </span>manifest.yaml
+</code></pre></div>
 <h2 id="aws-ec2-instance-connect-does-not-work-from-the-aws-ec2-console">AWS EC2 Instance Connect does not work from the AWS EC2 Console<a class="headerlink" href="#aws-ec2-instance-connect-does-not-work-from-the-aws-ec2-console" title="Permanent link">&para;</a></h2>
 <p>EC2 Instance Connect uses specific IP address ranges for browser-based SSH connections to your instance (when users use the Amazon EC2 console to connect to an instance). These IP address ranges are documented <a href="https://ip-ranges.amazonaws.com/ip-ranges.json">here</a>.</p>
 <p>To filter this large list for instance connect run:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>jq<span class="w"> </span><span class="s1">&#39;.prefixes[] | select(.service==&quot;EC2_INSTANCE_CONNECT&quot;) | .&#39;</span><span class="w"> </span>ip-ranges.json
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>jq<span class="w"> </span><span class="s1">&#39;.prefixes[] | select(.service==&quot;EC2_INSTANCE_CONNECT&quot;) | .&#39;</span><span class="w"> </span>ip-ranges.json
 </code></pre></div>
 <p>Currently, Playground One does only allow Instance Connect from the following regions:</p>
 <table>
