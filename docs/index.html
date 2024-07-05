@@ -2863,58 +2863,81 @@ The capabilities and contents are therefore to be enjoyed with caution and can c
 <table>
 <thead>
 <tr>
+<th>Area</th>
 <th>Command</th>
 <th>Function</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td>PGO</td>
 <td>pgo</td>
 <td>The command line interface for Playground One.</td>
 </tr>
 <tr>
+<td>PGO</td>
+<td>pgoc</td>
+<td>Starts, stops or updates the Playground One Container.</td>
+</tr>
+<tr>
+<td>PGO</td>
 <td>dsm</td>
 <td>Start or stop a deployed Deep Security.</td>
 </tr>
 <tr>
-<td>tmcli-update</td>
-<td>Update TMAS and TMFS to the latest version.</td>
-</tr>
-<tr>
-<td>stern</td>
-<td>Tail logs from multiple pods simultaneously.</td>
-</tr>
-<tr>
-<td>syft</td>
-<td>See <a href="https://github.com/anchore/syft">github.com/anchore/syft</a>.</td>
-</tr>
-<tr>
-<td>grype</td>
-<td>See <a href="https://github.com/anchore/grype">github.com/anchore/grype</a>.</td>
-</tr>
-<tr>
-<td>k9s</td>
-<td>See <a href="https://k9scli.io/">k9scli.io</a>.</td>
-</tr>
-<tr>
+<td>Kubernetes</td>
 <td>kubie</td>
 <td>See <a href="https://github.com/sbstp/kubie?tab=readme-ov-file#usage">github.com/sbstp/kubie</a>.</td>
 </tr>
 <tr>
-<td>list_images_ns</td>
-<td>Lists and counts all unique images by namespace.</td>
+<td>Kubernetes</td>
+<td>stern</td>
+<td>Tail logs from multiple pods simultaneously.</td>
 </tr>
 <tr>
-<td>knsrm-finalizer</td>
+<td>Kubernetes</td>
+<td>k9s</td>
+<td>See <a href="https://k9scli.io/">k9scli.io</a>.</td>
+</tr>
+<tr>
+<td>Kubernetes</td>
+<td>k8s-ns-finalizer</td>
 <td>Removes finalizer from namespace. Helpful when a namespace cannot be destroyed.</td>
 </tr>
 <tr>
-<td>collect_logs</td>
-<td>Collects logs and configuration of Container Security. Usage: <code>RELEASE=container-security collect_logs</code>.</td>
+<td>Kubernetes</td>
+<td>k8s-list-images</td>
+<td>Lists and counts all unique images by namespace currently in use.</td>
 </tr>
 <tr>
-<td>pgoc</td>
-<td>Starts, stops or updates the Playground One Container.</td>
+<td>Vision One</td>
+<td>tmcli-update</td>
+<td>Update TMAS and TMFS to the latest version.</td>
+</tr>
+<tr>
+<td>Vision One</td>
+<td>ecsfg-add-v1cs</td>
+<td>Patches ECS Fargate Task to activate Container Security.</td>
+</tr>
+<tr>
+<td>Vision One</td>
+<td>collect-logs</td>
+<td>Collects logs and configuration of Container Security. Usage: <code>RELEASE=container-security collect-logs</code>.</td>
+</tr>
+<tr>
+<td>AWS</td>
+<td>aws-cleanup-policies</td>
+<td>Removes unattached policies of your PGO environment.</td>
+</tr>
+<tr>
+<td>Vulnerabilities</td>
+<td>syft</td>
+<td>See <a href="https://github.com/anchore/syft">github.com/anchore/syft</a>.</td>
+</tr>
+<tr>
+<td>Vulnerabilities</td>
+<td>grype</td>
+<td>See <a href="https://github.com/anchore/grype">github.com/anchore/grype</a>.</td>
 </tr>
 </tbody>
 </table>
