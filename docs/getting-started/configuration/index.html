@@ -756,6 +756,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#section-playground-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section: Playground One
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#section-aws" class="md-nav__link">
     <span class="md-ellipsis">
       Section: AWS
@@ -774,15 +783,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#section-playground-one" class="md-nav__link">
-    <span class="md-ellipsis">
-      Section: Playground One
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#section-vision-one-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       Section: Vision One Configuration
@@ -792,18 +792,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#section-integrations-configuration" class="md-nav__link">
+  <a href="#section-kubernetes-deployments" class="md-nav__link">
     <span class="md-ellipsis">
-      Section: Integrations Configuration
+      Section: Kubernetes Deployments
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#section-deep-security" class="md-nav__link">
+  <a href="#section-deep-security-on-prem" class="md-nav__link">
     <span class="md-ellipsis">
-      Section: Deep Security
+      Section: Deep Security (on-prem)
     </span>
   </a>
   
@@ -2653,6 +2653,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#section-playground-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section: Playground One
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#section-aws" class="md-nav__link">
     <span class="md-ellipsis">
       Section: AWS
@@ -2671,15 +2680,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#section-playground-one" class="md-nav__link">
-    <span class="md-ellipsis">
-      Section: Playground One
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#section-vision-one-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       Section: Vision One Configuration
@@ -2689,18 +2689,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#section-integrations-configuration" class="md-nav__link">
+  <a href="#section-kubernetes-deployments" class="md-nav__link">
     <span class="md-ellipsis">
-      Section: Integrations Configuration
+      Section: Kubernetes Deployments
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#section-deep-security" class="md-nav__link">
+  <a href="#section-deep-security-on-prem" class="md-nav__link">
     <span class="md-ellipsis">
-      Section: Deep Security
+      Section: Deep Security (on-prem)
     </span>
   </a>
   
@@ -2771,28 +2771,29 @@
 <a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">  </span>-p<span class="w"> </span>--plan<span class="w">      </span>Plan<span class="w"> </span>apply<span class="w"> </span>and<span class="w"> </span>destroy
 <a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>
 <a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>Available<span class="w"> </span>configurations:
-<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">  </span>nw<span class="w">                  </span>Network<span class="w"> </span>configuration
-<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">  </span>ec2<span class="w">                 </span>EC2<span class="w"> </span>configuration
-<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">  </span>eks-ec2<span class="w">             </span>EKS<span class="w"> </span>configuration
-<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">  </span>eks-fg<span class="w">              </span>EKS<span class="w"> </span>configuration
-<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">  </span>ecs-ec2<span class="w">             </span>ECS<span class="w"> </span>configuration
-<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="w">  </span>ecs-fg<span class="w">              </span>ECS<span class="w"> </span>configuration
-<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">  </span>s3scanner<span class="w">           </span>S3<span class="w"> </span>Bucket<span class="w"> </span>scanner
-<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="w">  </span>kind<span class="w">                </span>Kind<span class="w"> </span>configuration
-<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="w">  </span>scenarios-ec2<span class="w">       </span>Scenario<span class="w"> </span>configuration
-<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="w">  </span>scenarios-fg<span class="w">        </span>Scenario<span class="w"> </span>configuration
-<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="w">  </span>scenarios-cspm<span class="w">      </span>Scenario<span class="w"> </span>configuration
-<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="w">  </span>scenarios-identity<span class="w">  </span>Scenario<span class="w"> </span>configuration
-<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a><span class="w">  </span>scenarios-kind<span class="w">      </span>Scenario<span class="w"> </span>configuration
-<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a><span class="w">  </span>scenarios-aks<span class="w">       </span>Scenario<span class="w"> </span>configuration
-<a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a><span class="w">  </span>dsm<span class="w">                 </span>Deep<span class="w"> </span>Security<span class="w"> </span>configuration
-<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a><span class="w">  </span>dsw<span class="w">                 </span>Deep<span class="w"> </span>Security<span class="w"> </span>Workload<span class="w"> </span>configuration
-<a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a><span class="w">  </span>aks<span class="w">                 </span>AKS<span class="w"> </span>configuration
-<a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a><span class="w">  </span>all<span class="w">                 </span>All<span class="w"> </span>configurations
-<a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a>
-<a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a>Examples:
-<a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a><span class="w">  </span>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
-<a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a><span class="w">  </span>pgo<span class="w"> </span>--state<span class="w"> </span>all
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">  </span>user<span class="w">                </span>PGO<span class="w"> </span>User<span class="w"> </span>configuration
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">  </span>nw<span class="w">                  </span>Network<span class="w"> </span>configuration
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">  </span>ec2<span class="w">                 </span>EC2<span class="w"> </span>configuration
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">  </span>eks-ec2<span class="w">             </span>EKS<span class="w"> </span>configuration
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">  </span>eks-fg<span class="w">              </span>EKS<span class="w"> </span>configuration
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="w">  </span>ecs-ec2<span class="w">             </span>ECS<span class="w"> </span>configuration
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">  </span>ecs-fg<span class="w">              </span>ECS<span class="w"> </span>configuration
+<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="w">  </span>s3scanner<span class="w">           </span>S3<span class="w"> </span>Bucket<span class="w"> </span>scanner
+<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="w">  </span>kind<span class="w">                </span>Kind<span class="w"> </span>configuration
+<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="w">  </span>scenarios-ec2<span class="w">       </span>Scenario<span class="w"> </span>configuration
+<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="w">  </span>scenarios-fg<span class="w">        </span>Scenario<span class="w"> </span>configuration
+<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="w">  </span>scenarios-cspm<span class="w">      </span>Scenario<span class="w"> </span>configuration
+<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a><span class="w">  </span>scenarios-identity<span class="w">  </span>Scenario<span class="w"> </span>configuration
+<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a><span class="w">  </span>scenarios-kind<span class="w">      </span>Scenario<span class="w"> </span>configuration
+<a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a><span class="w">  </span>scenarios-aks<span class="w">       </span>Scenario<span class="w"> </span>configuration
+<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a><span class="w">  </span>dsm<span class="w">                 </span>Deep<span class="w"> </span>Security<span class="w"> </span>configuration
+<a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a><span class="w">  </span>dsw<span class="w">                 </span>Deep<span class="w"> </span>Security<span class="w"> </span>Workload<span class="w"> </span>configuration
+<a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a><span class="w">  </span>aks<span class="w">                 </span>AKS<span class="w"> </span>configuration
+<a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a><span class="w">  </span>all<span class="w">                 </span>All<span class="w"> </span>configurations
+<a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a>
+<a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a>Examples:
+<a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a><span class="w">  </span>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
+<a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a><span class="w">  </span>pgo<span class="w"> </span>--state<span class="w"> </span>all
 </code></pre></div>
 <h2 id="configure">Configure<a class="headerlink" href="#configure" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -2805,21 +2806,6 @@
 </code></pre></div>
 <p>This process will create or update your personal <code>config.yaml</code>. Eventually existing setting will be shown in square brackets. To accept them just press enter.</p>
 <p>The configuration tool is devided into sections. The following chapters walk you through the process.</p>
-<h3 id="section-aws">Section: AWS<a class="headerlink" href="#section-aws" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p><strong><em>Note:</em></strong> This section is skipped when you have any configuration applied.</p>
-</blockquote>
-<p>Set/update:</p>
-<ul>
-<li><code>AWS Account ID</code>: The ID of your AWS subscription (just numbers no <code>-</code>). This is mandatory.</li>
-<li><code>AWS Region Name</code>: If you want to use another region as <code>eu-central-1</code>.</li>
-</ul>
-<h3 id="section-azure">Section: Azure<a class="headerlink" href="#section-azure" title="Permanent link">&para;</a></h3>
-<p>Set/update:</p>
-<ul>
-<li><code>Azure Subscription ID</code>: The ID of your Azure subscription. This is mandatory.</li>
-<li><code>Azure Region Name</code>: If you want to use another region as <code>westeurope</code>.</li>
-</ul>
 <h3 id="section-playground-one">Section: Playground One<a class="headerlink" href="#section-playground-one" title="Permanent link">&para;</a></h3>
 <p>You don't necessarily need to change anything here if you're satisfied with the defaults, but</p>
 <blockquote>
@@ -2827,6 +2813,7 @@
 </blockquote>
 <p>Set/update:</p>
 <ul>
+<li><code>Initialize Terraform Configurations</code>: Set this to <code>true</code> if you want to download the required Terraform providers. You need to do this on a new installation of Playground One at least once. If you want to reconfigure Playground One later on you can set it to false, which will speed up the reconfiguration process. </li>
 <li><code>PGO Environment Name</code>: Your to be built environment name. It MUST NOT be longer than 12 characters.</li>
 <li><code>Access IPs/CIDRs</code>:</li>
 <li>If you're running on a local Ubuntu server or are using Playground One Container locally (not on Cloud9), get your public IP and set the value to <code>&lt;YOUR IP&gt;/32</code> or type <code>pub</code> and let the config tool detect your public IP.</li>
@@ -2843,15 +2830,33 @@
 <li><code>0.0.0.0/0</code> <em>Dangerous!</em></li>
 </ul>
 </li>
-<li><code>EC2 - create Linux EC2</code>: Enable/disable Linux instances in the <code>ec2</code> configuration.</li>
-<li><code>EC2 - create Windows EC2</code>: Enable/disable Windows instances in the <code>ec2</code> configuration.</li>
-<li><code>RDS - create RDS Database</code>: Enable/disable creation of a RDS database</li>
-<li><code>ECS - utilize EC2 Nodes</code>: Enable/disable ECS cluster with EC2 nodes.</li>
-<li><code>ECS - utilize Fargate Nodes</code>: Enable/disable ECS cluster with Fargate nodes.</li>
+<li><code>Running in Product Experience</code>: Leave this to false unless you're running Playground One inside the Product Experience Platform.</li>
 </ul>
 <blockquote>
 <p>If your IP address has changed see <a href="../../faq/#my-ip-address-has-changed-and-i-cannot-access-my-environment-anymore">FAQ</a>.</p>
 </blockquote>
+<h3 id="section-aws">Section: AWS<a class="headerlink" href="#section-aws" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong><em>Note:</em></strong> This section is skipped when you have any configuration applied.</p>
+</blockquote>
+<p>Set/update:</p>
+<ul>
+<li><code>Account ID</code>: The ID of your AWS subscription (just numbers no <code>-</code>). This is mandatory.</li>
+<li><code>Region Name</code>: If you want to use another region as <code>eu-central-1</code>.</li>
+<li><code>Use PGO User</code>: The Playground One has the ability to create and use a dedicated AWS user with limited privileges. If you want to use this feature you need to run <code>pgo --apply user</code> after you have finished the configuration of the Playground One. This will then create a User within a Group with several IAM policies attached.</li>
+<li><code>AD - create PGO Active Directory</code>: Enable/disable deployment of an Active Directory. This AD is more flexible compared to the AWS Managed Active Directory below.</li>
+<li><code>AD - create Managed Active Directory</code>: Enable/disable deployment of an AWS Managed Active Directory.</li>
+<li><code>SG - create Service Gateway</code>: Enable/disable deployment of the Trend Micro Service Gateway.</li>
+<li><code>EC2 - create Linux EC2</code>: Enable/disable Linux instances in the <code>ec2</code> configuration.</li>
+<li><code>EC2 - create Windows EC2</code>: Enable/disable Windows instances in the <code>ec2</code> configuration.</li>
+<li><code>RDS - create RDS Database</code>: Enable/disable creation of a RDS database</li>
+</ul>
+<h3 id="section-azure">Section: Azure<a class="headerlink" href="#section-azure" title="Permanent link">&para;</a></h3>
+<p>Set/update:</p>
+<ul>
+<li><code>Azure Subscription ID</code>: The ID of your Azure subscription. This is mandatory.</li>
+<li><code>Azure Region Name</code>: If you want to use another region as <code>westeurope</code>.</li>
+</ul>
 <h3 id="section-vision-one-configuration">Section: Vision One Configuration<a class="headerlink" href="#section-vision-one-configuration" title="Permanent link">&para;</a></h3>
 <p>Set/update:</p>
 <ul>
@@ -2861,7 +2866,7 @@
 <li><code>Vision One Container Security</code>: Enable or disable the Container Security deployment. If set to <code>false</code> Cloud One configuration will be skipped.</li>
 <li><code>Container Security Policy Name</code>: The name of the Policy to assign.</li>
 </ul>
-<h3 id="section-integrations-configuration">Section: Integrations Configuration<a class="headerlink" href="#section-integrations-configuration" title="Permanent link">&para;</a></h3>
+<h3 id="section-kubernetes-deployments">Section: Kubernetes Deployments<a class="headerlink" href="#section-kubernetes-deployments" title="Permanent link">&para;</a></h3>
 <p>Set/update:</p>
 <ul>
 <li><code>Calico</code>: Enable/disable the most used Pod network on your EKS cluster. It's currently disabled by default but will come shortly</li>
@@ -2869,7 +2874,7 @@
 <li><code>Trivy</code>: Enable/disable Trivy vulnerability scanning for comparison.</li>
 <li><code>MetalLB</code>: Enable/disable MetalLB for Kind cluster.</li>
 </ul>
-<h3 id="section-deep-security">Section: Deep Security<a class="headerlink" href="#section-deep-security" title="Permanent link">&para;</a></h3>
+<h3 id="section-deep-security-on-prem">Section: Deep Security (on-prem)<a class="headerlink" href="#section-deep-security-on-prem" title="Permanent link">&para;</a></h3>
 <p>Set/update:</p>
 <ul>
 <li><code>Deep Security</code>: Enable or disable the Deep Security deployment. If set to <code>false</code> Deep Security configuration will be skipped.</li>

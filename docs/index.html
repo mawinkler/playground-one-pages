@@ -2994,6 +2994,11 @@ The capabilities and contents are therefore to be enjoyed with caution and can c
 </tr>
 <tr>
 <td>PGO</td>
+<td>pgos</td>
+<td>Starts a new bash with AWS credentials of PGO User.</td>
+</tr>
+<tr>
+<td>PGO</td>
 <td>dsm</td>
 <td>Start or stop a deployed Deep Security.</td>
 </tr>
@@ -3062,6 +3067,8 @@ The capabilities and contents are therefore to be enjoyed with caution and can c
 <li>All Terraform Modules and Providers are now version fixed.</li>
 <li>Improved Naming of instances in regards to the PGO Active Directory</li>
 <li><code>pgo --config</code> does now allow to disable initialization of Terraform after a first run. This speeds up configuration changes dramatically.</li>
+<li>Playground One can optionally use its own AWS user with limited privileges. The user can be created by running <code>pgo --apply user</code>, which of course requires administrative privileges with your own AWS user. You have to enable the PGO user in the configuration, but you can disable it at any time.</li>
+<li>Migrated EKS cluster deployments to use the <a href="https://github.com/trendmicro/terraform-provider-vision-one/tree/main">Vision One Terraform Provider</a>. </li>
 </ul>
 <p><strong><em>0.3.3</em></strong></p>
 <p><em>New</em></p>
