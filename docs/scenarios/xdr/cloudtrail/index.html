@@ -9,25 +9,25 @@
       
       
       
-        <link rel="prev" href="../splunk-setup/">
+        <link rel="prev" href="../../asrm/pm/template-scanning-exception-handling/">
       
       
-        <link rel="next" href="../splunk-integrate-vision-one-custom-rules/">
+        <link rel="next" href="../oat-generation/">
       
       
-      <link rel="icon" href="../../../../images/playground-icon.png">
+      <link rel="icon" href="../../../images/playground-icon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
     
     
       
-        <title>Integrate Splunk with Vision One XDR - Playground One</title>
+        <title>CloudTrail - Playground One</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../../css/extra.css">
+      <link rel="stylesheet" href="../../../css/extra.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#integrate-splunk-with-vision-one-xdr" class="md-skip">
+        <a href="#scenario-cloudtrail" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +90,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Playground One" class="md-header__button md-logo" aria-label="Playground One" data-md-component="logo">
+    <a href="../../.." title="Playground One" class="md-header__button md-logo" aria-label="Playground One" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Integrate Splunk with Vision One XDR
+              CloudTrail
             
           </span>
         </div>
@@ -203,7 +203,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -222,7 +222,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../how-it-works/orchestration/" class="md-tabs__link">
+        <a href="../../../how-it-works/orchestration/" class="md-tabs__link">
           
   
   How it Works
@@ -240,7 +240,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../getting-started/prepare/" class="md-tabs__link">
+        <a href="../../../getting-started/prepare/" class="md-tabs__link">
           
   
   Getting Started
@@ -258,7 +258,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../integrations/endpoint-security/" class="md-tabs__link">
+        <a href="../../../integrations/endpoint-security/" class="md-tabs__link">
           
   
   Integrations
@@ -286,7 +286,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../asrm/virtual-machine-attack-path/" class="md-tabs__link">
+        <a href="../../asrm/virtual-machine-attack-path/" class="md-tabs__link">
           
   
   Scenarios
@@ -305,7 +305,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../faq/" class="md-tabs__link">
+      <a href="../../../faq/" class="md-tabs__link">
         
   
     
@@ -322,7 +322,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../bloopers/" class="md-tabs__link">
+      <a href="../../../bloopers/" class="md-tabs__link">
         
   
     
@@ -362,7 +362,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Playground One" class="md-nav__button md-logo" aria-label="Playground One" data-md-component="logo">
+    <a href="../../.." title="Playground One" class="md-nav__button md-logo" aria-label="Playground One" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -392,7 +392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -450,7 +450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-it-works/orchestration/" class="md-nav__link">
+      <a href="../../../how-it-works/orchestration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -509,7 +509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-it-works/configurations/" class="md-nav__link">
+      <a href="../../../how-it-works/configurations/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -530,7 +530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-it-works/configurations-aws/" class="md-nav__link">
+      <a href="../../../how-it-works/configurations-aws/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -551,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-it-works/configurations-azure/" class="md-nav__link">
+      <a href="../../../how-it-works/configurations-azure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -572,7 +572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-it-works/configurations-kind/" class="md-nav__link">
+      <a href="../../../how-it-works/configurations-kind/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -601,7 +601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-it-works/add-ons/" class="md-nav__link">
+      <a href="../../../how-it-works/add-ons/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -667,7 +667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/prepare/" class="md-nav__link">
+      <a href="../../../getting-started/prepare/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -688,7 +688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/configuration/" class="md-nav__link">
+      <a href="../../../getting-started/configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -709,7 +709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/life-cycle/" class="md-nav__link">
+      <a href="../../../getting-started/life-cycle/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -775,7 +775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../integrations/endpoint-security/" class="md-nav__link">
+      <a href="../../../integrations/endpoint-security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -796,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../integrations/container-security/" class="md-nav__link">
+      <a href="../../../integrations/container-security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -817,7 +817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../integrations/deep-security/" class="md-nav__link">
+      <a href="../../../integrations/deep-security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -838,7 +838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../integrations/prometheus-grafana/" class="md-nav__link">
+      <a href="../../../integrations/prometheus-grafana/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -859,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../integrations/splunk/" class="md-nav__link">
+      <a href="../../../integrations/splunk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -880,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../integrations/elastic-stack/" class="md-nav__link">
+      <a href="../../../integrations/elastic-stack/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -989,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../asrm/virtual-machine-attack-path/" class="md-nav__link">
+      <a href="../../asrm/virtual-machine-attack-path/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1010,7 +1010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../asrm/iam-user-attack-path/" class="md-nav__link">
+      <a href="../../asrm/iam-user-attack-path/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1069,7 +1069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../asrm/pm/template-scanning-terraform-github-action/" class="md-nav__link">
+      <a href="../../asrm/pm/template-scanning-terraform-github-action/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1090,7 +1090,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../asrm/pm/template-scanning-cfn-github-action/" class="md-nav__link">
+      <a href="../../asrm/pm/template-scanning-cfn-github-action/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1111,7 +1111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../asrm/pm/template-scanning-exception-handling/" class="md-nav__link">
+      <a href="../../asrm/pm/template-scanning-exception-handling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1145,6 +1145,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1154,11 +1156,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
         
           
           <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
@@ -1172,184 +1174,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
             XDR Threat Investigation
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../xdr/cloudtrail/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    CloudTrail
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../xdr/oat-generation/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Automated Observed Attack Techniques Generation
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../xdr/workbench-generation/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Automated Workbench Generation
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Workflow and Automation
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5_3">
-            <span class="md-nav__icon md-icon"></span>
-            Workflow and Automation
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_1" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_5_3_1" id="__nav_5_3_1_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Third-Party Integration
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5_3_1">
-            <span class="md-nav__icon md-icon"></span>
-            Third-Party Integration
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../splunk-setup/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Setup Splunk
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -1371,7 +1201,7 @@
           
   
   <span class="md-ellipsis">
-    Integrate Splunk with Vision One XDR
+    CloudTrail
   </span>
   
 
@@ -1382,7 +1212,7 @@
         
   
   <span class="md-ellipsis">
-    Integrate Splunk with Vision One XDR
+    CloudTrail
   </span>
   
 
@@ -1413,27 +1243,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-the-trend-vision-one-for-splunk-xdr-app" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Install the Trend Vision One for Splunk (XDR) App
+      Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#connect-splunk-to-vision-one" class="md-nav__link">
+  <a href="#the-story" class="md-nav__link">
     <span class="md-ellipsis">
-      Connect Splunk to Vision One
+      The story
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#optional-generate-detections-locally" class="md-nav__link">
+  <a href="#run-the-attack" class="md-nav__link">
     <span class="md-ellipsis">
-      (Optional) Generate Detections Locally
+      Run the Attack
     </span>
   </a>
   
@@ -1455,7 +1285,175 @@
   
   
     <li class="md-nav__item">
-      <a href="../splunk-integrate-vision-one-custom-rules/" class="md-nav__link">
+      <a href="../oat-generation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automated Observed Attack Techniques Generation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workbench-generation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automated Workbench Generation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Workflow and Automation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Workflow and Automation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3_1" id="__nav_5_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Third-Party Integration
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Third-Party Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../automation/thirdparty/splunk-setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup Splunk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../automation/thirdparty/splunk-integrate-vision-one-xdr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrate Splunk with Vision One XDR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../automation/thirdparty/splunk-integrate-vision-one-custom-rules/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1476,7 +1474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../elastic-stack/" class="md-nav__link">
+      <a href="../../automation/thirdparty/elastic-stack/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1497,7 +1495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../elastic-stack-vision-one/" class="md-nav__link">
+      <a href="../../automation/thirdparty/elastic-stack-vision-one/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1564,7 +1562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../service-gateway/v1-aws-service-gateway-manually/" class="md-nav__link">
+      <a href="../../automation/service-gateway/v1-aws-service-gateway-manually/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1585,7 +1583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../service-gateway/v1-aws-service-gateway-automatically/" class="md-nav__link">
+      <a href="../../automation/service-gateway/v1-aws-service-gateway-automatically/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1606,7 +1604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../service-gateway/v1-integrate-active-directory/" class="md-nav__link">
+      <a href="../../automation/service-gateway/v1-integrate-active-directory/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1719,7 +1717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../identity-security/identity-posture/populate-ad/" class="md-nav__link">
+      <a href="../../identity-security/identity-posture/populate-ad/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1832,7 +1830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../endpoint-security/deep-security/ds-integrate/" class="md-nav__link">
+      <a href="../../endpoint-security/deep-security/ds-integrate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1853,7 +1851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../endpoint-security/deep-security/ds-integrate-and-service-gateway/" class="md-nav__link">
+      <a href="../../endpoint-security/deep-security/ds-integrate-and-service-gateway/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1874,7 +1872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../endpoint-security/deep-security/ds-migrate/" class="md-nav__link">
+      <a href="../../endpoint-security/deep-security/ds-migrate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1941,7 +1939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../endpoint-security/workload-security/ws-integrate/" class="md-nav__link">
+      <a href="../../endpoint-security/workload-security/ws-integrate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2092,7 +2090,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/container-security/eks/escape/" class="md-nav__link">
+      <a href="../../cloud-security/container-security/eks/escape/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2113,7 +2111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/container-security/eks/dind-exploitation/" class="md-nav__link">
+      <a href="../../cloud-security/container-security/eks/dind-exploitation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2134,7 +2132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/container-security/eks/hunger-check/" class="md-nav__link">
+      <a href="../../cloud-security/container-security/eks/hunger-check/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2155,7 +2153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/container-security/eks/runtime-vulnerability-ec2/" class="md-nav__link">
+      <a href="../../cloud-security/container-security/eks/runtime-vulnerability-ec2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2176,7 +2174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/container-security/eks/runtime-vulnerability-fargate/" class="md-nav__link">
+      <a href="../../cloud-security/container-security/eks/runtime-vulnerability-fargate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2197,7 +2195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../splunk-integrate-vision-one-custom-rules/" class="md-nav__link">
+      <a href="../../automation/thirdparty/splunk-integrate-vision-one-custom-rules/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2264,7 +2262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/container-security/ecs/apache-struts-rce/" class="md-nav__link">
+      <a href="../../cloud-security/container-security/ecs/apache-struts-rce/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2285,7 +2283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/container-security/ecs/runtime-vulnerability/" class="md-nav__link">
+      <a href="../../cloud-security/container-security/ecs/runtime-vulnerability/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2352,7 +2350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/container-security/artifact-scanning/tmas-artifact-scanning/" class="md-nav__link">
+      <a href="../../cloud-security/container-security/artifact-scanning/tmas-artifact-scanning/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2373,7 +2371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/container-security/artifact-scanning/tmas-github-action/" class="md-nav__link">
+      <a href="../../cloud-security/container-security/artifact-scanning/tmas-github-action/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2486,7 +2484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/file-security/artifact-scanning/tmfs-artifact-scanning/" class="md-nav__link">
+      <a href="../../cloud-security/file-security/artifact-scanning/tmfs-artifact-scanning/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2507,7 +2505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/file-security/artifact-scanning/tmfs-s3-bucket-scanning/" class="md-nav__link">
+      <a href="../../cloud-security/file-security/artifact-scanning/tmfs-s3-bucket-scanning/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2559,7 +2557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../faq/" class="md-nav__link">
+      <a href="../../../faq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2579,7 +2577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../bloopers/" class="md-nav__link">
+      <a href="../../../bloopers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2628,27 +2626,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-the-trend-vision-one-for-splunk-xdr-app" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Install the Trend Vision One for Splunk (XDR) App
+      Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#connect-splunk-to-vision-one" class="md-nav__link">
+  <a href="#the-story" class="md-nav__link">
     <span class="md-ellipsis">
-      Connect Splunk to Vision One
+      The story
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#optional-generate-detections-locally" class="md-nav__link">
+  <a href="#run-the-attack" class="md-nav__link">
     <span class="md-ellipsis">
-      (Optional) Generate Detections Locally
+      Run the Attack
     </span>
   </a>
   
@@ -2672,45 +2670,27 @@
   
 
 
-<h1 id="integrate-splunk-with-vision-one-xdr">Integrate Splunk with Vision One XDR<a class="headerlink" href="#integrate-splunk-with-vision-one-xdr" title="Permanent link">&para;</a></h1>
+<h1 id="scenario-cloudtrail">Scenario: CloudTrail<a class="headerlink" href="#scenario-cloudtrail" title="Permanent link">&para;</a></h1>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Docker Engine with Compose enabled</li>
-<li>Completed Scenario <a href="../splunk-setup/">Splunk Setup</a></li>
+<li>None</li>
 </ul>
-<h2 id="install-the-trend-vision-one-for-splunk-xdr-app">Install the Trend Vision One for Splunk (XDR) App<a class="headerlink" href="#install-the-trend-vision-one-for-splunk-xdr-app" title="Permanent link">&para;</a></h2>
-<p>Navigate to <code>Apps -&gt; Manage Apps</code> in the top left of your Splunk frontent. Click on the green <code>[Browse more apps]</code> button in the top right afterwards.</p>
-<p>Now, type <code>trend micro</code> in the search bar at the top left and press <code>[Enter]</code>.</p>
-<p>You should see seven apps as the result, whereby one is <code>Trend Vision One for Splunk (XDR)</code>.</p>
-<p><img alt="alt text" src="../images/splunk-app-v1xdr-01.png" title="App" /></p>
-<p>Click the green <code>[Install]</code>-button.</p>
-<p>In the next dialog you will be prompted to enter your personal user credentials of your Splunk account:</p>
-<p><img alt="alt text" src="../images/splunk-app-v1xdr-02.png" title="App" /></p>
-<p>You will be promped to restart Splunk. After the successful restart you should see the XDR App as shown below.</p>
-<p><img alt="alt text" src="../images/splunk-app-v1xdr-04.png" title="App" /></p>
-<h2 id="connect-splunk-to-vision-one">Connect Splunk to Vision One<a class="headerlink" href="#connect-splunk-to-vision-one" title="Permanent link">&para;</a></h2>
-<p>The XDR App will pull data from Vision One. To allow this we need to head over to Vision One and create an API Key for your Splunk instance.</p>
-<p>In Vision One head over to <code>Workflow and Automation -&gt; Third-Party Ingegration</code> and filter for <code>Splunk</code> in the vendors section. This should filter on four available integration variants. Choose <code>Splunk XDR</code> in this case.</p>
-<p><img alt="alt text" src="../images/splunk-app-v1xdr-05.png" title="Integration" /></p>
-<p>Click on <code>[Generate]</code> and in the <code>Add API Key</code>-dialog on <code>[Add]</code>.</p>
-<p>Save the generated API Key in a secure location.</p>
-<p>Next, go back to your Splunk and the XDR App we just installed. In the apps menu select <code>Configuration</code> and click on the pencil button of the <code>default_account</code>.</p>
-<p><img alt="alt text" src="../images/splunk-app-v1xdr-07.png" title="Integration" /></p>
-<p>As URL type <code>https://api.xdr.trendmicro.com</code> for an US instance of Vision One. Adapt the URL if your instance is located in another region (see <a href="../../../../faq/#know-how-to-check-the-region-and-data-center-location-details-in-trend-vision-one">FAQ</a>).</p>
-<p>As the <code>Authentication token</code> paste the API Key generated in Vision One beforehand.</p>
-<p><img alt="alt text" src="../images/splunk-app-v1xdr-08.png" title="Integration" /></p>
-<p>Click <code>[Update]</code>.</p>
-<p>From now on, any new Workbench Alerts and OATs should show up in Splunk.</p>
-<h2 id="optional-generate-detections-locally">(Optional) Generate Detections Locally<a class="headerlink" href="#optional-generate-detections-locally" title="Permanent link">&para;</a></h2>
-<p>If you want to automatically generate Workbenches and OATs deploy any of the provided Scenario configurations of Playground One (EKS with EC2 or Fargate, or Kind).</p>
-<p>Below, how to do this using the built in Kind cluster:</p>
-<p><strong><em>Prerequisite: Vision One Container Security configured in Playground One configuration.</em></strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--init<span class="w"> </span>kind
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>kind
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>scenarios-kind
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Automated malicious actions are executed on running this scenario which lead to detections in Observed Attack Techniques and the generation of Workbenches.</p>
+<h2 id="the-story">The story<a class="headerlink" href="#the-story" title="Permanent link">&para;</a></h2>
+<p>Somehow an attacker gained the ability to create a user in your AWS account. The user he creates allows him to enumerate over your S3 buckets and to search for credentials to download.</p>
+<p>Screenshot of generated OATs:</p>
+<p><img alt="alt text" src="../images/cloudtrail-01.png" title="OATs" /></p>
+<h2 id="run-the-attack">Run the Attack<a class="headerlink" href="#run-the-attack" title="Permanent link">&para;</a></h2>
+<p>So, this is very simple :-)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Create the user, search buckets, download credentials</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>scenarios-cloudtrail
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Delete the user again</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>scenarios-cloudtrail
 </code></pre></div>
-<p>The Kind scenarios will generate findings every full hour.</p>
-<p><img alt="alt text" src="../images/splunk-app-v1xdr-09.png" title="Splunk" /></p>
+<p>Review the detections in Vision One.</p>
+<p>🎉 Success 🎉</p>
 
 
 
@@ -2774,10 +2754,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.path", "content.tabs.link", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.path", "content.tabs.link", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
     
   </body>
