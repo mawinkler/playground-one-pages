@@ -2282,7 +2282,7 @@
         
   
   <span class="md-ellipsis">
-    Scan Containers for Vulnerabilities and Malware
+    Container Image Scanning for Vulnerabilities, Malware, and Secrets
   </span>
   
 
@@ -2982,7 +2982,7 @@
 <a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a><span class="w">          </span><span class="no"># Install tmas latest version</span>
 <a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a><span class="w">          </span><span class="no">curl -s -L https://gist.github.com/raphabot/abae09b46c29afc7c3b918b7b8ec2a5c/raw/ | bash</span>
 <a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a>
-<a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a><span class="w">          </span><span class="no">tmas scan &quot;$(if [ &quot;$MALWARE_SCAN&quot; = true ]; then echo &quot;--malwareScan&quot;; fi)&quot; -r &quot;$REGION&quot; docker-archive:/tmp/image.tar &quot;$(if [ &quot;$SBOM&quot; = true ]; then echo &quot;--saveSBOM&quot;; fi)&quot; | tee result.json</span>
+<a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a><span class="w">          </span><span class="no">tmas scan -V &quot;$(if [ &quot;$MALWARE_SCAN&quot; = true ]; then echo &quot;-M&quot;; fi)&quot; -r &quot;$REGION&quot; docker-archive:/tmp/image.tar &quot;$(if [ &quot;$SBOM&quot; = true ]; then echo &quot;--saveSBOM&quot;; fi)&quot; | tee result.json</span>
 <a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a>
 <a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a><span class="w">          </span><span class="no">if [ &quot;$SBOM&quot; = true ]; then mv SBOM_* sbom.json; fi</span>
 <a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a>
@@ -3059,7 +3059,7 @@
 <a id="__codelineno-1-130" name="__codelineno-1-130" href="#__codelineno-1-130"></a><span class="w">      </span><span class="c1"># Rescan in the registry to support admission control</span>
 <a id="__codelineno-1-131" name="__codelineno-1-131" href="#__codelineno-1-131"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Registry Scan</span>
 <a id="__codelineno-1-132" name="__codelineno-1-132" href="#__codelineno-1-132"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<a id="__codelineno-1-133" name="__codelineno-1-133" href="#__codelineno-1-133"></a><span class="w">          </span><span class="no">tmas scan &quot;$(if [ &quot;$MALWARE_SCAN&quot; = true ]; then echo &quot;--malwareScan&quot;; fi)&quot; -r &quot;$REGION&quot; -p linux/amd64 registry:${{ steps.meta.outputs.tags }} || true</span>
+<a id="__codelineno-1-133" name="__codelineno-1-133" href="#__codelineno-1-133"></a><span class="w">          </span><span class="no">tmas scan -V &quot;$(if [ &quot;$MALWARE_SCAN&quot; = true ]; then echo &quot;-M&quot;; fi)&quot; -r &quot;$REGION&quot; -p linux/amd64 registry:${{ steps.meta.outputs.tags }} || true</span>
 </code></pre></div>
 <h3 id="secrets">Secrets<a class="headerlink" href="#secrets" title="Permanent link">&para;</a></h3>
 <p>The workflow requires a secret to be set. For that navigate to <code>Settings --&gt; Security --&gt; Secrets and variables --&gt; Actions --&gt; Secrets</code>.</p>
