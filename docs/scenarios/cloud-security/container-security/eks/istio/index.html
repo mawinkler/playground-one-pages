@@ -2743,10 +2743,12 @@
           namespace: "istio-ingress"
           is_core: true
           is_proxy: true</p>
-<p>kubectl apply -f samples/addons/grafana.yaml 
+<p>kubectl apply -f samples/addons/kiali.yaml 
+kubectl apply -f samples/addons/grafana.yaml 
 kubectl apply -f samples/addons/prometheus.yaml 
 kubectl apply -f samples/addons/jaeger.yaml</p>
-<p>kubectl destroy -f samples/addons/grafana.yaml 
+<p>kubectl destroy -f samples/addons/kiali.yaml 
+kubectl destroy -f samples/addons/grafana.yaml 
 kubectl destroy -f samples/addons/prometheus.yaml 
 kubectl destroy -f samples/addons/jaeger.yaml</p>
 
