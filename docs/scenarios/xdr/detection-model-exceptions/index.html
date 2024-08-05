@@ -9,25 +9,25 @@
       
       
       
-        <link rel="prev" href="../../../identity-security/identity-posture/populate-ad/">
+        <link rel="prev" href="../workbench-generation/">
       
       
-        <link rel="next" href="../ds-integrate-demo/">
+        <link rel="next" href="../../automation/thirdparty/splunk-setup/">
       
       
-      <link rel="icon" href="../../../../images/playground-icon.png">
+      <link rel="icon" href="../../../images/playground-icon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
     
     
       
-        <title>Integrate Deep Security with Vision One - Playground One</title>
+        <title>Detection Model Exceptions - Playground One</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../../css/extra.css">
+      <link rel="stylesheet" href="../../../css/extra.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scenario-integrate-deep-security-with-vision-one" class="md-skip">
+        <a href="#scenario-detection-model-exceptions" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +90,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Playground One" class="md-header__button md-logo" aria-label="Playground One" data-md-component="logo">
+    <a href="../../.." title="Playground One" class="md-header__button md-logo" aria-label="Playground One" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Integrate Deep Security with Vision One
+              Detection Model Exceptions
             
           </span>
         </div>
@@ -203,7 +203,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -222,7 +222,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../how-it-works/orchestration/" class="md-tabs__link">
+        <a href="../../../how-it-works/orchestration/" class="md-tabs__link">
           
   
   How it Works
@@ -240,7 +240,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../getting-started/prepare/" class="md-tabs__link">
+        <a href="../../../getting-started/prepare/" class="md-tabs__link">
           
   
   Getting Started
@@ -258,7 +258,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../integrations/endpoint-security/" class="md-tabs__link">
+        <a href="../../../integrations/endpoint-security/" class="md-tabs__link">
           
   
   Integrations
@@ -286,7 +286,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../asrm/virtual-machine-attack-path/" class="md-tabs__link">
+        <a href="../../asrm/virtual-machine-attack-path/" class="md-tabs__link">
           
   
   Scenarios
@@ -305,7 +305,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../faq/" class="md-tabs__link">
+      <a href="../../../faq/" class="md-tabs__link">
         
   
     
@@ -322,7 +322,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../bloopers/" class="md-tabs__link">
+      <a href="../../../bloopers/" class="md-tabs__link">
         
   
     
@@ -362,7 +362,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Playground One" class="md-nav__button md-logo" aria-label="Playground One" data-md-component="logo">
+    <a href="../../.." title="Playground One" class="md-nav__button md-logo" aria-label="Playground One" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -392,7 +392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -450,7 +450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-it-works/orchestration/" class="md-nav__link">
+      <a href="../../../how-it-works/orchestration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -509,7 +509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-it-works/configurations/" class="md-nav__link">
+      <a href="../../../how-it-works/configurations/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -530,7 +530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-it-works/configurations-aws/" class="md-nav__link">
+      <a href="../../../how-it-works/configurations-aws/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -551,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-it-works/configurations-azure/" class="md-nav__link">
+      <a href="../../../how-it-works/configurations-azure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -572,7 +572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-it-works/configurations-kind/" class="md-nav__link">
+      <a href="../../../how-it-works/configurations-kind/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -601,7 +601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-it-works/add-ons/" class="md-nav__link">
+      <a href="../../../how-it-works/add-ons/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -667,7 +667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/prepare/" class="md-nav__link">
+      <a href="../../../getting-started/prepare/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -688,7 +688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/configuration/" class="md-nav__link">
+      <a href="../../../getting-started/configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -709,7 +709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/life-cycle/" class="md-nav__link">
+      <a href="../../../getting-started/life-cycle/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -775,7 +775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../integrations/endpoint-security/" class="md-nav__link">
+      <a href="../../../integrations/endpoint-security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -796,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../integrations/container-security/" class="md-nav__link">
+      <a href="../../../integrations/container-security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -817,7 +817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../integrations/deep-security/" class="md-nav__link">
+      <a href="../../../integrations/deep-security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -838,7 +838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../integrations/prometheus-grafana/" class="md-nav__link">
+      <a href="../../../integrations/prometheus-grafana/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -859,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../integrations/splunk/" class="md-nav__link">
+      <a href="../../../integrations/splunk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -880,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../integrations/elastic-stack/" class="md-nav__link">
+      <a href="../../../integrations/elastic-stack/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -989,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../asrm/virtual-machine-attack-path/" class="md-nav__link">
+      <a href="../../asrm/virtual-machine-attack-path/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1010,7 +1010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../asrm/iam-user-attack-path/" class="md-nav__link">
+      <a href="../../asrm/iam-user-attack-path/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1069,7 +1069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../asrm/pm/template-scanning-terraform-github-action/" class="md-nav__link">
+      <a href="../../asrm/pm/template-scanning-terraform-github-action/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1090,7 +1090,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../asrm/pm/template-scanning-cfn-github-action/" class="md-nav__link">
+      <a href="../../asrm/pm/template-scanning-cfn-github-action/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1111,7 +1111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../asrm/pm/template-scanning-exception-handling/" class="md-nav__link">
+      <a href="../../asrm/pm/template-scanning-exception-handling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1145,6 +1145,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1154,11 +1156,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
         
           
           <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
@@ -1172,7 +1174,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
             XDR Threat Investigation
@@ -1186,7 +1188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../xdr/cloudtrail/" class="md-nav__link">
+      <a href="../cloudtrail/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1207,7 +1209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../xdr/oat-generation/" class="md-nav__link">
+      <a href="../oat-generation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1228,7 +1230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../xdr/workbench-generation/" class="md-nav__link">
+      <a href="../workbench-generation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1246,10 +1248,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../xdr/detection-model-exceptions/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Detection Model Exceptions
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1258,6 +1280,62 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vision-one-container-security-overrides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vision One Container Security Overrides
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detection-model-exception-for-calico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detection Model Exception for Calico
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detection-model-exception-for-istio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detection Model Exception for Istio
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1354,7 +1432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../automation/thirdparty/splunk-setup/" class="md-nav__link">
+      <a href="../../automation/thirdparty/splunk-setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1375,7 +1453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../automation/thirdparty/splunk-integrate-vision-one-xdr/" class="md-nav__link">
+      <a href="../../automation/thirdparty/splunk-integrate-vision-one-xdr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1396,7 +1474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../automation/thirdparty/splunk-integrate-vision-one-custom-rules/" class="md-nav__link">
+      <a href="../../automation/thirdparty/splunk-integrate-vision-one-custom-rules/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1417,7 +1495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../automation/thirdparty/elastic-stack/" class="md-nav__link">
+      <a href="../../automation/thirdparty/elastic-stack/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1438,7 +1516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../automation/thirdparty/elastic-stack-vision-one/" class="md-nav__link">
+      <a href="../../automation/thirdparty/elastic-stack-vision-one/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1505,7 +1583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../automation/service-gateway/v1-aws-service-gateway-manually/" class="md-nav__link">
+      <a href="../../automation/service-gateway/v1-aws-service-gateway-manually/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1526,7 +1604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../automation/service-gateway/v1-aws-service-gateway-automatically/" class="md-nav__link">
+      <a href="../../automation/service-gateway/v1-aws-service-gateway-automatically/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1547,7 +1625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../automation/service-gateway/v1-integrate-active-directory/" class="md-nav__link">
+      <a href="../../automation/service-gateway/v1-integrate-active-directory/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1660,7 +1738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../identity-security/identity-posture/populate-ad/" class="md-nav__link">
+      <a href="../../identity-security/identity-posture/populate-ad/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1694,8 +1772,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1705,11 +1781,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
         
           
           <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
@@ -1723,7 +1799,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_5">
             <span class="md-nav__icon md-icon"></span>
             Endpoint Security
@@ -1734,8 +1810,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1745,11 +1819,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5_1" >
         
           
           <label class="md-nav__link" for="__nav_5_5_1" id="__nav_5_5_1_label" tabindex="0">
@@ -1763,7 +1837,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_5_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_5_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_5_1">
             <span class="md-nav__icon md-icon"></span>
             Deep Security
@@ -1774,30 +1848,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Integrate Deep Security with Vision One
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../endpoint-security/deep-security/ds-integrate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1806,71 +1860,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prerequisites
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#current-situation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Current Situation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#integration-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Integration Workflow
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-endpoint-sensor-on-instances" class="md-nav__link">
-    <span class="md-ellipsis">
-      Install Endpoint Sensor on Instances
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#result-and-benefits" class="md-nav__link">
-    <span class="md-ellipsis">
-      Result and Benefits
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1883,7 +1872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ds-integrate-demo/" class="md-nav__link">
+      <a href="../../endpoint-security/deep-security/ds-integrate-demo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1904,7 +1893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ds-integrate-and-service-gateway/" class="md-nav__link">
+      <a href="../../endpoint-security/deep-security/ds-integrate-and-service-gateway/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1925,7 +1914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ds-migrate/" class="md-nav__link">
+      <a href="../../endpoint-security/deep-security/ds-migrate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1992,7 +1981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../workload-security/ws-integrate/" class="md-nav__link">
+      <a href="../../endpoint-security/workload-security/ws-integrate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2143,7 +2132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/container-security/eks/escape/" class="md-nav__link">
+      <a href="../../cloud-security/container-security/eks/escape/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2164,7 +2153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/container-security/eks/dind-exploitation/" class="md-nav__link">
+      <a href="../../cloud-security/container-security/eks/dind-exploitation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2185,7 +2174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/container-security/eks/hunger-check/" class="md-nav__link">
+      <a href="../../cloud-security/container-security/eks/hunger-check/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2206,7 +2195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/container-security/eks/runtime-vulnerability-ec2/" class="md-nav__link">
+      <a href="../../cloud-security/container-security/eks/runtime-vulnerability-ec2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2227,7 +2216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/container-security/eks/runtime-vulnerability-fargate/" class="md-nav__link">
+      <a href="../../cloud-security/container-security/eks/runtime-vulnerability-fargate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2248,7 +2237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../automation/thirdparty/splunk-integrate-vision-one-custom-rules/" class="md-nav__link">
+      <a href="../../automation/thirdparty/splunk-integrate-vision-one-custom-rules/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2269,7 +2258,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/container-security/eks/istio/" class="md-nav__link">
+      <a href="../../cloud-security/container-security/eks/istio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2336,7 +2325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/container-security/ecs/apache-struts-rce/" class="md-nav__link">
+      <a href="../../cloud-security/container-security/ecs/apache-struts-rce/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2357,7 +2346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/container-security/ecs/runtime-vulnerability/" class="md-nav__link">
+      <a href="../../cloud-security/container-security/ecs/runtime-vulnerability/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2424,7 +2413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/container-security/artifact-scanning/tmas-artifact-scanning/" class="md-nav__link">
+      <a href="../../cloud-security/container-security/artifact-scanning/tmas-artifact-scanning/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2445,7 +2434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/container-security/artifact-scanning/tmas-github-action/" class="md-nav__link">
+      <a href="../../cloud-security/container-security/artifact-scanning/tmas-github-action/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2558,7 +2547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/file-security/artifact-scanning/tmfs-artifact-scanning/" class="md-nav__link">
+      <a href="../../cloud-security/file-security/artifact-scanning/tmfs-artifact-scanning/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2579,7 +2568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud-security/file-security/artifact-scanning/tmfs-s3-bucket-scanning/" class="md-nav__link">
+      <a href="../../cloud-security/file-security/artifact-scanning/tmfs-s3-bucket-scanning/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2700,7 +2689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../network-security/v1-virtual-network-sensor-manually/" class="md-nav__link">
+      <a href="../../network-security/v1-virtual-network-sensor-manually/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2721,7 +2710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../network-security/v1-virtual-network-sensor-automatically/" class="md-nav__link">
+      <a href="../../network-security/v1-virtual-network-sensor-automatically/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2765,7 +2754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../faq/" class="md-nav__link">
+      <a href="../../../faq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2785,7 +2774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../bloopers/" class="md-nav__link">
+      <a href="../../../bloopers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2834,36 +2823,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#current-situation" class="md-nav__link">
+  <a href="#vision-one-container-security-overrides" class="md-nav__link">
     <span class="md-ellipsis">
-      Current Situation
+      Vision One Container Security Overrides
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#integration-workflow" class="md-nav__link">
+  <a href="#detection-model-exception-for-calico" class="md-nav__link">
     <span class="md-ellipsis">
-      Integration Workflow
+      Detection Model Exception for Calico
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-endpoint-sensor-on-instances" class="md-nav__link">
+  <a href="#detection-model-exception-for-istio" class="md-nav__link">
     <span class="md-ellipsis">
-      Install Endpoint Sensor on Instances
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#result-and-benefits" class="md-nav__link">
-    <span class="md-ellipsis">
-      Result and Benefits
+      Detection Model Exception for Istio
     </span>
   </a>
   
@@ -2887,108 +2867,30 @@
   
 
 
-<h1 id="scenario-integrate-deep-security-with-vision-one">Scenario: Integrate Deep Security with Vision One<a class="headerlink" href="#scenario-integrate-deep-security-with-vision-one" title="Permanent link">&para;</a></h1>
+<h1 id="scenario-detection-model-exceptions">Scenario: Detection Model Exceptions<a class="headerlink" href="#scenario-detection-model-exceptions" title="Permanent link">&para;</a></h1>
+<p><strong><em>Draft</em></strong></p>
+<div class="admonition warning">
+<p class="admonition-title">UNVERIFIED</p>
+<p>Usefull, when you don't want to set namespace exclusions in Container Security but
+don't want OATs/Workbenches generated for know as-designed behavior.</p>
+</div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Playground One Deep Security</li>
-<li>Playground One Deep Security Workload</li>
+<li>Playground One EKS EC2 or Fargate Cluster</li>
+<li>Vision One Container Security</li>
+<li>Playground One Scenarios</li>
 </ul>
-<p>The Playground One can provide a simulated on-premise Deep Security deployment. For simulation purposes it creates a dedicated VPC with the most commonly used architecture, private and public subnets accross two availability zones. </p>
-<p>Deep Security itself is located within the private subnet and uses a RDS Postgres as the database. The Deep Security Workload configuration creates two linux and one windows server with a deployed and activated Deep Security Agent. Some essential configurations in Deep Security are executed via REST. These are (amongst others):</p>
-<ul>
-<li>Creation of a Windows and Linux Policy with valid configurations for the security modules</li>
-<li>Activation of agent initiated activation</li>
-<li>Scheduling a recommendation scan for all created instances</li>
-</ul>
-<p>For this scenarion you need to ensure to have the Deep Security and Deep Security Workload configurations up and running:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>dsm
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>dsw
+<p>Ensure to have the EKS EC2 or Fargate Cluster including the Scenarios up and running:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># EC2 only</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>eks-ec2
 </code></pre></div>
-<h2 id="current-situation">Current Situation<a class="headerlink" href="#current-situation" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Deep Security secures instances in an on-premise environment simulated for this scenario, to which you want to add the XDR capabilities provided by Vision One.</li>
-<li>You start by integrating Deep Security into the platform.</li>
-</ul>
-<h2 id="integration-workflow">Integration Workflow<a class="headerlink" href="#integration-workflow" title="Permanent link">&para;</a></h2>
-<p><strong>Vision One</strong></p>
-<ol>
-<li><code>Vision One Product Instances --&gt; Add Existing Product</code>.</li>
-<li>Choose <code>Trend Micro Deep Security</code> --&gt; <code>Click to generate the enrollment token</code>.</li>
-</ol>
-<p><img alt="alt text" src="../images/ds-integrate-13.png" title="Vision One" /></p>
-<ol>
-<li>Copy the enrollment token and save the token.</li>
-<li>Click <code>[Save]</code>.</li>
-<li>Click <code>[Connect and Transfer]</code>.</li>
-</ol>
-<p><img alt="alt text" src="../images/ds-integrate-14.png" title="Vision One" /></p>
-<p><strong>Deep Security</strong></p>
-<ol>
-<li>Login to DSM Console as administrator.</li>
-<li>On the Deep Security software console, go to <code>Administration &gt; System Settings &gt; Trend Vision One</code></li>
-<li>Under <code>Registration</code>, click <code>Registration enrollment token</code>.</li>
-</ol>
-<p><img alt="alt text" src="../images/ds-integrate-15.png" title="Deep Security" /></p>
-<ol>
-<li>In the dialog that appears, paste the enrollment token and click  <code>[Register]</code>.</li>
-<li>After successful registration, your Deep Security software automatically enables Forward security events to Trend Vision One and changes the Enrollment status to "Registered".</li>
-</ol>
-<p><img alt="alt text" src="../images/ds-integrate-16.png" title="Deep Security" /></p>
-<p><strong>Vision One</strong></p>
-<ol>
-<li>Go to <code>Product Instance</code> App and verify the DSM On Premise being conncted.</li>
-</ol>
-<p><img alt="alt text" src="../images/ds-integrate-14b.png" title="Vision One" /></p>
-<h2 id="install-endpoint-sensor-on-instances">Install Endpoint Sensor on Instances<a class="headerlink" href="#install-endpoint-sensor-on-instances" title="Permanent link">&para;</a></h2>
-<p>First, lets get the <code>ssh</code> commands to access our servers by running</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pgo<span class="w"> </span>--output<span class="w"> </span>dsw
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w"> </span>__<span class="w">                 </span>__<span class="w">   </span>__<span class="w">   </span>__<span class="w">             </span>__<span class="w">      </span>__<span class="w">        </span>___<span class="w"> </span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">|</span>__<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w">     </span>/<span class="se">\ </span><span class="w"> </span><span class="se">\ </span>/<span class="w"> </span>/<span class="w"> </span>_<span class="sb">`</span><span class="w"> </span><span class="p">|</span>__<span class="o">)</span><span class="w"> </span>/<span class="w">  </span><span class="se">\ </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\ </span><span class="w">   </span>/<span class="w">  </span><span class="se">\ </span><span class="p">|</span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>__<span class="w">  </span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">|</span><span class="w">    </span><span class="p">|</span>___<span class="w"> </span>/~~<span class="se">\ </span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\_</span>_&gt;<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\ \_</span>_/<span class="w"> </span><span class="se">\_</span>_/<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span>__/<span class="w">    </span><span class="se">\_</span>_/<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span>___<span class="w"> </span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>...
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nv">ssh_instance_linux1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i /home/markus/projects/opensource/playground/playground-one/pgo-id-dsm-key-pair.pem -o StrictHostKeyChecking=no ec2-user@3.79.102.108&quot;</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nv">ssh_instance_linux2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i /home/markus/projects/opensource/playground/playground-one/pgo-id-dsm-key-pair.pem -o StrictHostKeyChecking=no ubuntu@18.195.62.150&quot;</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nv">ssh_instance_windows1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i /home/markus/projects/opensource/playground/playground-one/pgo-id-dsm-key-pair.pem -o StrictHostKeyChecking=no admin@18.153.208.157&quot;</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>...
-</code></pre></div>
-<p>To connect to a linux instance via the provided <code>ssh</code> command copy and paste the commnd in your shell</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ssh<span class="w"> </span>-i<span class="w"> </span>/home/markus/projects/opensource/playground/playground-one/pgo-id-dsm-key-pair.pem<span class="w"> </span>-o<span class="w"> </span><span class="nv">StrictHostKeyChecking</span><span class="o">=</span>no<span class="w"> </span>ec2-user@3.79.102.108
-</code></pre></div>
-<p>On the Deep Security software console, go to <code>Administration &gt; System Settings &gt; Trend Vision One</code></p>
-<p><img alt="alt text" src="../images/ds-integrate-16.png" title="Deep Security" /></p>
-<p>This tab shows the Endpoint Sensor deployment script for the supported platform types. First, select <code>Linux (64-bit)</code> and copy the script. In the shell on the connected server run <code>sudo su</code> to get <code>root</code> and simply paste the script.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Last<span class="w"> </span>login:<span class="w"> </span>Tue<span class="w"> </span>Jul<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">12</span>:57:12<span class="w"> </span><span class="m">2024</span><span class="w"> </span>from<span class="w"> </span>p57aa067b.dip0.t-ipconnect.de
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">   </span>,<span class="w">     </span><span class="c1">#_</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">   </span>~<span class="se">\_</span><span class="w">  </span><span class="c1">####_        Amazon Linux 2</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>~~<span class="w">  </span><span class="se">\_</span><span class="c1">#####\</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>~~<span class="w">     </span><span class="se">\#</span><span class="c1">##|       AL2 End of Life is 2025-06-30.</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span>~~<span class="w">       </span><span class="se">\#</span>/<span class="w"> </span>___
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">   </span>~~<span class="w">       </span>V~<span class="s1">&#39; &#39;</span>-&gt;
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span>~~~<span class="w">         </span>/<span class="w">    </span>A<span class="w"> </span>newer<span class="w"> </span>version<span class="w"> </span>of<span class="w"> </span>Amazon<span class="w"> </span>Linux<span class="w"> </span>is<span class="w"> </span>available!
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">      </span>~~._.<span class="w">   </span>_/
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">         </span>_/<span class="w"> </span>_/<span class="w">       </span>Amazon<span class="w"> </span>Linux<span class="w"> </span><span class="m">2023</span>,<span class="w"> </span>GA<span class="w"> </span>and<span class="w"> </span>supported<span class="w"> </span><span class="k">until</span><span class="w"> </span><span class="m">2028</span>-03-15.
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">       </span>_/m/<span class="err">&#39;</span><span class="w">           </span>https://aws.amazon.com/linux/amazon-linux-2023/
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="o">[</span>ec2-user@ip-10-0-4-236<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>sudo<span class="w"> </span>su
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="o">[</span>root@ip-10-0-4-236<span class="w"> </span>ec2-user<span class="o">]</span><span class="c1"># &lt;PASTE&gt;</span>
-</code></pre></div>
-<p>Similar for Windows. Connect to the instance and paste the windows deployment script to the console.  Ignore the error at the top. The agent will install just fine.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ssh<span class="w"> </span>-i<span class="w"> </span>/home/markus/projects/opensource/playground/playground-one/pgo-id-dsm-key-pair.pem<span class="w"> </span>-o<span class="w"> </span><span class="nv">StrictHostKeyChecking</span><span class="o">=</span>no<span class="w"> </span>admin@18.153.208.157
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">Windows</span> <span class="n">PowerShell</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="n">Microsoft</span> <span class="n">Corporation</span><span class="p">.</span> <span class="n">All</span> <span class="n">rights</span> <span class="n">reserved</span><span class="p">.</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">Install</span> <span class="n">the</span> <span class="n">latest</span> <span class="n">PowerShell</span> <span class="k">for</span> <span class="n">new</span> <span class="n">features</span> <span class="n">and</span> <span class="n">improvements</span><span class="p">!</span> <span class="n">https</span><span class="p">://</span><span class="n">aka</span><span class="p">.</span><span class="n">ms</span><span class="p">/</span><span class="n">PSWindows</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">admin</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">PASTE</span><span class="p">&gt;</span>
-</code></pre></div>
-<p>When, as the final step, you head back to <code>Vision One -&gt; Endpoint Security -&gt; Endpoint Inventory</code> you will see the Deep Security instance integrated with Vision One and the available computers.</p>
-<p><img alt="alt text" src="../images/ds-integrate-17.png" title="Vision One" /></p>
-<h2 id="result-and-benefits">Result and Benefits<a class="headerlink" href="#result-and-benefits" title="Permanent link">&para;</a></h2>
-<p>You now have integrated your on-prem Deep Security instance to Vision One and enabled the XDR functionality.</p>
-<p>🎉 Success 🎉</p>
+<h2 id="vision-one-container-security-overrides">Vision One Container Security Overrides<a class="headerlink" href="#vision-one-container-security-overrides" title="Permanent link">&para;</a></h2>
+<h2 id="detection-model-exception-for-calico">Detection Model Exception for Calico<a class="headerlink" href="#detection-model-exception-for-calico" title="Permanent link">&para;</a></h2>
+<p>Calico creates two violations against the runtime rule <code>TM-0000031</code> by the containers <code>flexvol-driver</code> and <code>csi-node-driver-registrar</code>. This is by design and can be excluded with the exception below:</p>
+<p><img alt="alt text" src="../images/detection-model-exceptions-01.png" title="Calico" /></p>
+<h2 id="detection-model-exception-for-istio">Detection Model Exception for Istio<a class="headerlink" href="#detection-model-exception-for-istio" title="Permanent link">&para;</a></h2>
+<p>The deployment of Istio contains a CNI which runs as a privileged pod. This is by design and can be excluded with the exception below:</p>
+<p><img alt="alt text" src="../images/detection-model-exceptions-02.png" title="Istio" /></p>
 
 
 
@@ -3052,10 +2954,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.path", "content.tabs.link", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.path", "content.tabs.link", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
     
   </body>
