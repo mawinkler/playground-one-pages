@@ -20,7 +20,7 @@
     
     
       
-        <title>Detection Model Exceptions - Playground One</title>
+        <title>Detection Model Exceptions for Container Security - Playground One</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scenario-detection-model-exceptions" class="md-skip">
+        <a href="#scenario-detection-model-exceptions-for-container-security" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Detection Model Exceptions
+              Detection Model Exceptions for Container Security
             
           </span>
         </div>
@@ -1264,7 +1264,7 @@
           
   
   <span class="md-ellipsis">
-    Detection Model Exceptions
+    Detection Model Exceptions for Container Security
   </span>
   
 
@@ -1275,7 +1275,7 @@
         
   
   <span class="md-ellipsis">
-    Detection Model Exceptions
+    Detection Model Exceptions for Container Security
   </span>
   
 
@@ -1306,15 +1306,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vision-one-container-security-overrides" class="md-nav__link">
-    <span class="md-ellipsis">
-      Vision One Container Security Overrides
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#detection-model-exception-for-calico" class="md-nav__link">
     <span class="md-ellipsis">
       Detection Model Exception for Calico
@@ -1327,6 +1318,24 @@
   <a href="#detection-model-exception-for-istio" class="md-nav__link">
     <span class="md-ellipsis">
       Detection Model Exception for Istio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploy-the-eks-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploy the EKS Cluster
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verification
     </span>
   </a>
   
@@ -2823,15 +2832,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vision-one-container-security-overrides" class="md-nav__link">
-    <span class="md-ellipsis">
-      Vision One Container Security Overrides
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#detection-model-exception-for-calico" class="md-nav__link">
     <span class="md-ellipsis">
       Detection Model Exception for Calico
@@ -2844,6 +2844,24 @@
   <a href="#detection-model-exception-for-istio" class="md-nav__link">
     <span class="md-ellipsis">
       Detection Model Exception for Istio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploy-the-eks-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploy the EKS Cluster
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verification
     </span>
   </a>
   
@@ -2867,30 +2885,85 @@
   
 
 
-<h1 id="scenario-detection-model-exceptions">Scenario: Detection Model Exceptions<a class="headerlink" href="#scenario-detection-model-exceptions" title="Permanent link">&para;</a></h1>
-<p><strong><em>Draft</em></strong></p>
-<div class="admonition warning">
-<p class="admonition-title">UNVERIFIED</p>
-<p>Useful, when you don't want to set namespace exclusions in Container Security but
-don't want OATs/Workbenches generated for know as-designed behavior.</p>
-</div>
+<h1 id="scenario-detection-model-exceptions-for-container-security">Scenario: Detection Model Exceptions for Container Security<a class="headerlink" href="#scenario-detection-model-exceptions-for-container-security" title="Permanent link">&para;</a></h1>
+<p>This scenario can be useful, if you don't want to use namespace exclusions in Container Security but don't want OATs/Workbenches generated for known as-designed behavior. In this example we're dealing with two exceptions for privileged containers created by Calico and Istio.</p>
+<p>Without namespace exclusions the deployment of Calico and Istio would generate a couple of OATs in Vision One:</p>
+<p><img alt="alt text" src="../images/detection-model-exceptions-01.png" title="OAT" />
+<img alt="alt text" src="../images/detection-model-exceptions-02.png" title="OAT" /></p>
+<p>Here, we're going to set exceptions for these detections.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Playground One EKS EC2 or Fargate Cluster</li>
+<li>Playground One EKS EC2</li>
 <li>Vision One Container Security</li>
-<li>Playground One Scenarios</li>
 </ul>
-<p>Ensure to have the EKS EC2 or Fargate Cluster including the Scenarios up and running:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># EC2 only</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>eks-ec2
+<p>Verify, that you have <code>Deploy Istio</code> enabled in your configuration.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--config
 </code></pre></div>
-<h2 id="vision-one-container-security-overrides">Vision One Container Security Overrides<a class="headerlink" href="#vision-one-container-security-overrides" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>...
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Section:<span class="w"> </span>Kubernetes<span class="w"> </span>Deployments
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Please<span class="w"> </span>set/update<span class="w"> </span>your<span class="w"> </span>Integrations<span class="w"> </span>configuration
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>...
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Deploy<span class="w"> </span>Istio?<span class="w"> </span><span class="o">[</span>true<span class="o">]</span>:
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>...
+</code></pre></div>
 <h2 id="detection-model-exception-for-calico">Detection Model Exception for Calico<a class="headerlink" href="#detection-model-exception-for-calico" title="Permanent link">&para;</a></h2>
-<p>Calico creates two violations against the runtime rule <code>TM-0000031</code> by the containers <code>flexvol-driver</code> and <code>csi-node-driver-registrar</code>. This is by design and can be excluded with the exception below:</p>
-<p><img alt="alt text" src="../images/detection-model-exceptions-01.png" title="Calico" /></p>
+<p>Calico creates two violations against the runtime rule <code>TM-0000031</code> by the containers <code>flexvol-driver</code>, <code>csi-node-driver-registrar</code>, and <code>calico-csi</code>. This is by design and can be excluded.</p>
+<p>Example on <code>calico-csi</code>:</p>
+<p><img alt="alt text" src="../images/detection-model-exceptions-05.png" title="Calico" /></p>
+<p>This allows us to create an exception.</p>
+<ul>
+<li>Targets</li>
+<li>Field: <code>ALL</code></li>
+<li>Event Source</li>
+<li>Event type: <code>CONTAINER_ACTIVITY</code></li>
+<li>Event ID: <code>ALL</code></li>
+<li>Match Criteria</li>
+<li>Field type: <code>detection_name</code></li>
+<li>Field: <code>ruleName</code>  <strong><em>IMPORTANT: the <code>ruleName</code> in the filter maps to <code>ruleIdStr</code> in the OAT</em></strong></li>
+<li>Values: <code>TM-00000031</code></li>
+<li>AND</li>
+<li>Field type: <code>container_identifier</code></li>
+<li>Field: <code>k8sNamespace</code></li>
+<li>Values: <code>calico-system</code></li>
+<li>AND</li>
+<li>Field type: <code>container_identifier</code></li>
+<li>Field: <code>containerName</code></li>
+<li>Values: <code>calico-csi</code></li>
+</ul>
+<p>There are two more containers (<code>flexvol-driver</code> and <code>csi-node-driver-registrar</code>) triggering the same rule, so we simply add them to the filter. The resulting exception should look like this:</p>
+<p><img alt="alt text" src="../images/detection-model-exceptions-03.png" title="Calico" /></p>
 <h2 id="detection-model-exception-for-istio">Detection Model Exception for Istio<a class="headerlink" href="#detection-model-exception-for-istio" title="Permanent link">&para;</a></h2>
 <p>The deployment of Istio contains a CNI which runs as a privileged pod. This is by design and can be excluded with the exception below:</p>
-<p><img alt="alt text" src="../images/detection-model-exceptions-02.png" title="Istio" /></p>
+<p><img alt="alt text" src="../images/detection-model-exceptions-04.png" title="Istio" /></p>
+<h2 id="deploy-the-eks-cluster">Deploy the EKS Cluster<a class="headerlink" href="#deploy-the-eks-cluster" title="Permanent link">&para;</a></h2>
+<p>Create the PGO EKS-EC2 cluster by running</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>eks-ec2
+</code></pre></div>
+<h2 id="verification">Verification<a class="headerlink" href="#verification" title="Permanent link">&para;</a></h2>
+<p>Amongst other namespaces you should have a couple of pods running inside the Calico and Istio namespaces:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-A
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>NAMESPACE<span class="w">           </span>NAME<span class="w">                                                         </span>READY<span class="w">   </span>STATUS<span class="w">    </span>RESTARTS<span class="w">      </span>AGE
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>calico-apiserver<span class="w">    </span>calico-apiserver-546b9bf5dd-2f4pw<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">             </span>10m
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>calico-apiserver<span class="w">    </span>calico-apiserver-546b9bf5dd-r249x<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">             </span>17m
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>calico-system<span class="w">       </span>calico-kube-controllers-5cf8f69bdb-q47qt<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">             </span>10m
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>calico-system<span class="w">       </span>calico-node-ltj46<span class="w">                                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">             </span>16m
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>calico-system<span class="w">       </span>calico-node-qt52v<span class="w">                                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">             </span>18m
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>calico-system<span class="w">       </span>calico-node-tp6mv<span class="w">                                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">             </span>10m
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>calico-system<span class="w">       </span>calico-typha-59b58f479b-gwblv<span class="w">                                </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">             </span>10m
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>calico-system<span class="w">       </span>calico-typha-59b58f479b-jp9mv<span class="w">                                </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">             </span>16m
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>calico-system<span class="w">       </span>csi-node-driver-64tsw<span class="w">                                        </span><span class="m">2</span>/2<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">             </span>9m56s
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>calico-system<span class="w">       </span>csi-node-driver-gzj9d<span class="w">                                        </span><span class="m">2</span>/2<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">             </span>18m
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>calico-system<span class="w">       </span>csi-node-driver-w264r<span class="w">                                        </span><span class="m">2</span>/2<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">             </span>16m
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>istio-system<span class="w">        </span>istio-cni-node-6xxlt<span class="w">                                         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">             </span>16m
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>istio-system<span class="w">        </span>istio-cni-node-96qpv<span class="w">                                         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">             </span>10m
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>istio-system<span class="w">        </span>istio-cni-node-kc98b<span class="w">                                         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">             </span>18m
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>istio-system<span class="w">        </span>istio-ingressgateway-9cc99c9db-g7qc4<span class="w">                         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">             </span>10m
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>istio-system<span class="w">        </span>istiod-68659fc5b5-trvn9<span class="w">                                      </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">             </span>19m
+</code></pre></div>
+<p>This prooves, that Calico and Istio are up including their <code>cni</code>-nodes.</p>
+<p>Head over to <code>XDR Threat Investigation -&gt; Observed Attack Techniques</code> and verify, that there are no OATs listed in regards Privileged Containers.</p>
+<p>🎉 Success 🎉</p>
 
 
 

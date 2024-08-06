@@ -1253,7 +1253,7 @@
         
   
   <span class="md-ellipsis">
-    Detection Model Exceptions
+    Detection Model Exceptions for Container Security
   </span>
   
 
@@ -2997,6 +2997,12 @@
 <h2 id="cleanup">Cleanup<a class="headerlink" href="#cleanup" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>helm<span class="w"> </span>uninstall<span class="w"> </span>mesh-basic<span class="w"> </span>-n<span class="w"> </span>workshop
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>kubectl<span class="w"> </span>delete<span class="w"> </span>namespace<span class="w"> </span>workshop
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="k">for</span><span class="w"> </span>ADDON<span class="w"> </span><span class="k">in</span><span class="w"> </span>kiali<span class="w"> </span>jaeger<span class="w"> </span>prometheus<span class="w"> </span>grafana<span class="w"> </span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="k">do</span><span class="w"> </span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">   </span><span class="nv">ADDON_URL</span><span class="o">=</span><span class="s2">&quot;https://raw.githubusercontent.com/istio/istio/1.22.3/samples/addons/</span><span class="nv">$ADDON</span><span class="s2">.yaml&quot;</span><span class="w"> </span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">   </span>kubectl<span class="w"> </span>delete<span class="w"> </span>-f<span class="w"> </span><span class="nv">$ADDON_URL</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="k">done</span>
 </code></pre></div>
 
 
