@@ -2274,6 +2274,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#grafana" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grafana
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cleanup" class="md-nav__link">
     <span class="md-ellipsis">
       Cleanup
@@ -2875,6 +2884,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#grafana" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grafana
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cleanup" class="md-nav__link">
     <span class="md-ellipsis">
       Cleanup
@@ -2933,42 +2951,49 @@
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">done</span>
 </code></pre></div>
 <p><strong><em>Access Kiali</em></strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>kubectl<span class="w"> </span>port-forward<span class="w"> </span>svc/kiali<span class="w"> </span><span class="m">20001</span>:20001<span class="w"> </span>-n<span class="w"> </span>istio-system<span class="w"> </span>--address<span class="w"> </span><span class="m">0</span>.0.0.0
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>kubectl<span class="w"> </span>port-forward<span class="w"> </span>svc/kiali<span class="w"> </span><span class="m">20001</span>:20001<span class="w"> </span>-n<span class="w"> </span>istio-system<span class="w"> </span>--address<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span><span class="p">&amp;</span>
 </code></pre></div>
 <p>Use your browser to navigate to <a href="http://localhost:20001">http://localhost:20001</a>. You can replace localhost with the IP of your PGO server, if you need to.</p>
-<p><strong><em>Access Grafana</em></strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>kubectl<span class="w"> </span>port-forward<span class="w"> </span>svc/grafana<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span>-n<span class="w"> </span>istio-system<span class="w"> </span>--address<span class="w"> </span><span class="m">0</span>.0.0.0
-</code></pre></div>
-<p>Use your browser to navigate to <a href="http://localhost:3000/dashboards">http://localhost:3000/dashboards</a>. You can replace localhost with the IP of your PGO server, if you need to.</p>
 <h3 id="get-your-shovel">Get your Shovel<a class="headerlink" href="#get-your-shovel" title="Permanent link">&para;</a></h3>
 <p>To play with Istio we're using an AWS sample application for now. To deploy it run:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Setup Namespace for Istio Mesh</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>/experimenting/istio/istio-on-eks/modules/01-getting-started
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>kubectl<span class="w"> </span>create<span class="w"> </span>namespace<span class="w"> </span>workshop
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>kubectl<span class="w"> </span>label<span class="w"> </span>namespace<span class="w"> </span>workshop<span class="w"> </span>istio-injection<span class="o">=</span>enabled
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Deploy sample app</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>helm<span class="w"> </span>install<span class="w"> </span>mesh-basic<span class="w"> </span>.<span class="w"> </span>-n<span class="w"> </span>workshop
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Setup Namespace for Istio Mesh</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>/experimenting/istio/istio-on-eks/modules/01-getting-started
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>kubectl<span class="w"> </span>create<span class="w"> </span>namespace<span class="w"> </span>workshop
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>kubectl<span class="w"> </span>label<span class="w"> </span>namespace<span class="w"> </span>workshop<span class="w"> </span>istio-injection<span class="o">=</span>enabled
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># Deploy sample app</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>helm<span class="w"> </span>install<span class="w"> </span>mesh-basic<span class="w"> </span>.<span class="w"> </span>-n<span class="w"> </span>workshop
 </code></pre></div>
 <p>The application’s (user interface) URL can be retrieved using the following command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">ISTIO_INGRESS_URL</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>get<span class="w"> </span>svc<span class="w"> </span>istio-ingress<span class="w"> </span>-n<span class="w"> </span>istio-ingress<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.loadBalancer.ingress[*].hostname}&#39;</span><span class="k">)</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;http://</span><span class="nv">$ISTIO_INGRESS_URL</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nv">ISTIO_INGRESS_URL</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>get<span class="w"> </span>svc<span class="w"> </span>istio-ingressgateway<span class="w"> </span>-n<span class="w"> </span>istio-system<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.loadBalancer.ingress[*].hostname}&#39;</span><span class="k">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;http://</span><span class="nv">$ISTIO_INGRESS_URL</span><span class="s2">&quot;</span>
 </code></pre></div>
 <p>Accessing this URL in the browser will lead you to the Product Catalog application as shown here:</p>
 <p><img alt="alt text" src="../images/istio-app-01.png" title="APP" /></p>
 <h3 id="generating-traffic">Generating Traffic<a class="headerlink" href="#generating-traffic" title="Permanent link">&para;</a></h3>
 <p>Let’s generate some traffic for our application. Use the siege command line tool to generate traffic to the application’s (user interface) URL by running the following commands in a separate terminal session.</p>
 <p>If you get a <code>command not found</code> you need to install <code>siege</code> first.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>siege<span class="w"> </span>-y
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>siege<span class="w"> </span>-y
 </code></pre></div>
 <p>Now run</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nv">ISTIO_INGRESS_URL</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>get<span class="w"> </span>svc<span class="w"> </span>istio-ingress<span class="w"> </span>-n<span class="w"> </span>istio-ingress<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.loadBalancer.ingress[*].hostname}&#39;</span><span class="k">)</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1"># Generate load for 2 minute, with 5 concurrent threads and with a delay of 10s between successive requests</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>siege<span class="w"> </span>http://<span class="nv">$ISTIO_INGRESS_URL</span><span class="w"> </span>-c<span class="w"> </span><span class="m">5</span><span class="w"> </span>-d<span class="w"> </span><span class="m">10</span><span class="w"> </span>-t<span class="w"> </span>2M
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nv">ISTIO_INGRESS_URL</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>get<span class="w"> </span>svc<span class="w"> </span>istio-ingressgateway<span class="w"> </span>-n<span class="w"> </span>istio-system<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.loadBalancer.ingress[*].hostname}&#39;</span><span class="k">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1"># Generate load for 2 minute, with 5 concurrent threads and with a delay of 10s between successive requests</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>siege<span class="w"> </span>http://<span class="nv">$ISTIO_INGRESS_URL</span><span class="w"> </span>-c<span class="w"> </span><span class="m">5</span><span class="w"> </span>-d<span class="w"> </span><span class="m">10</span><span class="w"> </span>-t<span class="w"> </span>2M
 </code></pre></div>
+<p>And check the traffic graph in kiali.</p>
+<p><img alt="alt text" src="../images/istio-app-02.png" title="APP" /></p>
+<h2 id="grafana">Grafana<a class="headerlink" href="#grafana" title="Permanent link">&para;</a></h2>
+<p>Grafana allows you to query, visualize, alert on and understand your metrics no matter where they are stored.</p>
+<p><strong><em>Access Grafana</em></strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>kubectl<span class="w"> </span>port-forward<span class="w"> </span>svc/grafana<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span>-n<span class="w"> </span>istio-system<span class="w"> </span>--address<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span><span class="p">&amp;</span>
+</code></pre></div>
+<p>Use your browser to navigate to <a href="http://localhost:3000/dashboards">http://localhost:3000/dashboards</a>. You can replace localhost with the IP of your PGO server, if you need to.</p>
+<p><img alt="alt text" src="../images/istio-grafana-01.png" title="APP" /></p>
+<p>Navigate into each of the provided Dashboards by clicking on the names as shown in this image. For example, when you navigate to the Istio Control Plane Dashboard you should see a dashboard similar to the image shown here.</p>
+<p>Control Plane Dashboard monitors the health and performance of the control plane. Use this link to get details on all dashboards available out of the box: <a href="https://istio.io/latest/docs/ops/integrations/grafana/">https://istio.io/latest/docs/ops/integrations/grafana/</a>.</p>
 <h2 id="cleanup">Cleanup<a class="headerlink" href="#cleanup" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>helm<span class="w"> </span>uninstall<span class="w"> </span>mesh-basic<span class="w"> </span>-n<span class="w"> </span>workshop
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>kubectl<span class="w"> </span>delete<span class="w"> </span>namespace<span class="w"> </span>workshop
