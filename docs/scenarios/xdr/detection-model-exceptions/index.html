@@ -1306,6 +1306,49 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#container-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container Security
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Container Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploy-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploy Policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Runtime Rules
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detection-model-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detection Model Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detection Model Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#detection-model-exception-for-calico" class="md-nav__link">
     <span class="md-ellipsis">
       Detection Model Exception for Calico
@@ -1313,13 +1356,18 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#detection-model-exception-for-istio" class="md-nav__link">
     <span class="md-ellipsis">
       Detection Model Exception for Istio
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2832,6 +2880,49 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#container-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container Security
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Container Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploy-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploy Policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Runtime Rules
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detection-model-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detection Model Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detection Model Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#detection-model-exception-for-calico" class="md-nav__link">
     <span class="md-ellipsis">
       Detection Model Exception for Calico
@@ -2839,13 +2930,18 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#detection-model-exception-for-istio" class="md-nav__link">
     <span class="md-ellipsis">
       Detection Model Exception for Istio
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2896,18 +2992,32 @@
 <li>Playground One EKS EC2</li>
 <li>Vision One Container Security</li>
 </ul>
-<p>Verify, that you have <code>Deploy Istio</code> enabled in your configuration.</p>
+<p>Verify, that you have <code>Deploy Calico</code> and <code>Deploy Istio</code> enabled in your configuration.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--config
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>...
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Section:<span class="w"> </span>Kubernetes<span class="w"> </span>Deployments
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Please<span class="w"> </span>set/update<span class="w"> </span>your<span class="w"> </span>Integrations<span class="w"> </span>configuration
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>...
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Deploy<span class="w"> </span>Istio?<span class="w"> </span><span class="o">[</span>true<span class="o">]</span>:
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Deploy<span class="w"> </span>Calico?<span class="w"> </span><span class="o">[</span>true<span class="o">]</span>:
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>...
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Deploy<span class="w"> </span>Istio?<span class="w"> </span><span class="o">[</span>true<span class="o">]</span>:
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>...
 </code></pre></div>
-<h2 id="detection-model-exception-for-calico">Detection Model Exception for Calico<a class="headerlink" href="#detection-model-exception-for-calico" title="Permanent link">&para;</a></h2>
-<p>Calico creates two violations against the runtime rule <code>TM-0000031</code> by the containers <code>flexvol-driver</code>, <code>csi-node-driver-registrar</code>, and <code>calico-csi</code>. This is by design and can be excluded.</p>
+<h2 id="container-security">Container Security<a class="headerlink" href="#container-security" title="Permanent link">&para;</a></h2>
+<h3 id="deploy-policy">Deploy Policy<a class="headerlink" href="#deploy-policy" title="Permanent link">&para;</a></h3>
+<p>Generally, one does not want to run privileged containers, but there might be some reasons for them. So below we're configuring a policy which blocks containers with extended privileges but allows them in two dedicated namespaces:</p>
+<p>Below, the upper parts of the deployment policy:</p>
+<p><img alt="alt text" src="../images/detection-model-deploy-01.png" title="Cluster wide" /></p>
+<p><img alt="alt text" src="../images/detection-model-deploy-02.png" title="Namespaces Calico" /></p>
+<p><img alt="alt text" src="../images/detection-model-deploy-03.png" title="Namespace Istio" /></p>
+<h3 id="runtime-rules">Runtime Rules<a class="headerlink" href="#runtime-rules" title="Permanent link">&para;</a></h3>
+<p>The runtime rules assigned to the policy do have rule <code>TM-00000031</code> assigned:</p>
+<p><img alt="alt text" src="../images/detection-model-runtime-01.png" title="Runtime" /></p>
+<p><img alt="alt text" src="../images/detection-model-runtime-02.png" title="Runtime" /></p>
+<h2 id="detection-model-management">Detection Model Management<a class="headerlink" href="#detection-model-management" title="Permanent link">&para;</a></h2>
+<h3 id="detection-model-exception-for-calico">Detection Model Exception for Calico<a class="headerlink" href="#detection-model-exception-for-calico" title="Permanent link">&para;</a></h3>
+<p>Calico creates two violations against the runtime rule <code>TM-00000031</code> by the containers <code>flexvol-driver</code>, <code>csi-node-driver-registrar</code>, and <code>calico-csi</code>. This is by design and can be excluded.</p>
 <p>Example on <code>calico-csi</code>:</p>
 <p><img alt="alt text" src="../images/detection-model-exceptions-05.png" title="Calico" /></p>
 <p>This allows us to create an exception.</p>
@@ -2915,12 +3025,12 @@
 <li>Targets</li>
 <li>Field: <code>ALL</code></li>
 <li>Event Source</li>
-<li>Event type: <code>CONTAINER_ACTIVITY</code></li>
-<li>Event ID: <code>ALL</code></li>
+<li>Event type: <code>ALL</code></li>
 <li>Match Criteria</li>
 <li>Field type: <code>detection_name</code></li>
-<li>Field: <code>ruleName</code>  <strong><em>IMPORTANT: the <code>ruleName</code> in the filter maps to <code>ruleIdStr</code> in the OAT</em></strong></li>
-<li>Values: <code>TM-00000031</code></li>
+<li>Field: <code>ruleName</code></li>
+<li>Values: <code>.*Launch Privileged Container</code></li>
+<li>Edit using wildcards: Checked</li>
 <li>AND</li>
 <li>Field type: <code>container_identifier</code></li>
 <li>Field: <code>k8sNamespace</code></li>
@@ -2932,7 +3042,7 @@
 </ul>
 <p>There are two more containers (<code>flexvol-driver</code> and <code>csi-node-driver-registrar</code>) triggering the same rule, so we simply add them to the filter. The resulting exception should look like this:</p>
 <p><img alt="alt text" src="../images/detection-model-exceptions-03.png" title="Calico" /></p>
-<h2 id="detection-model-exception-for-istio">Detection Model Exception for Istio<a class="headerlink" href="#detection-model-exception-for-istio" title="Permanent link">&para;</a></h2>
+<h3 id="detection-model-exception-for-istio">Detection Model Exception for Istio<a class="headerlink" href="#detection-model-exception-for-istio" title="Permanent link">&para;</a></h3>
 <p>The deployment of Istio contains a CNI which runs as a privileged pod. This is by design and can be excluded with the exception below:</p>
 <p><img alt="alt text" src="../images/detection-model-exceptions-04.png" title="Istio" /></p>
 <h2 id="deploy-the-eks-cluster">Deploy the EKS Cluster<a class="headerlink" href="#deploy-the-eks-cluster" title="Permanent link">&para;</a></h2>
