@@ -3022,23 +3022,33 @@
 <p><img alt="alt text" src="../images/detection-model-exceptions-05.png" title="Calico" /></p>
 <p>This allows us to create an exception.</p>
 <ul>
-<li>Targets</li>
+<li>Targets<ul>
 <li>Field: <code>ALL</code></li>
-<li>Event Source</li>
+</ul>
+</li>
+<li>Event Source<ul>
 <li>Event type: <code>ALL</code></li>
-<li>Match Criteria</li>
+</ul>
+</li>
+<li>Match Criteria<ul>
 <li>Field type: <code>detection_name</code></li>
 <li>Field: <code>ruleName</code></li>
 <li>Values: <code>.*Launch Privileged Container</code></li>
 <li>Edit using wildcards: Checked</li>
-<li>AND</li>
+</ul>
+</li>
+<li>AND<ul>
 <li>Field type: <code>container_identifier</code></li>
 <li>Field: <code>k8sNamespace</code></li>
 <li>Values: <code>calico-system</code></li>
-<li>AND</li>
+</ul>
+</li>
+<li>AND<ul>
 <li>Field type: <code>container_identifier</code></li>
 <li>Field: <code>containerName</code></li>
 <li>Values: <code>calico-csi</code></li>
+</ul>
+</li>
 </ul>
 <p>There are two more containers (<code>flexvol-driver</code> and <code>csi-node-driver-registrar</code>) triggering the same rule, so we simply add them to the filter. The resulting exception should look like this:</p>
 <p><img alt="alt text" src="../images/detection-model-exceptions-03.png" title="Calico" /></p>
