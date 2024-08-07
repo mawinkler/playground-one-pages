@@ -3017,7 +3017,7 @@
 <p><img alt="alt text" src="../images/detection-model-runtime-02.png" title="Runtime" /></p>
 <h2 id="detection-model-management">Detection Model Management<a class="headerlink" href="#detection-model-management" title="Permanent link">&para;</a></h2>
 <h3 id="detection-model-exception-for-calico">Detection Model Exception for Calico<a class="headerlink" href="#detection-model-exception-for-calico" title="Permanent link">&para;</a></h3>
-<p>Calico creates two violations against the runtime rule <code>TM-00000031</code> by the containers <code>flexvol-driver</code>, <code>csi-node-driver-registrar</code>, and <code>calico-csi</code>. This is by design and can be excluded.</p>
+<p>Calico creates violations against the runtime rule <code>TM-00000031</code> by several containers. This is by design and can be excluded.</p>
 <p>Example on <code>calico-csi</code>:</p>
 <p><img alt="alt text" src="../images/detection-model-exceptions-05.png" title="Calico" /></p>
 <p>This allows us to create an exception.</p>
@@ -3046,7 +3046,7 @@
 <li>AND<ul>
 <li>Field type: <code>container_identifier</code></li>
 <li>Field: <code>containerName</code></li>
-<li>Values: <code>calico-csi</code></li>
+<li>Values: <code>calico-csi</code>, <code>flexvol-driver</code>, <code>csi-node-driver-registrar</code>, <code>calico-node</code></li>
 </ul>
 </li>
 </ul>
