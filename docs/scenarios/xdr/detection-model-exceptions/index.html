@@ -3050,7 +3050,7 @@
 </ul>
 </li>
 </ul>
-<p>There are two more containers (<code>flexvol-driver</code> and <code>csi-node-driver-registrar</code>) triggering the same rule, so we simply add them to the filter. The resulting exception should look like this:</p>
+<p>The resulting exception should look like this:</p>
 <p><img alt="alt text" src="../images/detection-model-exceptions-03.png" title="Calico" /></p>
 <h3 id="detection-model-exception-for-istio">Detection Model Exception for Istio<a class="headerlink" href="#detection-model-exception-for-istio" title="Permanent link">&para;</a></h3>
 <p>The deployment of Istio contains a CNI which runs as a privileged pod. This is by design and can be excluded with the exception below:</p>
