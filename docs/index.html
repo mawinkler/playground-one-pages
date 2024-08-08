@@ -434,15 +434,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#major-updates" class="md-nav__link">
-    <span class="md-ellipsis">
-      Major Updates
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#requirements" class="md-nav__link">
     <span class="md-ellipsis">
       Requirements
@@ -2863,15 +2854,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#major-updates" class="md-nav__link">
-    <span class="md-ellipsis">
-      Major Updates
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#requirements" class="md-nav__link">
     <span class="md-ellipsis">
       Requirements
@@ -3004,40 +2986,6 @@
 <p>The Playground One is continuously under construction!
 The capabilities and contents are therefore to be enjoyed with caution and can change at any time.</p>
 </div>
-<h2 id="major-updates">Major Updates<a class="headerlink" href="#major-updates" title="Permanent link">&para;</a></h2>
-<p>02/01/2024</p>
-<ul>
-<li>Playground One in a Box - The Playground One Container<br>
-  The Playgrond One Container allows you to use the playground on any container engine hosted either on <code>arm64</code> or <code>amd64</code> from within a containerized environment not affecting your system.</li>
-</ul>
-<p>01/23/2024</p>
-<ul>
-<li>Playground One starts to support Intel and M1+ MacOS as host platform.</li>
-</ul>
-<p>01/16/2024</p>
-<ul>
-<li>Playground One starts to support AKS and V1CS on Azure.</li>
-</ul>
-<p>12/19/2023</p>
-<ul>
-<li>Automated Vision One Container Security deployment with EKS EC2 and Fargate Profiles.</li>
-</ul>
-<p>11/14/2023</p>
-<ul>
-<li>Deep Security integrated for use in migration scenarios.</li>
-</ul>
-<p>10/27/2023</p>
-<ul>
-<li>EKS Fargate &amp; EKS Calico on EC2 operational.</li>
-</ul>
-<p>10/10/2023</p>
-<ul>
-<li>Playground One goes public.</li>
-</ul>
-<p>08/07/2023</p>
-<ul>
-<li>Initial release.</li>
-</ul>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
 <p>The Playground One is designed to work on these platforms:</p>
 <p>Playground One Container:</p>
@@ -3058,7 +3006,7 @@ The capabilities and contents are therefore to be enjoyed with caution and can c
 <th>Component</th>
 <th>Operational</th>
 <th>Known Issues</th>
-<th>Vision One Cloud Security</th>
+<th>Vision One</th>
 </tr>
 </thead>
 <tbody>
@@ -3066,43 +3014,61 @@ The capabilities and contents are therefore to be enjoyed with caution and can c
 <td>Network</td>
 <td>Yes</td>
 <td>See 1)</td>
-<td>Service Gateway<br>Identity Security</td>
+<td>Service Gateway<br>Identity Security<br>Virtual Network Sensor</td>
 </tr>
 <tr>
-<td>EC2 Linux</td>
+<td>Instances</td>
 <td>Yes</td>
 <td>None</td>
-<td>V1 Server &amp; Workload Protection<br>ASRM</td>
-</tr>
-<tr>
-<td>EC2 Windows</td>
-<td>Yes</td>
-<td>None</td>
-<td>V1 Server &amp; Workload Protection</td>
+<td>V1 Server &amp; Workload Protection<br>ASRM<br>Service Gateway<br>Identity Security<br>Virtual Network</td>
 </tr>
 <tr>
 <td>EKS EC2</td>
 <td>Yes</td>
 <td>None</td>
-<td>V1CS Runtime Scanning<br>V1CS Runtime Security<br>OAT&amp;WB Generation</td>
+<td>V1 Container Security<br>OAT&amp;WB Generation<br>Terraform Provider</td>
 </tr>
 <tr>
 <td>EKS Fargate</td>
 <td>Yes</td>
 <td>None</td>
-<td>V1CS Runtime Scanning<br>V1CS Runtime Security<br>OAT&amp;WB Generation</td>
+<td>V1 Container Security<br>OAT&amp;WB Generation<br>Terraform Provider</td>
 </tr>
 <tr>
 <td>ECS EC2</td>
 <td>Yes</td>
 <td>See 2)</td>
-<td>V1CS Runtime Scanning<br>V1CS Runtime Security</td>
+<td>V1 Container Security</td>
 </tr>
 <tr>
 <td>ECS Fargate</td>
 <td>Yes</td>
 <td>See 3)</td>
-<td>V1CS Runtime Scanning<br>V1CS Runtime Security</td>
+<td>V1 Container Security</td>
+</tr>
+<tr>
+<td>Bucket Scanner</td>
+<td>Yes</td>
+<td></td>
+<td>V1 FSS SDK</td>
+</tr>
+<tr>
+<td>Scenarios CloudTrail</td>
+<td>Yes</td>
+<td></td>
+<td>V1 CloudTrail</td>
+</tr>
+<tr>
+<td>Scenarios CSPM</td>
+<td>Yes</td>
+<td></td>
+<td>V1 CSPM</td>
+</tr>
+<tr>
+<td>Scenarios Identity</td>
+<td>Yes</td>
+<td></td>
+<td>V1 Identity Security</td>
 </tr>
 <tr>
 <td>Calico</td>
@@ -3123,10 +3089,22 @@ The capabilities and contents are therefore to be enjoyed with caution and can c
 <td></td>
 </tr>
 <tr>
+<td>Istio</td>
+<td>Yes</td>
+<td>EKS EC2 only</td>
+<td></td>
+</tr>
+<tr>
+<td>MetalLB</td>
+<td>Yes</td>
+<td>Kind only</td>
+<td></td>
+</tr>
+<tr>
 <td>Deep Security</td>
 <td>Yes</td>
 <td>None</td>
-<td>V1 Server &amp; Workload Protection</td>
+<td>Deep Security Integration &amp; Migration<br>V1 Server &amp; Workload Protection</td>
 </tr>
 </tbody>
 </table>
@@ -3148,7 +3126,7 @@ The capabilities and contents are therefore to be enjoyed with caution and can c
 <td>AKS</td>
 <td>Yes</td>
 <td>None</td>
-<td>V1CS Runtime Scanning<br>V1CS Runtime Security</td>
+<td>V1 Container Security</td>
 </tr>
 </tbody>
 </table>
@@ -3179,11 +3157,11 @@ The capabilities and contents are therefore to be enjoyed with caution and can c
 <td>Workload Security</td>
 <td>Yes</td>
 <td>None</td>
-<td>V1 Server &amp; Workload Protection</td>
+<td>Workload Security Migration<br>V1 Server &amp; Workload Protection</td>
 </tr>
 <tr>
 <td>Kind Kubernetes</td>
-<td>In progress</td>
+<td>Yes</td>
 <td>Only native</td>
 <td></td>
 </tr>
@@ -3288,6 +3266,8 @@ The capabilities and contents are therefore to be enjoyed with caution and can c
 <li><code>Endpoint Security -&gt; Deep Security -&gt; Integrate Deep Security with Vision One and Demo Benefits</code>.</li>
 <li><code>Cloud Security -&gt; Container Security -&gt; EKS -&gt; Playing with Istio Service Mesh</code>.</li>
 <li>You can now choose the OS SKU for the nodes in the AKS Cluster. It defaults to <code>AzureLinux</code>.</li>
+<li>The EKS cluster deployment of V1 Container Security now supports <code>group_id</code> using the Terraform Provider.</li>
+<li>The <code>pgo</code> command now checks if your local IP has changed and needs and update.</li>
 </ul>
 <p><strong><em>0.4.1</em></strong></p>
 <p><em>Changes</em></p>
