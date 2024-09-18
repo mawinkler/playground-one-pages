@@ -2446,6 +2446,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#shift-left-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shift Left Security
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trying-deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trying Deployments
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2838,6 +2856,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#shift-left-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shift Left Security
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trying-deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trying Deployments
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2892,9 +2928,9 @@
 <p>You can either choose an individual scan type or combine multiple via flags.</p>
 <p>To easily scan an image for vulnerabililies, secrets, and malware run</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Service region us-east-1</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>tmas<span class="w"> </span>scan<span class="w"> </span>registry:mawinkler/uptonight:latest@sha256:1f37012b59b8889fcfa5a1753ae5aaf1300d35831a750c0d83334a0fc99b8326<span class="w"> </span>-VMS
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>tmas<span class="w"> </span>scan<span class="w"> </span>vulnerabilities<span class="w"> </span>registry:mawinkler/uptonight:1.5
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Service region eu-central-1</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># If you Vision One is located for example in another region add the `--region` parameter</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>...<span class="w"> </span>--region<span class="w"> </span>eu-central-1
 </code></pre></div>
 <p>Scanning an image for vulnerabilities and malware simultaneously is as easy as above</p>
@@ -2957,6 +2993,7 @@
 <a id="__codelineno-4-54" name="__codelineno-4-54" href="#__codelineno-4-54"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-4-55" name="__codelineno-4-55" href="#__codelineno-4-55"></a><span class="p">}</span>
 </code></pre></div>
+<h2 id="shift-left-security">Shift Left Security<a class="headerlink" href="#shift-left-security" title="Permanent link">&para;</a></h2>
 <p>Let's review the findings in Vision One. Head over to <code>Cloud Security -&gt; Shift Left Security</code>. The two scanned artifact should be listed:</p>
 <p><img alt="alt text" src="../images/sls-01.png" title="Artifacts" /></p>
 <p>We can now check on the malware and secrets tabs what has been discovered:</p>
@@ -2974,6 +3011,7 @@
 <p><img alt="alt text" src="../images/sls-07.png" title="Artifacts" /></p>
 <p><img alt="alt text" src="../images/sls-08.png" title="Malwares" /></p>
 <p><img alt="alt text" src="../images/sls-09.png" title="Secrets" /></p>
+<h2 id="trying-deployments">Trying Deployments<a class="headerlink" href="#trying-deployments" title="Permanent link">&para;</a></h2>
 <p>Now, let's try to create a pod on our Kubernetes cluster. Check your Container Security policy since you really don't want containers with malware and/or secrets, or? </p>
 <p><img alt="alt text" src="../images/sls-10.png" title="Policy" /></p>
 <p>When trying to deploy the images our admission controller should block you:</p>
