@@ -3062,7 +3062,7 @@
 <p><strong><em>Warning:</em></strong> Do not download malicious files on computers with a running anti malware engine!</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Set your bucket name from the outputs</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">SCANNING_BUCKET</span><span class="o">=</span>pgo-dev-scanning-bucket-v0ui7ows
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">SCANNING_BUCKET</span><span class="o">=</span>pgo-id-scanning-bucket-2kn1vopd
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>wget<span class="w"> </span>https://secure.eicar.org/eicarcom2.zip
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>aws<span class="w"> </span>s3<span class="w"> </span>cp<span class="w"> </span>eicarcom2.zip<span class="w"> </span>s3://<span class="si">${</span><span class="nv">SCANNING_BUCKET</span><span class="si">}</span>/eicarcom2.zip
