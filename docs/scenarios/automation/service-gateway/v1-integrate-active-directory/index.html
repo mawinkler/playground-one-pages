@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../images/playground-icon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.40">
     
     
       
@@ -2936,6 +2936,11 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>network
 </code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Log in to Domain Controller</p>
+<p>After the network has been set up, the service gateway has been deployed, and Active Directory has stabilized after about 10 minutes, you must authenticate to the domain controller using RDP at least once. Don't ask why.</p>
+<p>Use the public IP of the domain controller <code>ad_dc_ip</code> and the username <code>Administrator@&lt;your environment name&gt;.local</code>.</p>
+</div>
 <h2 id="connect-an-active-directory">Connect an Active Directory<a class="headerlink" href="#connect-an-active-directory" title="Permanent link">&para;</a></h2>
 <p>In Vision One head over to <code>Workflow and Automation -&gt; Service Gateway Management</code> again. There should now be a Service Gateway listed. Select it, click on <code>Manage Services</code> just in the center, and download the <code>On-premise directory connection</code> to the gateway.</p>
 <p><img alt="alt text" src="../images/v1-aws-sgm-13.png" title="Vision One" /></p>
