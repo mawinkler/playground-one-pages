@@ -2997,7 +2997,7 @@
 <blockquote>
 <p><strong><em>Note</em></strong>: For the curious ones, here's the <a href="https://github.com/mawinkler/playground-one/blob/main/container/Dockerfile">Dockerfile</a>.</p>
 </blockquote>
-<p>First, start a terminal and ensure to have a running container engine, eventually run <code>docker ps</code> to verify this.</p>
+<p>First, start a terminal and make sure you have a running container engine. To check this, run <code>docker ps</code>.</p>
 <blockquote>
 <p><strong><em>Note:</em></strong> If you want to specify a Playground One Container version instead of using <code>latest</code> create a file with the version (tag) to use by running:</p>
 <p><code>echo "&lt;VERSION&gt;" &gt;.PGO_VERSION</code></p>
@@ -3050,7 +3050,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ssh<span class="w"> </span>-p<span class="w"> </span><span class="m">2222</span><span class="w"> </span>pgo@localhost
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># password: pgo</span>
 </code></pre></div>
-<p>Eventually authenticate to AWS and/or Azure by either running</p>
+<p>Now authenticate to AWS and/or Azure by either running</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Not required when using Cloud9</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>aws<span class="w"> </span>configure
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
@@ -3070,7 +3070,7 @@
 <li>Run <code>./pgoc update</code></li>
 <li>This will backup your current <code>workdir</code> and save your <code>config.yaml</code>.</li>
 <li>The desired version of the container is pulled and a new <code>workdir</code> is created.</li>
-<li>The previous <code>config.yaml</code> is restored alongside the eventually existing <code>.aws</code> config.</li>
+<li>The previous <code>config.yaml</code> is restored alongside the possibly existing <code>.aws</code> config.</li>
 <li>Start the new container with <code>./pgoc start</code> and login via ssh.</li>
 </ol>
 <p>You likely get an error when connecting with ssh. If so, delete the offending line in <code>~/.ssh/known_hosts</code> and retry.</p>
