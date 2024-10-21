@@ -809,6 +809,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#section-workload-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section: Workload Security
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -943,6 +952,27 @@
   
   <span class="md-ellipsis">
     Deep Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrations/workload-security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Workload Security
   </span>
   
 
@@ -3012,6 +3042,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#section-workload-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section: Workload Security
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3156,8 +3195,10 @@
 <li><code>Region Name</code>: If you want to use another region as <code>eu-central-1</code>.</li>
 <li><code>Use PGO User</code>: The Playground One has the ability to create and use a dedicated AWS user with limited privileges. If you want to use this feature you need to run <code>pgo --apply user</code> after you have finished the configuration of the Playground One. This will then create a User within a Group with several IAM policies attached.</li>
 <li><code>AD - create PGO Active Directory</code>: Enable/disable deployment of an Active Directory. This AD is more flexible compared to the AWS Managed Active Directory below.</li>
-<li><code>AD - create Managed Active Directory</code>: Enable/disable deployment of an AWS Managed Active Directory.</li>
+<li><code>MAD - create Managed Active Directory</code>: Enable/disable deployment of an AWS Managed Active Directory.</li>
 <li><code>SG - create Service Gateway</code>: Enable/disable deployment of the Trend Micro Service Gateway.</li>
+<li><code>PAC - create Private Access Gateway</code>: Enable/disable deployment of the Trend Micro Private Access Gateway.</li>
+<li><code>VNS - create Virtual Network Sensor</code>: Enable/disable deployment of the Trend Micro Virtual Network Sensor.</li>
 <li><code>EC2 - create Linux EC2</code>: Enable/disable Linux instances in the <code>ec2</code> configuration.</li>
 <li><code>EC2 - create Windows EC2</code>: Enable/disable Windows instances in the <code>ec2</code> configuration.</li>
 </ul>
@@ -3189,10 +3230,19 @@
 <h3 id="section-deep-security-on-prem">Section: Deep Security (on-prem)<a class="headerlink" href="#section-deep-security-on-prem" title="Permanent link">&para;</a></h3>
 <p>Set/update:</p>
 <ul>
-<li><code>Deep Security</code>: Enable or disable the Deep Security deployment. If set to <code>false</code> Deep Security configuration will be skipped.</li>
+<li><code>Enable Deep Security</code>: Enable or disable the Deep Security deployment. If set to <code>false</code> Deep Security configuration will be skipped.</li>
 <li><code>Deep Security License</code>: Your Deep Security license key.</li>
 <li><code>Deep Security Username</code>: Username of the MasterAdmin.</li>
 <li><code>Deep Security Password</code>: Password of the MasterAdmin.</li>
+</ul>
+<h3 id="section-workload-security">Section: Workload Security<a class="headerlink" href="#section-workload-security" title="Permanent link">&para;</a></h3>
+<p>Set/update:</p>
+<ul>
+<li><code>Enable Workload Security</code>: Enable or disable the Deep Security deployment. If set to <code>false</code> Deep Security configuration will be skipped.</li>
+<li><code>Region</code>: Your Workload Security Cloud One Region.</li>
+<li><code>Tenant ID</code>: Workload Security Tenant ID.</li>
+<li><code>Token</code>: Workload Security Token.</li>
+<li><code>API Key</code>: Workload Security API Key.</li>
 </ul>
 <p>Now, continue with the chapter <a href="../life-cycle/">General Life-Cycle</a>.</p>
 

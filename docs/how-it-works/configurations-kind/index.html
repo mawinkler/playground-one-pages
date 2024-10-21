@@ -629,30 +629,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Kind Cluster">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cluster-deployments" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cluster Deployments
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenarios" class="md-nav__link">
-    <span class="md-ellipsis">
-      Scenarios
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -900,6 +876,27 @@
   
   <span class="md-ellipsis">
     Deep Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrations/workload-security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Workload Security
   </span>
   
 
@@ -2903,30 +2900,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Kind Cluster">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cluster-deployments" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cluster Deployments
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenarios" class="md-nav__link">
-    <span class="md-ellipsis">
-      Scenarios
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -2957,24 +2930,9 @@
 <p>The following chapters describe the different configurations on a high level, refer the the dedicated documentation for more details.</p>
 <h2 id="kind-cluster">Kind Cluster<a class="headerlink" href="#kind-cluster" title="Permanent link">&para;</a></h2>
 <p><em>Configuration located in <code>kindone/4-cluster-kind</code></em></p>
+<p><em>Deployments Configuration located in <code>kindone/8-cluster-kind-deployments</code></em></p>
+<p><em>Scenario Configuration located in <code>kindone/7-scenarios-kind</code></em></p>
 <p>Useful for quickly testing out Kubernetes things :-).</p>
-<h3 id="cluster-deployments">Cluster Deployments<a class="headerlink" href="#cluster-deployments" title="Permanent link">&para;</a></h3>
-<p><em>Configuration located in <code>kindone/8-cluster-kind-deployments</code></em></p>
-<p><em>Depends on <code>kindone/4-cluster-kind</code></em></p>
-<p>Currently, the following deployments are defined:</p>
-<ul>
-<li>Container Security</li>
-<li>Calico</li>
-<li>Prometheus &amp; Grafana</li>
-<li>Trivy</li>
-</ul>
-<h3 id="scenarios">Scenarios<a class="headerlink" href="#scenarios" title="Permanent link">&para;</a></h3>
-<p><em>Configuration located in <code>kindone/7-scenarios-kind</code></em></p>
-<p><em>Depends on <code>kindone/4-cluster-kind</code></em></p>
-<p>Currently, the following (vulnerable) deployments are defined:</p>
-<ul>
-<li>Nginx</li>
-</ul>
 <p>Automated attacks are running every full hour.</p>
 
 
