@@ -3136,27 +3136,6 @@
 
 
 <h1 id="scenario-zero-trust-secure-access-environment-setup">Scenario: Zero Trust Secure Access Environment Setup<a class="headerlink" href="#scenario-zero-trust-secure-access-environment-setup" title="Permanent link">&para;</a></h1>
-<ul>
-<li><a href="#scenario-zero-trust-secure-access-environment-setup">Scenario: Zero Trust Secure Access Environment Setup</a></li>
-<li><a href="#prerequisites">Prerequisites</a></li>
-<li><a href="#configure-the-service-gateway">Configure the Service Gateway</a><ul>
-<li><a href="#get-the-vision-one-api-key-for-the-service-gateway">Get the Vision One API Key for the Service Gateway</a></li>
-<li><a href="#activate-the-service-gateway">Activate the Service Gateway</a></li>
-<li><a href="#install-on-premise-directory-connection">Install On-premise directory connection</a></li>
-</ul>
-</li>
-<li><a href="#deploy-the-instances-and-the-private-access-gateway">Deploy the Instances and the Private Access Gateway</a></li>
-<li><a href="#connect-the-pgo-active-directory">Connect the PGO Active Directory</a><ul>
-<li><a href="#optionally-install-security-event-forwarding">(Optionally) Install Security Event Forwarding</a></li>
-</ul>
-</li>
-<li><a href="#configure-the-private-access-gateway">Configure the Private Access Gateway</a><ul>
-<li><a href="#get-the-vision-one-api-key-for-the-private-access-gateway">Get the Vision One API Key for the Private Access Gateway</a></li>
-<li><a href="#activate-the-private-access-gateway">Activate the Private Access Gateway</a></li>
-</ul>
-</li>
-<li><a href="#test-access-the-web-application">Test Access the Web Application</a></li>
-</ul>
 <p>This scenario prepares an environment to play with Vision One Zero Trust Secure Access in AWS. It includes the following assets:</p>
 <ul>
 <li>Microsoft Windows Domain including a Certification Authority</li>
@@ -3164,6 +3143,7 @@
 <li>A Windows Member Server</li>
 <li>A Linux host running a dockerized web application</li>
 <li>Vision One Service Gateway including Active Directory integration</li>
+<li>Vision One Private Access Gateway</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
