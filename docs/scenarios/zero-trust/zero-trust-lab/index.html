@@ -3349,48 +3349,28 @@
 <p>Back to your console/shell run the following command (adapt the parameters to your environment):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>pgo<span class="w"> </span>--output<span class="w"> </span>scenarios-zertrust
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>...
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nv">pac_va_ssh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i /home/markus/projects/opensource/playground/playground-one/pgo-zt-key-pair-rmh0wu4t.pem -o StrictHostKeyChecking=no admin@18.185.79.240&quot;</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>...
-</code></pre></div>
-<p>The interesting value here is <code>pac_va_ssh</code>. Run the given command to connect to the Service Gateway.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ssh<span class="w"> </span>-i<span class="w"> </span>/home/markus/projects/opensource/playground/playground-one/pgo-zt-key-pair-rmh0wu4t.pem<span class="w"> </span>-o<span class="w"> </span><span class="nv">StrictHostKeyChecking</span><span class="o">=</span>no<span class="w"> </span>admin@18.185.79.240
-</code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Register</p>
-<p>Not fully functional yet</p>
-</div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="w"> </span>********************************************
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w"> </span>*<span class="w">      </span>WARNING:<span class="w"> </span>Authorized<span class="w"> </span>Access<span class="w"> </span>Only<span class="w">     </span>*
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w"> </span>********************************************
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>Mon<span class="w"> </span>Oct<span class="w"> </span><span class="m">21</span><span class="w"> </span><span class="m">04</span>:43:47<span class="w"> </span>PDT<span class="w"> </span><span class="m">2024</span>
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>Company<span class="w"> </span>ID:<span class="w"> </span>0fcd4xxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>Connector<span class="w"> </span>ID:<span class="w"> </span>e126exxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>&gt;<span class="w"> </span>passwd
-<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>New<span class="w"> </span>password:<span class="w"> </span>
-<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>Retype<span class="w"> </span>new<span class="w"> </span>password:<span class="w"> </span>
-<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>Password<span class="w"> </span>changed<span class="w"> </span>successfully.
-<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>Run<span class="w"> </span>the<span class="w"> </span><span class="s2">&quot;enable&quot;</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>to<span class="w"> </span>enter<span class="w"> </span>privileged<span class="w"> </span>mode.
-<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>&gt;<span class="w"> </span><span class="nb">enable</span>
-<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>Password:<span class="w"> </span>
-<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>
-<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>Entering<span class="w"> </span>privileged<span class="w"> </span>mode...
-<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="c1"># register &lt;registration token&gt;</span>
+<p>Now paste the registration token from above:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="w"> </span>__<span class="w">                 </span>__<span class="w">   </span>__<span class="w">   </span>__<span class="w">             </span>__<span class="w">      </span>__<span class="w">        </span>___<span class="w"> </span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="p">|</span>__<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w">     </span>/<span class="se">\ </span><span class="w"> </span><span class="se">\ </span>/<span class="w"> </span>/<span class="w"> </span>_<span class="sb">`</span><span class="w"> </span><span class="p">|</span>__<span class="o">)</span><span class="w"> </span>/<span class="w">  </span><span class="se">\ </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\ </span><span class="w">   </span>/<span class="w">  </span><span class="se">\ </span><span class="p">|</span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>__<span class="w">  </span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="p">|</span><span class="w">    </span><span class="p">|</span>___<span class="w"> </span>/~~<span class="se">\ </span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\_</span>_&gt;<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\ \_</span>_/<span class="w"> </span><span class="se">\_</span>_/<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span>__/<span class="w">    </span><span class="se">\_</span>_/<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span>___<span class="w"> </span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>Using<span class="w"> </span>PDO<span class="w"> </span>User<span class="w"> </span>Access<span class="w"> </span>Key<span class="w"> </span>ID:<span class="w"> </span>...D44H
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>Configuration<span class="w"> </span>scenarios-zerotrust<span class="w"> </span><span class="k">in</span><span class="w"> </span>directory<span class="w"> </span>/home/markus/projects/opensource/playground/playground-one/awsone/7-scenarios-zerotrust
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>var.private_access_gateway_registration_token
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">  </span>Enter<span class="w"> </span>a<span class="w"> </span>value:<span class="w"> </span>eyJhbGciOiJIUzI1NiI...
 </code></pre></div>
 <p>It can take some time for the Private Access Gateway to show up in the console.</p>
 <h2 id="test-access-the-web-application">Test Access the Web Application<a class="headerlink" href="#test-access-the-web-application" title="Permanent link">&para;</a></h2>
 <p>A dockerized Jellyfin is deployed on the Linux server. At any time you can retrieve it's private IP address by running</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>pgo<span class="w"> </span>--output<span class="w"> </span>scenarios-zerotrust
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>pgo<span class="w"> </span>--output<span class="w"> </span>scenarios-zerotrust
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>...
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nv">linux_pip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="o">[</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="s2">&quot;10.0.4.19&quot;</span>,
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">  </span><span class="o">]</span>,
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="o">]</span>
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>...
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>...
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nv">linux_pip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="o">[</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="s2">&quot;10.0.4.19&quot;</span>,
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">  </span><span class="o">]</span>,
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="o">]</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>...
 </code></pre></div>
 <p>On any of the windows machines open the URL <code>http://&lt;linux_ip&gt;:8096</code></p>
 <p><img alt="alt text" src="../images/jellyfin-01.png" title="Jellyfin" /></p>
