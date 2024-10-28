@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../../cloud-security/file-security/artifact-scanning/tmfs-s3-bucket-scanning/">
+        <link rel="prev" href="../v1-virtual-network-sensor/">
       
       
-        <link rel="next" href="../v1-virtual-network-sensor-automatically/">
+        <link rel="next" href="../v1-deep-discovery-inspector/">
       
       
       <link rel="icon" href="../../../images/playground-icon.png">
@@ -2721,6 +2721,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../v1-virtual-network-sensor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deploying Virtual Network Sensor on AWS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -2768,6 +2789,15 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#traffic-mirror-on-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      Traffic Mirror on AWS
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
@@ -2893,27 +2923,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../v1-virtual-network-sensor-automatically/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Deploying Virtual Network Sensor on AWS Automatically
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -3076,6 +3085,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#traffic-mirror-on-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      Traffic Mirror on AWS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       Prerequisites
@@ -3219,6 +3237,9 @@
 <p class="admonition-title">NOT FINISHED YET</p>
 <p>Solve dependency with instances. Create Traffic Mirror Session in instances when VNS is enabled. </p>
 </div>
+<h2 id="traffic-mirror-on-aws">Traffic Mirror on AWS<a class="headerlink" href="#traffic-mirror-on-aws" title="Permanent link">&para;</a></h2>
+<p>In an on-premises environment, you would connect the data port of a Deep Discovery Inspector to a single mirror port to capture all traffic on that switch.</p>
+<p>In AWS, you can achieve similar functionality to a switch mirror port by using Traffic Mirroring on Elastic Network Interfaces (ENIs). This feature allows you to capture and inspect network traffic by mirroring it to another interface running monitoring software, such as our Inspector. However, unlike physical switches, in AWS you must explicitly configure traffic mirroring for each ENI you want to monitor.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
 <li>AWS Cloud Account integrated with Vision One</li>

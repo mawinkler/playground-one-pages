@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../v1-virtual-network-sensor-automatically/">
+        <link rel="prev" href="../v1-virtual-network-sensor-manually/">
       
       
         <link rel="next" href="../../../faq/">
@@ -2722,11 +2722,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../v1-virtual-network-sensor-manually/" class="md-nav__link">
+      <a href="../v1-virtual-network-sensor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Deploying Virtual Network Sensor on AWS Manually
+    Deploying Virtual Network Sensor on AWS
   </span>
   
 
@@ -2743,11 +2743,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../v1-virtual-network-sensor-automatically/" class="md-nav__link">
+      <a href="../v1-virtual-network-sensor-manually/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Deploying Virtual Network Sensor on AWS Automatically
+    Deploying Virtual Network Sensor on AWS Manually
   </span>
   
 
@@ -2856,6 +2856,15 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#traffic-mirror-on-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      Traffic Mirror on AWS
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
@@ -2974,6 +2983,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#traffic-mirror-on-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      Traffic Mirror on AWS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       Prerequisites
@@ -3014,10 +3032,14 @@
 <div class="admonition warning">
 <p class="admonition-title">NOT FINISHED YET</p>
 </div>
+<h2 id="traffic-mirror-on-aws">Traffic Mirror on AWS<a class="headerlink" href="#traffic-mirror-on-aws" title="Permanent link">&para;</a></h2>
+<p>In an on-premises environment, you would connect the data port of a Deep Discovery Inspector to a single mirror port to capture all traffic on that switch.</p>
+<p>In AWS, you can achieve similar functionality to a switch mirror port by using Traffic Mirroring on Elastic Network Interfaces (ENIs). This feature allows you to capture and inspect network traffic by mirroring it to another interface running monitoring software, such as our Inspector. However, unlike physical switches, in AWS you must explicitly configure traffic mirroring for each ENI you want to monitor.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Playground One Network</li>
 <li>Activated Marketplace AMI for Trend Deep Discovery Inspector BYOL</li>
+<li>A valid license key for Deep Discovery Inspector</li>
 </ul>
 <p>You need to have activated the Trend Deep Discovery Inspector BYOL AMI in Marketplace once. To do this, on the AWS Console choose the service EC2 and navigate to <code>Images --&gt; AMI Catalog</code>. Select the tab <code>AWS Marketplace AMIs</code> and seach for <code>Trend Micro Virtual Network Sensor</code>.</p>
 <p>There should only be one AMI shown for your current region. Click on <code>[Select]</code> and <code>[Subscribe on instance launch]</code>. </p>
@@ -3032,17 +3054,21 @@
 <p>Ensure to have the Playground One Network up and running:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Network configuration</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>network
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Instances configuration</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>instances
 </code></pre></div>
 <p>You will get some output generated, the DDI relevant section is shown below:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>...
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Outputs:
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>...
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nv">ddi_ami</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ami-0089a63d4c91694fc&quot;</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nv">ddi_va_ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3.123.188.186&quot;</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nv">ddi_va_pip_dataport_private_subnet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;10.0.0.233&quot;</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nv">ddi_va_pip_dataport_public_subnet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;10.0.4.228&quot;</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="nv">ddi_va_pip_managementport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;10.0.4.238&quot;</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>...
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nv">ddi_va_ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3.122.148.231&quot;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nv">ddi_va_pip_dataport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;10.0.4.45&quot;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nv">ddi_va_pip_managementport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;10.0.4.230&quot;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="nv">ddi_va_traffic_mirror_filter_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;tmf-0729a55b05120aedb&quot;</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="nv">ddi_va_traffic_mirror_target_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;tmt-032ac48714893a91f&quot;</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>...
 </code></pre></div>
 <p>Use <code>ddi_va_id</code> to connect from the Vision One console.</p>
 <div class="admonition info">

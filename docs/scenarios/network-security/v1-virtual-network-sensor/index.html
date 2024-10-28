@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../v1-virtual-network-sensor-manually/">
+        <link rel="prev" href="../../cloud-security/file-security/artifact-scanning/tmfs-s3-bucket-scanning/">
       
       
-        <link rel="next" href="../v1-deep-discovery-inspector/">
+        <link rel="next" href="../v1-virtual-network-sensor-manually/">
       
       
       <link rel="icon" href="../../../images/playground-icon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Deploying Virtual Network Sensor on AWS Automatically - Playground One</title>
+        <title>Deploying Virtual Network Sensor on AWS - Playground One</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scenario-deploying-virtual-network-sensor-on-aws-automatically" class="md-skip">
+        <a href="#scenario-deploying-virtual-network-sensor-on-aws" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Deploying Virtual Network Sensor on AWS Automatically
+              Deploying Virtual Network Sensor on AWS
             
           </span>
         </div>
@@ -2721,27 +2721,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../v1-virtual-network-sensor-manually/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Deploying Virtual Network Sensor on AWS Manually
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -2758,7 +2737,7 @@
           
   
   <span class="md-ellipsis">
-    Deploying Virtual Network Sensor on AWS Automatically
+    Deploying Virtual Network Sensor on AWS
   </span>
   
 
@@ -2769,7 +2748,7 @@
         
   
   <span class="md-ellipsis">
-    Deploying Virtual Network Sensor on AWS Automatically
+    Deploying Virtual Network Sensor on AWS
   </span>
   
 
@@ -2789,6 +2768,15 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#traffic-mirror-on-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      Traffic Mirror on AWS
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
@@ -2812,6 +2800,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../v1-virtual-network-sensor-manually/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deploying Virtual Network Sensor on AWS Manually
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -2974,6 +2983,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#traffic-mirror-on-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      Traffic Mirror on AWS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       Prerequisites
@@ -3009,11 +3027,14 @@
   
 
 
-<h1 id="scenario-deploying-virtual-network-sensor-on-aws-automatically">Scenario: Deploying Virtual Network Sensor on AWS Automatically<a class="headerlink" href="#scenario-deploying-virtual-network-sensor-on-aws-automatically" title="Permanent link">&para;</a></h1>
+<h1 id="scenario-deploying-virtual-network-sensor-on-aws">Scenario: Deploying Virtual Network Sensor on AWS<a class="headerlink" href="#scenario-deploying-virtual-network-sensor-on-aws" title="Permanent link">&para;</a></h1>
 <p><strong><em>Draft</em></strong></p>
 <div class="admonition warning">
 <p class="admonition-title">NOT FINISHED YET</p>
 </div>
+<h2 id="traffic-mirror-on-aws">Traffic Mirror on AWS<a class="headerlink" href="#traffic-mirror-on-aws" title="Permanent link">&para;</a></h2>
+<p>In an on-premises environment, you would connect the data port of a Deep Discovery Inspector to a single mirror port to capture all traffic on that switch.</p>
+<p>In AWS, you can achieve similar functionality to a switch mirror port by using Traffic Mirroring on Elastic Network Interfaces (ENIs). This feature allows you to capture and inspect network traffic by mirroring it to another interface running monitoring software, such as our Inspector. However, unlike physical switches, in AWS you must explicitly configure traffic mirroring for each ENI you want to monitor.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Playground One Network</li>
