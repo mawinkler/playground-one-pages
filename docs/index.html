@@ -3190,101 +3190,83 @@ The capabilities and contents are therefore to be enjoyed with caution and can c
 <td>Network</td>
 <td>Yes</td>
 <td>See 1)</td>
-<td>Service Gateway<br>Identity Security<br>Virtual Network Sensor</td>
+<td>Service Gateway<br>Identity Security<br>Virtual Network Sensor<br>Deep Discovery Inspector</td>
 </tr>
 <tr>
 <td>Instances</td>
 <td>Yes</td>
 <td>None</td>
-<td>V1 Server &amp; Workload Protection<br>ASRM<br>Service Gateway<br>Identity Security<br>Virtual Network</td>
+<td>Server &amp; Workload Protection<br>ASRM<br>Service Gateway<br>Identity Security<br>Virtual Network Sensor<br>Deep Discovery Inspector</td>
 </tr>
 <tr>
 <td>EKS EC2</td>
 <td>Yes</td>
 <td>None</td>
-<td>V1 Container Security<br>OAT&amp;WB Generation<br>Terraform Provider</td>
+<td>Container Security<br>OAT&amp;WB Generation<br>Terraform Provider<br>KSPM</td>
 </tr>
 <tr>
 <td>EKS Fargate</td>
 <td>Yes</td>
 <td>None</td>
-<td>V1 Container Security<br>OAT&amp;WB Generation<br>Terraform Provider</td>
+<td>Container Security<br>OAT&amp;WB Generation<br>Terraform Provider<br>KSPM</td>
 </tr>
 <tr>
 <td>ECS EC2</td>
 <td>Yes</td>
 <td>See 2)</td>
-<td>V1 Container Security</td>
+<td>Container Security</td>
 </tr>
 <tr>
 <td>ECS Fargate</td>
 <td>Yes</td>
 <td>See 3)</td>
-<td>V1 Container Security</td>
+<td>Container Security</td>
 </tr>
 <tr>
 <td>Bucket Scanner</td>
 <td>Yes</td>
 <td></td>
-<td>V1 FSS SDK</td>
+<td>FSS SDK</td>
 </tr>
 <tr>
 <td>Scenarios CloudTrail</td>
 <td>Yes</td>
 <td></td>
-<td>V1 CloudTrail</td>
+<td>CloudTrail</td>
 </tr>
 <tr>
 <td>Scenarios CSPM</td>
 <td>Yes</td>
 <td></td>
-<td>V1 CSPM</td>
+<td>CSPM</td>
 </tr>
 <tr>
 <td>Scenarios Identity</td>
 <td>Yes</td>
 <td></td>
-<td>V1 Identity Security</td>
+<td>Identity Security</td>
 </tr>
 <tr>
-<td>Calico</td>
+<td>Scenarios Zero Trust</td>
 <td>Yes</td>
-<td>EKS EC2 only</td>
 <td></td>
-</tr>
-<tr>
-<td>Prometheus</td>
-<td>Yes</td>
-<td>EKS EC2 only</td>
-<td></td>
-</tr>
-<tr>
-<td>Trivy</td>
-<td>Yes</td>
-<td>EKS EC2 only</td>
-<td></td>
-</tr>
-<tr>
-<td>Istio</td>
-<td>Yes</td>
-<td>EKS EC2 only</td>
-<td></td>
-</tr>
-<tr>
-<td>MetalLB</td>
-<td>Yes</td>
-<td>Kind only</td>
-<td></td>
+<td>Zero Trust<br>Private Access Gateway</td>
 </tr>
 <tr>
 <td>Deep Security</td>
 <td>Yes</td>
 <td>None</td>
-<td>Deep Security Integration &amp; Migration<br>V1 Server &amp; Workload Protection</td>
+<td>Deep Security Integration &amp; Migration<br>XDR<br>Server &amp; Workload Protection</td>
+</tr>
+<tr>
+<td>Workload Security</td>
+<td>Yes</td>
+<td>None</td>
+<td>Workload Security Integration &amp; Migration<br>XDR<br>Server &amp; Workload Protection</td>
 </tr>
 </tbody>
 </table>
-<p>1) In addition to the network itself the following services can be enabled: Active Directory, AWS Managed Active Directory, and Trend Service Gateway. The Active Directories are experimental and to be integrated deeper in the Playground One over time. They will support additional scenarios with Identity Security, Data Security, and more.</p>
+<p>1) In addition to the network itself the following services can be enabled: Active Directory, AWS Managed Active Directory, Service Gateway, Virtual Network Sensor, and Deep Discovery Inspector. The Active Directories are pretty basic but support SSL. They will support additional scenarios with Identity Security, Data Security, and more.</p>
 <p>2) Deleting the cluster requires the deactivation runtime scanning and runtime security before destroying the cluster. If destroy process <code>module.ecs-ec2[0].module.ecs_service.aws_ecs_service.this[0]: Still destroying...</code> hangs for a couple of minutes manually terminate the autoscaling group <code>pgo4-ecs-ec2-asg-spot-...</code> in AWS.</p>
 <p>3) Activating Runtime Security requires some manual steps, see <a href="https://docs.trendmicro.com/en-us/enterprise/trend-vision-one/cloudsecurityoperati/about-container-secu/next-steps/containerinventory/ecs-fargate-deployme/ecs-fargate-add.aspx">documentation</a>. Deleting the cluster requires the deactivation of runtime scanning and runtime security before destroying the cluster. Newly created task definitions must be removed manually.</p>
 <h3 id="azure">Azure<a class="headerlink" href="#azure" title="Permanent link">&para;</a></h3>
@@ -3302,7 +3284,7 @@ The capabilities and contents are therefore to be enjoyed with caution and can c
 <td>AKS</td>
 <td>Yes</td>
 <td>None</td>
-<td>V1 Container Security</td>
+<td>Container Security</td>
 </tr>
 </tbody>
 </table>
@@ -3328,12 +3310,6 @@ The capabilities and contents are therefore to be enjoyed with caution and can c
 <td>Yes</td>
 <td>None</td>
 <td>File and Directory Scanning for Malware</td>
-</tr>
-<tr>
-<td>Workload Security</td>
-<td>Yes</td>
-<td>None</td>
-<td>Workload Security Migration<br>V1 Server &amp; Workload Protection</td>
 </tr>
 <tr>
 <td>Kind Kubernetes</td>
@@ -3432,6 +3408,11 @@ The capabilities and contents are therefore to be enjoyed with caution and can c
 </tbody>
 </table>
 <h2 id="change-log">Change Log<a class="headerlink" href="#change-log" title="Permanent link">&para;</a></h2>
+<p><strong><em>0.4.7</em></strong></p>
+<p><em>Changes</em></p>
+<ul>
+<li>New integration: Deep Discovery Inspector</li>
+</ul>
 <p><strong><em>0.4.6</em></strong></p>
 <p><em>Changes</em></p>
 <ul>
