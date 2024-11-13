@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../template-scanning-terraform-github-action/">
+        <link rel="prev" href="../template-scanning-cfn-github-action/">
       
       
-        <link rel="next" href="../template-scanning-exception-handling-v1/">
+        <link rel="next" href="../template-scanning-exception-handling-c1/">
       
       
       <link rel="icon" href="../../../../images/playground-icon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>CloudFormation IaC Scanning with a GitHub Action - Playground One</title>
+        <title>Exception Handling with Pipline Scanning - Playground One</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scenario-cloudformation-iac-scanning-as-github-action" class="md-skip">
+        <a href="#scenario-terraform-iac-scanning-in-pipelines-with-exception-handling" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CloudFormation IaC Scanning with a GitHub Action
+              Exception Handling with Pipline Scanning
             
           </span>
         </div>
@@ -2017,6 +2017,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-scanning-cfn-github-action/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CloudFormation IaC Scanning with a GitHub Action
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -2033,7 +2054,7 @@
           
   
   <span class="md-ellipsis">
-    CloudFormation IaC Scanning with a GitHub Action
+    Exception Handling with Pipline Scanning
   </span>
   
 
@@ -2044,7 +2065,7 @@
         
   
   <span class="md-ellipsis">
-    CloudFormation IaC Scanning with a GitHub Action
+    Exception Handling with Pipline Scanning
   </span>
   
 
@@ -2075,97 +2096,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#about-github-actions" class="md-nav__link">
+  <a href="#playing-through-the-workflow" class="md-nav__link">
     <span class="md-ellipsis">
-      About GitHub Actions
+      Playing through the Workflow
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fork-the-scenario-repo" class="md-nav__link">
-    <span class="md-ellipsis">
-      Fork the Scenario Repo
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-repo" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Repo
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The Repo">
+    <nav class="md-nav" aria-label="Playing through the Workflow">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-workflow" class="md-nav__link">
+  <a href="#prepare" class="md-nav__link">
     <span class="md-ellipsis">
-      The Workflow
+      Prepare
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#secrets" class="md-nav__link">
+  <a href="#using-name-tags" class="md-nav__link">
     <span class="md-ellipsis">
-      Secrets
+      Using Name-Tags
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#template" class="md-nav__link">
+  <a href="#using-uuid-tags-more-ecure" class="md-nav__link">
     <span class="md-ellipsis">
-      Template
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#actions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Actions
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#test-it" class="md-nav__link">
-    <span class="md-ellipsis">
-      Test it
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Test it">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-a-tag" class="md-nav__link">
-    <span class="md-ellipsis">
-      Create a Tag
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#check-the-action" class="md-nav__link">
-    <span class="md-ellipsis">
-      Check the Action
+      Using UUID-Tags (more ecure)
     </span>
   </a>
   
@@ -2180,27 +2141,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../template-scanning-exception-handling-v1/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Exception Handling with Pipline Scanning
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -3097,97 +3037,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#about-github-actions" class="md-nav__link">
+  <a href="#playing-through-the-workflow" class="md-nav__link">
     <span class="md-ellipsis">
-      About GitHub Actions
+      Playing through the Workflow
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fork-the-scenario-repo" class="md-nav__link">
-    <span class="md-ellipsis">
-      Fork the Scenario Repo
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-repo" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Repo
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The Repo">
+    <nav class="md-nav" aria-label="Playing through the Workflow">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-workflow" class="md-nav__link">
+  <a href="#prepare" class="md-nav__link">
     <span class="md-ellipsis">
-      The Workflow
+      Prepare
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#secrets" class="md-nav__link">
+  <a href="#using-name-tags" class="md-nav__link">
     <span class="md-ellipsis">
-      Secrets
+      Using Name-Tags
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#template" class="md-nav__link">
+  <a href="#using-uuid-tags-more-ecure" class="md-nav__link">
     <span class="md-ellipsis">
-      Template
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#actions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Actions
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#test-it" class="md-nav__link">
-    <span class="md-ellipsis">
-      Test it
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Test it">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-a-tag" class="md-nav__link">
-    <span class="md-ellipsis">
-      Create a Tag
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#check-the-action" class="md-nav__link">
-    <span class="md-ellipsis">
-      Check the Action
+      Using UUID-Tags (more ecure)
     </span>
   </a>
   
@@ -3216,197 +3096,266 @@
   
 
 
-<h1 id="scenario-cloudformation-iac-scanning-as-github-action">Scenario: CloudFormation IaC Scanning as GitHub Action<a class="headerlink" href="#scenario-cloudformation-iac-scanning-as-github-action" title="Permanent link">&para;</a></h1>
+<h1 id="scenario-terraform-iac-scanning-in-pipelines-with-exception-handling">Scenario: Terraform IaC Scanning in Pipelines with Exception Handling<a class="headerlink" href="#scenario-terraform-iac-scanning-in-pipelines-with-exception-handling" title="Permanent link">&para;</a></h1>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Vision One API-Key with the following permissions:<ul>
-<li>Cloud Posture<ul>
-<li>View</li>
+<li>Clouud One API-Key with the following permissions:<ul>
+<li>Conformity<ul>
+<li>Full-Access</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>GitHub Account.</li>
-<li>Forked <a href="https://github.com/mawinkler/playground-one-template-scanner">playground-one-template-scanner</a>.</li>
 </ul>
-<h2 id="about-github-actions">About GitHub Actions<a class="headerlink" href="#about-github-actions" title="Permanent link">&para;</a></h2>
-<p>GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline on GitHub.</p>
-<p>GitHub Actions goes beyond just DevOps and lets you run workflows when other events happen in your repository. For example, you can run a workflow to automatically add the appropriate labels whenever someone creates a new issue in your repository.</p>
-<p>You can configure a GitHub Actions workflow to be triggered when an event occurs in your repository, such as a pull request being opened, an issue being created or a push happened. Your workflow contains one or more jobs which can run in sequential order or in parallel. Each job will run inside its own virtual machine runner, or inside a container, and has one or more steps that either run a script that you define or run an action, which is a reusable extension that can simplify your workflow.</p>
-<p>Workflows are defined as YAML files in the .github/workflows directory in a repository, and a repository can have multiple workflows, each of which can perform a different set of tasks.</p>
-<p>In this scenario we're going to create a workflow to automatically scan a Cloudformation template with Vision One Cloud Posture Template Scanning. The scan will check the configuration for misconfigurations.</p>
-<p>The logic implemented in this Action template is as follows:</p>
+<p>The provided Python scripts implement the required functionality for Terraform Template Scanning, Exception approval workflows and temporary suppression of findings in Conformity Account Profile. It mainly focuses on the logic to support these kind of scenarios and cannot be used 1-to-1 in real life pipelines without modifications. The implementation assumes that an external workflow engine such as ServiceNow is used for approval workflows, which include an expiration set on the specific exception.</p>
+<p>Conformity offers two different variants to “allow” non-compliance:</p>
 <ul>
-<li>Prepare the Cloudformation environment with <a href="https://aws-cloudformation.github.io/rain/">rain</a>.</li>
-<li>Use the template scanner to scan for misconfigurations.</li>
-<li>Upload scan artifacts.</li>
-<li>Eventually fail the action if the findings threshold has been exceeded.</li>
+<li>Exceptions in rule configuration based on Tags or Resource ID (AWS ARN)</li>
+<li>Suppressions on specific findings</li>
 </ul>
-<h2 id="fork-the-scenario-repo">Fork the Scenario Repo<a class="headerlink" href="#fork-the-scenario-repo" title="Permanent link">&para;</a></h2>
-<p>The first step is to fork the scenarios GitHub repo. For this go to <a href="https://github.com/">github.com</a> and sign in or create a free account if you need to.</p>
-<p>Next, you want to create a Fork of the scenarios repo. A fork is basically a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.</p>
-<p>To do this navigate to the repo <a href="https://github.com/mawinkler/playground-one-template-scanner">playground-one-template-scanner</a> and click on the <code>Fork</code>-button in the upper right.</p>
-<p>On the next screen you change the name to something shorter like <code>action</code>. Then press <code>[Create fork]</code> which will bring you back to your account.</p>
-<h2 id="the-repo">The Repo<a class="headerlink" href="#the-repo" title="Permanent link">&para;</a></h2>
-<p>The repo containes a hidden directory <code>.github/workflows</code> with some <code>yaml</code>-files, a <code>cfn</code> and an <code>infra</code>-directory.</p>
-<p>The <code>cfn</code> holds an example CloudFormation template for the scan, whereby the <code>infra</code> directory contains some Terraform modules which would create a VPC, subnets, security groups, etc.</p>
-<h3 id="the-workflow">The Workflow<a class="headerlink" href="#the-workflow" title="Permanent link">&para;</a></h3>
-<p>In the following section we'll review the different GitHub Actions for CloudFormation scanning of this repo.</p>
-<p>Let's go through it.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CloudFormation Scan</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># A push --tags on the repo triggers the workflow</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">on</span><span class="p">:</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">push</span><span class="p">:</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">v*</span><span class="w"> </span><span class="p p-Indicator">]</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">env</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="c1"># Vision One API Key</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="nt">API_KEY</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.API_KEY }}</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="c1"># Region in which Vision One serves your organisation</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="nt">REGION</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w">  </span><span class="c1"># Examples: &quot;eu.&quot; &quot;sg.&quot; Leave blank if running in us.</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="c1"># Scan result threshold (fail on risk-level or higher)</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="c1"># THRESHOLD: any</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">  </span><span class="c1"># THRESHOLD: critical</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="nt">THRESHOLD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">high</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">  </span><span class="c1"># THRESHOLD: medium</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="c1"># THRESHOLD: low</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="nt">jobs</span><span class="p">:</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">  </span><span class="nt">docker</span><span class="p">:</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">      </span><span class="c1"># Prepare and authenticate to AWS using the given credentials</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
-<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Configure AWS Credentials</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws-actions/configure-aws-credentials@v4</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">          </span><span class="nt">aws-access-key-id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_ACCESS_KEY_ID }}</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">          </span><span class="nt">aws-secret-access-key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_SECRET_ACCESS_KEY }}</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">          </span><span class="nt">aws-region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_REGION }}</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>
-<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">      </span><span class="c1"># CloudFormation scan</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CloudFormation Scan</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">          </span><span class="no">contents=$(cat cfn/template.json | jq &#39;.&#39; -MRs)</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">          </span><span class="no">payload=&quot;{\&quot;type\&quot;:\&quot;cloudformation-template\&quot;,\&quot;content\&quot;:${contents}}&quot;</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">          </span><span class="no">printf &#39;%s&#39; ${payload} &gt; data.txt</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>
-<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">          </span><span class="no"># # Scan template</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">          </span><span class="no">curl -s -X POST \</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="w">              </span><span class="no">-H &quot;Authorization: Bearer ${API_KEY}&quot; \</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">              </span><span class="no">-H &quot;Content-Type: application/json;charset=utf-8&quot; \</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">              </span><span class="no">https://api.${REGION}xdr.trendmicro.com/beta/cloudPosture/scanTemplate \</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="w">              </span><span class="no">-d @data.txt &gt; result.json</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>
-<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="w">          </span><span class="no"># Extract findings risk-level</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="w">          </span><span class="no">risk_levels=$(cat result.json | jq -r &#39;.scanResults[] | select(.status == &quot;FAILURE&quot;) | .riskLevel&#39;)</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>
-<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="w">          </span><span class="no">fail=0</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="w">          </span><span class="no">[ &quot;${THRESHOLD}&quot; = &quot;any&quot; ] &amp;&amp; \</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a><span class="w">            </span><span class="no">[ ! -z &quot;${risk_levels}&quot; ] &amp;&amp; fail=1</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>
-<a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a><span class="w">          </span><span class="no">[ &quot;${THRESHOLD}&quot; = &quot;critical&quot; ] &amp;&amp; \</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a><span class="w">            </span><span class="no">[[ ${risk_levels} == *CRITICAL* ]] &amp;&amp; fail=2</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a>
-<a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a><span class="w">          </span><span class="no">[ &quot;${THRESHOLD}&quot; = &quot;high&quot; ] &amp;&amp; \</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a><span class="w">            </span><span class="no">([[ ${risk_levels} == *CRITICAL* ]] || [[ ${risk_levels} == *HIGH* ]]) &amp;&amp; fail=3</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a>
-<a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a><span class="w">          </span><span class="no">[ &quot;${THRESHOLD}&quot; = &quot;medium&quot; ] &amp;&amp; \</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a><span class="w">            </span><span class="no">([[ ${risk_levels} == *CRITICAL* ]] || [[ ${risk_levels} == *HIGH* ]] || [[ ${risk_levels} == *MEDIUM* ]]) &amp;&amp; fail=4</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a>
-<a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a><span class="w">          </span><span class="no">[ &quot;${THRESHOLD}&quot; = &quot;low&quot; ] &amp;&amp; \</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a><span class="w">            </span><span class="no">([[ ${risk_levels} == *CRITICAL* ]] || [[ ${risk_levels} == *HIGH* ]] || [[ ${risk_levels} == *MEDIUM* ]] || [[ ${risk_levels} == *LOW* ]]) &amp;&amp; fail=5</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a>
-<a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a><span class="w">          </span><span class="no">[ $fail -ne 0 ] &amp;&amp; echo !!! Threshold exceeded !!! &gt; exceeded || true</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a><span class="w">          </span><span class="no"># rm -f data.txt</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a>
-<a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a><span class="w">      </span><span class="c1"># Upload Scan Result if available</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload Scan Result Artifact</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76" href="#__codelineno-0-76"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v4</span>
-<a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78" href="#__codelineno-0-78"></a><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scan-result</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79" href="#__codelineno-0-79"></a><span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">result.json</span>
-<a id="__codelineno-0-80" name="__codelineno-0-80" href="#__codelineno-0-80"></a><span class="w">          </span><span class="nt">retention-days</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
-<a id="__codelineno-0-81" name="__codelineno-0-81" href="#__codelineno-0-81"></a>
-<a id="__codelineno-0-82" name="__codelineno-0-82" href="#__codelineno-0-82"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload Scan Result Artifact</span>
-<a id="__codelineno-0-83" name="__codelineno-0-83" href="#__codelineno-0-83"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v4</span>
-<a id="__codelineno-0-84" name="__codelineno-0-84" href="#__codelineno-0-84"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
-<a id="__codelineno-0-85" name="__codelineno-0-85" href="#__codelineno-0-85"></a><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data</span>
-<a id="__codelineno-0-86" name="__codelineno-0-86" href="#__codelineno-0-86"></a><span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data.txt</span>
-<a id="__codelineno-0-87" name="__codelineno-0-87" href="#__codelineno-0-87"></a><span class="w">          </span><span class="nt">retention-days</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
-<a id="__codelineno-0-88" name="__codelineno-0-88" href="#__codelineno-0-88"></a>
-<a id="__codelineno-0-89" name="__codelineno-0-89" href="#__codelineno-0-89"></a><span class="w">      </span><span class="c1"># Fail the workflow if theshold reached</span>
-<a id="__codelineno-0-90" name="__codelineno-0-90" href="#__codelineno-0-90"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Fail Scan</span>
-<a id="__codelineno-0-91" name="__codelineno-0-91" href="#__codelineno-0-91"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<a id="__codelineno-0-92" name="__codelineno-0-92" href="#__codelineno-0-92"></a><span class="w">          </span><span class="no">ls -l</span>
-<a id="__codelineno-0-93" name="__codelineno-0-93" href="#__codelineno-0-93"></a><span class="w">          </span><span class="no">if [ -f &quot;exceeded&quot; ]; then exit 1; fi</span>
+<p>The required functionality as part of the workflow requirements is available via Conformity's REST API in combination with ServiceNow for workflow management.</p>
+<p>Logical architecture:</p>
+<p><img alt="alt text" src="../images/iac-scanning-01.png" title="Logical" /></p>
+<p>The idea is to create one or more <em>Scan Profiles</em> with are used by the template scanner. The <em>Scan Profile</em> gets Exceptions assigned so that a template scan result can pass before deployment.</p>
+<p><img alt="alt text" src="../images/iac-scanning-02.png" title="Profiles" /></p>
+<p>In the above screenshot we have two Scan Profiles with different settings.</p>
+<p>Scan Profile contains</p>
+<ul>
+<li>Rule Settings and</li>
+<li>approved Exceptions</li>
+</ul>
+<p>Suppressions are set in Account to (temporarily) suppress but report Findings. When Suppression(s) expire, Exceptions in Scan Profile are to be adapted/removed.</p>
+<p>The onboarding workflow:</p>
+<p><img alt="alt text" src="../images/iac-scanning-04.png" title="Onboarding" /></p>
+<p>The next graph shows the complete workflow implemented in this scenario:</p>
+<p><img alt="alt text" src="../images/iac-scanning-05.png" title="Workflow" /></p>
+<p>Things to be aware of:</p>
+<ul>
+<li>Resource IDs (e.g. ARNs) are often unknown at Terraform Plan stage</li>
+<li>Name-Tags might not be granular enough in regards Suppressions</li>
+<li>Tags on resources may be set incorrectly, possibly intentionally</li>
+<li>Resolution idea (partly implemented):<ul>
+<li>Trigger Template Scan</li>
+<li>Findings trigger Exemption Workflow</li>
+<li>Approved Exceptions get a unique ID assigned which is bound to the Resource and Rule ID</li>
+<li>Allowed non-compliant resources are tagged in the Terraform Template with this unique ID</li>
+<li>Allows validation before deployment (does the tag match to the resource and Rule ID?)</li>
+</ul>
+</li>
+</ul>
+<h2 id="playing-through-the-workflow">Playing through the Workflow<a class="headerlink" href="#playing-through-the-workflow" title="Permanent link">&para;</a></h2>
+<p>The scenarios offer two different terraform configurations that you can play with for convenience. Effectively it is not limitted to these, the Python script can scan any configuration, even the Playground One configurations of <code>awsone</code>.</p>
+<p>There are two variants implemented which differ in their approach to identity AWS resources to build:</p>
+<ul>
+<li><code>scanner_v1_name.py</code>: Simply uses name tags on the resources.</li>
+<li><code>scanner_v1_uuid.py</code>: Automatically creates an unique <code>uuid</code>-tag for the resources which need to be assigned manually to the resource before deployment to be compliant.</li>
+</ul>
+<p>The scripts are located in the <code>cspm</code>-directory and assume, that all exeption are granted and expire after seven days.</p>
+<h3 id="prepare">Prepare<a class="headerlink" href="#prepare" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Set environment variable <code>V1CSPM_SCANNER_KEY</code> with the API key of the
+  Cloud Posture Template Scanner.</li>
+<li>Adapt the constants in the Python script in between <code># HERE</code> and <code># /HERE</code> to your requirements.</li>
+<li>
+<p>Lines 106ff. 
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># HERE</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">REGION</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>  <span class="c1"># Examples: eu. sg., leave blank for us</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">SCAN_PROFILE_ID</span> <span class="o">=</span> <span class="s2">&quot;TQNDl13ix&quot;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">ACCOUNT_ID</span> <span class="o">=</span> <span class="s2">&quot;e37fe1b7-2b14-4b2c-96a4-db1bb2be8c8b&quot;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">SCAN_PROFILE_NAME</span> <span class="o">=</span> <span class="s2">&quot;Playground One Template Scanner&quot;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">REPORT_TITLE</span> <span class="o">=</span> <span class="s2">&quot;Workflow Tests&quot;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">RISK_LEVEL_FAIL</span> <span class="o">=</span> <span class="s2">&quot;MEDIUM&quot;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># /HERE</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Get your <code>ACCOUNT_ID</code>:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>-s<span class="w"> </span>--location<span class="w"> </span><span class="s2">&quot;https://api.xdr.trendmicro.com/beta/cloudPosture/accounts&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>--header<span class="w"> </span><span class="s1">&#39;Content-Type: application/json;charset=utf-8&#39;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>--header<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="si">${</span><span class="nv">V1CSPM_SCANNER_KEY</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.items[] | .id + &quot;: &quot; + .name&#39;</span>
 </code></pre></div>
-<h3 id="secrets">Secrets<a class="headerlink" href="#secrets" title="Permanent link">&para;</a></h3>
-<p>For simplicity, authentication to AWS is done via access and secret access key. Alternative and likely better variants are described <a href="https://github.com/marketplace/actions/configure-aws-credentials-action-for-github-actions">here</a>.</p>
-<p>The workflow requires a secret to be set. For that navigate to <code>Settings --&gt; Security --&gt; Secrets and variables --&gt; Actions --&gt; Secrets</code>.</p>
-<p>Add the following secrets:</p>
-<ul>
-<li>API_KEY: <code>&lt;Your Cloud One API Key&gt;</code></li>
-<li>AWS_ACCESS_KEY_ID</li>
-<li>AWS_SECRET_ACCESS_KEY</li>
+  - Get the <code>SCAN_PROFILE_ID</code> and <code>SCAN_PROFILE_NAME</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span>-s<span class="w"> </span>--location<span class="w"> </span><span class="s2">&quot;https://api.xdr.trendmicro.com/beta/cloudPosture/profiles&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>--header<span class="w"> </span><span class="s1">&#39;Content-Type: application/json;charset=utf-8&#39;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>--header<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="si">${</span><span class="nv">V1CSPM_SCANNER_KEY</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.items[] | .id + &quot;: &quot; + .name&#39;</span>
+</code></pre></div>
+</li>
 </ul>
-<h3 id="template">Template<a class="headerlink" href="#template" title="Permanent link">&para;</a></h3>
-<p>Adapt the environment variables in the <code>env:</code>-section as required.</p>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>REGION</code></td>
-<td>Vision One Region of choice (e.g. "eu." "sg." Leave blank if running in us).</td>
-</tr>
-<tr>
-<td><code>THRESHOLD</code></td>
-<td>Defines the fail condition of the action in relation to discovered vulnerabilities. A threshold of <code>critical</code> does allow any number of vulnerabilities up to the criticality <code>high</code>.</td>
-</tr>
-</tbody>
-</table>
-<p>Allowed values for the <code>THRESHOLD</code> are:</p>
-<ul>
-<li><code>any</code>: No vulnerabilities allowed.</li>
-<li><code>critical</code>: Max risk-level of discovered findings is <code>high</code>.</li>
-<li><code>high</code>: Max risk-level of discovered findings is <code>medium</code>.</li>
-<li><code>medium</code>: Max risk-level of discovered findings is <code>low</code>.</li>
-<li><code>low</code>: Max risk-level of discovered findings is <code>negligible</code>.</li>
-</ul>
-<p>If the <code>THRESHOLD</code> is not set, vulnerabilities will not fail the pipeline.</p>
-<p>The workflow will trigger on <code>git push --tags</code>.</p>
-<h3 id="actions">Actions<a class="headerlink" href="#actions" title="Permanent link">&para;</a></h3>
-<p>Navigate to <code>Actions</code> and enable Workflows for the forked repository.</p>
-<h2 id="test-it">Test it<a class="headerlink" href="#test-it" title="Permanent link">&para;</a></h2>
-<h3 id="create-a-tag">Create a Tag<a class="headerlink" href="#create-a-tag" title="Permanent link">&para;</a></h3>
-<p>To trigger the action we simply create a tag.</p>
-<p>Navigate to <code>Releases</code> on the right and then click on <code>[Create a new release]</code>.</p>
-<p>Next, click on <code>[Choose a tag]</code> and type <code>v0.1</code>. A new button called <code>[Create new tag]</code> should get visible. Click on it.</p>
-<p>Leave the rest as it is and finally click on the green button <code>[Publish release]</code>. This will trigger the action workflow.</p>
+<h3 id="using-name-tags">Using Name-Tags<a class="headerlink" href="#using-name-tags" title="Permanent link">&para;</a></h3>
+<p>First, we're going the easy route using name tags.</p>
+<p>Here's the quick run-through:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Run template scan</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>$<span class="w"> </span>./scanner_v1_name.py<span class="w"> </span>--scan<span class="w"> </span><span class="m">2</span>-network
+</code></pre></div>
+<p>This produces the following output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">13</span>:15:25<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_template<span class="o">]</span><span class="w"> </span>Starting<span class="w"> </span>Template<span class="w"> </span>Scan...
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">13</span>:15:38<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_template<span class="o">]</span><span class="w"> </span>Template<span class="w"> </span>Scan<span class="w"> </span><span class="k">done</span>.
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">13</span>:15:38<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_failures<span class="o">]</span><span class="w"> </span>Finding<span class="w"> </span>of<span class="w"> </span>rule<span class="w"> </span>EC2-001<span class="w"> </span>with<span class="w"> </span>Risk<span class="w"> </span>Level<span class="w"> </span>MEDIUM,<span class="w"> </span>Rule<span class="w"> </span>Title:<span class="w"> </span>Security<span class="w"> </span>Group<span class="w"> </span>Port<span class="w"> </span>Range<span class="w"> </span><span class="k">for</span><span class="w"> </span>Resource:<span class="w"> </span>module.ec2.aws_security_group.sg<span class="o">[</span><span class="s2">&quot;public&quot;</span><span class="o">]</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">13</span>:15:38<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_failures<span class="o">]</span><span class="w"> </span>Finding<span class="w"> </span>of<span class="w"> </span>rule<span class="w"> </span>EC2-033<span class="w"> </span>with<span class="w"> </span>Risk<span class="w"> </span>Level<span class="w"> </span>MEDIUM,<span class="w"> </span>Rule<span class="w"> </span>Title:<span class="w"> </span>Unrestricted<span class="w"> </span>Security<span class="w"> </span>Group<span class="w"> </span>Egress<span class="w"> </span><span class="k">for</span><span class="w"> </span>Resource:<span class="w"> </span>module.ec2.aws_security_group.sg<span class="o">[</span><span class="s2">&quot;private&quot;</span><span class="o">]</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">13</span>:15:38<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_failures<span class="o">]</span><span class="w"> </span>Finding<span class="w"> </span>of<span class="w"> </span>rule<span class="w"> </span>EC2-033<span class="w"> </span>with<span class="w"> </span>Risk<span class="w"> </span>Level<span class="w"> </span>MEDIUM,<span class="w"> </span>Rule<span class="w"> </span>Title:<span class="w"> </span>Unrestricted<span class="w"> </span>Security<span class="w"> </span>Group<span class="w"> </span>Egress<span class="w"> </span><span class="k">for</span><span class="w"> </span>Resource:<span class="w"> </span>module.ec2.aws_security_group.sg<span class="o">[</span><span class="s2">&quot;public&quot;</span><span class="o">]</span>
+</code></pre></div>
+<p>For now, let's assume the user did run through an approval workflow for the above findings and is therefore allowed to create exceptions. For this, we run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Run approval workflows in engine, here implementing the approved workflow</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>$<span class="w"> </span>./scanner_v1_name.py<span class="w"> </span>--exclude<span class="w"> </span><span class="m">2</span>-network
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">13</span>:16:33<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_template<span class="o">]</span><span class="w"> </span>Starting<span class="w"> </span>Template<span class="w"> </span>Scan...
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">13</span>:16:37<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_template<span class="o">]</span><span class="w"> </span>Template<span class="w"> </span>Scan<span class="w"> </span><span class="k">done</span>.
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">13</span>:16:37<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_failures<span class="o">]</span><span class="w"> </span>Setting<span class="w"> </span>Exception<span class="w"> </span><span class="k">for</span><span class="w"> </span>rule<span class="w"> </span>EC2-001<span class="w"> </span>with<span class="w"> </span>Risk<span class="w"> </span>Level<span class="w"> </span>MEDIUM,<span class="w"> </span>Rule<span class="w"> </span>Title:<span class="w"> </span>Security<span class="w"> </span>Group<span class="w"> </span>Port<span class="w"> </span>Range<span class="w"> </span><span class="k">for</span><span class="w"> </span>Resource:<span class="w"> </span>module.ec2.aws_security_group.sg<span class="o">[</span><span class="s2">&quot;public&quot;</span><span class="o">]</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">13</span>:16:44<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>set_exception<span class="o">]</span><span class="w"> </span>Exception<span class="w"> </span><span class="k">for</span><span class="w"> </span>EC2-001<span class="w"> </span><span class="k">in</span><span class="w"> </span>Profile<span class="w"> </span>TQNDl13ix<span class="w"> </span><span class="nb">set</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">13</span>:16:44<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_failures<span class="o">]</span><span class="w"> </span>Setting<span class="w"> </span>Exception<span class="w"> </span><span class="k">for</span><span class="w"> </span>rule<span class="w"> </span>EC2-033<span class="w"> </span>with<span class="w"> </span>Risk<span class="w"> </span>Level<span class="w"> </span>MEDIUM,<span class="w"> </span>Rule<span class="w"> </span>Title:<span class="w"> </span>Unrestricted<span class="w"> </span>Security<span class="w"> </span>Group<span class="w"> </span>Egress<span class="w"> </span><span class="k">for</span><span class="w"> </span>Resource:<span class="w"> </span>module.ec2.aws_security_group.sg<span class="o">[</span><span class="s2">&quot;private&quot;</span><span class="o">]</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">13</span>:16:49<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>set_exception<span class="o">]</span><span class="w"> </span>Exception<span class="w"> </span><span class="k">for</span><span class="w"> </span>EC2-033<span class="w"> </span><span class="k">in</span><span class="w"> </span>Profile<span class="w"> </span>TQNDl13ix<span class="w"> </span><span class="nb">set</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">13</span>:16:49<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_failures<span class="o">]</span><span class="w"> </span>Setting<span class="w"> </span>Exception<span class="w"> </span><span class="k">for</span><span class="w"> </span>rule<span class="w"> </span>EC2-033<span class="w"> </span>with<span class="w"> </span>Risk<span class="w"> </span>Level<span class="w"> </span>MEDIUM,<span class="w"> </span>Rule<span class="w"> </span>Title:<span class="w"> </span>Unrestricted<span class="w"> </span>Security<span class="w"> </span>Group<span class="w"> </span>Egress<span class="w"> </span><span class="k">for</span><span class="w"> </span>Resource:<span class="w"> </span>module.ec2.aws_security_group.sg<span class="o">[</span><span class="s2">&quot;public&quot;</span><span class="o">]</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">13</span>:16:52<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>set_exception<span class="o">]</span><span class="w"> </span>Exception<span class="w"> </span><span class="k">for</span><span class="w"> </span>EC2-033<span class="w"> </span><span class="k">in</span><span class="w"> </span>Profile<span class="w"> </span>TQNDl13ix<span class="w"> </span><span class="nb">set</span>
+</code></pre></div>
+<p>The exceptions are based on the name-tags of the resource. You can find the exption tags generated within the <code>exceptions.json</code>-file.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&quot;EC2-001&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="nt">&quot;scan_profile_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TQNDl13ix&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">      </span><span class="s2">&quot;Name::pgo-public-sg&quot;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">  </span><span class="nt">&quot;EC2-033&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="nt">&quot;scan_profile_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TQNDl13ix&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">      </span><span class="s2">&quot;Name::pgo-private-sg&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">      </span><span class="s2">&quot;Name::pgo-public-sg&quot;</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="p">}</span>
+</code></pre></div>
+<p>A subsequent template scan should now pass without findings and the template is prepared for deployment.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Run template scan again to verify that the scan result is clean</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>$<span class="w"> </span>./scanner_v1_name.py<span class="w"> </span>--scan<span class="w"> </span><span class="m">2</span>-network
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">13</span>:18:39<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_template<span class="o">]</span><span class="w"> </span>Starting<span class="w"> </span>Template<span class="w"> </span>Scan...
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">13</span>:18:44<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_template<span class="o">]</span><span class="w"> </span>Template<span class="w"> </span>Scan<span class="w"> </span><span class="k">done</span>.
+</code></pre></div>
+<p>Now, lets apply the configuration and trigger a bot run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Apply configuration</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>$<span class="w"> </span>./scanner_v1_name.py<span class="w"> </span>--apply<span class="w"> </span><span class="m">2</span>-network
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># Trigger bot run</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>$<span class="w"> </span>./scanner_v1_name.py<span class="w"> </span>--bot
+</code></pre></div>
+<p>Even if the scan was clean, the bot will still identify violations since the bot uses the account and not the scanning template. To temporarily suppress the findings run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Suppress findings</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>$<span class="w"> </span>./scanner_v1_name.py<span class="w"> </span>--suppress
+</code></pre></div>
+<p>The above suppressed the findings for a week. Running the script with the <code>--expire</code> flag will check all the suppressions and if a suppression is expired, it will remove the exception from the scan profile, simulating an expired exception.</p>
 <blockquote>
-<p><strong><em>CLI:</em></strong> <code>git tag v0.1 &amp;&amp; git push --tags</code></p>
+<p><strong><em>Note:</em></strong> For demoing purposes, the script fast forwards the time by 8 days to immedeately expire the exceptions. This is defined by the constant <code>TIMESHIFT_DAYS</code> in the script.</p>
 </blockquote>
-<h3 id="check-the-action">Check the Action<a class="headerlink" href="#check-the-action" title="Permanent link">&para;</a></h3>
-<p>Now, navigate to the tab <code>Actions</code> and review the actions output. Click on <code>CloudFormation Scan</code>.</p>
-<p>You should now see three main sections:</p>
-<ol>
-<li><code>cloudformation-template-scan-shell.yaml</code>: Clicking on <code>docker</code> reveals the output of the steps from the workflow (and where it failed).</li>
-<li>Annotations: Telling you in this case that the process completed with exit code 1.</li>
-<li>Artifacts: These are the artifacts created by the action. There should be a <code>scan-result</code>.</li>
-</ol>
-<p>Feel free to review the scan results to find out why the action did fail.</p>
-<p>🎉 Success 🎉</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Suppressions are active for 1 week</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>$<span class="w"> </span>./scanner_v1_name.py<span class="w"> </span>--expire
+</code></pre></div>
+<p>To do a cleanup and remove the suppressions and exceptions run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Cleanup</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>$<span class="w"> </span>./scanner_v1_name.py<span class="w"> </span>--destroy<span class="w"> </span><span class="m">2</span>-network
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>$<span class="w"> </span>./scanner_v1_name.py<span class="w"> </span>--reset
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>$<span class="w"> </span>./scanner_v1_name.py<span class="w"> </span>--expire
+</code></pre></div>
+<h3 id="using-uuid-tags-more-ecure">Using UUID-Tags (more ecure)<a class="headerlink" href="#using-uuid-tags-more-ecure" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Run template scan</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>$<span class="w"> </span>./scanner_v1_uuid.py<span class="w"> </span>--scan<span class="w"> </span><span class="m">2</span>-network
+</code></pre></div>
+<p>This produces the following output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">12</span>:50:01<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_template<span class="o">]</span><span class="w"> </span>Starting<span class="w"> </span>Template<span class="w"> </span>Scan...
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">12</span>:50:13<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_template<span class="o">]</span><span class="w"> </span>Template<span class="w"> </span>Scan<span class="w"> </span><span class="k">done</span>.
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">12</span>:50:13<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_failures<span class="o">]</span><span class="w"> </span>Finding<span class="w"> </span>of<span class="w"> </span>rule<span class="w"> </span>EC2-001<span class="w"> </span>with<span class="w"> </span>Risk<span class="w"> </span>Level<span class="w"> </span>MEDIUM,<span class="w"> </span>Rule<span class="w"> </span>Title:<span class="w"> </span>Security<span class="w"> </span>Group<span class="w"> </span>Port<span class="w"> </span>Range<span class="w"> </span><span class="k">for</span><span class="w"> </span>Resource:<span class="w"> </span>module.ec2.aws_security_group.sg<span class="o">[</span><span class="s2">&quot;public&quot;</span><span class="o">]</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">12</span>:50:13<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_failures<span class="o">]</span><span class="w"> </span>Finding<span class="w"> </span>of<span class="w"> </span>rule<span class="w"> </span>EC2-033<span class="w"> </span>with<span class="w"> </span>Risk<span class="w"> </span>Level<span class="w"> </span>MEDIUM,<span class="w"> </span>Rule<span class="w"> </span>Title:<span class="w"> </span>Unrestricted<span class="w"> </span>Security<span class="w"> </span>Group<span class="w"> </span>Egress<span class="w"> </span><span class="k">for</span><span class="w"> </span>Resource:<span class="w"> </span>module.ec2.aws_security_group.sg<span class="o">[</span><span class="s2">&quot;private&quot;</span><span class="o">]</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">12</span>:50:13<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_failures<span class="o">]</span><span class="w"> </span>Finding<span class="w"> </span>of<span class="w"> </span>rule<span class="w"> </span>EC2-033<span class="w"> </span>with<span class="w"> </span>Risk<span class="w"> </span>Level<span class="w"> </span>MEDIUM,<span class="w"> </span>Rule<span class="w"> </span>Title:<span class="w"> </span>Unrestricted<span class="w"> </span>Security<span class="w"> </span>Group<span class="w"> </span>Egress<span class="w"> </span><span class="k">for</span><span class="w"> </span>Resource:<span class="w"> </span>module.ec2.aws_security_group.sg<span class="o">[</span><span class="s2">&quot;public&quot;</span><span class="o">]</span>
+</code></pre></div>
+<p>For now, let's assume the user did run through an approval workflow for the above findings and is therefore allowed to create exceptions. For this, we run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Run approval workflows in engine, here implementing the approved workflow</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>$<span class="w"> </span>./scanner_v1_uuid.py<span class="w"> </span>--exclude<span class="w"> </span><span class="m">2</span>-network
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">12</span>:52:38<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_template<span class="o">]</span><span class="w"> </span>Starting<span class="w"> </span>Template<span class="w"> </span>Scan...
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">12</span>:52:43<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_template<span class="o">]</span><span class="w"> </span>Template<span class="w"> </span>Scan<span class="w"> </span><span class="k">done</span>.
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">12</span>:52:43<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_failures<span class="o">]</span><span class="w"> </span>Setting<span class="w"> </span>Exception<span class="w"> </span><span class="k">for</span><span class="w"> </span>rule<span class="w"> </span>EC2-001<span class="w"> </span>with<span class="w"> </span>Risk<span class="w"> </span>Level<span class="w"> </span>MEDIUM,<span class="w"> </span>Rule<span class="w"> </span>Title:<span class="w"> </span>Security<span class="w"> </span>Group<span class="w"> </span>Port<span class="w"> </span>Range<span class="w"> </span><span class="k">for</span><span class="w"> </span>Resource:<span class="w"> </span>module.ec2.aws_security_group.sg<span class="o">[</span><span class="s2">&quot;public&quot;</span><span class="o">]</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">12</span>:52:45<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>set_exception<span class="o">]</span><span class="w"> </span>Creating<span class="w"> </span>new<span class="w"> </span>Exception<span class="w"> </span>tag<span class="w"> </span><span class="k">for</span><span class="w"> </span>module.ec2.aws_security_group.sg<span class="o">[</span><span class="s2">&quot;public&quot;</span><span class="o">]</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>Profile<span class="w"> </span>TQNDl13ix
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">12</span>:52:49<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>set_exception<span class="o">]</span><span class="w"> </span>Exception<span class="w"> </span><span class="k">for</span><span class="w"> </span>EC2-001<span class="w"> </span><span class="k">in</span><span class="w"> </span>Profile<span class="w"> </span>TQNDl13ix<span class="w"> </span><span class="nb">set</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">12</span>:52:49<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_failures<span class="o">]</span><span class="w"> </span>Setting<span class="w"> </span>Exception<span class="w"> </span><span class="k">for</span><span class="w"> </span>rule<span class="w"> </span>EC2-033<span class="w"> </span>with<span class="w"> </span>Risk<span class="w"> </span>Level<span class="w"> </span>MEDIUM,<span class="w"> </span>Rule<span class="w"> </span>Title:<span class="w"> </span>Unrestricted<span class="w"> </span>Security<span class="w"> </span>Group<span class="w"> </span>Egress<span class="w"> </span><span class="k">for</span><span class="w"> </span>Resource:<span class="w"> </span>module.ec2.aws_security_group.sg<span class="o">[</span><span class="s2">&quot;private&quot;</span><span class="o">]</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">12</span>:52:50<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>set_exception<span class="o">]</span><span class="w"> </span>Creating<span class="w"> </span>new<span class="w"> </span>Exception<span class="w"> </span>tag<span class="w"> </span><span class="k">for</span><span class="w"> </span>module.ec2.aws_security_group.sg<span class="o">[</span><span class="s2">&quot;private&quot;</span><span class="o">]</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>Profile<span class="w"> </span>TQNDl13ix
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">12</span>:52:53<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>set_exception<span class="o">]</span><span class="w"> </span>Exception<span class="w"> </span><span class="k">for</span><span class="w"> </span>EC2-033<span class="w"> </span><span class="k">in</span><span class="w"> </span>Profile<span class="w"> </span>TQNDl13ix<span class="w"> </span><span class="nb">set</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">12</span>:52:53<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_failures<span class="o">]</span><span class="w"> </span>Setting<span class="w"> </span>Exception<span class="w"> </span><span class="k">for</span><span class="w"> </span>rule<span class="w"> </span>EC2-033<span class="w"> </span>with<span class="w"> </span>Risk<span class="w"> </span>Level<span class="w"> </span>MEDIUM,<span class="w"> </span>Rule<span class="w"> </span>Title:<span class="w"> </span>Unrestricted<span class="w"> </span>Security<span class="w"> </span>Group<span class="w"> </span>Egress<span class="w"> </span><span class="k">for</span><span class="w"> </span>Resource:<span class="w"> </span>module.ec2.aws_security_group.sg<span class="o">[</span><span class="s2">&quot;public&quot;</span><span class="o">]</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">12</span>:52:54<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>set_exception<span class="o">]</span><span class="w"> </span>Creating<span class="w"> </span>new<span class="w"> </span>Exception<span class="w"> </span>tag<span class="w"> </span><span class="k">for</span><span class="w"> </span>module.ec2.aws_security_group.sg<span class="o">[</span><span class="s2">&quot;public&quot;</span><span class="o">]</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>Profile<span class="w"> </span>TQNDl13ix
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">12</span>:52:56<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>set_exception<span class="o">]</span><span class="w"> </span>Exception<span class="w"> </span><span class="k">for</span><span class="w"> </span>EC2-033<span class="w"> </span><span class="k">in</span><span class="w"> </span>Profile<span class="w"> </span>TQNDl13ix<span class="w"> </span><span class="nb">set</span>
+</code></pre></div>
+<p>For each exception the script genarates a unique tag which needs to be assigned to the resource definition within the Terraform configuration. You can find the exption tags generated within the <code>exceptions.json</code>-file.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">{</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="nt">&quot;EC2-001&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="nt">&quot;scan_profile_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TQNDl13ix&quot;</span><span class="p">,</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">      </span><span class="s2">&quot;3ea0ed93-bdcf-456d-adc5-7080ea923bf4::module.ec2.aws_security_group.sg[\&quot;public\&quot;]_EC2-001&quot;</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">  </span><span class="nt">&quot;EC2-033&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">    </span><span class="nt">&quot;scan_profile_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TQNDl13ix&quot;</span><span class="p">,</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="w">    </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w">      </span><span class="s2">&quot;2c277201-31d8-42ac-85e2-bda5dd1ef329::module.ec2.aws_security_group.sg[\&quot;private\&quot;]_EC2-033&quot;</span><span class="p">,</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="w">      </span><span class="s2">&quot;7f404fd7-4f7b-4ac6-bfcc-512eed878dd0::module.ec2.aws_security_group.sg[\&quot;public\&quot;]_EC2-033&quot;</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="p">}</span>
+</code></pre></div>
+<p>The generated exception-tags have the following schema: <code>&lt;UUID&gt;::&lt;RESOURCE&gt;_&lt;RULE ID&gt;</code>.</p>
+<p>Copy the exception-tag for the resource in the tags section of the resource. Don't forget to replace the <code>::</code> with <code>" = "</code> as shown in the example below.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nb">locals</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="nb">security_groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">    </span><span class="nb">public</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">      </span><span class="na">name</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;${var.environment}-public-sg&quot;</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">      </span><span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Security group for Public Access&quot;</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">      </span><span class="nb">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">        </span><span class="s2">&quot;3ea0ed93-bdcf-456d-adc5-7080ea923bf4&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;module.ec2.aws_security_group.sg[\&quot;public\&quot;]_EC2-001&quot;</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">        </span><span class="s2">&quot;7f404fd7-4f7b-4ac6-bfcc-512eed878dd0&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;module.ec2.aws_security_group.sg[\&quot;public\&quot;]_EC2-033&quot;</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="w">      </span><span class="nb">ingress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="p">...</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="w">    </span><span class="nb">private</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="w">      </span><span class="na">name</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;${var.environment}-private-sg&quot;</span>
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="w">      </span><span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Security group for Private Access&quot;</span>
+<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="w">      </span><span class="nb">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="w">        </span><span class="s2">&quot;2c277201-31d8-42ac-85e2-bda5dd1ef329&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;module.ec2.aws_security_group.sg[\&quot;private\&quot;]_EC2-033&quot;</span>
+<a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="w">      </span><span class="nb">ingress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a><span class="p">...</span>
+</code></pre></div>
+<p>This allows to validate, that the unique tag key is assigned to the designated resource and violating rule only.</p>
+<p>A subsequent template scan should now pass without findings and the template is prepared for deployment.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># Run template scan again to verify that the scan result is clean</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>$<span class="w"> </span>./scanner_v1_uuid.py<span class="w"> </span>--scan<span class="w"> </span><span class="m">2</span>-network
+</code></pre></div>
+<p>The scan results are now clean:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">12</span>:59:39<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_template<span class="o">]</span><span class="w"> </span>Starting<span class="w"> </span>Template<span class="w"> </span>Scan...
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">12</span>:59:43<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_template<span class="o">]</span><span class="w"> </span>Template<span class="w"> </span>Scan<span class="w"> </span><span class="k">done</span>.
+</code></pre></div>
+<p>Now, lets apply the configuration and trigger a bot run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1"># Apply configuration</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>$<span class="w"> </span>./scanner_v1_uuid.py<span class="w"> </span>--apply<span class="w"> </span><span class="m">2</span>-network
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="c1"># Trigger bot run</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>$<span class="w"> </span>./scanner_v1_uuid.py<span class="w"> </span>--bot
+</code></pre></div>
+<p>Even if the scan was clean, the bot will still identify violations since the bot uses the account and not the scanning template. To temporarily suppress the findings run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># Suppress findings</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>$<span class="w"> </span>./scanner_v1_uuid.py<span class="w"> </span>--suppress
+</code></pre></div>
+<p>The above suppressed the findings for a week. Running the script with the <code>--expire</code> flag will check all the suppressions and if a suppression is expired, it will remove the exception from the scan profile, simulating an expired exception.</p>
+<blockquote>
+<p><strong><em>Note:</em></strong> For demoing purposes, the script fast forwards the time by 8 days to immedeately expire the exceptions. This is defined by the constant <code>TIMESHIFT_DAYS</code> in the script.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1"># Suppressions are active for 1 week</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>$<span class="w"> </span>./scanner_v1_uuid.py<span class="w"> </span>--expire
+</code></pre></div>
+<p>To do a cleanup and remove the suppressions and exceptions run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1"># Cleanup</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>$<span class="w"> </span>./scanner_v1_uuid.py<span class="w"> </span>--destroy<span class="w"> </span><span class="m">2</span>-network
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>$<span class="w"> </span>./scanner_v1_uuid.py<span class="w"> </span>--reset
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>$<span class="w"> </span>./scanner_v1_uuid.py<span class="w"> </span>--expire
+</code></pre></div>
 
 
 
