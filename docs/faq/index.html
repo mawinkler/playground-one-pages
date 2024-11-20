@@ -3547,7 +3547,7 @@ aws_ecs_cluster depends on aws_ecs_capacity_provider depends on aws_autoscaling_
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>srw-rw----<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>docker<span class="w"> </span><span class="m">0</span><span class="w"> </span>Oct<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">09</span>:44<span class="w"> </span>/var/run/docker.sock
 </code></pre></div>
 <p>The above is fine, since the <code>pgo</code> user inside the container is member of the <code>docker</code> group. A <code>docker ps</code> should succeed.</p>
-<p>In some cases, such as when you're using Docker Desktop on the sockets ACLs are set to <code>root.root</code> and a <code>docker ps</code> inside the container will fail because the <code>pgo</code> user is neither <code>root</code> nor in the <code>root</code> group.</p>
+<p>In some cases, such as when you're using Docker Desktop the sockets ACLs are set to <code>root.root</code> and a <code>docker ps</code> inside the container will fail because the <code>pgo</code> user is neither <code>root</code> nor in the <code>root</code> group.</p>
 <p>To use the <code>docker</code> cli in such a situation you can switch to the root context inside the container doing the following:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>sudo<span class="w"> </span>su<span class="w"> </span>-
 </code></pre></div>
