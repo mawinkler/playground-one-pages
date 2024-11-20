@@ -722,6 +722,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Playground One Container (Easy and portable)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-the-playground-one-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get the Playground One Container
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3028,6 +3043,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Playground One Container (Easy and portable)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-the-playground-one-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get the Playground One Container
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3113,7 +3143,8 @@
 <p>Example:</p>
 <p><code>echo "0.2" &gt;.PGO_VERSION</code></p>
 </blockquote>
-<p>Then simply run</p>
+<h3 id="get-the-playground-one-container">Get the Playground One Container<a class="headerlink" href="#get-the-playground-one-container" title="Permanent link">&para;</a></h3>
+<p>Simply run</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/mawinkler/playground-one/main/bin/get_pgoc.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
 </code></pre></div>
 <p>The above will pull the latest version (or the version you specified in the <code>.PGO_VERSION</code>-file) of the container. If you're already authenticated to AWS, Azure, and/or have an already existing <code>config.yaml</code> from a previous Playground One installation in the current directory, they will automatically be made available to the Playground One container.</p>
@@ -3172,19 +3203,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>az login --use-device-code
 </code></pre></div>
 <p>Stopping the container is possible with <code>./pgoc stop</code>, to start it again just run <code>./pgoc start</code>.</p>
-<blockquote>
-<p><strong><em>Note</em></strong>: Updating the container or changing to a different release of the container can be done following these steps:</p>
-<ol>
-<li>Edit the file <code>.PGO_VERSION</code> to set the version you want (e.g. <code>0.2</code>).</li>
-<li>Run <code>./pgoc update</code></li>
-<li>This will backup your current <code>workdir</code> and save your <code>config.yaml</code>.</li>
-<li>The desired version of the container is pulled and a new <code>workdir</code> is created.</li>
-<li>The previous <code>config.yaml</code> is restored alongside the possibly existing <code>.aws</code> config.</li>
-<li>Start the new container with <code>./pgoc start</code> and login via ssh.</li>
-</ol>
-<p>You likely get an error when connecting with ssh. If so, delete the offending line in <code>~/.ssh/known_hosts</code> and retry.</p>
-</blockquote>
-<p>Then, continue with <a href="../configuration/">Configuration</a>.</p>
+<p>On how to keep the Container Up-to-date, see the <a href="https://mawinkler.github.io/playground-one-pages/faq/">FAQ</a>.</p>
 <h2 id="advanced-but-native">Advanced but native<a class="headerlink" href="#advanced-but-native" title="Permanent link">&para;</a></h2>
 <h3 id="ubuntu">Ubuntu<a class="headerlink" href="#ubuntu" title="Permanent link">&para;</a></h3>
 <p>Follow this chapter if...</p>

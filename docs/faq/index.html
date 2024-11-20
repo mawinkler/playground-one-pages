@@ -2912,9 +2912,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-update-the-playgound-one" class="md-nav__link">
+  <a href="#how-to-update-the-playgound-one-container" class="md-nav__link">
     <span class="md-ellipsis">
-      How to update the Playgound One?
+      How to update the Playgound One Container
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-update-the-playgound-one-when-running-natively" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to update the Playgound One when running Natively?
     </span>
   </a>
   
@@ -3056,9 +3065,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-update-the-playgound-one" class="md-nav__link">
+  <a href="#how-to-update-the-playgound-one-container" class="md-nav__link">
     <span class="md-ellipsis">
-      How to update the Playgound One?
+      How to update the Playgound One Container
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-update-the-playgound-one-when-running-natively" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to update the Playgound One when running Natively?
     </span>
   </a>
   
@@ -3164,20 +3182,66 @@
 
 
 <h1 id="frequently-asked-questions">Frequently asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permanent link">&para;</a></h1>
-<h2 id="how-to-update-the-playgound-one">How to update the Playgound One?<a class="headerlink" href="#how-to-update-the-playgound-one" title="Permanent link">&para;</a></h2>
-<p>The Playground is under contiuous development. Even if I try to not implement breaking changes please follow the steps below <strong><em>before</em></strong> updating it to the latest version:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Destroy your deployments</span>
+<h2 id="how-to-update-the-playgound-one-container">How to update the Playgound One Container<a class="headerlink" href="#how-to-update-the-playgound-one-container" title="Permanent link">&para;</a></h2>
+<p>Typically, a complete upgrade of the Playground One Container is not necessary, since you can easily update the <em>"internals"</em> of the container at runtime.</p>
+<p><strong><em>Update the Internals</em></strong></p>
+<p>Being inside the container do the following:</p>
+<ul>
+<li>
+<p>Ideally destroy applied infrastructure. This is not a must but if you can you'd avoid some potential trouble later on.
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Destroy your deployments</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>all
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Destroy your network</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>nw
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Do the update</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>git<span class="w"> </span>pull
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># Run config</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>pgo<span class="w"> </span>--config
+</code></pre></div></p>
+</li>
+<li>
+<p>Change to the <code>playground-one</code> directory.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Do the update</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>
+</code></pre></div>
+</li>
+<li>
+<p>Run <code>git pull</code> to update the Playground One.</p>
+</li>
+<li>
+<p>Run <code>pgo --init all</code> to upgrade the Terraform Providers.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Do the update</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>pull
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>pgo<span class="w"> </span>--init<span class="w"> </span>all
+</code></pre></div>
+</li>
+<li>
+<p>Continue playing 🎡.</p>
+</li>
+</ul>
+<p><strong><em>Upgrade the Container</em></strong></p>
+<p>Updating the container or changing to a different release of the container can be done following these steps:</p>
+<ul>
+<li>Edit the file <code>.PGO_VERSION</code> to set the version you want (e.g. <code>0.4.8</code>).</li>
+<li>Run <code>./pgoc update</code></li>
+<li>This will backup your current <code>workdir</code> and save your <code>config.yaml</code>.</li>
+<li>The desired version of the container is pulled and a new <code>workdir</code> is created.</li>
+<li>The previous <code>config.yaml</code> is restored alongside the possibly existing <code>.aws</code> config.</li>
+<li>Start the new container with <code>./pgoc start</code> and login via ssh. You likely get an error when connecting with ssh. If so, delete the offending line in <code>~/.ssh/known_hosts</code> and retry.</li>
+<li>Run <code>pgo --init all</code> to upgrade the Terraform Providers.</li>
+<li>Continue playing 🎠.</li>
+</ul>
+<h2 id="how-to-update-the-playgound-one-when-running-natively">How to update the Playgound One when running Natively?<a class="headerlink" href="#how-to-update-the-playgound-one-when-running-natively" title="Permanent link">&para;</a></h2>
+<p>The Playground is under contiuous development. Even if I try to not implement breaking changes please follow the steps below <strong><em>before</em></strong> updating it to the latest version:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Destroy your deployments</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>all
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Destroy your network</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>nw
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># Do the update</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>git<span class="w"> </span>pull
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="c1"># Update Terraform Providers</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>pgo<span class="w"> </span>--init<span class="w"> </span>all
 </code></pre></div>
 <p>If everything went well you should be able to recreate your environment. If you run into trouble please open an <a href="https://github.com/mawinkler/playground-one/issues/new">issue</a>.</p>
 <h2 id="im-running-the-playground-on-a-cloud9-and-want-to-restrict-access-to-my-home-ip">I'm running the Playground on a Cloud9 and want to restrict access to my home IP<a class="headerlink" href="#im-running-the-playground-on-a-cloud9-and-want-to-restrict-access-to-my-home-ip" title="Permanent link">&para;</a></h2>
@@ -3191,25 +3255,25 @@
 <li>Cloud 9 instance: <code>3.123.18.11</code> (get it from the EC2 console), and</li>
 <li>Client at home: <code>87.170.6.193</code></li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w"> </span>__<span class="w">                 </span>__<span class="w">   </span>__<span class="w">   </span>__<span class="w">             </span>__<span class="w">      </span>__<span class="w">        </span>___<span class="w"> </span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">|</span>__<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w">     </span>/<span class="se">\ </span><span class="w"> </span><span class="se">\ </span>/<span class="w"> </span>/<span class="w"> </span>_<span class="sb">`</span><span class="w"> </span><span class="p">|</span>__<span class="o">)</span><span class="w"> </span>/<span class="w">  </span><span class="se">\ </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\ </span><span class="w">   </span>/<span class="w">  </span><span class="se">\ </span><span class="p">|</span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>__<span class="w">  </span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">|</span><span class="w">    </span><span class="p">|</span>___<span class="w"> </span>/~~<span class="se">\ </span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\_</span>_&gt;<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\ \_</span>_/<span class="w"> </span><span class="se">\_</span>_/<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span>__/<span class="w">    </span><span class="se">\_</span>_/<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span>___<span class="w"> </span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>...
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Please<span class="w"> </span>set/update<span class="w"> </span>your<span class="w"> </span>Playground<span class="w"> </span>One<span class="w"> </span>configuration
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Access<span class="w"> </span>IPs/CIDRs<span class="w"> </span><span class="o">[]</span>:<span class="w"> </span><span class="m">3</span>.123.18.11,<span class="w"> </span><span class="m">87</span>.170.6.193
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>...
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w"> </span>__<span class="w">                 </span>__<span class="w">   </span>__<span class="w">   </span>__<span class="w">             </span>__<span class="w">      </span>__<span class="w">        </span>___<span class="w"> </span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">|</span>__<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w">     </span>/<span class="se">\ </span><span class="w"> </span><span class="se">\ </span>/<span class="w"> </span>/<span class="w"> </span>_<span class="sb">`</span><span class="w"> </span><span class="p">|</span>__<span class="o">)</span><span class="w"> </span>/<span class="w">  </span><span class="se">\ </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\ </span><span class="w">   </span>/<span class="w">  </span><span class="se">\ </span><span class="p">|</span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>__<span class="w">  </span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">|</span><span class="w">    </span><span class="p">|</span>___<span class="w"> </span>/~~<span class="se">\ </span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\_</span>_&gt;<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\ \_</span>_/<span class="w"> </span><span class="se">\_</span>_/<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span>__/<span class="w">    </span><span class="se">\_</span>_/<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span>___<span class="w"> </span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>...
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>Please<span class="w"> </span>set/update<span class="w"> </span>your<span class="w"> </span>Playground<span class="w"> </span>One<span class="w"> </span>configuration
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>Access<span class="w"> </span>IPs/CIDRs<span class="w"> </span><span class="o">[]</span>:<span class="w"> </span><span class="m">3</span>.123.18.11,<span class="w"> </span><span class="m">87</span>.170.6.193
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>...
 </code></pre></div>
 <p>The above will automatically be converted into the correct CIDRs <code>3.123.18.11/32, 87.170.6.193/32</code></p>
 <p>To simplify this process you can easily let the config tool determine the Cloud9 public IP address by entering the keyword <code>pub</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>...
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Please<span class="w"> </span>set/update<span class="w"> </span>your<span class="w"> </span>Playground<span class="w"> </span>One<span class="w"> </span>configuration
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Access<span class="w"> </span>IPs/CIDRs<span class="w"> </span><span class="o">[]</span>:<span class="w"> </span>pub,<span class="w"> </span><span class="m">87</span>.170.6.193
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>...
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>...
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Please<span class="w"> </span>set/update<span class="w"> </span>your<span class="w"> </span>Playground<span class="w"> </span>One<span class="w"> </span>configuration
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Access<span class="w"> </span>IPs/CIDRs<span class="w"> </span><span class="o">[]</span>:<span class="w"> </span>pub,<span class="w"> </span><span class="m">87</span>.170.6.193
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>...
 </code></pre></div>
 <p>Then run</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pgo<span class="w"> </span>--init<span class="w"> </span>nw
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pgo<span class="w"> </span>--init<span class="w"> </span>nw
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
 </code></pre></div>
 <h2 id="my-ip-address-has-changed-and-i-cannot-access-my-environment-anymore">My IP address has changed and I cannot access my environment anymore<a class="headerlink" href="#my-ip-address-has-changed-and-i-cannot-access-my-environment-anymore" title="Permanent link">&para;</a></h2>
 <p>If you need to change the access IP later on, maybe your provider assigned you a new one, follow these steps:</p>
@@ -3217,16 +3281,16 @@
 <li>Run <code>pgo --updateip</code> and set the new IP address as described in <a href="../getting-started/configuration/#section-playground-one">Getting Started Configuration</a></li>
 <li>
 <p>Terraform tells you which actions will be performed when approving them. Validate that there will be only one in-place update on the resource <code>module.ec2.aws_security_group.sg["public"]</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  ~ update in-place
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Terraform will perform the following actions:
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  # module.ec2.aws_security_group.sg[&quot;public&quot;] will be updated in-place
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  ~ resource &quot;aws_security_group&quot; &quot;sg&quot; {
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>        id                     = &quot;sg-01e76a72ffd468baa&quot;
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>      ~ ingress                = [
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>...
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  ~ update in-place
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Terraform will perform the following actions:
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>  # module.ec2.aws_security_group.sg[&quot;public&quot;] will be updated in-place
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>  ~ resource &quot;aws_security_group&quot; &quot;sg&quot; {
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>        id                     = &quot;sg-01e76a72ffd468baa&quot;
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>      ~ ingress                = [
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>...
 </code></pre></div>
 </li>
 <li>
@@ -3235,9 +3299,9 @@
 </ol>
 <p>This should be completed within a minute.</p>
 <p>If the above didn't work for you and you still need to update the IP(s) you need to run</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>all
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>pgo<span class="w"> </span>--init<span class="w"> </span>all
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>pgo<span class="w"> </span>--destroy<span class="w"> </span>all
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>pgo<span class="w"> </span>--init<span class="w"> </span>all
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>nw
 </code></pre></div>
 <p>Then reapply your eks, ecs, ec2 or scenarios by <code>pgo --apply &lt;configuration&gt;</code>.</p>
 <h2 id="i-restarted-my-cloud9-instance-and-i-cannot-access-my-environment-anymore">I restarted my Cloud9 instance and I cannot access my environment anymore<a class="headerlink" href="#i-restarted-my-cloud9-instance-and-i-cannot-access-my-environment-anymore" title="Permanent link">&para;</a></h2>
@@ -3259,22 +3323,22 @@ aws_ecs_cluster depends on aws_ecs_capacity_provider depends on aws_autoscaling_
 <li>Password: <code>foobar</code></li>
 </ul>
 <h2 id="upgrade-vision-one-container-security-to-the-latest-release">Upgrade Vision One Container Security to the latest Release<a class="headerlink" href="#upgrade-vision-one-container-security-to-the-latest-release" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>helm<span class="w"> </span>get<span class="w"> </span>values<span class="w"> </span>--namespace<span class="w"> </span>trendmicro-system<span class="w"> </span>container-security<span class="w"> </span><span class="p">|</span><span class="w"> </span>helm<span class="w"> </span>upgrade<span class="w"> </span>container-security<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span>--namespace<span class="w"> </span>trendmicro-system<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span>--values<span class="w"> </span>-<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span>https://github.com/trendmicro/cloudone-container-security-helm/archive/master.tar.gz
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>helm<span class="w"> </span>get<span class="w"> </span>values<span class="w"> </span>--namespace<span class="w"> </span>trendmicro-system<span class="w"> </span>container-security<span class="w"> </span><span class="p">|</span><span class="w"> </span>helm<span class="w"> </span>upgrade<span class="w"> </span>container-security<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span>--namespace<span class="w"> </span>trendmicro-system<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span>--values<span class="w"> </span>-<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span>https://github.com/trendmicro/cloudone-container-security-helm/archive/master.tar.gz
 </code></pre></div>
 <h2 id="inspect-the-kubernetes-manifest-of-container-security">Inspect the Kubernetes Manifest of Container Security<a class="headerlink" href="#inspect-the-kubernetes-manifest-of-container-security" title="Permanent link">&para;</a></h2>
 <p>If you want to inspect the full kubernetes manifest of Container Security deployed on your environment run:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>helm<span class="w"> </span>get<span class="w"> </span>values<span class="w"> </span>--namespace<span class="w"> </span>trendmicro-system<span class="w"> </span>container-security<span class="w"> </span><span class="p">|</span><span class="w"> </span>helm<span class="w"> </span>template<span class="w"> </span>container-security<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span>--namespace<span class="w"> </span>trendmicro-system<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span>--values<span class="w"> </span>-<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span>https://github.com/trendmicro/cloudone-container-security-helm/archive/master.tar.gz<span class="w"> </span>&gt;<span class="w"> </span>manifest.yaml
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>helm<span class="w"> </span>get<span class="w"> </span>values<span class="w"> </span>--namespace<span class="w"> </span>trendmicro-system<span class="w"> </span>container-security<span class="w"> </span><span class="p">|</span><span class="w"> </span>helm<span class="w"> </span>template<span class="w"> </span>container-security<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span>--namespace<span class="w"> </span>trendmicro-system<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span>--values<span class="w"> </span>-<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span>https://github.com/trendmicro/cloudone-container-security-helm/archive/master.tar.gz<span class="w"> </span>&gt;<span class="w"> </span>manifest.yaml
 </code></pre></div>
 <h2 id="aws-ec2-instance-connect-does-not-work-from-the-aws-ec2-console">AWS EC2 Instance Connect does not work from the AWS EC2 Console<a class="headerlink" href="#aws-ec2-instance-connect-does-not-work-from-the-aws-ec2-console" title="Permanent link">&para;</a></h2>
 <p>EC2 Instance Connect uses specific IP address ranges for browser-based SSH connections to your instance (when users use the Amazon EC2 console to connect to an instance). These IP address ranges are documented <a href="https://ip-ranges.amazonaws.com/ip-ranges.json">here</a>.</p>
 <p>To filter this large list for instance connect run:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>jq<span class="w"> </span><span class="s1">&#39;.prefixes[] | select(.service==&quot;EC2_INSTANCE_CONNECT&quot;) | .&#39;</span><span class="w"> </span>ip-ranges.json
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>jq<span class="w"> </span><span class="s1">&#39;.prefixes[] | select(.service==&quot;EC2_INSTANCE_CONNECT&quot;) | .&#39;</span><span class="w"> </span>ip-ranges.json
 </code></pre></div>
 <p>Currently, Playground One does only allow Instance Connect from the following regions:</p>
 <table>
