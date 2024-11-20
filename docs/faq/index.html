@@ -3010,6 +3010,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#how-to-use-docker-inside-the-playground-one-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to use Docker inside the Playground One Container?
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3158,6 +3167,15 @@
   <a href="#know-how-to-check-the-region-and-data-center-location-details-in-trend-vision-one" class="md-nav__link">
     <span class="md-ellipsis">
       Know how to check the region and Data Center location details in Trend Vision One
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-docker-inside-the-playground-one-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to use Docker inside the Playground One Container?
     </span>
   </a>
   
@@ -3521,6 +3539,22 @@ aws_ecs_cluster depends on aws_ecs_capacity_provider depends on aws_autoscaling_
 </tbody>
 </table>
 <p>Link: <a href="https://success.trendmicro.com/dcx/s/solution/000296614?language=en_US">Trend Micro Business Success Portal</a></p>
+<h2 id="how-to-use-docker-inside-the-playground-one-container">How to use Docker inside the Playground One Container?<a class="headerlink" href="#how-to-use-docker-inside-the-playground-one-container" title="Permanent link">&para;</a></h2>
+<p>So, this depends, but typically is easy. Actually, it depends on the <code>/var/run/docker.sock</code> available on the host and therefore on the container engine you're using. Depending on the runtime the socket does have different ACLs set. Check them by running</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>ls<span class="w"> </span>-l<span class="w"> </span>/var/run/docker.sock<span class="sb">`</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># On Ubuntu</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>srw-rw----<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>docker<span class="w"> </span><span class="m">0</span><span class="w"> </span>Oct<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">09</span>:44<span class="w"> </span>/var/run/docker.sock
+</code></pre></div>
+<p>The above is fine, since the <code>pgo</code> user inside the container is member of the <code>docker</code> group. A <code>docker ps</code> for example should succeed.</p>
+<p>In some cases, for example when you're using Docker Desktop on the sockets ACLs are set to <code>root.root</code> and a <code>docker ps</code> inside the container will fail because the <code>pgo</code> user is neither <code>root</code> nor in the <code>root</code> group.</p>
+<p>To use the <code>docker</code> cli in such a situation you can switch to the root context inside the container doing the following:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>sudo<span class="w"> </span>su<span class="w"> </span>-
+</code></pre></div>
+<p>If the ACL of the socket is something else than <code>root.docker</code> or <code>root.root</code> you can also try the following command:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>docker4pgo
+</code></pre></div>
+<p>The above checks the group of the socket, creates this group inside the container and adds the <code>pgo</code> user to this group. Now, exit the container and reconnect. Ideally, it does work now.</p>
 
 
 
