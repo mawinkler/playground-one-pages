@@ -3314,7 +3314,7 @@
 <p>On the next screen you change the name to something shorter like <code>action</code>. Then press <code>[Create fork]</code> which will bring you back to your account.</p>
 <h2 id="the-repo">The Repo<a class="headerlink" href="#the-repo" title="Permanent link">&para;</a></h2>
 <p>The repo containes a very simple Dockerfile and a hidden directory <code>.github/workflows</code> with a <code>yaml</code>-file.</p>
-<p>The Dockerfile specifies the image to build. As we can easily see, it is using the latest <code>nginx</code> as the base image and just adds (very obviously) an Eicar.</p>
+<p>The Dockerfile specifies the image to build. As we can easily see, it is using the latest <code>ubuntu</code> as the base image and just adds (very obviously) an Eicar.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:latest</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">RUN</span><span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>curl<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>curl<span class="w"> </span>-OL<span class="w"> </span>https://secure.eicar.org/eicarcom2.zip
@@ -3484,7 +3484,7 @@
 <li>TMAS_API_KEY: <code>&lt;Your TMAS API Key&gt;</code></li>
 </ul>
 <h3 id="template">Template<a class="headerlink" href="#template" title="Permanent link">&para;</a></h3>
-<p>Below, the workflow tamplate. Adapt it to your needs and save it as a <code>yaml</code>-file in the <code>.github/workflow</code> directory.</p>
+<p>Below, the workflow template. Adapt it to your needs and save it as a <code>yaml</code>-file in the <code>.github/workflow</code> directory.</p>
 <p>Adapt the environment variables in the <code>env:</code>-section as required.</p>
 <table>
 <thead>
