@@ -3151,8 +3151,8 @@
 <p>The scenarios offer two different terraform configurations that you can play with for convenience. Effectively it is not limitted to these, the Python script can scan any configuration, even the Playground One configurations of <code>awsone</code>.</p>
 <p>There are two variants implemented which differ in their approach to identity AWS resources to build:</p>
 <ul>
-<li><code>scanner_v1_name.py</code>: Simply uses name tags on the resources.</li>
-<li><code>scanner_v1_uuid.py</code>: Automatically creates an unique <code>uuid</code>-tag for the resources which need to be assigned manually to the resource before deployment to be compliant.</li>
+<li><code>tfscanner_exceptions_v1_name.py</code>: Simply uses name tags on the resources.</li>
+<li><code>tfscanner_exceptions_v1_uuid.py</code>: Automatically creates an unique <code>uuid</code>-tag for the resources which need to be assigned manually to the resource before deployment to be compliant.</li>
 </ul>
 <p>The scripts are located in the <code>cspm</code>-directory and assume, that all exeption are granted and expire after seven days.</p>
 <h3 id="prepare">Prepare<a class="headerlink" href="#prepare" title="Permanent link">&para;</a></h3>
@@ -3191,7 +3191,7 @@
 <p>First, we're going the easy route using name tags.</p>
 <p>Here's the quick run-through:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Run template scan</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>$<span class="w"> </span>./scanner_v1_name.py<span class="w"> </span>--scan<span class="w"> </span><span class="m">2</span>-network
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>$<span class="w"> </span>./tfscanner_exceptions_v1_name.py<span class="w"> </span>--scan<span class="w"> </span><span class="m">2</span>-network
 </code></pre></div>
 <p>This produces the following output:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">13</span>:15:25<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_template<span class="o">]</span><span class="w"> </span>Starting<span class="w"> </span>Template<span class="w"> </span>Scan...
@@ -3202,7 +3202,7 @@
 </code></pre></div>
 <p>For now, let's assume the user did run through an approval workflow for the above findings and is therefore allowed to create exceptions. For this, we run:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Run approval workflows in engine, here implementing the approved workflow</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>$<span class="w"> </span>./scanner_v1_name.py<span class="w"> </span>--exclude<span class="w"> </span><span class="m">2</span>-network
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>$<span class="w"> </span>./tfscanner_exceptions_v1_name.py<span class="w"> </span>--exclude<span class="w"> </span><span class="m">2</span>-network
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">13</span>:16:33<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_template<span class="o">]</span><span class="w"> </span>Starting<span class="w"> </span>Template<span class="w"> </span>Scan...
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">13</span>:16:37<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_template<span class="o">]</span><span class="w"> </span>Template<span class="w"> </span>Scan<span class="w"> </span><span class="k">done</span>.
@@ -3232,38 +3232,38 @@
 </code></pre></div>
 <p>A subsequent template scan should now pass without findings and the template is prepared for deployment.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Run template scan again to verify that the scan result is clean</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>$<span class="w"> </span>./scanner_v1_name.py<span class="w"> </span>--scan<span class="w"> </span><span class="m">2</span>-network
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>$<span class="w"> </span>./tfscanner_exceptions_v1_name.py<span class="w"> </span>--scan<span class="w"> </span><span class="m">2</span>-network
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">13</span>:18:39<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_template<span class="o">]</span><span class="w"> </span>Starting<span class="w"> </span>Template<span class="w"> </span>Scan...
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">13</span>:18:44<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_template<span class="o">]</span><span class="w"> </span>Template<span class="w"> </span>Scan<span class="w"> </span><span class="k">done</span>.
 </code></pre></div>
 <p>Now, lets apply the configuration and trigger a bot run:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Apply configuration</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>$<span class="w"> </span>./scanner_v1_name.py<span class="w"> </span>--apply<span class="w"> </span><span class="m">2</span>-network
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>$<span class="w"> </span>./tfscanner_exceptions_v1_name.py<span class="w"> </span>--apply<span class="w"> </span><span class="m">2</span>-network
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># Trigger bot run</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>$<span class="w"> </span>./scanner_v1_name.py<span class="w"> </span>--bot
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>$<span class="w"> </span>./tfscanner_exceptions_v1_name.py<span class="w"> </span>--bot
 </code></pre></div>
 <p>Even if the scan was clean, the bot will still identify violations since the bot uses the account and not the scanning template. To temporarily suppress the findings run:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Suppress findings</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>$<span class="w"> </span>./scanner_v1_name.py<span class="w"> </span>--suppress
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>$<span class="w"> </span>./tfscanner_exceptions_v1_name.py<span class="w"> </span>--suppress
 </code></pre></div>
 <p>The above suppressed the findings for a week. Running the script with the <code>--expire</code> flag will check all the suppressions and if a suppression is expired, it will remove the exception from the scan profile, simulating an expired exception.</p>
 <blockquote>
 <p><strong><em>Note:</em></strong> For demoing purposes, the script fast forwards the time by 8 days to immedeately expire the exceptions. This is defined by the constant <code>TIMESHIFT_DAYS</code> in the script.</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Suppressions are active for 1 week</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>$<span class="w"> </span>./scanner_v1_name.py<span class="w"> </span>--expire
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>$<span class="w"> </span>./tfscanner_exceptions_v1_name.py<span class="w"> </span>--expire
 </code></pre></div>
 <p>To do a cleanup and remove the suppressions and exceptions run:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Cleanup</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>$<span class="w"> </span>./scanner_v1_name.py<span class="w"> </span>--destroy<span class="w"> </span><span class="m">2</span>-network
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>$<span class="w"> </span>./scanner_v1_name.py<span class="w"> </span>--reset
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>$<span class="w"> </span>./scanner_v1_name.py<span class="w"> </span>--expire
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>$<span class="w"> </span>./tfscanner_exceptions_v1_name.py<span class="w"> </span>--destroy<span class="w"> </span><span class="m">2</span>-network
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>$<span class="w"> </span>./tfscanner_exceptions_v1_name.py<span class="w"> </span>--reset
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>$<span class="w"> </span>./tfscanner_exceptions_v1_name.py<span class="w"> </span>--expire
 </code></pre></div>
 <h3 id="using-uuid-tags-more-secure">Using UUID-Tags (more secure)<a class="headerlink" href="#using-uuid-tags-more-secure" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Run template scan</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>$<span class="w"> </span>./scanner_v1_uuid.py<span class="w"> </span>--scan<span class="w"> </span><span class="m">2</span>-network
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>$<span class="w"> </span>./tfscanner_exceptions_v1_uuid.py<span class="w"> </span>--scan<span class="w"> </span><span class="m">2</span>-network
 </code></pre></div>
 <p>This produces the following output:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">12</span>:50:01<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_template<span class="o">]</span><span class="w"> </span>Starting<span class="w"> </span>Template<span class="w"> </span>Scan...
@@ -3274,7 +3274,7 @@
 </code></pre></div>
 <p>For now, let's assume the user did run through an approval workflow for the above findings and is therefore allowed to create exceptions. For this, we run:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Run approval workflows in engine, here implementing the approved workflow</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>$<span class="w"> </span>./scanner_v1_uuid.py<span class="w"> </span>--exclude<span class="w"> </span><span class="m">2</span>-network
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>$<span class="w"> </span>./tfscanner_exceptions_v1_uuid.py<span class="w"> </span>--exclude<span class="w"> </span><span class="m">2</span>-network
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">12</span>:52:38<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_template<span class="o">]</span><span class="w"> </span>Starting<span class="w"> </span>Template<span class="w"> </span>Scan...
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">12</span>:52:43<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_template<span class="o">]</span><span class="w"> </span>Template<span class="w"> </span>Scan<span class="w"> </span><span class="k">done</span>.
@@ -3330,7 +3330,7 @@
 <p>This allows to validate, that the unique tag key is assigned to the designated resource and violating rule only.</p>
 <p>A subsequent template scan should now pass without findings and the template is prepared for deployment.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># Run template scan again to verify that the scan result is clean</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>$<span class="w"> </span>./scanner_v1_uuid.py<span class="w"> </span>--scan<span class="w"> </span><span class="m">2</span>-network
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>$<span class="w"> </span>./tfscanner_exceptions_v1_uuid.py<span class="w"> </span>--scan<span class="w"> </span><span class="m">2</span>-network
 </code></pre></div>
 <p>The scan results are now clean:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="m">2024</span>-11-13<span class="w"> </span><span class="m">12</span>:59:39<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>scan_template<span class="o">]</span><span class="w"> </span>Starting<span class="w"> </span>Template<span class="w"> </span>Scan...
@@ -3338,27 +3338,27 @@
 </code></pre></div>
 <p>Now, lets apply the configuration and trigger a bot run:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1"># Apply configuration</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>$<span class="w"> </span>./scanner_v1_uuid.py<span class="w"> </span>--apply<span class="w"> </span><span class="m">2</span>-network
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>$<span class="w"> </span>./tfscanner_exceptions_v1_uuid.py<span class="w"> </span>--apply<span class="w"> </span><span class="m">2</span>-network
 <a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
 <a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="c1"># Trigger bot run</span>
-<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>$<span class="w"> </span>./scanner_v1_uuid.py<span class="w"> </span>--bot
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>$<span class="w"> </span>./tfscanner_exceptions_v1_uuid.py<span class="w"> </span>--bot
 </code></pre></div>
 <p>Even if the scan was clean, the bot will still identify violations since the bot uses the account and not the scanning template. To temporarily suppress the findings run:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># Suppress findings</span>
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>$<span class="w"> </span>./scanner_v1_uuid.py<span class="w"> </span>--suppress
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>$<span class="w"> </span>./tfscanner_exceptions_v1_uuid.py<span class="w"> </span>--suppress
 </code></pre></div>
 <p>The above suppressed the findings for a week. Running the script with the <code>--expire</code> flag will check all the suppressions and if a suppression is expired, it will remove the exception from the scan profile, simulating an expired exception.</p>
 <blockquote>
 <p><strong><em>Note:</em></strong> For demoing purposes, the script fast forwards the time by 8 days to immedeately expire the exceptions. This is defined by the constant <code>TIMESHIFT_DAYS</code> in the script.</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1"># Suppressions are active for 1 week</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>$<span class="w"> </span>./scanner_v1_uuid.py<span class="w"> </span>--expire
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>$<span class="w"> </span>./tfscanner_exceptions_v1_uuid.py<span class="w"> </span>--expire
 </code></pre></div>
 <p>To do a cleanup and remove the suppressions and exceptions run:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1"># Cleanup</span>
-<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>$<span class="w"> </span>./scanner_v1_uuid.py<span class="w"> </span>--destroy<span class="w"> </span><span class="m">2</span>-network
-<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>$<span class="w"> </span>./scanner_v1_uuid.py<span class="w"> </span>--reset
-<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>$<span class="w"> </span>./scanner_v1_uuid.py<span class="w"> </span>--expire
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>$<span class="w"> </span>./tfscanner_exceptions_v1_uuid.py<span class="w"> </span>--destroy<span class="w"> </span><span class="m">2</span>-network
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>$<span class="w"> </span>./tfscanner_exceptions_v1_uuid.py<span class="w"> </span>--reset
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>$<span class="w"> </span>./tfscanner_exceptions_v1_uuid.py<span class="w"> </span>--expire
 </code></pre></div>
 <p>🎉 Success 🎉</p>
 

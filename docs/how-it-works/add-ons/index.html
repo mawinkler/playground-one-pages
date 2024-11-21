@@ -613,6 +613,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Add-Ons
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -622,6 +633,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-security-posture-management-terraform-template-scanning-and-exception-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Security Posture Management Terraform Template Scanning and Exception Handling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-security-posture-management-category-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Security Posture Management Category Compliance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container-stacks-for-third-party-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container Stacks for Third-Party integrations.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrate-vision-container-security-policy-and-runtime-rulesets-to-cluster-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migrate Vision Container Security Policy and Runtime Rulesets to Cluster Policies
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2934,6 +3000,50 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-security-posture-management-terraform-template-scanning-and-exception-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Security Posture Management Terraform Template Scanning and Exception Handling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-security-posture-management-category-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Security Posture Management Category Compliance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container-stacks-for-third-party-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container Stacks for Third-Party integrations.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrate-vision-container-security-policy-and-runtime-rulesets-to-cluster-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migrate Vision Container Security Policy and Runtime Rulesets to Cluster Policies
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2951,54 +3061,81 @@
 
 
 <h1 id="playground-one-add-ons">Playground One Add-Ons<a class="headerlink" href="#playground-one-add-ons" title="Permanent link">&para;</a></h1>
-<p>There are currently two not Terraform related add-ons included in the Playground One.</p>
+<p>There are not Terraform related add-ons included in the Playground One.</p>
+<h2 id="cloud-security-posture-management-terraform-template-scanning-and-exception-handling">Cloud Security Posture Management Terraform Template Scanning and Exception Handling<a class="headerlink" href="#cloud-security-posture-management-terraform-template-scanning-and-exception-handling" title="Permanent link">&para;</a></h2>
 <ul>
+<li>Located in the Playground One home directury as <code>cspm</code>.</li>
+<li><code>tfscanner_exceptions_c1_name.py</code> - Cloud One using Name tags</li>
+<li><code>tfscanner_exceptions_c1_uuid.py</code> - Cloud One using unique tags</li>
+<li><code>tfscanner_exceptions_v1_name.py</code> - Vision One using Name tags</li>
 <li>
-<p>Cloud Security Posture Management</p>
-</li>
-<li>
-<p>Located in the Playground One home directury as <code>cspm</code>.</p>
+<p><code>tfscanner_exceptions_v1_uuid.py</code> - Vision One using unique tags</p>
 </li>
 <li>
 <p>The intention of this add-on is to provide a RESTful Api driven exception handling mechanism with Terraform template scanning support. The Python scripts included here implement the following functionality:</p>
-<ul>
-<li>Create Terrafrom Plan of Configuration and run Conformity Template Scan</li>
+</li>
+<li>
+<p>Create Terrafrom Plan of Configuration and run Conformity Template Scan</p>
+</li>
 <li>Set Exceptions in Scan Profile based on Name-Tags or unique Tags assigned to the resource</li>
 <li>Create Terraform Apply of Configuration</li>
 <li>Create Terraform Destroy of Configuration</li>
 <li>Remove Exceptions in Scan Profile or reset the Scan Profile</li>
 <li>Suppress Findings in Account Profile</li>
 <li>Expire Findings in Account Profile</li>
-<li>Run Conformity Bot and request status</li>
-<li>Download latest Report</li>
+<li>Run Conformity/Posture Management Bot and request status</li>
+<li>
+<p>Download latest Report</p>
+</li>
+<li>
+<p>Consult the documentation within the Python scripts <code>tfscanner_exceptions_c1/v1_uuid.py</code> and/or <code>tfscanner_exceptions_c1/v1_name.py</code> on how to play with this.</p>
+</li>
 </ul>
+<h2 id="cloud-security-posture-management-category-compliance">Cloud Security Posture Management Category Compliance<a class="headerlink" href="#cloud-security-posture-management-category-compliance" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Located in the Playground One home directury as <code>cspm</code>.</li>
+<li><code>category_compliance_c1.py</code> - Cloud One</li>
+<li>
+<p><code>category_compliance_v1.py</code> - Vision One</p>
 </li>
 <li>
-<p>Consult the documentation within the Python scripts <code>scanner_c1_uuid.py</code> and/or <code>scanner_c1_name.py</code> on how to play with this.</p>
+<p>Reports the compliance status of the categories by API. It may be limited by the number of days back in and a minimum level of criticality.</p>
 </li>
-<li>
-<p>Container Stacks for Third-Party integrations.</p>
-</li>
+</ul>
+<h2 id="container-stacks-for-third-party-integrations">Container Stacks for Third-Party integrations.<a class="headerlink" href="#container-stacks-for-third-party-integrations" title="Permanent link">&para;</a></h2>
+<ul>
 <li>
 <p>Located in the Playground One home directury as <code>stacks</code>.</p>
 </li>
 <li>
 <p>Splunk - Spins up a local Splunk which can be used individually or in conjunction with some scenarios of Playground One. These are</p>
-<ul>
-<li><a href="https://mawinkler.github.io/playground-one-pages/scenarios/bigdata/splunk-setup/">Setup Splunk</a></li>
+</li>
+<li>
+<p><a href="https://mawinkler.github.io/playground-one-pages/scenarios/bigdata/splunk-setup/">Setup Splunk</a></p>
+</li>
 <li><a href="https://mawinkler.github.io/playground-one-pages/scenarios/bigdata/splunk-integrate-vision-one-xdr/">Integrate Vision One with Splunk</a></li>
 <li><a href="https://mawinkler.github.io/playground-one-pages/scenarios/bigdata/splunk-integrate-vision-one-custom-rules/">Integrate V1CS Customer Runtime Security Rules with Splunk</a></li>
-<li><img alt="alt text" src="../images/splunk-app-v1xdr-09.png" title="Splunk" /></li>
-</ul>
+<li>
+<p><img alt="alt text" src="../images/splunk-app-v1xdr-09.png" title="Splunk" /></p>
 </li>
 <li>
 <p>Elastic - Creates a local ELK stack to play with.</p>
-<ul>
-<li><a href="https://mawinkler.github.io/playground-one-pages/scenarios/bigdata/elastic-stack/">Setup Elastic (ELK Stack)</a></li>
+</li>
+<li>
+<p><a href="https://mawinkler.github.io/playground-one-pages/scenarios/bigdata/elastic-stack/">Setup Elastic (ELK Stack)</a></p>
+</li>
 <li><img alt="alt text" src="../images/elastic-app-setup-02.png" title="App" /></li>
 </ul>
-</li>
-</ul>
+<h2 id="migrate-vision-container-security-policy-and-runtime-rulesets-to-cluster-policies">Migrate Vision Container Security Policy and Runtime Rulesets to Cluster Policies<a class="headerlink" href="#migrate-vision-container-security-policy-and-runtime-rulesets-to-cluster-policies" title="Permanent link">&para;</a></h2>
+<p>Automagically migrate a Vision One Container Security Policy with Runtime Rulesets to Cluster Policies, which can be assigend by <code>kubectl apply -f</code>. It uses the policy defined in the Playground One config.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>v1cs-migrate-policy2cluster
+</code></pre></div>
+<p>If your Python3 environment does not have the requests library run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>venv/bin/activate
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div>
+<p>The above creates one or multiple <code>yaml</code> files with the policy and eventually multiple runtime ruleset definitions.</p>
 
 
 
