@@ -3198,7 +3198,7 @@
 <p>This scenario uses an additional GitHub repository <a href="https://github.com/mawinkler/ds-swp-migration-tools">ds-swp-migration-tools</a>.</p>
 </div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<p>If you want to play through this scenario using Playground Ones Deep Security follow the Prerequisites described in You can follow <a href="scenarios/endpoint-security/deep-security/ds-migrate.md/#prerequisites">Migrate Deep Security to Vision One</a> for the deployment. <strong><em>Don't do the actual migration now, just meet the requirements!</em></strong></p>
+<p>If you want to play through this scenario using Playground Ones Deep Security follow the Prerequisites described in You can follow <a href="../ds-migrate/#prerequisites">Migrate Deep Security to Vision One</a> for the deployment. <strong><em>Don't do the actual migration now, just meet the requirements!</em></strong></p>
 <h2 id="get-the-tools">Get the Tools<a class="headerlink" href="#get-the-tools" title="Permanent link">&para;</a></h2>
 <p>Get the code:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">ONEPATH</span><span class="si">}</span>
@@ -3257,7 +3257,7 @@
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>$<span class="w"> </span>./groups-and-folders.py<span class="w"> </span>--listfolders<span class="w"> </span>swp
 </code></pre></div>
 <h2 id="migrate-the-common-objects-policies-and-computers-with-the-official-migration-tool">Migrate the Common Objects, Policies, and Computers with the official Migration Tool<a class="headerlink" href="#migrate-the-common-objects-policies-and-computers-with-the-official-migration-tool" title="Permanent link">&para;</a></h2>
-<p>Do the Deep Security migration using the official migration tool. You can follow <a href="scenarios/endpoint-security/deep-security/ds-migrate.md/#migration-workflow">Migrate Deep Security to Vision One</a> for a guided migration.</p>
+<p>Do the Deep Security migration using the official migration tool. You can follow <a href="../ds-migrate/#migration-workflow">Migrate Deep Security to Vision One</a> for a guided migration.</p>
 <p>The migrated policies will get a suffix generated (e.g. <code>(2024-11-14T16:26:36Z 10.0.0.84)</code>). Use this suffix as the <code>--policysuffix</code> for <code>scheduled-tasks.py</code> in the next step.</p>
 <h2 id="merge-the-scheduled-tasks">Merge the Scheduled Tasks<a class="headerlink" href="#merge-the-scheduled-tasks" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span>../scheduled-tasks
