@@ -3157,7 +3157,7 @@
 <p>The scenario uses the python script <code>category_compliance_c1.py</code> located in the <code>cspm</code> subdirectory.</p>
 <h3 id="prepare">Prepare<a class="headerlink" href="#prepare" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Set environment variable <code>C1CSPM_SCANNER_KEY</code> with the API key.</li>
+<li>Set environment variable <code>C1CSPM_SCANNER_KEY</code> with the API key and <code>REGION</code> to your Cloud One region.</li>
 <li>Get your <code>ACCOUNT_ID</code>:</li>
 </ul>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-s<span class="w"> </span>--location<span class="w"> </span><span class="s2">&quot;https://conformity.</span><span class="si">${</span><span class="nv">REGION</span><span class="si">}</span><span class="s2">.cloudone.trendmicro.com/api/accounts&quot;</span><span class="w"> </span><span class="se">\</span>

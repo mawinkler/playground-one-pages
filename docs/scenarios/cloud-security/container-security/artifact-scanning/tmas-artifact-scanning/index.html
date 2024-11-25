@@ -3199,10 +3199,10 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>tmas<span class="w"> </span>scan<span class="w"> </span>secrets<span class="w"> </span>registry:trufflesecurity/secrets
 </code></pre></div>
 <h2 id="secrets-false-positives">Secrets - False Positives<a class="headerlink" href="#secrets-false-positives" title="Permanent link">&para;</a></h2>
-<p>Here, we're going to tackle false positives in the scan results</p>
+<p>Here, we're going to tackle false positives in the scan results.</p>
 <p>Depending on the programming language used in a containerized app and how it got containerized <code>tmas</code> will likely discover lots of generic secrets. These false positives are usually found within unit tests or examples included in the language runtime distribution.</p>
 <p>Let's play with one of my apps, <a href="https://github.com/mawinkler/uptonight">UpTonight</a>.</p>
-<p>Running a scan on my <code>2.2</code> image:</p>
+<p>First, let's run a scan on my <code>2.2</code> image:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>tmas<span class="w"> </span>scan<span class="w"> </span>-VMS<span class="w"> </span>registry:mawinkler/uptonight:2.2
 </code></pre></div>
 <p><img alt="alt text" src="../images/tmas-01.png" title="Results" /></p>
