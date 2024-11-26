@@ -1,0 +1,3779 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../tmas-shift-left-security/">
+      
+      
+        <link rel="next" href="../../../file-security/artifact-scanning/tmfs-artifact-scanning/">
+      
+      
+      <link rel="icon" href="../../../../../images/playground-icon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.40">
+    
+    
+      
+        <title>Fixing Vulnerabilities and Secrets with Artifact Scanning - Playground One</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#scenario-fixing-vulnerabilities-and-secrets-with-artifact-scanning" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Playground One" class="md-header__button md-logo" aria-label="Playground One" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Playground One
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Fixing Vulnerabilities and Secrets with Artifact Scanning
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mawinkler/playground-one" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../how-it-works/orchestration/" class="md-tabs__link">
+          
+  
+  How it Works
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../getting-started/prepare/" class="md-tabs__link">
+          
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../integrations/endpoint-security/" class="md-tabs__link">
+          
+  
+  Integrations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../../asrm/virtual-machine-attack-path/" class="md-tabs__link">
+          
+  
+  Scenarios
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../faq/" class="md-tabs__link">
+        
+  
+    
+  
+  FAQ
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../bloopers/" class="md-tabs__link">
+        
+  
+    
+  
+  Bloopers
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Playground One" class="md-nav__button md-logo" aria-label="Playground One" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Playground One
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mawinkler/playground-one" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    How it Works
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            How it Works
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../how-it-works/orchestration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Orchestration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Configurations
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Configurations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../how-it-works/configurations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../how-it-works/configurations-aws/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../how-it-works/configurations-azure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../how-it-works/configurations-kind/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kind
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../how-it-works/add-ons/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add-Ons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../getting-started/prepare/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prepare
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../getting-started/configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../getting-started/life-cycle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    General Life-Cycle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Integrations
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Integrations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../integrations/endpoint-security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Server & Workload Protection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../integrations/container-security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Container Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../integrations/deep-security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deep Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../integrations/workload-security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Workload Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../integrations/prometheus-grafana/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prometheus & Grafana
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../integrations/splunk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Splunk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../integrations/elastic-stack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Elastic Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Scenarios
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Scenarios
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Attack Surface Risk Management
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Attack Surface Risk Management
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../asrm/virtual-machine-attack-path/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Virtual Instance Predictive Attack Path
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../asrm/iam-user-attack-path/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IAM User Predictive Attack Path
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    XDR Threat Investigation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            XDR Threat Investigation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../xdr/cloudtrail/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CloudTrail
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../xdr/oat-generation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automated Observed Attack Techniques Generation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../xdr/workbench-generation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automated Workbench Generation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../xdr/detection-model-exceptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Detection Model Exceptions for Container Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Workflow and Automation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Workflow and Automation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3_1" id="__nav_5_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Third-Party Integration
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Third-Party Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../automation/thirdparty/splunk-setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup Splunk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../automation/thirdparty/splunk-integrate-vision-one-xdr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrate Splunk with Vision One XDR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../automation/thirdparty/splunk-integrate-vision-one-custom-rules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrate V1CS Customer Runtime Security Rules with Splunk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../automation/thirdparty/elastic-stack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup Elastic Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../automation/thirdparty/elastic-stack-vision-one/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrate Elastic Stack with Vision One
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3_2" id="__nav_5_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Service Gateway
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Service Gateway
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../automation/service-gateway/v1-aws-service-gateway-manually/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deploy Service Gateway on AWS Manually
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../automation/service-gateway/v1-aws-service-gateway-automatically/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deploy Service Gateway on AWS Automatically
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../automation/service-gateway/v1-integrate-active-directory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrate an Active Directory via Service Gateway on AWS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Zero Trust Secure Access
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Zero Trust Secure Access
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../zero-trust/zero-trust-lab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Zero Trust Secure Access Environment Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Identity Security
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Identity Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5_1" id="__nav_5_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Identity Posture
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Identity Posture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../identity-security/identity-posture/populate-ad/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Populate the Active Directory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Endpoint Security
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            Endpoint Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6_1" id="__nav_5_6_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Deep Security
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Deep Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../endpoint-security/deep-security/ds-integrate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrate Deep Security with Vision One
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../endpoint-security/deep-security/ds-integrate-demo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrate Deep Security with Vision One and Demo Benefits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../endpoint-security/deep-security/ds-integrate-and-service-gateway/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrate Deep Security with Vision One and Service Gateway
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../endpoint-security/deep-security/ds-migrate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migrate Deep Security to Vision One
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../endpoint-security/deep-security/ds-migrate-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Helper Tools for Deep Security Migration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6_2" id="__nav_5_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Workload Security
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Workload Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../endpoint-security/workload-security/ws-integrate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrate Workload Security with Vision One
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cloud Security
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_7">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_7_1" id="__nav_5_7_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Posture Management
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Posture Management
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pm/template-scanning-terraform-github-action/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Terraform IaC Scanning with a GitHub Action
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pm/template-scanning-cfn-github-action/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CloudFormation IaC Scanning with a GitHub Action
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pm/template-scanning-exception-handling-v1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exception Handling with Pipline Scanning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pm/template-scanning-exception-handling-c1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exception Handling with Pipline Scanning (Cloud One)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pm/compliance-by-category-v1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compliance by Category with Vision One Posture Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pm/compliance-by-category-c1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compliance by Category with Cloud One Conformity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_7_2" id="__nav_5_7_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Container Security
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_7_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            Container Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_7_2_1" id="__nav_5_7_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    EKS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_7_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            EKS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eks/escape/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Escape to Host System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eks/dind-exploitation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ContainerD Abuse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eks/hunger-check/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hunger Check
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eks/runtime-vulnerability-ec2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Runtime Vulnerability Scan
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eks/runtime-vulnerability-fargate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Runtime Vulnerability Scan on Fargate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../automation/thirdparty/splunk-integrate-vision-one-custom-rules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrate V1CS Customer Runtime Security Rules with Splunk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eks/istio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Playing with Istio Service Mesh
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_7_2_2" id="__nav_5_7_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ECS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_7_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            ECS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ecs/apache-struts-rce/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apache Struts Multipart Encoding Command Injection (Runtime Security)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ecs/runtime-vulnerability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Runtime Vulnerability Scan
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_7_2_3" id="__nav_5_7_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Artifact Scanning
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_7_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_7_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Artifact Scanning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tmas-artifact-scanning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Container Image Scanning for Vulnerabilities, Malware, and Secrets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tmas-github-action/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scan Containers with a GitHub Action
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tmas-shift-left-security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shift Left Security - Preview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Fixing Vulnerabilities and Secrets with Artifact Scanning
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Fixing Vulnerabilities and Secrets with Artifact Scanning
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scan-images-for-vulnerabilities-malware-and-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scan Images for Vulnerabilities, Malware, and Secrets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vulnerabilities-how-to-fix-findings-python-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vulnerabilities - How to Fix Findings (Python Example)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vulnerabilities - How to Fix Findings (Python Example)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-a-python-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up a Python Virtual Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-uptonight" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run UpTonight
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-the-requests-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fix the requests Package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-the-aiohttp-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fix the aiohttp Package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-our-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verify Our Changes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-the-python310-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fix the python3.10 Package
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secrets-how-to-deal-with-false-positives-python-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secrets - How to Deal with False Positives (Python Example)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finally-a-properly-stripped-down-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finally, a Properly Stripped Down Image
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_7_3" id="__nav_5_7_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    File Security
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            File Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_7_3_1" id="__nav_5_7_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Artifact Scanning
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_7_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Artifact Scanning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../file-security/artifact-scanning/tmfs-artifact-scanning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scan Files and Directories for Malware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../file-security/artifact-scanning/tmfs-s3-bucket-scanning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scan S3 Buckets for Malware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_8" id="__nav_5_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Network Security
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_8">
+            <span class="md-nav__icon md-icon"></span>
+            Network Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_8_1" id="__nav_5_8_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Virtual Network Sensor
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_8_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            Virtual Network Sensor
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../network-security/v1-virtual-network-sensor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deploying Virtual Network Sensor on AWS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../network-security/v1-virtual-network-sensor-manually/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deploying Virtual Network Sensor on AWS Manually
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_8_2" id="__nav_5_8_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Deep Discovery Inspector
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            Deep Discovery Inspector
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../network-security/v1-deep-discovery-inspector/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deploying Deep Discovery Inspector on AWS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../bloopers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bloopers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scan-images-for-vulnerabilities-malware-and-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scan Images for Vulnerabilities, Malware, and Secrets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vulnerabilities-how-to-fix-findings-python-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vulnerabilities - How to Fix Findings (Python Example)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vulnerabilities - How to Fix Findings (Python Example)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-a-python-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up a Python Virtual Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-uptonight" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run UpTonight
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-the-requests-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fix the requests Package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-the-aiohttp-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fix the aiohttp Package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-our-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verify Our Changes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-the-python310-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fix the python3.10 Package
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secrets-how-to-deal-with-false-positives-python-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secrets - How to Deal with False Positives (Python Example)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finally-a-properly-stripped-down-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finally, a Properly Stripped Down Image
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="scenario-fixing-vulnerabilities-and-secrets-with-artifact-scanning">Scenario: Fixing Vulnerabilities and Secrets with Artifact Scanning<a class="headerlink" href="#scenario-fixing-vulnerabilities-and-secrets-with-artifact-scanning" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Challenge ahead!</p>
+<p>This scenario gets a bit challenging after scanning images, but you should be able to get through it.</p>
+</div>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Vision One Container Security Artifact Scanner API-Key with the following permissions:<ul>
+<li>Cloud Security Operations<ul>
+<li>Container Protection<ul>
+<li>Run artifact scan</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Ensure to have the latest <code>tmas</code> deployed:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>tmcli-update
+</code></pre></div>
+<h2 id="scan-images-for-vulnerabilities-malware-and-secrets">Scan Images for Vulnerabilities, Malware, and Secrets<a class="headerlink" href="#scan-images-for-vulnerabilities-malware-and-secrets" title="Permanent link">&para;</a></h2>
+<p>First, set the Artifact Scanner API-Key as an environment variable:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">TMAS_API_KEY</span><span class="o">=</span>&lt;YOUR<span class="w"> </span>API-Key&gt;
+</code></pre></div>
+<blockquote>
+<p><strong><em>Note:</em></strong> tmas defaults to the Vision One service region <code>us-east-1</code>. If your Vision One is serviced from any other region you need to add the <code>--region</code> flag to the scan request.</p>
+<p>Valid regions: <code>[ap-southeast-2 eu-central-1 ap-south-1 ap-northeast-1 ap-southeast-1 us-east-1]</code></p>
+</blockquote>
+<p>If you followed the other scenarios on Artifact Scanning and Shift Left Security you know how to use <code>tmas</code> already.</p>
+<p>In this scenario we're going to fix findings.</p>
+<h2 id="vulnerabilities-how-to-fix-findings-python-example">Vulnerabilities - How to Fix Findings (Python Example)<a class="headerlink" href="#vulnerabilities-how-to-fix-findings-python-example" title="Permanent link">&para;</a></h2>
+<p>So, let's go through fixing Vulnerabilities in a container image. For this we play with one of my apps, <a href="https://github.com/mawinkler/uptonight">UpTonight</a>. For the curious ones out there, it calculates the best astrophotography targets for the night at a given location and date. These are deep sky objects, solar system bodies and coments.</p>
+<p>We start with version 2.2 from beginning October and scan it for vulnerabilities:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>tmas<span class="w"> </span>scan<span class="w"> </span>-V<span class="w"> </span>registry:mawinkler/uptonight:2.2
+</code></pre></div>
+<p>Heading over to the <code>Cloud Security -&gt; Shift Left Security</code> we click on the <code>66</code> below <code>Vulnerabilities</code> for the Artifact <code>mawinkler/uptonight</code> with the Tag <code>2.2</code>.</p>
+<p><img alt="alt text" src="../images/tmas-01.png" title="Results" /></p>
+<p>We can now filter on <code>Fix Available</code> and get six findings that we can address.</p>
+<p><img alt="alt text" src="../images/tmas-03.png" title="Results" /></p>
+<p>Alternatively, we could do this in our shell by running:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>tmas<span class="w"> </span>scan<span class="w"> </span>-V<span class="w"> </span>registry:mawinkler/uptonight:2.2<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.vulnerabilities.findings.Medium[] | select(.fix!=&quot;not-fixed&quot;) | [.id, .name, .version, .fix] | @tsv&#39;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>GHSA-8495-4g3g-x7pr<span class="w">     </span>aiohttp<span class="w"> </span><span class="m">3</span>.10.5<span class="w">  </span><span class="m">3</span>.10.11
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>CVE-2024-9287<span class="w">   </span>libpython3.10-minimal<span class="w">   </span><span class="m">3</span>.10.12-1~22.04.6<span class="w">       </span><span class="m">3</span>.10.12-1~22.04.7
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>CVE-2024-9287<span class="w">   </span>libpython3.10-stdlib<span class="w">    </span><span class="m">3</span>.10.12-1~22.04.6<span class="w">       </span><span class="m">3</span>.10.12-1~22.04.7
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>CVE-2024-9287<span class="w">   </span>python3.10<span class="w">      </span><span class="m">3</span>.10.12-1~22.04.6<span class="w">       </span><span class="m">3</span>.10.12-1~22.04.7
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>CVE-2024-9287<span class="w">   </span>python3.10-minimal<span class="w">      </span><span class="m">3</span>.10.12-1~22.04.6<span class="w">       </span><span class="m">3</span>.10.12-1~22.04.7
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>GHSA-9wx4-h78v-vm56<span class="w">     </span>requests<span class="w">        </span><span class="m">2</span>.31.0<span class="w">  </span><span class="m">2</span>.32.0
+</code></pre></div>
+<p>What this tells us is that there seem to be three areas where we need to take a closer look:</p>
+<ul>
+<li>Four findings are introduced by a vulnerable python version 3.10.12 we could update.</li>
+<li>Similar for the <code>requests</code> library which is used to create HTTP(s) requests.</li>
+<li>And <code>aoihttp</code> which we should update as well.</li>
+</ul>
+<p>It is of course important that we test any version upgrades.</p>
+<h3 id="setting-up-a-python-virtual-environment">Setting Up a Python Virtual Environment<a class="headerlink" href="#setting-up-a-python-virtual-environment" title="Permanent link">&para;</a></h3>
+<p>We need to make sure we're using the same version of Python as in the image. To do this safely without breaking the system, we'll use <code>pyenv</code> to do this in an isolated environment. If you don't have it, install it by running:</p>
+<p><strong><em>Linux</em></strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Linux</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>curl<span class="w"> </span>https://pyenv.run<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+</code></pre></div>
+<p>Append the following to your <code>.bashrc</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># pyenv</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PYENV_ROOT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.pyenv&quot;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="o">[[</span><span class="w"> </span>-d<span class="w"> </span><span class="nv">$PYENV_ROOT</span>/bin<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>pyenv<span class="w"> </span>init<span class="w"> </span>-<span class="k">)</span><span class="s2">&quot;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>pyenv<span class="w"> </span>virtualenv-init<span class="w"> </span>-<span class="k">)</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>Ensure some dependencies:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>zlib1g-dev<span class="w"> </span>libffi-dev<span class="w"> </span>libssl-dev<span class="w"> </span>libbz2-dev<span class="w"> </span>libreadline-dev<span class="w"> </span>libsqlite3-dev<span class="w"> </span>liblzma-dev<span class="w"> </span>libncurses-dev<span class="w"> </span>tk-dev<span class="w"> </span>
+</code></pre></div>
+<p>And restart the terminal.</p>
+<p><strong><em>MacOS</em></strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># MacOS</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>brew<span class="w"> </span>install<span class="w"> </span>pyenv
+</code></pre></div>
+<p>Append the following to your <code>.zshrc</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">if</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>pyenv<span class="w"> </span><span class="m">1</span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>pyenv<span class="w"> </span>init<span class="w"> </span>-<span class="k">)</span><span class="s2">&quot;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">fi</span>
+</code></pre></div>
+<p>And restart the terminal.</p>
+<p>Now, let's downlod the sources into a temporary directory:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>mkdir<span class="w"> </span>uptonight<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>uptonight
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>wget<span class="w"> </span>https://github.com/mawinkler/uptonight/archive/refs/tags/2.2.tar.gz
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>tar<span class="w"> </span>xfvz<span class="w"> </span><span class="m">2</span>.2.tar.gz
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="nb">cd</span><span class="w"> </span>uptonight-2.2
+</code></pre></div>
+<p>Since the image in this release uses Python 3.10.12, we install and activate it.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.10.12
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>pyenv<span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="m">3</span>.10.12
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Downloading<span class="w"> </span>Python-3.10.12.tar.xz...
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>-&gt;<span class="w"> </span>https://www.python.org/ftp/python/3.10.12/Python-3.10.12.tar.xz
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>Installing<span class="w"> </span>Python-3.10.12...
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>Installed<span class="w"> </span>Python-3.10.12<span class="w"> </span>to<span class="w"> </span>/home/markus/.pyenv/versions/3.10.12
+</code></pre></div>
+<p>Now, we create the virtual environment:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>venv/bin/activate
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>python<span class="w"> </span>--version
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Python<span class="w"> </span><span class="m">3</span>.10.12
+</code></pre></div>
+<p>Note that your prompt has changed <code>(venv) ...</code>. This indicates that you're now in a python virtual environment.</p>
+<h3 id="run-uptonight">Run UpTonight<a class="headerlink" href="#run-uptonight" title="Permanent link">&para;</a></h3>
+<p>Before running UpTonight we need to install it's dependencies, which are defined in the <code>requirements.txt</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div>
+<p>Now run UpTonight for a quick test:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Center of Munich</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LONGITUDE</span><span class="o">=</span><span class="s2">&quot;11d34m51.50s&quot;</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LATITUDE</span><span class="o">=</span><span class="s2">&quot;48d08m10.77s&quot;</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ELEVATION</span><span class="o">=</span><span class="m">519</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">TIMEZONE</span><span class="o">=</span><span class="s2">&quot;Europe/Berlin&quot;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>python3<span class="w"> </span>main.py
+</code></pre></div>
+<p>This should produce some output in your shell and create some files within the <code>out</code> directory. If interested, check them out ;-).</p>
+<h3 id="fix-the-requests-package">Fix the <code>requests</code> Package<a class="headerlink" href="#fix-the-requests-package" title="Permanent link">&para;</a></h3>
+<p>This is pretty easy. We only need to change one line within the <code>requirements.txt</code>, update the dependencies in our environment and check if it still works.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>vi<span class="w"> </span>requirements.txt
+</code></pre></div>
+<p>Change <code>requests==2.31.0</code> to <code>requests==2.32.0</code> and rerun:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div>
+<p>and retest:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>python3<span class="w"> </span>main.py
+</code></pre></div>
+<h3 id="fix-the-aiohttp-package">Fix the <code>aiohttp</code> Package<a class="headerlink" href="#fix-the-aiohttp-package" title="Permanent link">&para;</a></h3>
+<p>So this is a little more tricky since this is a nested dependency (not listed in <code>requirements.txt</code>)</p>
+<p>To get an idea where it sits in the dependency tree we can utilize <code>pipdeptree</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>pip<span class="w"> </span>install<span class="w"> </span>pipdeptree
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>pipdeptree
+</code></pre></div>
+<p>We can see that <code>aiohttp</code> is introduced by <code>s3fs</code>, the AWS S3 python library.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>...
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="nv">s3fs</span><span class="o">==</span><span class="m">2024</span>.10.0
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>├──<span class="w"> </span>aiobotocore<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">2</span>.5.4,&lt;<span class="m">3</span>.0.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">2</span>.15.2<span class="o">]</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>│<span class="w">   </span>├──<span class="w"> </span>aiohttp<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">3</span>.9.2,&lt;<span class="m">4</span>.0.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">3</span>.11.7<span class="o">]</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>aiohappyeyeballs<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">2</span>.3.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">2</span>.4.3<span class="o">]</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>aiosignal<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">1</span>.1.2,<span class="w"> </span>installed:<span class="w"> </span><span class="m">1</span>.3.1<span class="o">]</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>│<span class="w">   </span>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>frozenlist<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">1</span>.1.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">1</span>.5.0<span class="o">]</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>async-timeout<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">4</span>.0,&lt;<span class="m">6</span>.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">5</span>.0.1<span class="o">]</span>
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>attrs<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">17</span>.3.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">24</span>.2.0<span class="o">]</span>
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>frozenlist<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">1</span>.1.1,<span class="w"> </span>installed:<span class="w"> </span><span class="m">1</span>.5.0<span class="o">]</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>multidict<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">4</span>.5,&lt;<span class="m">7</span>.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">6</span>.1.0<span class="o">]</span>
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>│<span class="w">   </span>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>typing_extensions<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">4</span>.1.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">4</span>.12.2<span class="o">]</span>
+<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>propcache<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">0</span>.2.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">0</span>.2.0<span class="o">]</span>
+<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>yarl<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">1</span>.17.0,&lt;<span class="m">2</span>.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">1</span>.18.0<span class="o">]</span>
+<a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a>│<span class="w">   </span>│<span class="w">       </span>├──<span class="w"> </span>idna<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">2</span>.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">3</span>.10<span class="o">]</span>
+<a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a>│<span class="w">   </span>│<span class="w">       </span>├──<span class="w"> </span>multidict<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">4</span>.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">6</span>.1.0<span class="o">]</span>
+<a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a>│<span class="w">   </span>│<span class="w">       </span>│<span class="w">   </span>└──<span class="w"> </span>typing_extensions<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">4</span>.1.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">4</span>.12.2<span class="o">]</span>
+<a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a>│<span class="w">   </span>│<span class="w">       </span>└──<span class="w"> </span>propcache<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">0</span>.2.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">0</span>.2.0<span class="o">]</span>
+<a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a>│<span class="w">   </span>├──<span class="w"> </span>aioitertools<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">0</span>.5.1,&lt;<span class="m">1</span>.0.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">0</span>.12.0<span class="o">]</span>
+<a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a>│<span class="w">   </span>├──<span class="w"> </span>botocore<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">1</span>.35.16,&lt;<span class="m">1</span>.35.37,<span class="w"> </span>installed:<span class="w"> </span><span class="m">1</span>.35.36<span class="o">]</span>
+<a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>jmespath<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">0</span>.7.1,&lt;<span class="m">2</span>.0.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">1</span>.0.1<span class="o">]</span>
+<a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>python-dateutil<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">2</span>.1,&lt;<span class="m">3</span>.0.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">2</span>.9.0.post0<span class="o">]</span>
+<a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a>│<span class="w">   </span>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>six<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">1</span>.5,<span class="w"> </span>installed:<span class="w"> </span><span class="m">1</span>.16.0<span class="o">]</span>
+<a id="__codelineno-21-24" name="__codelineno-21-24" href="#__codelineno-21-24"></a>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>urllib3<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">1</span>.25.4,&lt;<span class="m">3</span>,!<span class="o">=</span><span class="m">2</span>.2.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">2</span>.2.3<span class="o">]</span>
+<a id="__codelineno-21-25" name="__codelineno-21-25" href="#__codelineno-21-25"></a>│<span class="w">   </span>└──<span class="w"> </span>wrapt<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">1</span>.10.10,&lt;<span class="m">2</span>.0.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">1</span>.17.0<span class="o">]</span>
+<a id="__codelineno-21-26" name="__codelineno-21-26" href="#__codelineno-21-26"></a>├──<span class="w"> </span>aiohttp<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>!<span class="o">=</span><span class="m">4</span>.0.0a1,!<span class="o">=</span><span class="m">4</span>.0.0a0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">3</span>.11.7<span class="o">]</span>
+<a id="__codelineno-21-27" name="__codelineno-21-27" href="#__codelineno-21-27"></a>│<span class="w">   </span>├──<span class="w"> </span>aiohappyeyeballs<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">2</span>.3.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">2</span>.4.3<span class="o">]</span>
+<a id="__codelineno-21-28" name="__codelineno-21-28" href="#__codelineno-21-28"></a>│<span class="w">   </span>├──<span class="w"> </span>aiosignal<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">1</span>.1.2,<span class="w"> </span>installed:<span class="w"> </span><span class="m">1</span>.3.1<span class="o">]</span>
+<a id="__codelineno-21-29" name="__codelineno-21-29" href="#__codelineno-21-29"></a>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>frozenlist<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">1</span>.1.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">1</span>.5.0<span class="o">]</span>
+<a id="__codelineno-21-30" name="__codelineno-21-30" href="#__codelineno-21-30"></a>│<span class="w">   </span>├──<span class="w"> </span>async-timeout<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">4</span>.0,&lt;<span class="m">6</span>.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">5</span>.0.1<span class="o">]</span>
+<a id="__codelineno-21-31" name="__codelineno-21-31" href="#__codelineno-21-31"></a>│<span class="w">   </span>├──<span class="w"> </span>attrs<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">17</span>.3.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">24</span>.2.0<span class="o">]</span>
+<a id="__codelineno-21-32" name="__codelineno-21-32" href="#__codelineno-21-32"></a>│<span class="w">   </span>├──<span class="w"> </span>frozenlist<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">1</span>.1.1,<span class="w"> </span>installed:<span class="w"> </span><span class="m">1</span>.5.0<span class="o">]</span>
+<a id="__codelineno-21-33" name="__codelineno-21-33" href="#__codelineno-21-33"></a>│<span class="w">   </span>├──<span class="w"> </span>multidict<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">4</span>.5,&lt;<span class="m">7</span>.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">6</span>.1.0<span class="o">]</span>
+<a id="__codelineno-21-34" name="__codelineno-21-34" href="#__codelineno-21-34"></a>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>typing_extensions<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">4</span>.1.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">4</span>.12.2<span class="o">]</span>
+<a id="__codelineno-21-35" name="__codelineno-21-35" href="#__codelineno-21-35"></a>│<span class="w">   </span>├──<span class="w"> </span>propcache<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">0</span>.2.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">0</span>.2.0<span class="o">]</span>
+<a id="__codelineno-21-36" name="__codelineno-21-36" href="#__codelineno-21-36"></a>│<span class="w">   </span>└──<span class="w"> </span>yarl<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">1</span>.17.0,&lt;<span class="m">2</span>.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">1</span>.18.0<span class="o">]</span>
+<a id="__codelineno-21-37" name="__codelineno-21-37" href="#__codelineno-21-37"></a>│<span class="w">       </span>├──<span class="w"> </span>idna<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">2</span>.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">3</span>.10<span class="o">]</span>
+<a id="__codelineno-21-38" name="__codelineno-21-38" href="#__codelineno-21-38"></a>│<span class="w">       </span>├──<span class="w"> </span>multidict<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">4</span>.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">6</span>.1.0<span class="o">]</span>
+<a id="__codelineno-21-39" name="__codelineno-21-39" href="#__codelineno-21-39"></a>│<span class="w">       </span>│<span class="w">   </span>└──<span class="w"> </span>typing_extensions<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">4</span>.1.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">4</span>.12.2<span class="o">]</span>
+<a id="__codelineno-21-40" name="__codelineno-21-40" href="#__codelineno-21-40"></a>│<span class="w">       </span>└──<span class="w"> </span>propcache<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span>&gt;<span class="o">=</span><span class="m">0</span>.2.0,<span class="w"> </span>installed:<span class="w"> </span><span class="m">0</span>.2.0<span class="o">]</span>
+<a id="__codelineno-21-41" name="__codelineno-21-41" href="#__codelineno-21-41"></a>└──<span class="w"> </span>fsspec<span class="w"> </span><span class="o">[</span>required:<span class="w"> </span><span class="o">==</span><span class="m">2024</span>.10.0.*,<span class="w"> </span>installed:<span class="w"> </span><span class="m">2024</span>.10.0<span class="o">]</span>
+<a id="__codelineno-21-42" name="__codelineno-21-42" href="#__codelineno-21-42"></a>...
+</code></pre></div>
+<p><code>s3fs</code> is introduced by <code>astropy[all]</code> which we can verify here <code>https://github.com/astropy/astropy/blob/main/pyproject.toml</code>. UpTonight does not use AWS so we can try the <code>astropy[recommended]</code> variant.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>vi<span class="w"> </span>requirements.txt
+</code></pre></div>
+<p>Change <code>astropy[all]==6.0.1</code> to <code>astropy[recommended]==6.0.1</code> and run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># Clean up installed packages</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>pip<span class="w"> </span>install<span class="w"> </span>pip-tools
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>pip-sync<span class="w"> </span>requirements.txt
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="c1"># Ensure requirements are still met</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div>
+<p>and retest:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>python3<span class="w"> </span>main.py
+</code></pre></div>
+<p>Good, still seems to to work.</p>
+<h3 id="verify-our-changes">Verify Our Changes<a class="headerlink" href="#verify-our-changes" title="Permanent link">&para;</a></h3>
+<p>Let's build the container, scan it and check if we successfully fixed the two vulnerabilities:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>uptonight-patched<span class="w"> </span>--load<span class="w"> </span>.
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>tmas<span class="w"> </span>scan<span class="w"> </span>-V<span class="w"> </span>docker:uptonight-patched<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.vulnerabilities.findings.Medium[] | select(.fix!=&quot;not-fixed&quot;) | [.id, .name, .version, .fix] | @tsv&#39;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>CVE-2024-9287<span class="w">   </span>libpython3.10-minimal<span class="w">   </span><span class="m">3</span>.10.12-1~22.04.6<span class="w">       </span><span class="m">3</span>.10.12-1~22.04.7
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>CVE-2024-9287<span class="w">   </span>libpython3.10-stdlib<span class="w">    </span><span class="m">3</span>.10.12-1~22.04.6<span class="w">       </span><span class="m">3</span>.10.12-1~22.04.7
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>CVE-2024-9287<span class="w">   </span>python3.10<span class="w">      </span><span class="m">3</span>.10.12-1~22.04.6<span class="w">       </span><span class="m">3</span>.10.12-1~22.04.7
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>CVE-2024-9287<span class="w">   </span>python3.10-minimal<span class="w">      </span><span class="m">3</span>.10.12-1~22.04.6<span class="w">       </span><span class="m">3</span>.10.12-1~22.04.7
+</code></pre></div>
+<p>Wahoo, we did it :-) Two are gone.</p>
+<h3 id="fix-the-python310-package">Fix the <code>python3.10</code> Package<a class="headerlink" href="#fix-the-python310-package" title="Permanent link">&para;</a></h3>
+<p>Python3 is installed within the Dockerfile:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="c"># Compile image</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:jammy</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">compile-image</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3-pip<span class="w"> </span>python3-dev<span class="w"> </span>pkg-config<span class="w"> </span>libhdf5-dev<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/usr/local/bin<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/bin/python3<span class="w"> </span>python<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+<a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a>
+<a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a><span class="k">COPY</span><span class="w"> </span>requirements.txt<span class="w"> </span>requirements.txt
+<a id="__codelineno-27-15" name="__codelineno-27-15" href="#__codelineno-27-15"></a>
+<a id="__codelineno-27-16" name="__codelineno-27-16" href="#__codelineno-27-16"></a><span class="k">RUN</span><span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip<span class="w"> </span>setuptools<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-27-17" name="__codelineno-27-17" href="#__codelineno-27-17"></a><span class="w">    </span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w"> </span>--user<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-27-18" name="__codelineno-27-18" href="#__codelineno-27-18"></a><span class="w">    </span>pip<span class="w"> </span>list
+<a id="__codelineno-27-19" name="__codelineno-27-19" href="#__codelineno-27-19"></a>
+<a id="__codelineno-27-20" name="__codelineno-27-20" href="#__codelineno-27-20"></a><span class="c"># Run image</span>
+<a id="__codelineno-27-21" name="__codelineno-27-21" href="#__codelineno-27-21"></a><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:jammy</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">runtime-image</span>
+<a id="__codelineno-27-22" name="__codelineno-27-22" href="#__codelineno-27-22"></a>
+<a id="__codelineno-27-23" name="__codelineno-27-23" href="#__codelineno-27-23"></a><span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-27-24" name="__codelineno-27-24" href="#__codelineno-27-24"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-27-25" name="__codelineno-27-25" href="#__codelineno-27-25"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/usr/local/bin<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-27-26" name="__codelineno-27-26" href="#__codelineno-27-26"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/bin/python3<span class="w"> </span>python
+<a id="__codelineno-27-27" name="__codelineno-27-27" href="#__codelineno-27-27"></a>
+<a id="__codelineno-27-28" name="__codelineno-27-28" href="#__codelineno-27-28"></a><span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>compile-image<span class="w"> </span>/root/.local<span class="w"> </span>/root/.local
+<a id="__codelineno-27-29" name="__codelineno-27-29" href="#__codelineno-27-29"></a><span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>compile-image<span class="w"> </span>/etc/ssl<span class="w"> </span>/etc/ssl
+<a id="__codelineno-27-30" name="__codelineno-27-30" href="#__codelineno-27-30"></a>
+<a id="__codelineno-27-31" name="__codelineno-27-31" href="#__codelineno-27-31"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<a id="__codelineno-27-32" name="__codelineno-27-32" href="#__codelineno-27-32"></a>
+<a id="__codelineno-27-33" name="__codelineno-27-33" href="#__codelineno-27-33"></a><span class="k">COPY</span><span class="w"> </span>uptonight<span class="w"> </span>uptonight
+<a id="__codelineno-27-34" name="__codelineno-27-34" href="#__codelineno-27-34"></a><span class="k">COPY</span><span class="w"> </span>targets<span class="w"> </span>targets
+<a id="__codelineno-27-35" name="__codelineno-27-35" href="#__codelineno-27-35"></a><span class="k">COPY</span><span class="w"> </span>main.py<span class="w"> </span>.
+<a id="__codelineno-27-36" name="__codelineno-27-36" href="#__codelineno-27-36"></a>
+<a id="__codelineno-27-37" name="__codelineno-27-37" href="#__codelineno-27-37"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/root/local/bin:<span class="nv">$PATH</span>
+<a id="__codelineno-27-38" name="__codelineno-27-38" href="#__codelineno-27-38"></a>
+<a id="__codelineno-27-39" name="__codelineno-27-39" href="#__codelineno-27-39"></a><span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;python3&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/app/main.py&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>This Dockerfile tells us, that it is based on <code>ubuntu:jammy</code> and therefore depends on the the packages made available by Ubuntu. It is actually a multi-stage build, the <code>compile-image</code> uses <code>python3-dev</code> whereby the <code>runtime-image</code> uses only <code>python3</code>.</p>
+<p>Apparently Ubuntu doesn't ship the required Python minor version we want to use. We can now install python from the official sources (which is a bit more difficult) or we can use the newer version of <code>Jammy</code>, which is <code>Noble</code>. This will also upgrade Python3 to 3.12, which is much more restrictive in terms of pip installation systemwide.</p>
+<p>So we need to change the <code>Dockerfile</code> a little (<code>FROM</code>s and add <code>--break-system-packages</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:noble</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">compile-image</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3-pip<span class="w"> </span>python3-dev<span class="w"> </span>pkg-config<span class="w"> </span>libhdf5-dev<span class="w">  </span><span class="se">\</span>
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/usr/local/bin<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/bin/python3<span class="w"> </span>python<span class="w"> </span>
+<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>
+<a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a><span class="k">COPY</span><span class="w"> </span>requirements.txt<span class="w"> </span>requirements.txt
+<a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>
+<a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a><span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w"> </span>--user<span class="w"> </span>--break-system-packages<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a><span class="w">    </span>pip<span class="w"> </span>list
+<a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a>
+<a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a><span class="c"># Run image</span>
+<a id="__codelineno-28-18" name="__codelineno-28-18" href="#__codelineno-28-18"></a><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:noble</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">runtime-image</span>
+<a id="__codelineno-28-19" name="__codelineno-28-19" href="#__codelineno-28-19"></a>...
+</code></pre></div>
+<p>Now rebuild/retest the image.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>uptonight-patched<span class="w"> </span>--load<span class="w"> </span>.
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>tmas<span class="w"> </span>scan<span class="w"> </span>-V<span class="w"> </span>docker:uptonight-patched<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.vulnerabilities.findings.Medium[] | select(.fix!=&quot;not-fixed&quot;) | [.id, .name, .version, .fix] | @tsv&#39;</span>
+</code></pre></div>
+<p>Nothing to fix in Medium anymore and if we check for all vulnerabilities we now have only 18 left, which are not fixable currently. Good job!</p>
+<p>But is UpTonight still working?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-e<span class="w"> </span><span class="nv">LONGITUDE</span><span class="o">=</span><span class="s2">&quot;11d34m51.50s&quot;</span><span class="w"> </span>-e<span class="w"> </span><span class="nv">LATITUDE</span><span class="o">=</span><span class="s2">&quot;48d08m10.77s&quot;</span><span class="w"> </span>-e<span class="w"> </span><span class="nv">ELEVATION</span><span class="o">=</span><span class="m">519</span><span class="w"> </span>-e<span class="w"> </span><span class="nv">TIMEZONE</span><span class="o">=</span><span class="s2">&quot;Europe/Berlin&quot;</span><span class="w"> </span>-v<span class="w"> </span>./out:/app/out<span class="w"> </span>uptonight-patched
+</code></pre></div>
+<p>Wahoo! We made it.</p>
+<p>Lastly, deactivate the python virtual environment:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>deactivate
+</code></pre></div>
+<h2 id="secrets-how-to-deal-with-false-positives-python-example">Secrets - How to Deal with False Positives (Python Example)<a class="headerlink" href="#secrets-how-to-deal-with-false-positives-python-example" title="Permanent link">&para;</a></h2>
+<p>Here, we're going to tackle false positives in the scan results.</p>
+<p>Depending on the programming language used in a containerized app and how it got containerized <code>tmas</code> will likely discover lots of generic secrets. These false positives are usually found within unit tests or examples included in the language runtime distribution.</p>
+<p>Let's play again with <a href="https://github.com/mawinkler/uptonight">UpTonight</a>.</p>
+<p>First, let's run a scan on the <code>2.2</code> image:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>tmas<span class="w"> </span>scan<span class="w"> </span>-VMS<span class="w"> </span>registry:mawinkler/uptonight:2.2
+</code></pre></div>
+<p><img alt="alt text" src="../images/tmas-01.png" title="Results" /></p>
+<p>So, there are apparently 306 secrets...</p>
+<p>If we want to inspect a specific finding we need to dissect the container image into it's layers. Make sure to use the correct image digest reported by Vision One.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>docker.io/mawinkler/uptonight@sha256:2dbb4a927b796b9384cc9deb6a51690407d1e661caeae163f4db4ecd53167701
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>docker<span class="w"> </span>save<span class="w"> </span>-o<span class="w"> </span>uptonight.tar<span class="w"> </span>docker.io/mawinkler/uptonight@sha256:2dbb4a927b796b9384cc9deb6a51690407d1e661caeae163f4db4ecd53167701
+</code></pre></div>
+<p>The above command saves the image including all of its layers into a tar archive. Extracting this archive we get the following structure:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>tar<span class="w"> </span>xf<span class="w"> </span>uptonight.tar
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>.
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>├──<span class="w"> </span>blobs
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>│<span class="w">   </span>└──<span class="w"> </span>sha256
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>│<span class="w">       </span>├──<span class="w"> </span>0289e2ec8bd41c714a9c9cb966178936fbee43d105fe01228248dfb8f7e2e65f
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>│<span class="w">       </span>├──<span class="w"> </span>14400b4a9b67b699da1139d477d547ec7641c0ed426154e44dc8801049b194d0
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>│<span class="w">       </span>├──<span class="w"> </span>1e2970d0bac38bc6f58c786a4afd5edd618f2234ac4544d252c076d1d5ba8bcb
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>│<span class="w">       </span>├──<span class="w"> </span>2573e0d8158209ed54ab25c87bcdcb00bd3d2539246960a3d592a1c599d70465
+<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>│<span class="w">       </span>├──<span class="w"> </span>3af7b477f81821ea399f9e0ec15c01da98760385de5215b48305818ffe387eb0
+<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>│<span class="w">       </span>├──<span class="w"> </span>4d4d9b9d193f30fc49e7a4436c528b23ac727344f5d1a2750be3fb306b49fc2b
+<a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>│<span class="w">       </span>├──<span class="w"> </span>699776f4e4fc26d1405c79779ac8884dace05694168924be559f87f938b1a2e4
+<a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a>│<span class="w">       </span>├──<span class="w"> </span>6b6e322dc8865457a6eb8d5855f40c6a83c5719d30dfe557d0e2fa841fe4178e
+<a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a>│<span class="w">       </span>├──<span class="w"> </span>7c51e6dae7e6949b891fee75e2035795f5cddf244b86bc05bc96b1917b542c9a
+<a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a>│<span class="w">       </span>├──<span class="w"> </span>8498a0b71ea370be3ea0f1939319046bc8b71df07d5f7c35396d410e4b93ed90
+<a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a>│<span class="w">       </span>├──<span class="w"> </span>895e113eb7ccd19522d9b7ca0279bc79579363c1d690d60d4d572dddbea3ef00
+<a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a>│<span class="w">       </span>├──<span class="w"> </span>906f0ecb429801119a0bba0298aa2eaa26ba7f852ec44c7cd43d9779d4ba0cd4
+<a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a>│<span class="w">       </span>├──<span class="w"> </span>abef58d990b11bc9a7da4190cdcb05f03b6edaa3f63802d2949e4a3dd2501bba
+<a id="__codelineno-35-17" name="__codelineno-35-17" href="#__codelineno-35-17"></a>│<span class="w">       </span>├──<span class="w"> </span>ac12c35f8650c0ec8b7f3bae9050a2e4ea9a30cf573a46dddb76958dababb7ff
+<a id="__codelineno-35-18" name="__codelineno-35-18" href="#__codelineno-35-18"></a>│<span class="w">       </span>├──<span class="w"> </span>c72dfe6bf14c642d21076c0d9d1c1917894f8dbcc60b95d4b01ff3b71d196bf7
+<a id="__codelineno-35-19" name="__codelineno-35-19" href="#__codelineno-35-19"></a>│<span class="w">       </span>├──<span class="w"> </span>ccc40309c2e9d4552ee8d86e9bb0e88be2d82bf2527755f95608076b6ac0a730
+<a id="__codelineno-35-20" name="__codelineno-35-20" href="#__codelineno-35-20"></a>│<span class="w">       </span>├──<span class="w"> </span>dbe0eae7d2c32f7c87d0f6020a390f7d97b699d26c6021e81871a06a862ddab9
+<a id="__codelineno-35-21" name="__codelineno-35-21" href="#__codelineno-35-21"></a>│<span class="w">       </span>└──<span class="w"> </span>e72b88a7237022c675a9909b1125f50a4ad49120af2cbf52f27b9017f6b520ff
+<a id="__codelineno-35-22" name="__codelineno-35-22" href="#__codelineno-35-22"></a>├──<span class="w"> </span>index.json
+<a id="__codelineno-35-23" name="__codelineno-35-23" href="#__codelineno-35-23"></a>├──<span class="w"> </span>manifest.json
+<a id="__codelineno-35-24" name="__codelineno-35-24" href="#__codelineno-35-24"></a>├──<span class="w"> </span>oci-layout
+<a id="__codelineno-35-25" name="__codelineno-35-25" href="#__codelineno-35-25"></a>└──<span class="w"> </span>uptonight.tar
+<a id="__codelineno-35-26" name="__codelineno-35-26" href="#__codelineno-35-26"></a>
+<a id="__codelineno-35-27" name="__codelineno-35-27" href="#__codelineno-35-27"></a><span class="m">2</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">22</span><span class="w"> </span>files
+</code></pre></div>
+<p>Just to be clear, the files in the <code>blobs/sha256</code> directory contain the file system of each layer that makes up the image.</p>
+<p>Now, let us inspect some files with potential secret findings.</p>
+<p><em>JSON Web Token</em></p>
+<p><img alt="alt text" src="../images/tmas-02.png" title="Results" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>Secret Type: jwt
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>Description: Uncovered a JSON Web Token, which may lead to unauthorized access to web applications and sensitive user data.
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>Artifact ID: docker.io/mawinkler/uptonight@sha256:2dbb4a927b796b9384cc9deb6a51690407d1e661caeae163f4db4ecd53167701
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>Path: /root/.local/lib/python3.10/site-packages/astroquery/eso/tests/data/oidc_token.json
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>Layer ID: sha256:c72dfe6bf14c642d21076c0d9d1c1917894f8dbcc60b95d4b01ff3b71d196bf7
+<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>Start Line: 3
+<a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a>End Line: 3
+<a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a>Start Column: 17
+<a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a>End Column: 122
+<a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a>Secret: eyJhbGciOiJIU******EPqgpup30c6Mg
+<a id="__codelineno-36-11" name="__codelineno-36-11" href="#__codelineno-36-11"></a>Scan ID: 3148a308-6a5b-43c8-bca5-3e361e182912
+</code></pre></div>
+<p>Extract the file:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>tar<span class="w"> </span>xf<span class="w"> </span>blobs/sha256/c72dfe6bf14c642d21076c0d9d1c1917894f8dbcc60b95d4b01ff3b71d196bf7<span class="w"> </span>root/.local/lib/python3.10/site-packages/astroquery/eso/tests/data/oidc_token.json
+</code></pre></div>
+<p>When we open the file and search for the discovered secret, we can see that it does look like a JWT token, but since it's in a tests directory from an external library, we can be pretty sure that this is a false positive.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>{
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>  &quot;access_token&quot;: &quot;some-access-token&quot;,
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>  &quot;id_token&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzg2Mjg5NTl9.qqKrC1MesQQmLtqsFOm2kxe4f_Nqo4EPqgpup30c6Mg&quot;,
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>  &quot;token_type&quot;: &quot;bearer&quot;,
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>  &quot;expires_in&quot;: 28800,
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>  &quot;scope&quot;: &quot;&quot;
+<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>}
+</code></pre></div>
+<p>Very similar, there are AWS Access Tokens and a lot of generic secrets detected in the <code>botocore</code> which we will exclude.</p>
+<p>It is a fairly common result to have lots of findings about generic API keys, JWT tokens, etc. when the container image uses a programming language like Python and is not stripped down to what is really needed to run the application. We will later retest the same application with the container image properly stripped down.</p>
+<p>For now, we can create an overrides file for a tmas rescan:</p>
+<p><code>tmas_overrides.yaml</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="nt">secrets</span><span class="p">:</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="w">  </span><span class="nt">paths</span><span class="p">:</span>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">patterns</span><span class="p">:</span>
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;.*/tests/.*&quot;</span>
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="w">      </span><span class="nt">reason</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unit tests</span>
+<a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">patterns</span><span class="p">:</span>
+<a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;./botocore/data/.*/examples-1.json&quot;</span>
+<a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a><span class="w">      </span><span class="nt">reason</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Botocore examples</span>
+<a id="__codelineno-39-9" name="__codelineno-39-9" href="#__codelineno-39-9"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">patterns</span><span class="p">:</span>
+<a id="__codelineno-39-10" name="__codelineno-39-10" href="#__codelineno-39-10"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;.*/site-packages/cryptography/hazmat/.*&quot;</span>
+<a id="__codelineno-39-11" name="__codelineno-39-11" href="#__codelineno-39-11"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;.*/site-packages/cryptography/x509/.*&quot;</span>
+<a id="__codelineno-39-12" name="__codelineno-39-12" href="#__codelineno-39-12"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;.*/site-packages/numpy/core/include/numpy/old_defines.h&quot;</span>
+<a id="__codelineno-39-13" name="__codelineno-39-13" href="#__codelineno-39-13"></a><span class="w">      </span><span class="nt">reason</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;False</span><span class="nv"> </span><span class="s">positive</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">external</span><span class="nv"> </span><span class="s">library&quot;</span>
+</code></pre></div>
+<p>When now rescan the same image by running</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>tmas<span class="w"> </span>scan<span class="w"> </span>-S<span class="w"> </span>registry:mawinkler/uptonight:2.2<span class="w"> </span>-o<span class="w"> </span>tmas_overrides.yaml
+</code></pre></div>
+<p>We have only 11 findings left, 295 are overridden.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="p">{</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="w">  </span><span class="nt">&quot;secrets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="w">    </span><span class="nt">&quot;totalFilesScanned&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">16531</span><span class="p">,</span>
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="w">    </span><span class="nt">&quot;unmitigatedFindingsCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span>
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="w">    </span><span class="nt">&quot;overriddenFindingsCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">295</span><span class="p">,</span>
+<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a><span class="w">    </span><span class="nt">&quot;findings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</code></pre></div>
+<p>Not that bad! Feel free to inspect the remaining secrets discovered.</p>
+<h2 id="finally-a-properly-stripped-down-image">Finally, a Properly Stripped Down Image<a class="headerlink" href="#finally-a-properly-stripped-down-image" title="Permanent link">&para;</a></h2>
+<p>As promised, let's see the difference with a properly stripped down image of the same application, now in version 2.3:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>tmas<span class="w"> </span>scan<span class="w"> </span>-VS<span class="w"> </span>registry:mawinkler/uptonight:2.3
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="p">{</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="w">  </span><span class="nt">&quot;vulnerabilities&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="w">    </span><span class="nt">&quot;totalVulnCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span>
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="w">    </span><span class="nt">&quot;criticalCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="w">    </span><span class="nt">&quot;highCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a><span class="w">    </span><span class="nt">&quot;mediumCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span>
+<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a><span class="w">    </span><span class="nt">&quot;lowCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a><span class="w">    </span><span class="nt">&quot;negligibleCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-43-9" name="__codelineno-43-9" href="#__codelineno-43-9"></a><span class="w">    </span><span class="nt">&quot;unknownCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-43-10" name="__codelineno-43-10" href="#__codelineno-43-10"></a><span class="w">    </span><span class="nt">&quot;overriddenCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-43-11" name="__codelineno-43-11" href="#__codelineno-43-11"></a><span class="err">...</span>
+<a id="__codelineno-43-12" name="__codelineno-43-12" href="#__codelineno-43-12"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-43-13" name="__codelineno-43-13" href="#__codelineno-43-13"></a><span class="w">  </span><span class="nt">&quot;secrets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-43-14" name="__codelineno-43-14" href="#__codelineno-43-14"></a><span class="w">    </span><span class="nt">&quot;totalFilesScanned&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1686</span><span class="p">,</span>
+<a id="__codelineno-43-15" name="__codelineno-43-15" href="#__codelineno-43-15"></a><span class="w">    </span><span class="nt">&quot;unmitigatedFindingsCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-43-16" name="__codelineno-43-16" href="#__codelineno-43-16"></a><span class="w">    </span><span class="nt">&quot;overriddenFindingsCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-43-17" name="__codelineno-43-17" href="#__codelineno-43-17"></a><span class="w">    </span><span class="nt">&quot;findings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-43-18" name="__codelineno-43-18" href="#__codelineno-43-18"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-43-19" name="__codelineno-43-19" href="#__codelineno-43-19"></a><span class="p">}</span>
+</code></pre></div>
+<p>The number of vulnerabilities decreased from 66 to 15, with a maximum severity rating of medium. The image size decreased from 291MB to 137MB.</p>
+<p>🎉 Success 🎉</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/markus-winkler-785baa34/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.path", "content.tabs.link", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+    
+  </body>
+</html>

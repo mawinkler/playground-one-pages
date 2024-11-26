@@ -2568,18 +2568,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#scan-images" class="md-nav__link">
+  <a href="#scan-images-for-vulnerabilities-malware-and-secrets" class="md-nav__link">
     <span class="md-ellipsis">
-      Scan Images
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#secrets-false-positives" class="md-nav__link">
-    <span class="md-ellipsis">
-      Secrets - False Positives
+      Scan Images for Vulnerabilities, Malware, and Secrets
     </span>
   </a>
   
@@ -2627,6 +2618,27 @@
   
   <span class="md-ellipsis">
     Shift Left Security - Preview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tmas-artifact-scanning-fixing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fixing Vulnerabilities and Secrets with Artifact Scanning
   </span>
   
 
@@ -3078,18 +3090,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#scan-images" class="md-nav__link">
+  <a href="#scan-images-for-vulnerabilities-malware-and-secrets" class="md-nav__link">
     <span class="md-ellipsis">
-      Scan Images
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#secrets-false-positives" class="md-nav__link">
-    <span class="md-ellipsis">
-      Secrets - False Positives
+      Scan Images for Vulnerabilities, Malware, and Secrets
     </span>
   </a>
   
@@ -3130,7 +3133,7 @@
 <p>Ensure to have the latest <code>tmas</code> deployed:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>tmcli-update
 </code></pre></div>
-<h2 id="scan-images">Scan Images<a class="headerlink" href="#scan-images" title="Permanent link">&para;</a></h2>
+<h2 id="scan-images-for-vulnerabilities-malware-and-secrets">Scan Images for Vulnerabilities, Malware, and Secrets<a class="headerlink" href="#scan-images-for-vulnerabilities-malware-and-secrets" title="Permanent link">&para;</a></h2>
 <p>First, set the Artifact Scanner API-Key as an environment variable:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">TMAS_API_KEY</span><span class="o">=</span>&lt;YOUR<span class="w"> </span>API-Key&gt;
 </code></pre></div>
@@ -3198,121 +3201,9 @@
 <p>Scanning for secrets is very similar:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>tmas<span class="w"> </span>scan<span class="w"> </span>secrets<span class="w"> </span>registry:trufflesecurity/secrets
 </code></pre></div>
-<h2 id="secrets-false-positives">Secrets - False Positives<a class="headerlink" href="#secrets-false-positives" title="Permanent link">&para;</a></h2>
-<p>Here, we're going to tackle false positives in the scan results.</p>
-<p>Depending on the programming language used in a containerized app and how it got containerized <code>tmas</code> will likely discover lots of generic secrets. These false positives are usually found within unit tests or examples included in the language runtime distribution.</p>
-<p>Let's play with one of my apps, <a href="https://github.com/mawinkler/uptonight">UpTonight</a>.</p>
-<p>First, let's run a scan on my <code>2.2</code> image:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>tmas<span class="w"> </span>scan<span class="w"> </span>-VMS<span class="w"> </span>registry:mawinkler/uptonight:2.2
+<p>Combining the scan variants is also possible:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>tmas<span class="w"> </span>scan<span class="w"> </span>-VMS<span class="w"> </span>registry:trufflesecurity/secrets
 </code></pre></div>
-<p><img alt="alt text" src="../images/tmas-01.png" title="Results" /></p>
-<p>So, there are apparently 306 secrets...</p>
-<p>If we want to inspect a specific finding we need to dissect the container image into it's layers. Make sure to use the correct image digest reported by Vision One.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>docker.io/mawinkler/uptonight@sha256:2dbb4a927b796b9384cc9deb6a51690407d1e661caeae163f4db4ecd53167701
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>docker<span class="w"> </span>save<span class="w"> </span>-o<span class="w"> </span>uptonight.tar<span class="w"> </span>docker.io/mawinkler/uptonight@sha256:2dbb4a927b796b9384cc9deb6a51690407d1e661caeae163f4db4ecd53167701
-</code></pre></div>
-<p>The above command saves the image including all of its layers into a tar archive. Extracting this archive we get the following structure:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>tar<span class="w"> </span>xf<span class="w"> </span>uptonight.tar
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>.
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>├──<span class="w"> </span>blobs
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>│<span class="w">   </span>└──<span class="w"> </span>sha256
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>│<span class="w">       </span>├──<span class="w"> </span>0289e2ec8bd41c714a9c9cb966178936fbee43d105fe01228248dfb8f7e2e65f
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>│<span class="w">       </span>├──<span class="w"> </span>14400b4a9b67b699da1139d477d547ec7641c0ed426154e44dc8801049b194d0
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>│<span class="w">       </span>├──<span class="w"> </span>1e2970d0bac38bc6f58c786a4afd5edd618f2234ac4544d252c076d1d5ba8bcb
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>│<span class="w">       </span>├──<span class="w"> </span>2573e0d8158209ed54ab25c87bcdcb00bd3d2539246960a3d592a1c599d70465
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>│<span class="w">       </span>├──<span class="w"> </span>3af7b477f81821ea399f9e0ec15c01da98760385de5215b48305818ffe387eb0
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>│<span class="w">       </span>├──<span class="w"> </span>4d4d9b9d193f30fc49e7a4436c528b23ac727344f5d1a2750be3fb306b49fc2b
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>│<span class="w">       </span>├──<span class="w"> </span>699776f4e4fc26d1405c79779ac8884dace05694168924be559f87f938b1a2e4
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>│<span class="w">       </span>├──<span class="w"> </span>6b6e322dc8865457a6eb8d5855f40c6a83c5719d30dfe557d0e2fa841fe4178e
-<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>│<span class="w">       </span>├──<span class="w"> </span>7c51e6dae7e6949b891fee75e2035795f5cddf244b86bc05bc96b1917b542c9a
-<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>│<span class="w">       </span>├──<span class="w"> </span>8498a0b71ea370be3ea0f1939319046bc8b71df07d5f7c35396d410e4b93ed90
-<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>│<span class="w">       </span>├──<span class="w"> </span>895e113eb7ccd19522d9b7ca0279bc79579363c1d690d60d4d572dddbea3ef00
-<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>│<span class="w">       </span>├──<span class="w"> </span>906f0ecb429801119a0bba0298aa2eaa26ba7f852ec44c7cd43d9779d4ba0cd4
-<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>│<span class="w">       </span>├──<span class="w"> </span>abef58d990b11bc9a7da4190cdcb05f03b6edaa3f63802d2949e4a3dd2501bba
-<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>│<span class="w">       </span>├──<span class="w"> </span>ac12c35f8650c0ec8b7f3bae9050a2e4ea9a30cf573a46dddb76958dababb7ff
-<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>│<span class="w">       </span>├──<span class="w"> </span>c72dfe6bf14c642d21076c0d9d1c1917894f8dbcc60b95d4b01ff3b71d196bf7
-<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>│<span class="w">       </span>├──<span class="w"> </span>ccc40309c2e9d4552ee8d86e9bb0e88be2d82bf2527755f95608076b6ac0a730
-<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>│<span class="w">       </span>├──<span class="w"> </span>dbe0eae7d2c32f7c87d0f6020a390f7d97b699d26c6021e81871a06a862ddab9
-<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>│<span class="w">       </span>└──<span class="w"> </span>e72b88a7237022c675a9909b1125f50a4ad49120af2cbf52f27b9017f6b520ff
-<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>├──<span class="w"> </span>index.json
-<a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>├──<span class="w"> </span>manifest.json
-<a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>├──<span class="w"> </span>oci-layout
-<a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>└──<span class="w"> </span>uptonight.tar
-<a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>
-<a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a><span class="m">2</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">22</span><span class="w"> </span>files
-</code></pre></div>
-<p>Just to be clear, the files in the <code>blobs/sha256</code> directory contain the file system of each layer that makes up the image.</p>
-<p>Now, let us inspect some files with potential secret findings.</p>
-<p><em>JSON Web Token</em></p>
-<p><img alt="alt text" src="../images/tmas-02.png" title="Results" /></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Secret Type: jwt
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Description: Uncovered a JSON Web Token, which may lead to unauthorized access to web applications and sensitive user data.
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>Artifact ID: docker.io/mawinkler/uptonight@sha256:2dbb4a927b796b9384cc9deb6a51690407d1e661caeae163f4db4ecd53167701
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>Path: /root/.local/lib/python3.10/site-packages/astroquery/eso/tests/data/oidc_token.json
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>Layer ID: sha256:c72dfe6bf14c642d21076c0d9d1c1917894f8dbcc60b95d4b01ff3b71d196bf7
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>Start Line: 3
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>End Line: 3
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>Start Column: 17
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>End Column: 122
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>Secret: eyJhbGciOiJIU******EPqgpup30c6Mg
-<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>Scan ID: 3148a308-6a5b-43c8-bca5-3e361e182912
-</code></pre></div>
-<p>Extract the file:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>tar<span class="w"> </span>xf<span class="w"> </span>blobs/sha256/c72dfe6bf14c642d21076c0d9d1c1917894f8dbcc60b95d4b01ff3b71d196bf7<span class="w"> </span>root/.local/lib/python3.10/site-packages/astroquery/eso/tests/data/oidc_token.json
-</code></pre></div>
-<p>When we open the file and search for the discovered secret, we can see that it does look like a JWT token, but since it's in a tests directory from an external library, we can be pretty sure that this is a false positive.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>{
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>  &quot;access_token&quot;: &quot;some-access-token&quot;,
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>  &quot;id_token&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzg2Mjg5NTl9.qqKrC1MesQQmLtqsFOm2kxe4f_Nqo4EPqgpup30c6Mg&quot;,
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>  &quot;token_type&quot;: &quot;bearer&quot;,
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>  &quot;expires_in&quot;: 28800,
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>  &quot;scope&quot;: &quot;&quot;
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>}
-</code></pre></div>
-<p>Very similar, there are AWS Access Tokens and a lot of generic secrets detected in the <code>botocore</code> which we will exclude.</p>
-<p>It is a fairly common result to have lots of findings about generic API keys, JWT tokens, etc. when the container image uses a programming language like Python and is not stripped down to what is really needed to run the application. We will later retest the same application with the container image properly stripped down.</p>
-<p>For now, we can create an overrides file for a tmas rescan:</p>
-<p><code>tmas_overrides.yaml</code></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nt">secrets</span><span class="p">:</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="nt">paths</span><span class="p">:</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">patterns</span><span class="p">:</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;.*/tests/.*&quot;</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">      </span><span class="nt">reason</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unit tests</span>
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">patterns</span><span class="p">:</span>
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;./botocore/data/.*/examples-1.json&quot;</span>
-<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">      </span><span class="nt">reason</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Botocore examples</span>
-<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">patterns</span><span class="p">:</span>
-<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;.*/site-packages/cryptography/hazmat/.*&quot;</span>
-<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;.*/site-packages/cryptography/x509/.*&quot;</span>
-<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;.*/site-packages/numpy/core/include/numpy/old_defines.h&quot;</span>
-<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">      </span><span class="nt">reason</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;False</span><span class="nv"> </span><span class="s">positive</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">external</span><span class="nv"> </span><span class="s">library&quot;</span>
-</code></pre></div>
-<p>When now rescan the same image by running</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>tmas<span class="w"> </span>scan<span class="w"> </span>-S<span class="w"> </span>registry:mawinkler/uptonight:2.2<span class="w"> </span>-o<span class="w"> </span>tmas_overrides.yaml
-</code></pre></div>
-<p>We have only 11 findings left, 295 are overridden.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p">{</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="nt">&quot;secrets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="nt">&quot;totalFilesScanned&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">16531</span><span class="p">,</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="nt">&quot;unmitigatedFindingsCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span>
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="nt">&quot;overriddenFindingsCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">295</span><span class="p">,</span>
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="nt">&quot;findings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</code></pre></div>
-<p>As promised, let's see the difference with a properly stripped down image of the same application, now in version 2.3:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>tmas<span class="w"> </span>scan<span class="w"> </span>-S<span class="w"> </span>registry:mawinkler/uptonight:2.3
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">{</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="nt">&quot;secrets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="nt">&quot;totalFilesScanned&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1686</span><span class="p">,</span>
-<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="nt">&quot;unmitigatedFindingsCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">    </span><span class="nt">&quot;overriddenFindingsCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">    </span><span class="nt">&quot;findings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
-<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="p">}</span>
-</code></pre></div>
-<p>The number of vulnerabilities decreased from 66 to 15, with a maximum severity rating of medium. The image size decreased from 291MB to 137MB.</p>
 <p>🎉 Success 🎉</p>
 
 
