@@ -2212,6 +2212,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#report-improvements-by-selected-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Report Improvements by Selected Categories
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3144,6 +3153,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#report-improvements-by-selected-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Report Improvements by Selected Categories
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3234,6 +3252,24 @@
 <a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="m">2024</span>-11-22<span class="w"> </span><span class="m">15</span>:29:33<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>MainThread<span class="o">)</span><span class="w"> </span><span class="o">[</span>main<span class="o">]</span><span class="w"> </span>Category:<span class="w"> </span>Sustainability<span class="w"> </span>-<span class="w"> </span><span class="o">{</span><span class="s1">&#39;success&#39;</span>:<span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="s1">&#39;failure&#39;</span>:<span class="w"> </span><span class="m">34</span>,<span class="w"> </span><span class="s1">&#39;compliance&#39;</span>:<span class="w"> </span><span class="m">0</span><span class="o">}</span>
 </code></pre></div>
 <p>Apparently we have introduced 47 new security misconfigurations that we should check.</p>
+<h2 id="report-improvements-by-selected-categories">Report Improvements by Selected Categories<a class="headerlink" href="#report-improvements-by-selected-categories" title="Permanent link">&para;</a></h2>
+<p>Choose a desired risk level as the lower boundary and maximum age when the finding has been created.</p>
+<p>Example:</p>
+<p><code>category_compliance_c1.py</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">RISK_LEVEL_FAIL</span> <span class="o">=</span> <span class="s2">&quot;HIGH&quot;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">CREATED_LESS_THAN_DAYS</span> <span class="o">=</span> <span class="mi">90</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Get the Improvements for selected Categories</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>$<span class="w"> </span>./category_compliance_c1.py<span class="w"> </span>--improve<span class="w"> </span>security,cost-optimisation
+</code></pre></div>
+<p>This will then create two files:</p>
+<ul>
+<li>improve-security.json</li>
+<li>improve-cost-optimisation.json</li>
+</ul>
+<p>The individual file will contain all FAILED checks belonging to its category if they were created less than or equal to 90 days ago and have a risk level of at least HIGH.</p>
+<p>If a check belongs to more than one of these categories, it will be included in the other output files as well.</p>
+<p><code>--improve all</code> will cover all supported categories.</p>
 <p>🎉 Success 🎉</p>
 
 
