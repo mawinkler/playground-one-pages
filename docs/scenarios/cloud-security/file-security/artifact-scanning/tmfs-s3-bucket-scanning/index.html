@@ -2915,6 +2915,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#check-on-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check on AWS
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3294,6 +3303,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#check-on-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check on AWS
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3343,7 +3361,7 @@
 <p class="admonition-title">PGO S3 Scanning</p>
 <p>This scenario uses Playground Ones own S3 Bucket Scanner which is <strong><em>not</em></strong> the official solution component of Vision One. It uses the File Security Python SDK and/or Vision One API within a Lambda Function. Scan results will show up on the Vision One console.</p>
 </div>
-<p>Verify, that you have enabled the Bucket Scanner ith <code>File Security</code> and/or <code>Sandbox</code> in your configuration.</p>
+<p>Verify, that you have enabled the Bucket Scanner with <code>File Security</code> and/or <code>Sandbox</code> in your configuration.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--config
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>...
@@ -3357,14 +3375,14 @@
 <h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
 <p>The scanner consists out of the following components:</p>
 <ul>
-<li>A Lambda function triggered by <code>s3:ObjectCreated</code> events. It uses the File Security Python SDK via gRPC.</li>
-<li>The function uses a custom layer containing the required dependencies including the SDK.</li>
+<li>A Lambda function triggered by <code>s3:ObjectCreated</code> events. It uses the File Security Python SDK via gRPC for File Security or RESTful API for Sandbox submission.</li>
+<li>The function uses a custom layer containing the required dependencies including the File Security Python SDK.</li>
 <li>An S3 Bucket with the permission to notify the Lambda.</li>
 <li>An IAM Role and Policy.</li>
 <li>The scanned files are tagged</li>
 </ul>
 <blockquote>
-<p><strong><em>Note:</em></strong> Lambda will use Python 3.11</p>
+<p><strong><em>Note:</em></strong> The Lambda does use Python 3.11</p>
 </blockquote>
 <h2 id="the-function-code">The Function Code<a class="headerlink" href="#the-function-code" title="Permanent link">&para;</a></h2>
 <p>You can review the full function code <a href="https://github.com/mawinkler/playground-one-bucket-scanner/blob/main/lambda/scanner.py">here</a>.</p>
@@ -3404,22 +3422,22 @@
 <tbody>
 <tr>
 <td>Eicar</td>
-<td>fss-scan-detail-code</td>
+<td>filesecurity-scan-detail-code</td>
 <td>OSX_EICAR.PFH</td>
 </tr>
 <tr>
 <td></td>
-<td>fss-scan-date</td>
+<td>filesecurity-scan-date</td>
 <td>11/14/2024 10:57:18</td>
 </tr>
 <tr>
 <td></td>
-<td>fss-scan-result</td>
+<td>filesecurity-scan-result</td>
 <td>malicious</td>
 </tr>
 <tr>
 <td></td>
-<td>fss-scanned</td>
+<td>filesecurity-scanned</td>
 <td>true</td>
 </tr>
 <tr>
@@ -3429,22 +3447,22 @@
 </tr>
 <tr>
 <td>Qjwmonkey</td>
-<td>fss-scan-detail-code</td>
+<td>filesecurity-scan-detail-code</td>
 <td>PUA.Win32.Qjwmonkey.GZ</td>
 </tr>
 <tr>
 <td></td>
-<td>fss-scan-date</td>
+<td>filesecurity-scan-date</td>
 <td>11/14/2024 10:57:17</td>
 </tr>
 <tr>
 <td></td>
-<td>fss-scan-result</td>
+<td>filesecurity-scan-result</td>
 <td>malicious</td>
 </tr>
 <tr>
 <td></td>
-<td>fss-scanned</td>
+<td>filesecurity-scanned</td>
 <td>true</td>
 </tr>
 <tr>
@@ -3454,22 +3472,22 @@
 </tr>
 <tr>
 <td>Clean file</td>
-<td>fss-scan-detail-code</td>
+<td>filesecurity-scan-detail-code</td>
 <td>n/a</td>
 </tr>
 <tr>
 <td></td>
-<td>fss-scan-date</td>
+<td>filesecurity-scan-date</td>
 <td>11/14/2024 11:04:53</td>
 </tr>
 <tr>
 <td></td>
-<td>fss-scan-result</td>
+<td>filesecurity-scan-result</td>
 <td>no issues found</td>
 </tr>
 <tr>
 <td></td>
-<td>fss-scanned</td>
+<td>filesecurity-scanned</td>
 <td>true</td>
 </tr>
 </tbody>
@@ -3512,6 +3530,11 @@
 <p><img alt="alt text" src="../images/bucketscanner-fss.png" title="Console" /></p>
 <p>For the Sandbox analysis, if enabled, check <code>Threat Intelligence --&gt; Sandbox Analysis</code>-</p>
 <p><img alt="alt text" src="../images/bucketscanner-sandbox.png" title="Console" /></p>
+<h2 id="check-on-aws">Check on AWS<a class="headerlink" href="#check-on-aws" title="Permanent link">&para;</a></h2>
+<p>You can also check the CloudWatch logs of the function.</p>
+<p><img alt="alt text" src="../images/bucketscanner-sandbox-cw.png" title="CloudWatch" /></p>
+<p>And lastly, the tags of the S3 Objecz.</p>
+<p><img alt="alt text" src="../images/bucketscanner-tags.png" title="S3" /></p>
 <p>🎉 Success 🎉</p>
 
 
