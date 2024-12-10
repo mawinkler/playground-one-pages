@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../../../identity-security/identity-posture/populate-ad/">
+        <link rel="prev" href="../../../xdr/detection-model-exceptions/">
       
       
-        <link rel="next" href="../ds-integrate-demo/">
+        <link rel="next" href="../../../automation/thirdparty/splunk-setup/">
       
       
       <link rel="icon" href="../../../../images/playground-icon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Integrate Deep Security with Vision One - Playground One</title>
+        <title>Scan S3 Buckets for Malware - Playground One</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scenario-integrate-deep-security-with-vision-one" class="md-skip">
+        <a href="#scenario-s3-bucket-malware-scanning-with-sandbox" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Integrate Deep Security with Vision One
+              Scan S3 Buckets for Malware
             
           </span>
         </div>
@@ -1187,6 +1187,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1196,11 +1198,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
         
           
           <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
@@ -1214,7 +1216,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             Threat Ingelligence
@@ -1225,6 +1227,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1234,11 +1238,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_1" checked>
         
           
           <label class="md-nav__link" for="__nav_5_3_1" id="__nav_5_3_1_label" tabindex="0">
@@ -1252,7 +1256,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_3_1">
             <span class="md-nav__icon md-icon"></span>
             Sandbox Analysis
@@ -1263,10 +1267,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../threat-intelligence/sandbox-analysis/sb-s3-bucket-scanning/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Scan S3 Buckets for Malware
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1275,6 +1299,98 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-function-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Function Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-scans" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run Scans
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-tags-with-sandbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Tags with Sandbox
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-on-vision-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check on Vision One
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-on-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check on AWS
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1786,8 +1902,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1797,11 +1911,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
         
           
           <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="0">
@@ -1815,7 +1929,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_7">
             <span class="md-nav__icon md-icon"></span>
             Endpoint Security
@@ -1826,8 +1940,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1837,11 +1949,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7_1" >
         
           
           <label class="md-nav__link" for="__nav_5_7_1" id="__nav_5_7_1_label" tabindex="0">
@@ -1855,7 +1967,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_7_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_7_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_7_1">
             <span class="md-nav__icon md-icon"></span>
             Deep Security
@@ -1866,30 +1978,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Integrate Deep Security with Vision One
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../endpoint-security/deep-security/ds-integrate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1898,71 +1990,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prerequisites
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#current-situation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Current Situation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#integration-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Integration Workflow
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-endpoint-sensor-on-instances" class="md-nav__link">
-    <span class="md-ellipsis">
-      Install Endpoint Sensor on Instances
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#result-and-benefits" class="md-nav__link">
-    <span class="md-ellipsis">
-      Result and Benefits
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1975,7 +2002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ds-integrate-demo/" class="md-nav__link">
+      <a href="../../../endpoint-security/deep-security/ds-integrate-demo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1996,7 +2023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ds-integrate-and-service-gateway/" class="md-nav__link">
+      <a href="../../../endpoint-security/deep-security/ds-integrate-and-service-gateway/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2017,7 +2044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ds-migrate/" class="md-nav__link">
+      <a href="../../../endpoint-security/deep-security/ds-migrate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2038,7 +2065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ds-migrate-tools/" class="md-nav__link">
+      <a href="../../../endpoint-security/deep-security/ds-migrate-tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2105,7 +2132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../workload-security/ws-integrate/" class="md-nav__link">
+      <a href="../../../endpoint-security/workload-security/ws-integrate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3316,36 +3343,63 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#current-situation" class="md-nav__link">
+  <a href="#architecture" class="md-nav__link">
     <span class="md-ellipsis">
-      Current Situation
+      Architecture
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#integration-workflow" class="md-nav__link">
+  <a href="#the-function-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Integration Workflow
+      The Function Code
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-endpoint-sensor-on-instances" class="md-nav__link">
+  <a href="#deployment" class="md-nav__link">
     <span class="md-ellipsis">
-      Install Endpoint Sensor on Instances
+      Deployment
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#result-and-benefits" class="md-nav__link">
+  <a href="#run-scans" class="md-nav__link">
     <span class="md-ellipsis">
-      Result and Benefits
+      Run Scans
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-tags-with-sandbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Tags with Sandbox
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-on-vision-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check on Vision One
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-on-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check on AWS
     </span>
   </a>
   
@@ -3369,119 +3423,119 @@
   
 
 
-<h1 id="scenario-integrate-deep-security-with-vision-one">Scenario: Integrate Deep Security with Vision One<a class="headerlink" href="#scenario-integrate-deep-security-with-vision-one" title="Permanent link">&para;</a></h1>
+<h1 id="scenario-s3-bucket-malware-scanning-with-sandbox">Scenario: S3 Bucket Malware Scanning with Sandbox<a class="headerlink" href="#scenario-s3-bucket-malware-scanning-with-sandbox" title="Permanent link">&para;</a></h1>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Playground One Deep Security</li>
-<li>Playground One Deep Security Workload</li>
+<li>Vision One Cloud Security File Scanner API-Key with the following permissions:<ul>
+<li>Platform Capabilities<ul>
+<li>Threat Intelligence<ul>
+<li>Sandbox Analysis<ul>
+<li>View, filter, and search</li>
+<li>Submit object</li>
 </ul>
-<p>The Playground One can provide a simulated on-premise Deep Security deployment. For simulation purposes it creates a dedicated VPC with the most commonly used architecture, private and public subnets accross two availability zones. </p>
-<p>Deep Security itself is located within the private subnet and uses a RDS Postgres as the database. The Deep Security Workload configuration creates two linux and one windows server with a deployed and activated Deep Security Agent. Some essential configurations in Deep Security are executed via REST. These are (amongst others):</p>
-<ul>
-<li>Creation of a Windows and Linux Policy with valid configurations for the security modules</li>
-<li>Activation of agent initiated activation</li>
-<li>Scheduling a recommendation scan for all created instances</li>
+</li>
 </ul>
-<p>Verify, that you have <code>Enable Deep Security</code> enabled in your configuration and have set <strong><em>a valid Deep Security License</em></strong>.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>If using the Sandbox, ensure to have credits assigned.</li>
+<li>Know your Vision One region.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">PGO S3 Scanning</p>
+<p>This scenario uses Playground Ones own S3 Bucket Scanner which is <strong><em>not</em></strong> the official solution component of Vision One. It uses the File Security Python SDK and/or Vision One API within a Lambda Function. Scan results will show up on the Vision One console.</p>
+</div>
+<p>Verify, that you have enabled the Bucket Scanner with <code>File Security</code> and/or <code>Sandbox</code> in your configuration.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pgo<span class="w"> </span>--config
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>...
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Section:<span class="w"> </span>Deep<span class="w"> </span>Security<span class="w"> </span><span class="o">(</span>on-prem<span class="o">)</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Please<span class="w"> </span>set/update<span class="w"> </span>your<span class="w"> </span>Deep<span class="w"> </span>Security<span class="w"> </span>configuration
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Enable<span class="w"> </span>Deep<span class="w"> </span>Security?<span class="w"> </span><span class="o">[</span>true<span class="o">]</span>:<span class="w"> </span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Deep<span class="w"> </span>Security<span class="w"> </span>License<span class="w"> </span><span class="o">[</span>AP-FHMD-FU...<span class="o">]</span>:<span class="w"> </span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Deep<span class="w"> </span>Security<span class="w"> </span>Username<span class="w"> </span><span class="o">[</span>masteradmin<span class="o">]</span>:<span class="w"> </span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Deep<span class="w"> </span>Security<span class="w"> </span>Password<span class="w"> </span><span class="o">[</span>trendmicro<span class="o">]</span>:<span class="w"> </span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>...
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Section:<span class="w"> </span>Vision<span class="w"> </span>One
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Please<span class="w"> </span>set/update<span class="w"> </span>your<span class="w"> </span>Vision<span class="w"> </span>One<span class="w"> </span>configuration
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>...
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Enable<span class="w"> </span>Bucket<span class="w"> </span>Scanner<span class="w"> </span>with<span class="w"> </span>File<span class="w"> </span>Security?<span class="w"> </span><span class="o">[</span>false<span class="o">]</span>:<span class="w"> </span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Enable<span class="w"> </span>Bucket<span class="w"> </span>Scanner<span class="w"> </span>with<span class="w"> </span>Sandbox?<span class="w"> </span><span class="o">[</span>true<span class="o">]</span>:<span class="w"> </span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>...
 </code></pre></div>
-<p>Now, deploy Deep Security and Deep Security Workload configurations by running:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>dsm
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>dsw
-</code></pre></div>
-<h2 id="current-situation">Current Situation<a class="headerlink" href="#current-situation" title="Permanent link">&para;</a></h2>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
+<p>The scanner consists out of the following components:</p>
 <ul>
-<li>Deep Security secures instances in an on-premise environment simulated for this scenario, to which you want to add the XDR capabilities provided by Vision One.</li>
-<li>You start by integrating Deep Security into the platform.</li>
+<li>A Lambda function triggered by <code>s3:ObjectCreated</code> events. It uses the RESTful API for Sandbox submission.</li>
+<li>The function uses a custom layer containing the required dependencies including the File Security Python SDK.</li>
+<li>An S3 Bucket with the permission to notify the Lambda.</li>
+<li>An IAM Role and Policy.</li>
+<li>The scanned files are tagged</li>
 </ul>
-<h2 id="integration-workflow">Integration Workflow<a class="headerlink" href="#integration-workflow" title="Permanent link">&para;</a></h2>
-<p><strong>Vision One</strong></p>
-<ol>
-<li><code>Vision One Product Instances --&gt; Add Existing Product</code>.</li>
-<li>Choose <code>Trend Micro Deep Security</code> --&gt; <code>Click to generate the enrollment token</code>.</li>
-</ol>
-<p><img alt="alt text" src="../images/ds-integrate-13.png" title="Vision One" /></p>
-<ol>
-<li>Copy the enrollment token and save the token.</li>
-<li>Click <code>[Save]</code>.</li>
-<li>Click <code>[Connect and Transfer]</code>.</li>
-</ol>
-<p><img alt="alt text" src="../images/ds-integrate-14.png" title="Vision One" /></p>
-<p><strong>Deep Security</strong></p>
-<ol>
-<li>Login to DSM Console as administrator.</li>
-<li>On the Deep Security software console, go to <code>Administration &gt; System Settings &gt; Trend Vision One</code></li>
-<li>Under <code>Registration</code>, click <code>Registration enrollment token</code>.</li>
-</ol>
-<p><img alt="alt text" src="../images/ds-integrate-15.png" title="Deep Security" /></p>
-<ol>
-<li>In the dialog that appears, paste the enrollment token and click  <code>[Register]</code>.</li>
-<li>After successful registration, your Deep Security software automatically enables Forward security events to Trend Vision One and changes the Enrollment status to "Registered".</li>
-</ol>
-<p><img alt="alt text" src="../images/ds-integrate-16.png" title="Deep Security" /></p>
-<p><strong>Vision One</strong></p>
-<ol>
-<li>Go to <code>Product Instance</code> App and verify the DSM On Premise being conncted.</li>
-</ol>
-<p><img alt="alt text" src="../images/ds-integrate-14b.png" title="Vision One" /></p>
-<h2 id="install-endpoint-sensor-on-instances">Install Endpoint Sensor on Instances<a class="headerlink" href="#install-endpoint-sensor-on-instances" title="Permanent link">&para;</a></h2>
-<p>First, lets get the <code>ssh</code> commands to access our servers by running</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pgo<span class="w"> </span>--output<span class="w"> </span>dsw
+<blockquote>
+<p><strong><em>Note:</em></strong> The Lambda does use Python 3.11</p>
+</blockquote>
+<h2 id="the-function-code">The Function Code<a class="headerlink" href="#the-function-code" title="Permanent link">&para;</a></h2>
+<p>You can review the full function code <a href="https://github.com/mawinkler/playground-one-bucket-scanner/blob/main/lambda/scanner.py">here</a>.</p>
+<h2 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h2>
+<p>Assuming you have set your Vision One API Key and Vision One region with the help of the config tool simply run</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>bucketscanner
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w"> </span>__<span class="w">                 </span>__<span class="w">   </span>__<span class="w">   </span>__<span class="w">             </span>__<span class="w">      </span>__<span class="w">        </span>___<span class="w"> </span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">|</span>__<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w">     </span>/<span class="se">\ </span><span class="w"> </span><span class="se">\ </span>/<span class="w"> </span>/<span class="w"> </span>_<span class="sb">`</span><span class="w"> </span><span class="p">|</span>__<span class="o">)</span><span class="w"> </span>/<span class="w">  </span><span class="se">\ </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\ </span><span class="w">   </span>/<span class="w">  </span><span class="se">\ </span><span class="p">|</span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>__<span class="w">  </span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">|</span><span class="w">    </span><span class="p">|</span>___<span class="w"> </span>/~~<span class="se">\ </span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\_</span>_&gt;<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="se">\ \_</span>_/<span class="w"> </span><span class="se">\_</span>_/<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span>__/<span class="w">    </span><span class="se">\_</span>_/<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span>___<span class="w"> </span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>...
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="nv">ssh_instance_linux1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i /home/markus/projects/opensource/playground/playground-one/pgo-id-dsm-key-pair.pem -o StrictHostKeyChecking=no ec2-user@3.79.102.108&quot;</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nv">ssh_instance_linux2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i /home/markus/projects/opensource/playground/playground-one/pgo-id-dsm-key-pair.pem -o StrictHostKeyChecking=no ubuntu@18.195.62.150&quot;</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nv">ssh_instance_windows1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh -i /home/markus/projects/opensource/playground/playground-one/pgo-id-dsm-key-pair.pem -o StrictHostKeyChecking=no admin@18.153.208.157&quot;</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>...
+<p>The following outputs are created:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Outputs:
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nv">aws_lambda_function_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pgo-id-bucket-scanner-2kn1vopd&quot;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nv">aws_lambda_layer_arn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;arn:aws:lambda:eu-central-1:634503960501:layer:pgo-id-filesecurity-layer-2kn1vopd:1&quot;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nv">aws_s3_bucket_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pgo-id-scanning-bucket-2kn1vopd&quot;</span>
 </code></pre></div>
-<p>To connect to a linux instance via the provided <code>ssh</code> command copy and paste the commnd in your shell</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ssh<span class="w"> </span>-i<span class="w"> </span>/home/markus/projects/opensource/playground/playground-one/pgo-id-dsm-key-pair.pem<span class="w"> </span>-o<span class="w"> </span><span class="nv">StrictHostKeyChecking</span><span class="o">=</span>no<span class="w"> </span>ec2-user@3.79.102.108
+<p>Feel free to review the Lambda function in the AWS console.</p>
+<h2 id="run-scans">Run Scans<a class="headerlink" href="#run-scans" title="Permanent link">&para;</a></h2>
+<p>Either head over to the S3 bucket via the console to upload files or use the AWS cli.</p>
+<p>Download the <code>eicarcom2.zip</code> and upload it to the scanning bucket.</p>
+<blockquote>
+<p><strong><em>Warning:</em></strong> Do not download malicious files on computers with a running anti malware engine!</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Set your bucket name from the outputs</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nv">SCANNING_BUCKET</span><span class="o">=</span>pgo-id-scanning-bucket-2kn1vopd
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>wget<span class="w"> </span>https://secure.eicar.org/eicarcom2.zip
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>aws<span class="w"> </span>s3<span class="w"> </span>cp<span class="w"> </span>eicarcom2.zip<span class="w"> </span>s3://<span class="si">${</span><span class="nv">SCANNING_BUCKET</span><span class="si">}</span>/eicarcom2.zip
 </code></pre></div>
-<p>On the Deep Security software console, go to <code>Administration &gt; System Settings &gt; Trend Vision One</code></p>
-<p><img alt="alt text" src="../images/ds-integrate-16.png" title="Deep Security" /></p>
-<p>This tab shows the Endpoint Sensor deployment script for the supported platform types. First, select <code>Linux (64-bit)</code> and copy the script. In the shell on the connected server run <code>sudo su</code> to get <code>root</code> and simply paste the script.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Last<span class="w"> </span>login:<span class="w"> </span>Tue<span class="w"> </span>Jul<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">12</span>:57:12<span class="w"> </span><span class="m">2024</span><span class="w"> </span>from<span class="w"> </span>p57aa067b.dip0.t-ipconnect.de
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">   </span>,<span class="w">     </span><span class="c1">#_</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">   </span>~<span class="se">\_</span><span class="w">  </span><span class="c1">####_        Amazon Linux 2</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span>~~<span class="w">  </span><span class="se">\_</span><span class="c1">#####\</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span>~~<span class="w">     </span><span class="se">\#</span><span class="c1">##|       AL2 End of Life is 2025-06-30.</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span>~~<span class="w">       </span><span class="se">\#</span>/<span class="w"> </span>___
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">   </span>~~<span class="w">       </span>V~<span class="s1">&#39; &#39;</span>-&gt;
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span>~~~<span class="w">         </span>/<span class="w">    </span>A<span class="w"> </span>newer<span class="w"> </span>version<span class="w"> </span>of<span class="w"> </span>Amazon<span class="w"> </span>Linux<span class="w"> </span>is<span class="w"> </span>available!
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">      </span>~~._.<span class="w">   </span>_/
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">         </span>_/<span class="w"> </span>_/<span class="w">       </span>Amazon<span class="w"> </span>Linux<span class="w"> </span><span class="m">2023</span>,<span class="w"> </span>GA<span class="w"> </span>and<span class="w"> </span>supported<span class="w"> </span><span class="k">until</span><span class="w"> </span><span class="m">2028</span>-03-15.
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">       </span>_/m/<span class="err">&#39;</span><span class="w">           </span>https://aws.amazon.com/linux/amazon-linux-2023/
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="o">[</span>ec2-user@ip-10-0-4-236<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>sudo<span class="w"> </span>su
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="o">[</span>root@ip-10-0-4-236<span class="w"> </span>ec2-user<span class="o">]</span><span class="c1"># &lt;PASTE&gt;</span>
-</code></pre></div>
-<p>Similar for Windows. Connect to the instance and paste the windows deployment script to the console.  Ignore the error at the top. The agent will install just fine.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ssh<span class="w"> </span>-i<span class="w"> </span>/home/markus/projects/opensource/playground/playground-one/pgo-id-dsm-key-pair.pem<span class="w"> </span>-o<span class="w"> </span><span class="nv">StrictHostKeyChecking</span><span class="o">=</span>no<span class="w"> </span>admin@18.153.208.157
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">Windows</span> <span class="n">PowerShell</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="n">Microsoft</span> <span class="n">Corporation</span><span class="p">.</span> <span class="n">All</span> <span class="n">rights</span> <span class="n">reserved</span><span class="p">.</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">Install</span> <span class="n">the</span> <span class="n">latest</span> <span class="n">PowerShell</span> <span class="k">for</span> <span class="n">new</span> <span class="n">features</span> <span class="n">and</span> <span class="n">improvements</span><span class="p">!</span> <span class="n">https</span><span class="p">://</span><span class="n">aka</span><span class="p">.</span><span class="n">ms</span><span class="p">/</span><span class="n">PSWindows</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">admin</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">PASTE</span><span class="p">&gt;</span>
-</code></pre></div>
-<p>When, as the final step, you head back to <code>Vision One -&gt; Endpoint Security -&gt; Endpoint Inventory</code> you will see the Deep Security instance integrated with Vision One and the available computers.</p>
-<p><img alt="alt text" src="../images/ds-integrate-17.png" title="Vision One" /></p>
-<h2 id="result-and-benefits">Result and Benefits<a class="headerlink" href="#result-and-benefits" title="Permanent link">&para;</a></h2>
-<p>You now have integrated your on-prem Deep Security instance to Vision One and enabled the XDR functionality.</p>
+<h2 id="example-tags-with-sandbox">Example Tags with Sandbox<a class="headerlink" href="#example-tags-with-sandbox" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Malware</th>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Loki</td>
+<td>sandbox-detection-names</td>
+<td>TSPY_HPLOKI.SMBD</td>
+</tr>
+<tr>
+<td></td>
+<td>sandbox-risk-level</td>
+<td>high</td>
+</tr>
+<tr>
+<td></td>
+<td>sandbox-analysis-completed</td>
+<td>12/09/2024 15:11:02</td>
+</tr>
+<tr>
+<td></td>
+<td>sandbox-threat-type</td>
+<td>Dropper Trojan Backdoor</td>
+</tr>
+</tbody>
+</table>
+<h2 id="check-on-vision-one">Check on Vision One<a class="headerlink" href="#check-on-vision-one" title="Permanent link">&para;</a></h2>
+<p>For the Sandbox analysis check <code>Threat Intelligence --&gt; Sandbox Analysis</code>.</p>
+<p><img alt="alt text" src="../images/bucketscanner-sandbox.png" title="Console" /></p>
+<h2 id="check-on-aws">Check on AWS<a class="headerlink" href="#check-on-aws" title="Permanent link">&para;</a></h2>
+<p>You can also check the CloudWatch logs of the function.</p>
+<p><img alt="alt text" src="../images/bucketscanner-sandbox-cw.png" title="CloudWatch" /></p>
+<p>And lastly, the tags of the S3 Object(s).</p>
+<p><img alt="alt text" src="../images/bucketscanner-tags.png" title="S3" /></p>
 <p>🎉 Success 🎉</p>
 
 
