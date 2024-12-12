@@ -3501,10 +3501,6 @@
 
 
 <h1 id="scenario-file-crunching-with-pgoweb">Scenario: File Crunching with PGOWeb<a class="headerlink" href="#scenario-file-crunching-with-pgoweb" title="Permanent link">&para;</a></h1>
-<div class="admonition danger">
-<p class="admonition-title">Work in progress!</p>
-<p>This scenario is not finished yet </p>
-</div>
 <p><img alt="alt text" src="../images/pgoweb-01.png" title="PGOWeb" /></p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
@@ -3642,6 +3638,14 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>pgoweb.yaml
 </code></pre></div>
 <h2 id="start-crunching">Start Crunching<a class="headerlink" href="#start-crunching" title="Permanent link">&para;</a></h2>
+<p>When accessing the web application PGOWeb will enumerate your S3 Buckets. This can take a second or two.</p>
+<p>Afterwards, you have the option to choose a local file to crunch.</p>
+<p>If you want to scan the file with File Security enabled on a specific S3 Bucket, first choose the bucket where the file should be uploaded to. Then hit the button <code>[UPLOAD TO S3]</code>. Check with <code>Cloud Security --&gt; File Security</code> if the file was malicious or clean.</p>
+<p>Using the button <code>[SANDBOX]</code> directly sends the file to the Vision One Sandbox. After the scan has finished you should see some tags added to the file.</p>
+<p><img alt="alt text" src="../images/pgoweb-03.png" title="PGOWeb" /></p>
+<p>The button <code>[FILE SECURITY]</code> uses the File Security SDK to scan the file.</p>
+<p>And lastly, pressing the button <code>[COMTAINER SECURITY]</code> drops the file into the running container. If you have Vision One Container Security with runtime scanning enabled it should detect and report a malicious file. Check on <code>Search</code> or <code>Cloud Security --&gt; Container Protection --&gt; Events --&gt; Kubernetes Runtime</code>.</p>
+<p><img alt="alt text" src="../images/pgoweb-02.png" title="PGOWeb" /></p>
 <p>🎉 Success 🎉</p>
 
 
