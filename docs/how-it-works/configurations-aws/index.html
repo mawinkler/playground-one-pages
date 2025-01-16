@@ -2077,7 +2077,7 @@
             
   
   <span class="md-ellipsis">
-    Deep Security
+    Endpoint Security
   </span>
   
 
@@ -2086,6 +2086,73 @@
         
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_8_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            Endpoint Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scenarios/endpoint-security/endpoint-security/agent-ssm-deployments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Endpoint Agent Deployment with AWS Systems Manager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_8_2" id="__nav_5_8_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Deep Security
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_8_2">
             <span class="md-nav__icon md-icon"></span>
             Deep Security
           </label>
@@ -2221,10 +2288,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8_3" >
         
           
-          <label class="md-nav__link" for="__nav_5_8_2" id="__nav_5_8_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_8_3" id="__nav_5_8_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2235,8 +2302,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_8_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_8_2">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_8_3">
             <span class="md-nav__icon md-icon"></span>
             Workload Security
           </label>
@@ -3648,24 +3715,9 @@
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="kc">t</span><span class="err">ype</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="kc">nu</span><span class="err">mber</span>
 <a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">  </span><span class="err">de</span><span class="kc">fault</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="mi">1</span>
 <a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="p">}</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="err">#</span><span class="w"> </span><span class="err">/CUSTOMIZE</span>
 </code></pre></div>
-<p>If you store the Vision One Endpoint Security agent installers in <code>awsone/0-files</code>, the instances can optionally connect to Vision One. This is only supported for Server and Workload Protection and the Endpoint Sensor (Basecamp). You must first download <em>your</em> installers from <em>your</em> Vision One instance! Enable this in the same <code>variables.tf</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="err">#</span><span class="w"> </span><span class="err">Deploy</span><span class="w"> </span><span class="err">Visio</span><span class="kc">n</span><span class="w"> </span><span class="err">O</span><span class="kc">ne</span><span class="w"> </span><span class="err">E</span><span class="kc">n</span><span class="err">dpoi</span><span class="kc">nt</span><span class="w"> </span><span class="err">Age</span><span class="kc">nt</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="err">variable</span><span class="w"> </span><span class="s2">&quot;agent_deploy&quot;</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="kc">t</span><span class="err">ype</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">bool</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="err">de</span><span class="kc">fault</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="err">variable</span><span class="w"> </span><span class="s2">&quot;agent_variant&quot;</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="kc">t</span><span class="err">ype</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">Which</span><span class="w"> </span><span class="err">age</span><span class="kc">nt</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">deploy?</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">Allowed</span><span class="w"> </span><span class="err">values</span><span class="p">:</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="err">#</span><span class="w">   </span><span class="err">TMServerAge</span><span class="kc">nt</span><span class="w"> </span><span class="err">(Server</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">Workload</span><span class="w"> </span><span class="err">Securi</span><span class="kc">t</span><span class="err">y)</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span><span class="err">#</span><span class="w">   </span><span class="err">TMSe</span><span class="kc">ns</span><span class="err">orAge</span><span class="kc">nt</span><span class="w"> </span><span class="err">(Basecamp)</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">  </span><span class="err">de</span><span class="kc">fault</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;TMServerAgent&quot;</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">}</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="err">#</span><span class="w"> </span><span class="err">/CUSTOMIZE</span>
-</code></pre></div>
+<p>If you store the Vision One Endpoint Security agent installers in <code>awsone/0-files</code>, the instances can optionally connect to Vision One. This is only supported for Server and Workload Protection and the Endpoint Sensor (Basecamp). You must first download <em>your</em> installers from <em>your</em> Vision One instance!</p>
 <p>If you have <code>agent_deploy</code> enabled, the agents will deploy automatically using AWS Systems Manager. If you want to take out the deployment yourself, set the variable to false.</p>
 <p>After the instances have been created you can head over to <code>AWS Systems Manager --&gt; Documents --&gt; Owned by me</code>. Either choose <code>TrendMicroServerAgentLinuxDeploy</code> or <code>TrendMicroServerAgentWindowsDeploy</code> and press <code>[Run command]</code>. Either select a specific instance or select instances by Tags.</p>
 <p>You can optionally drop any file or installer in the <code>0-files</code> directory which will then be available in the ec2 instances download folder.</p>

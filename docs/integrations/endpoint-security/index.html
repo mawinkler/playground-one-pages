@@ -1976,7 +1976,7 @@
             
   
   <span class="md-ellipsis">
-    Deep Security
+    Endpoint Security
   </span>
   
 
@@ -1985,6 +1985,73 @@
         
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_8_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            Endpoint Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scenarios/endpoint-security/endpoint-security/agent-ssm-deployments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Endpoint Agent Deployment with AWS Systems Manager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_8_2" id="__nav_5_8_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Deep Security
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_8_2">
             <span class="md-nav__icon md-icon"></span>
             Deep Security
           </label>
@@ -2120,10 +2187,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8_3" >
         
           
-          <label class="md-nav__link" for="__nav_5_8_2" id="__nav_5_8_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_8_3" id="__nav_5_8_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2134,8 +2201,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_8_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_8_2">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_8_3">
             <span class="md-nav__icon md-icon"></span>
             Workload Security
           </label>
@@ -3421,10 +3488,11 @@
 <h2 id="optional-drop-vision-one-installer-packages">Optional: Drop Vision One Installer Packages<a class="headerlink" href="#optional-drop-vision-one-installer-packages" title="Permanent link">&para;</a></h2>
 <p>If you want the instances automatically to be activated against your Server and Workload Protection Manager instance you need to download the installer packages for Vision One Endpoint Security for Windows and/or Linux from your Vision One instance. You need to do this manually since these installers are specific to your environment.</p>
 <p>The downloaded files are named something similar like</p>
-<p><code>TMServerAgent_Windows_auto_64_Server_and_Workload_Protection_Manager_-_CLOUDONE-ID.zip</code></p>
+<p><code>TMServerAgent_Windows_auto_64_Server_and_Workload_Protection_Manager....zip</code></p>
 <p>and/or</p>
-<p><code>TMServerAgent_Linux_auto_64_Server_and_Workload_Protection_Manager_-CLOUDONE-ID.tar</code>.</p>
-<p>Rename them to <code>TMServerAgent_Linux.tar</code> and <code>TMServerAgent_Windows.zip</code> respectively and copy the file(s) to <code>${ONEPATH}/awsone/0-files</code>.</p>
+<p><code>TMServerAgent_Linux_auto_64_Server_and_Workload_Protection_Manager....tar</code>.</p>
+<p>Similar for the Endpoint Sensors.</p>
+<p>Rename them to <code>TMServerAgent_Linux.tar</code>, <code>TMServerAgent_Windows.zip</code>,  <code>TMSensorAgent_Linux.tar</code>, and <code>TMSensorAgent_Windows.zip</code> respectively and copy the file(s) to <code>${ONEPATH}/awsone/0-files</code>.</p>
 <h2 id="optional-server-workload-protection-event-based-tasks">Optional: Server &amp; Workload Protection Event-Based Tasks<a class="headerlink" href="#optional-server-workload-protection-event-based-tasks" title="Permanent link">&para;</a></h2>
 <p>Create Event-Based Tasks to automatically assign Linux or Windows server policies to the machines.</p>
 <p>Agent-initiated Activation Linux</p>
