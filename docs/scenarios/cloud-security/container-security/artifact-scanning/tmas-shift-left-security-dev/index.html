@@ -3590,10 +3590,10 @@
 <a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>Image<span class="w"> </span>SBOM:<span class="w"> </span>/tmp/tmp.x8PkVMgQa7/sbom.json
 </code></pre></div>
 <p>The output gives us an overview on the discovered vulnerabilities and tells us where to find the full scan results and the SBOM.</p>
-<p><code>scan-image</code> scans for vulnerabilities only by default. If you want to run the scan differently simply use the <code>tmas</code> parameter syntax.</p>
+<p>By default, <code>scan-image</code> only scans for vulnerabilities. If you want to run the scan differently, simply use the <code>tmas</code> parameter syntax.</p>
 <p>Example: <code>scan-image -VMS -r us-east-1</code>.</p>
 <h2 id="scan-development-image-layer-by-layer">Scan Development Image Layer by Layer<a class="headerlink" href="#scan-development-image-layer-by-layer" title="Permanent link">&para;</a></h2>
-<p>If we are interested in which of the layers the vulnerabilities are introduced we can alternatively scan layer by layer. Run:</p>
+<p>Alternatively, if we are interested in which layers the vulnerabilities are introduced from, we can scan layer by layer:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>scan-layers
 </code></pre></div>
 <p>The results list the layers bottom up. Individual scan results and SBOMs can be reviewed in the Scan Results directory (here: <code>/tmp/tmp.zxJ69aloqR/</code>):</p>
@@ -3618,7 +3618,7 @@
 <a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>064fb442e76b7454f96d6671ce297cad3fad6be5f600c7869b531b3a977b272c<span class="w">  </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w">         </span><span class="m">0</span><span class="w">     </span><span class="m">0</span><span class="w">       </span><span class="m">0</span><span class="w">    </span><span class="m">0</span><span class="w">           </span><span class="m">0</span><span class="w">       </span><span class="m">0</span>
 <a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>Scan<span class="w"> </span>Results:<span class="w"> </span>/tmp/tmp.zxJ69aloqR/
 </code></pre></div>
-<p>The results directory holds all the content of each layer separately. So one can analyse easily layer by layer.</p>
+<p>The results directory contains all the contents of each layer separately. This makes it easy to analyse layer by layer.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>.
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>├──<span class="w"> </span>blobs
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>│<span class="w">   </span>└──<span class="w"> </span>sha256
@@ -3653,7 +3653,7 @@
 <a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="w">            </span>└──<span class="w"> </span>d7f315f48e5132c45ddd07bb555247c274117454c6f20e7e7fb6ec1f5e14f471
 <a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="w">                </span>└──<span class="w"> </span>app
 </code></pre></div>
-<p>The layer introducing the vulnerabilities is the layer starting with <code>687d50f2...</code> and represents the root volume of the image. The other three layers build up the actual application where no vulnerabilities have been detected.</p>
+<p>The layer that introduces the vulnerabilities is the layer that starts with <code>687d50f2...</code> and represents the root volume of the image. The other three layers make up the actual application, where no vulnerabilities were found.</p>
 <p>We can map the above information easily to the Dockerfile:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c"># 687d50f2f6a697da02e05f2b2b9cb05c1d551f37c404ebe55fdec44b0ae8aa5c</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:noble</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">runtime-image</span>
