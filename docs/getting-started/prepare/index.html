@@ -768,6 +768,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#satellite" class="md-nav__link">
+    <span class="md-ellipsis">
+      Satellite
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cloud9" class="md-nav__link">
     <span class="md-ellipsis">
       Cloud9
@@ -3207,6 +3216,73 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_9_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_9_3_2" id="__nav_5_9_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Containerized Scanner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_9_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_9_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Containerized Scanner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scenarios/cloud-security/file-security/artifact-scanning/containerized-scanner/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deployment Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3550,6 +3626,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#satellite" class="md-nav__link">
+    <span class="md-ellipsis">
+      Satellite
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cloud9" class="md-nav__link">
     <span class="md-ellipsis">
       Cloud9
@@ -3707,6 +3792,29 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>az login --use-device-code
 </code></pre></div>
 <p>Then, continue with <a href="../configuration/">Configuration</a>.</p>
+<h3 id="satellite">Satellite<a class="headerlink" href="#satellite" title="Permanent link">&para;</a></h3>
+<p>Requirements:</p>
+<ul>
+<li>Have a configured Playground One</li>
+<li>Have the user configuration applied</li>
+</ul>
+<p>Important:</p>
+<ul>
+<li>Don't destroy the user configuration of your local Playground One. This would remove all permissions of the Satellite in AWS</li>
+<li>Don't destroy the satellite configuration when it owns any deployments.</li>
+</ul>
+<p>Workflow:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>user
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>pgo<span class="w"> </span>--apply<span class="w"> </span>satellite
+</code></pre></div>
+<ol>
+<li>Get <code>ssh</code> command from output</li>
+<li><code>ssh</code> into the satellite</li>
+<li>Run <code>pgo --config</code></li>
+<li>Enable <code>Initialize Terraform Configurations</code></li>
+<li>(Optionally) change the environment name</li>
+<li>Update the Access IP</li>
+</ol>
 <h3 id="cloud9">Cloud9<a class="headerlink" href="#cloud9" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong><em>Note:</em></strong> Native installation on Cloud9 is no longer supported. Use <a href="#playground-one-container-easy-and-portable">Playground One Container (Easy and portable)</a> instead.</p>
