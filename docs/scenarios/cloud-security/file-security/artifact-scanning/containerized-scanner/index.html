@@ -3469,6 +3469,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../scenarios/testlab-cs.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TestLab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3640,7 +3661,8 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>curl<span class="w"> </span>-OL<span class="w"> </span>https://secure.eicar.org/eicarcom2.zip
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">TMFS_API_KEY</span><span class="o">=</span>&lt;Your<span class="w"> </span>V1<span class="w"> </span>FSS_API_KEY&gt;
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>tmfs<span class="w"> </span>scan<span class="w"> </span>file:./eicarcom2.zip<span class="w"> </span>--tls<span class="o">=</span><span class="nb">false</span><span class="w"> </span>--endpoint<span class="o">=</span>&lt;SERVICE_NAME<span class="w"> </span>from<span class="w"> </span>above&gt;.visionone-filesecurity.svc.cluster.local:50051
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>tmfs<span class="w"> </span>scan<span class="w"> </span>file:./eicarcom2.zip<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span>--tls<span class="o">=</span><span class="nb">false</span><span class="w"> </span>--endpoint<span class="o">=</span>file-security-visionone-filesecurity-scanner.visionone-filesecurity.svc.cluster.local:50051
 </code></pre></div>
 <p>🎉 Success 🎉</p>
 
