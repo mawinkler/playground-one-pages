@@ -3707,6 +3707,39 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#windows-things" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows Things
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Windows Things">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disable-ie-esc-via-server-manager-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable IE ESC via Server Manager (GUI)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-ie-esc-via-powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable IE ESC via PowerShell
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4059,6 +4092,39 @@
       Fix resolvconf: command not found
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-things" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows Things
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Windows Things">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disable-ie-esc-via-server-manager-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable IE ESC via Server Manager (GUI)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-ie-esc-via-powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable IE ESC via PowerShell
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -4673,6 +4739,27 @@ Use AWS EC2 VM Import to import the disk image:</p>
 <p><code>wg-quick</code> errors with <code>resolvconf: command not found</code></p>
 <p>Solution:</p>
 <p><code>sudo ln -s /usr/bin/resolvectl /usr/local/bin/resolvconf</code></p>
+<h3 id="windows-things">Windows Things<a class="headerlink" href="#windows-things" title="Permanent link">&para;</a></h3>
+<h4 id="disable-ie-esc-via-server-manager-gui">Disable IE ESC via Server Manager (GUI)<a class="headerlink" href="#disable-ie-esc-via-server-manager-gui" title="Permanent link">&para;</a></h4>
+<p>Open Server Manager.</p>
+<ul>
+<li>Click Local Server in the left pane.</li>
+<li>On the right, find the property labeled:</li>
+<li>IE Enhanced Security Configuration.</li>
+<li>Click the "On" link next to it.</li>
+<li>In the popup, set Off for:</li>
+<li>Administrators</li>
+<li>Users</li>
+<li>Click OK.</li>
+</ul>
+<p>📝 This takes effect immediately. No reboot needed.</p>
+<h4 id="disable-ie-esc-via-powershell">Disable IE ESC via PowerShell<a class="headerlink" href="#disable-ie-esc-via-powershell" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="c"># Administrators</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="nb">Set-ItemProperty</span> <span class="n">-Path</span> <span class="s2">&quot;HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}&quot;</span> <span class="n">-Name</span> <span class="s2">&quot;IsInstalled&quot;</span> <span class="n">-Value</span> <span class="n">0</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="c"># Users</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="nb">Set-ItemProperty</span> <span class="n">-Path</span> <span class="s2">&quot;HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A8BEE295-14F5-457f-B7D7-45A48FD9BF61}&quot;</span> <span class="n">-Name</span> <span class="s2">&quot;IsInstalled&quot;</span> <span class="n">-Value</span> <span class="n">0</span>
+</code></pre></div>
 
 
 
